@@ -13,6 +13,5 @@ export default defineConfig({
   },
   datasource: {
     url: env("POSTGRES_PRISMA_URL"),
-    directUrl: env("POSTGRES_URL_NON_POOLING"),
   },
 });
