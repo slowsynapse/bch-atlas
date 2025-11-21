@@ -2,15 +2,29 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { getCampaigns } from '@/lib/data/campaigns'
+import { useQuery } from '@tanstack/react-query'
 import { CampaignCard } from '@/components/campaigns/CampaignCard'
 import { CampaignFilters, type FilterState } from '@/components/campaigns/CampaignFilters'
 import type { Campaign } from '@/types/campaign'
 
 type SortOption = 'date-desc' | 'date-asc' | 'amount-desc' | 'amount-asc' | 'title-asc'
 
+async function fetchCampaigns(filters: FilterState): Promise<Campaign[]> {
+  const params = new URLSearchParams()
+
+  if (filters.search) params.set('search', filters.search)
+  if (filters.status.size > 0) {
+    filters.status.forEach(s => params.append('status', s))
+  }
+  if (filters.amountRange.min) params.set('minAmount', filters.amountRange.min)
+  if (filters.amountRange.max) params.set('maxAmount', filters.amountRange.max)
+
+  const response = await fetch(`/api/campaigns?${params.toString()}`)
+  if (!response.ok) throw new Error('Failed to fetch campaigns')
+  return response.json()
+}
+
 export default function CampaignsPage() {
-  const allCampaigns = getCampaigns()
 
   const [filters, setFilters] = useState<FilterState>({
     search: '',
@@ -22,67 +36,35 @@ export default function CampaignsPage() {
 
   const [sortBy, setSortBy] = useState<SortOption>('date-desc')
 
-  // Calculate stats
+  // Fetch campaigns from API with filters
+  const { data: allCampaigns = [], isLoading } = useQuery({
+    queryKey: ['campaigns', filters],
+    queryFn: () => fetchCampaigns(filters),
+  })
+
+  // Calculate stats from all campaigns (fetch without filters for stats)
+  const { data: allCampaignsUnfiltered = [] } = useQuery({
+    queryKey: ['campaigns-stats'],
+    queryFn: () => fetchCampaigns({
+      search: '',
+      status: new Set(),
+      dateRange: { start: '', end: '' },
+      amountRange: { min: '', max: '' },
+      platform: new Set()
+    }),
+  })
+
   const stats = useMemo(() => {
-    const total = allCampaigns.length
-    const success = allCampaigns.filter(c => c.status === 'success').length
-    const failed = allCampaigns.filter(c => c.status === 'expired' || c.status === 'failed').length
-    const running = allCampaigns.filter(c => c.status === 'running').length
+    const total = allCampaignsUnfiltered.length
+    const success = allCampaignsUnfiltered.filter(c => c.status === 'success').length
+    const failed = allCampaignsUnfiltered.filter(c => c.status === 'expired').length
+    const running = allCampaignsUnfiltered.filter(c => c.status === 'running').length
 
     return { total, success, failed, running }
-  }, [allCampaigns])
+  }, [allCampaignsUnfiltered])
 
-  // Apply filters
-  const filteredCampaigns = useMemo(() => {
-    return allCampaigns.filter(campaign => {
-      // Search filter
-      if (filters.search) {
-        const searchLower = filters.search.toLowerCase()
-        const matchesTitle = campaign.title.toLowerCase().includes(searchLower)
-        const matchesDescription = campaign.description?.toLowerCase().includes(searchLower)
-        if (!matchesTitle && !matchesDescription) return false
-      }
-
-      // Status filter
-      if (filters.status.size > 0) {
-        if (!filters.status.has(campaign.status)) return false
-      }
-
-      // Platform filter
-      if (filters.platform.size > 0) {
-        if (!filters.platform.has(campaign.platform)) return false
-      }
-
-      // Date range filter
-      if (filters.dateRange.start || filters.dateRange.end) {
-        const campaignDate = campaign.time ? new Date(campaign.time) : null
-        if (!campaignDate) return false
-
-        if (filters.dateRange.start) {
-          const startDate = new Date(filters.dateRange.start)
-          if (campaignDate < startDate) return false
-        }
-
-        if (filters.dateRange.end) {
-          const endDate = new Date(filters.dateRange.end)
-          if (campaignDate > endDate) return false
-        }
-      }
-
-      // Amount range filter
-      if (filters.amountRange.min) {
-        const minAmount = parseFloat(filters.amountRange.min)
-        if (campaign.amount < minAmount) return false
-      }
-
-      if (filters.amountRange.max) {
-        const maxAmount = parseFloat(filters.amountRange.max)
-        if (campaign.amount > maxAmount) return false
-      }
-
-      return true
-    })
-  }, [allCampaigns, filters])
+  // Campaigns are already filtered by API, just use them directly
+  const filteredCampaigns = allCampaigns
 
   // Apply sorting
   const sortedCampaigns = useMemo(() => {
@@ -183,7 +165,12 @@ export default function CampaignsPage() {
         </div>
 
         {/* Campaign List */}
-        {sortedCampaigns.length === 0 ? (
+        {isLoading ? (
+          <div className="text-center py-16">
+            <div className="inline-block w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+            <p className="text-gray-500 text-lg mt-4">Loading campaigns...</p>
+          </div>
+        ) : sortedCampaigns.length === 0 ? (
           <div className="text-center py-16">
             <p className="text-gray-500 text-lg">No campaigns found matching your filters.</p>
             <button

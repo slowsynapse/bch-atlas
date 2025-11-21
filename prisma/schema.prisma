@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Campaign {
+  id          String   @id @default(cuid())
+  platform    String   // 'flipstarter' | 'fundme'
+  title       String
+  description String?  @db.Text
+  category    String?
+  amount      Float    // Goal amount in BCH
+  raised      Float?   // Actual amount raised in BCH
+  status      String   // 'success' | 'expired' | 'running'
+
+  // Timestamps
+  time                  DateTime?
+  transactionTimestamp  Int?     // Unix timestamp
+
+  // Links
+  url          String
+  archive      String[] // Archive URLs
+  announcement String[] // Announcement URLs
+  tx           String?  // Transaction hash
+
+  // Blockchain data
+  blockHeight  Int?
+
+  // Relations
+  recipients   Recipient[]
+  entities     Entity[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([platform])
+  @@index([time])
+  @@index([amount])
+}
+
+model Recipient {
+  id         String   @id @default(cuid())
+  address    String
+  name       String?
+  amount     Float?   // Amount received in BCH
+
+  // Relations
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  campaignId String
+
+  createdAt DateTime @default(now())
+
+  @@index([address])
+  @@index([campaignId])
+}
+
+model Entity {
+  id          String   @id @default(cuid())
+  name        String
+  type        String   // 'person' | 'organization' | 'project'
+  addresses   String[] // BCH addresses associated with this entity
+
+  // Relations
+  campaigns   Campaign[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name])
+  @@index([type])
+}
