@@ -194,7 +194,7 @@ export async function getTransactionAddresses(
     const contributors: TransactionAddress[] = []
 
     // Extract recipient addresses from outputs
-    const recipients: TransactionAddress[] = tx.outputs
+    const recipients = tx.outputs
       .map((output) => {
         const address = extractAddressFromBytecode(output.locking_bytecode)
         if (!address) return null
