@@ -204,7 +204,7 @@ export async function getTransactionAddresses(
           valueSatoshis: output.value_satoshis,
         }
       })
-      .filter((addr): addr is TransactionAddress => addr !== null)
+      .filter((addr) => addr !== null) as TransactionAddress[]
 
     return {
       txHash: txHashHex,
