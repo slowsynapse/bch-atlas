@@ -37,8 +37,17 @@ export default function CampaignsPage() {
   const [sortBy, setSortBy] = useState<SortOption>('date-desc')
 
   // Fetch campaigns from API with filters
+  // Convert Sets to Arrays for queryKey serialization
+  const queryKey = [
+    'campaigns',
+    filters.search,
+    Array.from(filters.status),
+    filters.amountRange.min,
+    filters.amountRange.max,
+  ]
+
   const { data: allCampaigns = [], isLoading } = useQuery({
-    queryKey: ['campaigns', filters],
+    queryKey,
     queryFn: () => fetchCampaigns(filters),
   })
 
