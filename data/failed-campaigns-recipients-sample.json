@@ -1,0 +1,46 @@
+[
+  {
+    "campaign": {
+      "amount": 650,
+      "title": "Bitcoin Cash (BCH) Marketing",
+      "description": "In recent months, members of the Bitcoin Cash (BCH) community have expressed their desire to fund useful initiatives through voluntary funding mechanisms like Flipstarter. This has resulted in successful campaigns to raise donations for the Bitcoin Cash full node implementations and more recently for Mainnet.Cash, where cumulatively over 2900 BCH was raised through Flipstarter alone. In observing these campaigns and gauging the response to them by the community, it came to my attention that some would prefer to donate funds to Bitcoin Cash (BCH) marketing efforts rather than development. This is an area lacking attention and I am proposing that 650 BCH in donations are raised to produce Bitcoin Cash (BCH) marketing material in the form of high-quality videos.",
+      "category": [
+        "Marketing",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.bitcoinbch.com/",
+      "announcement": [],
+      "archive": [
+        "http://archive.is/Lg6B9",
+        "https://archive.is/4P4Q7",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-marketing_expired_2021-04-13T103438.7462450000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 200,
+      "title": "member.cash flipstarter",
+      "description": "member.cash is a social network interface that uses the Bitcoin Cash network to transmit and store all needed data using the Memo protocol. I'm seeking 200 BCH(~$60,000) to fund 3 months of rapid development and growth hacking. Until there are 7 days to expiry, please limit individual pledges to a maximum of 20BCH.",
+      "category": [
+        "SocialMedia",
+        "License-AGPLv3",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://flipstarter.member.cash/",
+      "announcement": [],
+      "archive": [
+        "http://archive.is/8iwdf",
+        "https://archive.is/wjWRb"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  }
+]

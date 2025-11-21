@@ -1,0 +1,1666 @@
+[
+  {
+    "campaign": {
+      "amount": 650,
+      "title": "Bitcoin Cash (BCH) Marketing",
+      "description": "In recent months, members of the Bitcoin Cash (BCH) community have expressed their desire to fund useful initiatives through voluntary funding mechanisms like Flipstarter. This has resulted in successful campaigns to raise donations for the Bitcoin Cash full node implementations and more recently for Mainnet.Cash, where cumulatively over 2900 BCH was raised through Flipstarter alone. In observing these campaigns and gauging the response to them by the community, it came to my attention that some would prefer to donate funds to Bitcoin Cash (BCH) marketing efforts rather than development. This is an area lacking attention and I am proposing that 650 BCH in donations are raised to produce Bitcoin Cash (BCH) marketing material in the form of high-quality videos.",
+      "category": [
+        "Marketing",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.bitcoinbch.com/",
+      "announcement": [],
+      "archive": [
+        "http://archive.is/Lg6B9",
+        "https://archive.is/4P4Q7",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-marketing_expired_2021-04-13T103438.7462450000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 200,
+      "title": "member.cash flipstarter",
+      "description": "member.cash is a social network interface that uses the Bitcoin Cash network to transmit and store all needed data using the Memo protocol. I'm seeking 200 BCH(~$60,000) to fund 3 months of rapid development and growth hacking. Until there are 7 days to expiry, please limit individual pledges to a maximum of 20BCH.",
+      "category": [
+        "SocialMedia",
+        "License-AGPLv3",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://flipstarter.member.cash/",
+      "announcement": [],
+      "archive": [
+        "http://archive.is/8iwdf",
+        "https://archive.is/wjWRb"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 300,
+      "title": "Bring Stamp Wallet to mobile and mainnet!",
+      "description": "Stamp is a next generation Bitcoin Cash wallet built on top of the CashWeb suite of protocols. It provides end-to-end encrypted messaging without the need for a centralized coordinator. Stamp works by sending off-chain e2e encrypted structured messages between wallets. This enables a plethora of advanced features on top of Bitcoin Cash which would otherwise not be possible.",
+      "category": [
+        "License-Proprietary",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.getstamp.io/",
+      "announcement": [
+        "https://twitter.com/Stamp_Chat/status/1295162098603835392"
+      ],
+      "archive": [
+        "http://archive.is/BsFbk",
+        "https://web.archive.org/web/20200817074951/https://flipstarter.getstamp.io/"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 250,
+      "title": "Mitra Labs — Smart Contract System For Bitcoin Cash",
+      "description": "MITRA COULD BE THE SINGLE BEST IMPROVEMENT FOR TURNING BITCOIN CASH INTO MONEY 2.0.",
+      "category": [
+        "Infrastructure",
+        "License-MIT",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://mitra.be.cash/",
+      "announcement": [
+        "https://twitter.com/TobiasRuck/status/1295394117242036225"
+      ],
+      "archive": [
+        "http://archive.is/RUzc3",
+        "http://flipbackend.bitcoincash.network/media/screenshots/mitra-labs-smart-contract-system-for-bitcoin-cash_expired_2021-04-13T103556._0fVbECS.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 1000,
+      "title": "Bitcoin ABC",
+      "description": "",
+      "category": [
+        "Infrastructure",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://abc.flipstarter.cash/",
+      "announcement": [],
+      "archive": [
+        "http://archive.is/OA6n3",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-abc_expired_2021-04-13T103608.2178620000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 65,
+      "title": "Electro CashX: Wallet & DEX!",
+      "description": "A new Wallet with DEX integration built upon the BCH REST API!",
+      "category": [
+        "License-GPLv3",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://electrocashxfund.tech/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/ibpzus/flipstarter_campaign_electro_cashx_wallet_dex_hey/"
+      ],
+      "archive": [
+        "http://archive.is/dj4bi"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 360,
+      "title": "Bitcoin Cash (BCH) Marketing",
+      "description": "Earlier today the Flipstarter Campaign for Bitcoin Cash (BCH) Marketing expired without reaching its target. It ran for 22 days and at its peak accumulated over 350 BCH from 36 generous contributors. This was over 50% of the funding goal of 650 BCH ($200,000 at time of campaign launch). I would like to thank those who supported the Flipstarter with hopes of it succeeding. It means a lot knowing that I have so much support and appreciation for my work in the Bitcoin Cash community.",
+      "category": [
+        "Marketing",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.bitcoinbch.com/",
+      "announcement": [
+        "https://read.cash/@BitcoinBCH/bitcoin-cash-bch-marketing-flipstarter-v2-ed847871"
+      ],
+      "archive": [
+        "https://archive.is/VtA9L",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-marketing_expired_2021-04-13T103723.4826260000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 50,
+      "title": "The Support 'Big Bubbler' Fund",
+      "description": "Support 'Big Bubbler' in his ongoing efforts to monitor select social media for attacks/trolling from those working to harm Bitcoin Cash (the only serious attempt to fulfill the real Bitcoin dream: decentralized (un-stoppable) peer-to-peer electronic cash for the world's people).",
+      "category": [
+        "SocialMedia"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://157.245.178.96/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/iue0io/announcing_the_support_big_bubbler_fund/"
+      ],
+      "archive": [
+        "https://archive.is/FCWTA"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 330,
+      "title": "Help Make Bitcoin Cash Integration For Enterprise Easier Than Ever Before",
+      "description": "We are seeking funding to build CashSQL Server, an open-source, enterprise-class “blockchain backend” that will allow app builders to integrate their apps into the Bitcoin Cash blockchain and network easier than ever before (and without relying on 3rd party APIs).",
+      "category": [
+        "License-MIT",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.sphere10.com/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/ixk8gb/flipstarter_cashsql/"
+      ],
+      "archive": [
+        "https://archive.is/RA6Um",
+        "http://flipbackend.bitcoincash.network/media/screenshots/help-make-bitcoin-cash-integration-for-enterprise-easier-than-ever-before_ex_ItHkTZD.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 75,
+      "title": "iWallet.Cash - The Intuitive Bitcoin Cash Wallet for the Web",
+      "description": "iWallet.Cash aims to be the best, most intuitive, standardized, and extensible wallet for Bitcoin Cash, able to run on any platform with the use of a modern web browser like Firefox, Chrome, etc.",
+      "category": [
+        "License-UNKNOWN",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://flipstarter.iwallet.cash/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/ixrqb7/flipstarter_iwalletcash_the_intuitive_bitcoin/"
+      ],
+      "archive": [
+        "https://archive.is/4a1N2"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 590,
+      "title": "SLP Rewards Tooling",
+      "description": "We plan to build a new rewards distribution toolbox for Electron Cash. The toolbox would be initially developed for the Electron Cash SLP Edition (EC SLP) wallet and eventually merged into the mainline version of Electron Cash after basic SLP support has been merged, which is scheduled to occur in the next 6-months. Furthermore, we will provide high-quality tutorial videos for new users to simplify the onboarding experience into the SLP ecosystem.",
+      "category": [
+        "License-UNKNOWN",
+        "SLP",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.simpleledger.io/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/iye0z9/new_slp_rewards_tooling_may_be_on_its_way/"
+      ],
+      "archive": []
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 175,
+      "title": "Help Found Build.Cash",
+      "description": "If I were to ask you what is the best place to find a BCH wallet where would you look? If I asked you what BCH privacy projects are being developed and where can I find them, what would you say? There has been a problem sharing and compiling information. I want to end that problem.",
+      "category": [
+        "Informative",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.build.cash",
+      "announcement": [
+        "https://www.reddit.com/r/btc/comments/ii8by2/my_project_buildcash_now_has_an_active/"
+      ],
+      "archive": [
+        "https://archive.is/ZdFPW",
+        "http://flipbackend.bitcoincash.network/media/screenshots/help-found-buildcash_expired_2021-04-19T163505.6265790000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 7,
+      "title": "Adoption Trend Goal. Bitcoin Man Inspired.",
+      "description": "To Follow the trend The Bitcoin Man Inspired. :)",
+      "category": [
+        "Marketing"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://bitcoinmanunstoppablecashflipstarter.com/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/ix697h/flipstarter_to_help_adoption_inspired_by_the/"
+      ],
+      "archive": [
+        "https://archive.is/UPMw9"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 22,
+      "title": "Help those who nobody wants to help - Introduction to BCH for the People / Merchants",
+      "description": "We are a small group of people here in Guadalajara, MX. We came together over a common goal. Get out there and help the community that nobody is willing to help, and introduce BCH as borderless money to the people/merchants.",
+      "category": [
+        "Charity"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.mexicobch.cash/",
+      "announcement": [
+        "https://twitter.com/MexicoBch/status/1314710089228595208"
+      ],
+      "archive": [
+        "https://archive.is/2MxJz",
+        "http://flipbackend.bitcoincash.network/media/screenshots/help-those-who-nobody-wants-to-help-introduction-to-bch-for-the-people-merch_0GeomuG.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 140,
+      "title": "Stackk self-governed online communities Flipstarter Campaign",
+      "description": "Stackk is a decentralized and federated social network owned and governed by the community. No single entity has the power to de-platform users or monetize their attention. Stackk provides a single user interface with smart contracts for users to create or use an infinite number of communities. Every community is an independent social network with optional interoperability with other communities out of the box. Community managers are incentivized to setup a node and participate in the infrastructure of the network. Users don’t need to own BCH to use the social network, however their reputation, authenticity and followers are secured by the blockchain.",
+      "category": [
+        "SocialMedia",
+        "SLP",
+        "License-MPL2",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.stackk.app/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/jmmxp7/im_running_a_flipstarter_for_stackk_a_federated/",
+        "https://twitter.com/p0oker/status/1323246601163350016"
+      ],
+      "archive": [
+        "https://archive.is/4LvPI",
+        "http://flipbackend.bitcoincash.network/media/screenshots/stackk-self-governed-online-communities-flipstarter-campaign_expired_2021-04_pSIbt9s.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 330,
+      "title": "Cashlink Network (Phase 1): CashSQL Server",
+      "description": "Sphere 10 Software is developing the Cashlink network, a 'layer 1.5' P2P network designed to integrate the outside world of data into the BCH blockchain (and vice-versa).",
+      "category": [
+        "License-MIT",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.sphere10.com/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/jv2iur/flipstarter_cashlink_network_phase_1_cashsql/"
+      ],
+      "archive": [
+        "https://archive.is/cCbxX",
+        "http://flipbackend.bitcoincash.network/media/screenshots/cashlink-network-phase-1-cashsql-server_expired_2021-04-13T104122.0857400000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 200,
+      "title": "Member / member.cash 6 months development funding",
+      "description": "member.cash is a social network interface that uses the Bitcoin Cash network to transmit and store all needed data using the Memo protocol.",
+      "category": [
+        "SocialMedia",
+        "License-AGPLv3",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://flipstarter.member.cash/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/jwbchr/new_membercash_flipstarter/"
+      ],
+      "archive": [
+        "https://archive.is/W2174"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 350,
+      "title": "Bitcoin Cash (BCH) Adoption & Promotional Videos",
+      "description": "Bitcoin Cash (BCH) is the sole custodian of the Bitcoin mission to become money for the world. The tide is turning for Bitcoin Cash, principally driven by unprecedented levels of fiat debasement which has presented our best opportunity ever to realize our grand vision. We as a community must capitalize on fiat debasement by positioning Bitcoin Cash as a credible alternative. No one owns Bitcoin Cash, no government, no company, no individual. It is you and I, the people, that own Bitcoin Cash. It also means it’s our responsibility to promote Bitcoin Cash. Without our help, the good that can be unlocked by this civilization changing payments technology can never occur. I am proposing that 350 BCH in donations are raised so that I can continue to spearhead efforts in the field of adoption and promotion of Bitcoin Cash, while also continuing to produce high-quality Bitcoin Cash videos.",
+      "category": [
+        "Marketing",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.bitcoinbch.com/",
+      "announcement": [
+        "https://twitter.com/BitcoinBCHcom/status/1330802744370753540"
+      ],
+      "archive": [
+        "https://archive.is/nIkah",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-adoption-promotional-videos_expired_2021-04-13T104207.0202460000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 222,
+      "title": "Spice Token Project's Growth and Expansion",
+      "description": "We are seeking the community's contributions to provide a seed fund to kickstart SPICE from where it is now to where it wants to be. In a nutshell: We want to grow our user base, we want to be wherever online netizens are to introduce to them BCH and SLP through SPICE, and we want to do it in a sustainable (a.k.a. profitable) way.",
+      "category": [
+        "SLP",
+        "Rewards"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.spice.cash/",
+      "announcement": [
+        "https://twitter.com/joemar_taganna/status/1333566534334103555"
+      ],
+      "archive": [
+        "https://archive.is/eewD0",
+        "http://flipbackend.bitcoincash.network/media/screenshots/spice-token-projects-growth-and-expansion_expired_2021-04-13T104231.9915950000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 21,
+      "title": "For Brandon's Mother",
+      "description": "This is an urgent flipstarter regarding the situation of Brandon Hernandez and his mother. Full detail is available in his read.cash article (https://read.cash/@brandonjhz/thank-you-to-the-bitcoin-cash-community-abe1aec8). Brandon is well known to me and others in the BCH ecosystem for his work as described in the article. If you would like to support, please do. I will make sure that this campaign completes.",
+      "category": [
+        "Charity"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.brandonjhz.com",
+      "announcement": [
+        "https://twitter.com/EmergentReasons/status/1333670580411715586"
+      ],
+      "archive": [
+        "https://archive.is/xKmMP"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 21,
+      "title": "BCH CHRISTMAS MEET UP/Banquet with Food & Giveaways!",
+      "description": "Hello My name is Sandra Mendez :) I am had no idea what a flip-starter was. I love learning more and more about the bitcoin cash community. I am hosting a huge Christmas Banquet for my crypto people in Bitcoin Cash, Who Love bitcoin cash and will be buying sweaters, t-shirts, Backpacks, Pens, and will be doing a $1500 car wrap on a TESLA for more Bitcoin Cash Branding. 60-100 people are going to be attending!",
+      "category": [],
+      "status": "expired",
+      "tx": "",
+      "url": "https://sandrasbchbanquet.com/",
+      "announcement": [
+        "https://twitter.com/sandra__mendez/status/1339094130421460992"
+      ],
+      "archive": [
+        "https://archive.is/seFCB"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 10,
+      "title": "It's A Flipstarter Party",
+      "description": "TL;DR — Cash DevOps invites ALL 33 teams from this week's CoinParty hackathon to bring your amazing projects to our platform (under development). Starting today, we're providing all the FREE tools, services and support needed for EACH team to launch a Flipstarter campaign in the next 30 days.",
+      "category": [],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.devops.cash/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/l3hbrz/its_a_flipstarter_party_httpsflipstarterdevopscash/"
+      ],
+      "archive": [
+        "https://archive.is/j4tVC",
+        "http://flipbackend.bitcoincash.network/media/screenshots/its-a-flipstarter-party_expired_2021-04-13T104508.9545660000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 5,
+      "title": "Promotional video on how to offer Bitcoin Cash as a financial incentive with Bitfortip smartphone app & website",
+      "description": "On successful funding, a professional video will be made from a very well known BCH promoter group from Tokyo and it will be showcased as a use case on their local meetups on how to earn and how to offer BCH as a financial incentive via the app (maximum 10 minutes duration)",
+      "category": [
+        "Adoption",
+        "Usecase"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://161.35.187.207/",
+      "announcement": [
+        "https://twitter.com/bitfortip/status/1356231025106550785"
+      ],
+      "archive": [
+        "https://archive.is/Bl9lB",
+        "http://flipbackend.bitcoincash.network/media/screenshots/promotional-video-on-how-to-offer-bitcoin-cash-as-a-financial-incentive-with_EnpsZ4K.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 30,
+      "title": "Decentralised Africa - Bitcoin Cash",
+      "description": "We are very interested in creating content around the developments in the BCH community and making Decentralised Africa a pro-Bitcoin Cash platform.",
+      "category": [
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://159.89.82.142/",
+      "announcement": [
+        "https://twitter.com/heathmuchena/status/1359258615157243911"
+      ],
+      "archive": [
+        "https://archive.is/DW5tw"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 15,
+      "title": "ParrotCash Network and SLP",
+      "description": "ParrotCash will be a Network of sites where users will be able to learn about BCH and SLP also earn and spend the native in-network token. The ParrotCash network will enable new and exciting use cases for cryptocurrency by acquiring different sites and adapting them to accept and work with Bitcoin Cash and SLP. While trying to make a profit through things like advertising, marketing and subscriptions most will be reinvested in the ParrotCash Network along with the Bitcoin Cash Network as well, to help fund Infrastructure and other products that support Bitcoin Cash.",
+      "category": [
+        "SLP",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.parrotcash.com/",
+      "announcement": [
+        "https://read.cash/@ParrotCash/parrotcash-is-coming-5c8678ff?signature=fafcf022ac9eaf09b35f0e2ea47899d187f97eb701f2834023347fc3e29ed378"
+      ],
+      "archive": [
+        "https://archive.is/wip/OdAII",
+        "https://archive.is/zaZh2"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 37,
+      "title": "Bitcoin Cash Internship",
+      "description": "Most college students and friends of mine are jumping around currently looking for internships, I want to create my own. I have been working in sales for 3 years now at a local high-end bike shop, I want to combine my skills learned in sales with my content creation and marketing skills to onboard BCH users and merchants and create weekly videos.",
+      "category": [
+        "Marketing"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://104.131.106.37/",
+      "announcement": [
+        "https://www.conorjwoodward.com/",
+        "https://youtu.be/coDBIAwEebc"
+      ],
+      "archive": [
+        "https://archive.is/wip/3fd3j"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 50,
+      "title": "HonklerHangout's Liberland Merit sale",
+      "description": "Since this year I've started to stream and I enjoy it so much, that I would like to take this hobby to the next level by buying a dedicated computer for that purpose and set aside a budget for promotion. I'm also in development of the Liberland Opportunity Zone, which also costs some real world currency. For these purposes I offer to sell 10.000 Liberland Merit (LLM), a SLP-token on top of the BCH blockchain, for 0.005 BCH per Liberland Merit.",
+      "category": [
+        "SocialMedia",
+        "Rewards",
+        "Video"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.yoshilivo.com/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/j1d0h5/honklerhangout_birthdaystream_official_launch/"
+      ],
+      "archive": [
+        "https://archive.is/VFpB9",
+        "http://flipbackend.bitcoincash.network/media/screenshots/honklerhangouts-liberland-merit-sale_expired_2021-04-13T105431.5621700000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 75,
+      "title": "This Week in Bitcoin Cash | A Weekly BCH Newsletter",
+      "description": "There is a need in the BCH ecosystem to capture the many facets of this incredible space and share them to readers around the world. In renewing this newsletter and enhancing its quality with an even higher caliber of work, we can further showcase more of the milestones across the Bitcoin Cash space to an even wider audience. Using professional designers, editors and releasing the graphics on various outlets, we can showcase Bitcoin Cash weekly updates on a global stage.",
+      "category": [
+        "News"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://thisweek.cash/",
+      "announcement": [],
+      "archive": [
+        "https://archive.is/16Kr8"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 20,
+      "title": "BlockHack 2021",
+      "description": "BlockHack is a 5 day hackathon, and 1 day conference, that aims to combine the efforts of entrepreneurs and developers, and promote growth of blockchain-related projects and ventures.",
+      "category": [
+        "Adoption",
+        "Developer",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://flipstarter.blockhack.ca/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/mnofvw/blockhack_2021_flipstarter_campaign/",
+        "https://twitter.com/TheBitcoinBay/status/1381072778879762433"
+      ],
+      "archive": [
+        "https://archive.is/Qv6NE",
+        "http://flipbackend.bitcoincash.network/media/screenshots/blockhack-2021_running_2021-04-13T100026.5640270000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 400,
+      "title": "Flipstart OnlyCoins",
+      "description": "OnlyCoins is a digital content marketplace, and social media platform. It seeks to allow creators to sell content, and receive Bitcoin Cash directly, and instantly, from supporters.",
+      "category": [
+        "SocialMedia",
+        "Rewards"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.onlycoins.app/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/mrasl6/claim_an_equity_stake_in_onlycoinsapp/",
+        "https://twitter.com/merc1er/status/1382617504808194048"
+      ],
+      "archive": [
+        "https://archive.is/wip/m6uG2",
+        "http://flipbackend.bitcoincash.network/media/screenshots/flipstart-onlycoins_running_2021-04-19T163711.9599040000.png",
+        "http://flipbackend.bitcoincash.network/media/screenshots/flipstart-onlycoins_expired_2021-04-21T080212.4440020000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 31,
+      "title": "Senti Pay - (South Africa and global cryptocurrency payments and rewards program)",
+      "description": "Senti Pay is a non-custodial cryptocurrency wallet that enables consumers, merchants and investors to transact, store, swap, send, buy and earn cryptocurrency from a single mobile application.",
+      "category": [
+        "License-UNKNOWN",
+        "Wallet",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.sentipaywallet.com",
+      "announcement": [
+        "https://twitter.com/SentiPay/status/1382696071030304780",
+        "https://www.reddit.com/r/btc/comments/n7q993/flipstarter_senti_pay_cryptopayments_and/?utm_medium=android_app&utm_source=share"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/senti-pay-south-africa-and-global-cryptocurrency-payments-and-rewards-progra_Ve3IlLP.png",
+        "http://flipbackend.bitcoincash.network/media/screenshots/senti-pay-south-africa-and-global-cryptocurrency-payments-and-rewards-progra_FSplAiS.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 100,
+      "title": "Gaze.cash",
+      "description": "Gaze.cash is a monetized video platform. Viewers pay small amounts per-view straight to the content creator.",
+      "category": [
+        "License-Proprietary",
+        "Video"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://flipstarter.gaze.cash/",
+      "announcement": [
+        "https://www.reddit.com/r/btc/comments/ms8vgg/gazecash_video_monetization_platform_flipstarter/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/gazecash_running_2021-04-19T163738.2927690000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 100,
+      "title": "\"The Crypto 6\" Legal Defense Fundraiser",
+      "description": "Federal and local agents kicked the doors in at the Free Talk Live studio, The Bitcoin Embassy NH and the Shire Free Church, arrested 6 individuals, and confiscated several Bitcoin ATMs, computers and other personal items.",
+      "category": [
+        "Other"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://legalfund.cash/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/msnjpw/flipstart_thecrypto6com_to_help_them_get_a_proper/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/the-crypto-6-legal-defense-fundraiser_expired_2021-04-21T080232.7401070000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 335,
+      "title": "Bitcoin Cash Sponsorship at Thailand Health and Fitness Expo",
+      "description": "Sponsoring The Thailand Health Fitness & Wellness Expo would be a unique and unprecedented opportunity for promotional exposure of Bitcoin Cash.",
+      "category": [
+        "Marketing"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://bchexposition.com/",
+      "announcement": [
+        "https://reddit.com/r/btc/comments/mvij09/the_flipstarter_campaign_is_live/",
+        "https://twitter.com/IamMrGuido/status/1384872270636716034"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-sponsorship-at-thailand-health-and-fitness-expo_running_2021-04_5CnXol2.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 100,
+      "title": "Lingosy – Decentralize Language Learning Using Bitcoin Cash",
+      "description": "Let's decentralize education! Online education has exploded since the COVID-19 pandemic yet it's still controlled by various mega corporations, governments, accreditation bodies and fiat payment systems. We hope to change that by creating a decentralized smart contract based system where anyone can study or teach and not be held back by the current systems.",
+      "category": [
+        "Education",
+        "Adoption",
+        "Wallet"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://lingosy.com",
+      "announcement": [
+        "https://twitter.com/lingosycom/status/1385284174177783808",
+        "https://www.facebook.com/lingosy/posts/2932132593722768"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/lingosy-decentralize-language-learning-using-bitcoin-cash_running_2021-04-27_mYJjfH0.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 75,
+      "title": "Introducing Joystick.club : Pay to Play Games powered by Bitcoin Cash",
+      "description": "Help **Joystick.club** secure funding to develop, launch, and maintain the first Bitcoin Cash powered mobile and desktop arcade, enabling micro-payments across pick up and play gaming.",
+      "category": [
+        "Gaming"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.joystick.club/",
+      "announcement": [
+        "https://www.reddit.com/r/btc/comments/n29paj/introducing_joystickclub_pay_to_play_games/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/introducing-joystickclub-pay-to-play-games-powered-by-bitcoin-cash_success_2_hfbBURd.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 130,
+      "title": "Juungle 2.0 - Accelerate NFT Adoption on Bitcoin Cash",
+      "description": "Juungle is an already soft launched NFT marketplace (currently in pre-alpha) built exclusively for Bitcoin Cash. It utilizes all the advantages of the Simple Ledger Protocol and BCH. \r\n\r\nNFTs have long been available as a technical specification on Bitcoin Cash, however Juungle and its team are the first people to bring NFT technology to real users on Bitcoin Cash.",
+      "category": [
+        "NFT"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.juungle.net/",
+      "announcement": [
+        "https://twitter.com/juungle_market/status/1391745079962972160",
+        "https://www.reddit.com/r/btc/comments/n94w0m/juungle_20_accelerate_nft_adoption_on_bitcoin_cash/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/juungle-20-accelerate-nft-adoption-on-bitcoin-cash_running_2021-05-10T190238_0db4MQc.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 10,
+      "title": "imoldings.com flipstarter proposal",
+      "description": "Established in the year 2006, Imoldings has extensively engaged itself in catering to market requirements of old and used machines and related equipment.",
+      "category": [
+        "Other"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.imoldings.com/",
+      "announcement": [
+        "https://www.reddit.com/r/Flipstarter/comments/neietj/imoldingscom_flipstarter_proposal/?utm_source=share&utm_medium=web2x&context=3"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/imoldingscom-flipstarter-proposal_running_2021-05-19T122143.0440330000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 75,
+      "title": "OPTN - A Badger Mobile Wallet Rewrite",
+      "description": "This Flipstarter campaign intends to raise development funds to rewrite the Badger Mobile wallet project. The aim is to 1) port over and update existing wallet functionalities and 2) to add in new features such as SLP (and NFT) token minting and CashScript contract support. Ultimately, we want to be able to relaunch the wallet onto the various app stores. The project will remain open-source under the existing **MIT licensing** throughout the development lifecycles.",
+      "category": [
+        "SLP",
+        "Wallet",
+        "License-MIT",
+        "Developer",
+        "NFT",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://flipstarter.optn.tech",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/ob0x39/new_flipstarter_campaign_optn_to_rewrite_the/",
+        "https://old.reddit.com/r/btc/comments/oebg2u/optn_badger_wallet_rewrite_flipstarter_is_still/",
+        "https://read.cash/@lightswarm/optn-a-badger-mobile-wallet-rewrite-by-bitcoin-bay-dea53d13"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/optn-a-badger-mobile-wallet-rewrite_running_2021-07-02T083605.7700950000.png",
+        "http://flipbackend.bitcoincash.network/media/screenshots/optn-a-badger-mobile-wallet-rewrite_running_2021-07-06T160511.2818090000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 55,
+      "title": "Bitworkerss.Cash - The Biggest Bitcoin (BCH) Services Marketplace",
+      "description": "Introducing \"Bitworkerss!\", a Bitcoin micro-jobs portal, or the upcoming biggest services marketplace on BCH!\r\n\r\nIf you know websites like Fiverr or other micro-job sites which allow you to buy and sell services, then you probably know what to expect from Bitworkerss!\r\n\r\nBitworkerrs! allows everyone to register as both a buyer and a seller, or just one of them if they don't plan on serving both roles.",
+      "category": [
+        "Crowdfunding",
+        "Adoption",
+        "Usecase",
+        "Rewards",
+        "Developer",
+        "Software",
+        "Other"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://bitworkerssflipstarter.com/",
+      "announcement": [
+        "https://read.cash/@CryptoMax/a-new-bch-marketplace-sneak-peek-to-a-new-platform-bcd2ed17",
+        "https://read.cash/@CryptoMax/bitworkersscash-a-bitcoin-micro-jobs-portal-5ae9833e",
+        "https://twitter.com/CryptoM62166735/status/1412101655617810440"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitworkersscash-the-biggest-bitcoin-bch-services-marketplace_running_2021-07_m596T0q.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 175,
+      "title": "CryptoWoo - A simple, self-hosted and non-custodial payment gateway for WooCommerce",
+      "description": "CryptoWoo, released in 2015, is the first seamless non-custodial and self-hosted cryptocurrency payments plugin for WooCommerce with no middlemen fees and no single point of failure. It was one of the first WooCommerce plugins to add support for Bitcoin Cash already in December 2017 and since then we have grown to nearly a thousand merchants that are utilizing CryptoWoo today. Cryptocurrency at its core is about privacy and true economic freedom and we respect those core values which is why we will never collect data about what products our customers sell, their customers, or any similar data. Our primary focus in this Flipstarter is the development of the plugin and the on-boarding of new merchants by providing them with all the benefits of Bitcoin Cash while also making the process of receiving payments in WooCommerce as simplistic and safe as possible. We will also reserve a portion of this money to hire developers with the skills required to speed up the development of the project.",
+      "category": [
+        "Infrastructure",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://funding.cryptowoo.com",
+      "announcement": [
+        "https://www.reddit.com/r/btc/comments/p1og8t/i_am_pleased_to_announce_that_i_have_taken_over/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/cryptowoo-a-simple-self-hosted-and-non-custodial-payment-gateway-for-woocomm_q86BR01.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 13.37,
+      "title": "Resurrecting Open Blockchain Meetup Trondheim - Powered by Flipstarter/Bitcoin Cash",
+      "description": "If this flipstarter is accepted, Flipstarter X Bitcoin Cash will receive promotional benefits at, in my opinion, one of the best fitting events possible: Open Blockchain Meetup Trondheim.",
+      "category": [
+        "Education"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://104.248.253.205/",
+      "announcement": [
+        "https://www.reddit.com/r/btc/comments/qbgcan/calling_flipstarters_help_resurrect_trondheim/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/resurrecting-open-blockchain-meetup-trondheim-powered-by-flipstarterbitcoin-_1uWehPP.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 200,
+      "title": "HackSmart - Where the smart money is! A SmartBCH Hackathon.",
+      "description": "HackSmart! Is a two week long hackathon in March 2022 aimed at helping blockchain developers get involved with SmartBCH, connect with peers and hangout in a fun, remote work environment.",
+      "category": [
+        "Web3",
+        "Hackathon",
+        "SmartBCH"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://hacksmart.coinriot.org/",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/ryc47g/hacksmart_where_the_smart_money_is_a_smartbch/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/hacksmart-where-the-smart-money-is-a-smartbch-hackathon_running_2022-01-07T1_LhRmzPI.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 170,
+      "title": "Ryver Venezuela Bitcoin Cash Courier Business and Education 2022",
+      "description": "Bitcoin Cash Ryver was created in August 2019 by a group of enthusiastic young people who love Bitcoin Cash with the ideal of offering an economic alternative to the victims of state manipulation of the economy and its assets. In a country where censorship and arbitrary decisions are the order of the day, offering a message of hope to workers and youth is necessary, but it is only possible with experiences and education for all.",
+      "category": [
+        "Informative",
+        "Crowdfunding",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter2.ryvervenezuela.com/",
+      "announcement": [
+        "https://read.cash/@SofiaCBCH/bitcoin-cash-courier-business-venezuela-fertile-ground-to-bitcoin-cash-adoption-66854c62",
+        "https://twitter.com/VainilaMarket/status/1499267809716678659"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/ryver-venezuela-bitcoin-cash-courier-business-and-education-2022_running_202_pRCMigO.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 5.5,
+      "title": "Application For Sponsorship In A Tech School",
+      "description": "Help Me Enroll In A Tech School -\r\nIn order to step up my skills and boost my services, This campaign is intended to raise tuition for me to enroll in a 6months course on Graphic Designing and 3D Animations and provide some basic gadgets.",
+      "category": [
+        "Other"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://hatch.ftw.fund",
+      "announcement": [
+        "https://twitter.com/bestiecrypto/status/1499600293910175771?t=7U9Wl2BkCSi1Ee_ANfHAOA&s=19"
+      ],
+      "archive": []
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 35,
+      "title": "PumpParrots - An open NFT Gaming Project on SmartBCH",
+      "description": "PumpParrots is a Play2Earn game that uses the SmartBCH blockchain network to reward players for their time and attention while playing the game.\r\n\r\nMy goal is to use this game as a showcase of SmartBCH’s advantages of quick transactions and low gas fees, and through this create greater awareness for BitcoinCash.\r\n\r\nOnce the game is fully functional I will be marketing it via social channels with the goal of attracting new players and investors to the BCH ecosystem.",
+      "category": [
+        "Web3",
+        "Marketing",
+        "Crowdfunding",
+        "VideoGame",
+        "Gaming",
+        "NFT",
+        "SmartBCH"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://pumpparrots.cash/en",
+      "announcement": [
+        "https://www.reddit.com/r/btc/comments/tiq7mb/flipstarter_pumpparrots_play2earn_gaming_project/?utm_source=share&utm_medium=ios_app&utm_name=iossmf"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/pumpparrots-an-open-nft-gaming-project-on-smartbch_running_2022-03-29T102501_VXuuEgK.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 37,
+      "title": "BitcoinCash Powered Startup (Ekasuwan Gwari)",
+      "description": "We are a grocery Store .. we deals in fresh vegetables and fruits , we deals with farmers where we buy in stock and sell them in our in person stores , over the years the business grows where we have two storefronts in two cities in Nigeria … with the pandemics the economy and the market was not moving well , inflation affecting cost of Supplies , we decided to launch an online platform to scale the business more so we can reach out to more people … we launched E- Kasuwan gwari May 2021…. It was a huge success... A convenient platform for online grocery shopping without leaving the comfort of your home. The growth and traction was huge. We are able to solve a few problems for people.",
+      "category": [
+        "Marketing",
+        "Adoption",
+        "Remittance",
+        "Other"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.ekasuwangwari.com",
+      "announcement": [
+        "https://twitter.com/e_gwari/status/1508135960437006340?s=20&t=4-Cd3n7aaL7qY-1g9cUBNw",
+        "https://www.reddit.com/r/btc/comments/tpokg0/all_our_physical_stores_are_accepting/?utm_medium=android_app&utm_source=share"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoincash-powered-startup-ekasuwan-gwari_running_2022-03-29T103842.2221590000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 3,
+      "title": "Let's help Victor repair his house",
+      "description": "This campaign seeks to help Victor Salazar and his low-income family to repair the structural problems in their house, due to the heavy rains of the last few days",
+      "category": [
+        "Other"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://bafybeidezik22bylu36eqripnxn532wuajrruapgnnpcubmzrf4ovc3fwy.ipfs.dweb.link/",
+      "announcement": [
+        "https://read.cash/@korg/lets-help-victor-salazar-4b46fcf4"
+      ],
+      "archive": []
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 728.3,
+      "title": "Bitcoin Cash Latam - Crossing Borders",
+      "description": "Bitcoin Cash Agents (Second Stage 2022)\r\n\r\nOur activities during the first half of 2022 yielded highly gratifying results: We carried out more than 35 events in which we attended more than 1500 people, all with their wallets downloaded and the basic knowledge for its use. \r\n\r\nWe generated around 5000 transactions with BCH, more than 450 merchants from different areas joined the list of allies, and we developed a remittance promotion system that allows people from anywhere in the world to buy products to be delivered in Venezuela. We managed to expand our reach to more cities in Venezuela, we created alliances with universities and important institutions.",
+      "category": [
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.bchagents.com/en",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/wp4fou/new_bch_latam_flipstarter_bch_agents_crossing/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-latam-crossing-borders_success_2022-08-16T090650.9801080000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 422.97261832,
+      "title": "Electron Cash desktop wallet user interface redesign",
+      "description": "This Flipstarter campaign will fund the next 3 months of work on redesigning the Electron Cash desktop user interface.\r\n\r\nHelp us design the user experience that Electron Cash deserves!",
+      "category": [
+        "Infrastructure",
+        "Wallet",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://electroncashredesign.com/en",
+      "announcement": [
+        "https://twitter.com/BitcoinOutLoud/status/1575521475553026050",
+        "https://www.reddit.com/r/btc/comments/xrbxlc/electron_cash_ui_redesign_flipstarter_help_us/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/electron-cash-desktop-wallet-user-interface-redesign_running_2022-10-04T1446_9frjt2b.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 221,
+      "title": "Let's go for more: New actions for the growth of the BCH Argentina community.",
+      "description": "We are proud to inform that we have achieved and surpassed the objectives that we had set forth in the Flipstarter dated 8/8/2021.  \r\nAs you will be able to observe, the price of BCH at the time this Project was duly validated was of 592 USD.\r\nThe average price of BCH during the applicable stage was of (361 USD), and we ended with 130 USD.\r\nThis shows Bitcoin Cash Argentina’s commitment with honouring its word and, above all, with Bitcoin Cash.\r\nThe only point that we were not able to achieve was the time frame.  We believe that this was due in part to the drop in price level, as well as the predictable ending of various fraudulent projects that appeared in the Crypto ecosystem, which eroded trust amongst many people.\r\nAnyway, our commitment to the wide adoption of Bitcoin Cash is independent of the outcome of this Flipstarter. We are a team of 8 people; we also have outsourced services such as community Manager and support via whatsapp. Our services will be guaranteed regardless of the outcome of this Flipstarter.",
+      "category": [
+        "License-UNKNOWN"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter3.bcharg.com/en",
+      "announcement": [
+        "https://read.cash/@BitcoinCashArgentina/bch-argentina-flipstarter-3-public-backup-984c84b2",
+        "https://twitter.com/BCHArgentina/status/1569812405974188032",
+        "https://twitter.com/BCHArgentina/status/1577030524865945600"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/lets-go-for-more-new-actions-for-the-growth-of-the-bch-argentina-community_s_kfkIRkG.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 20,
+      "title": "La Eterna Vigilancia – Liberty minded and BCH content",
+      "description": "Big Salutte to everyone in the BCH community. I’m Luca, creator of the “Who Killed Bitcoin” documentary, among other things.\r\n\r\nI’ve been wanting to boost my channel with tons useful and relevant content for a while now. Since the release of the documentary, I’ve been working hard on creating a BCH advertising campaign targeting a specific area here in Argentina, I’m sure you’re going to be reading about it soon. (Lots of onboarding coming).\r\n\r\nI’m a graphic designer, editor and filmmaker, and I think I can help bring the message to a lot more people, in interesting ways. But obviously, with your help I would be able to invest a lot more of my time doing so.",
+      "category": [
+        "Marketing"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://laeternavigilancia.com/en",
+      "announcement": [
+        "https://old.reddit.com/r/btc/comments/y29bjc/im_launching_a_flipstarter_today/"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/la-eterna-vigilancia-liberty-minded-and-bch-content_running_2022-10-13T16043_btJNqLa.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 2083,
+      "title": "Bringing the adult community to Web 3.0 and Bitcoin Cash",
+      "description": "**Bringing the adult community to Web 3.0 and Bitcoin Cash**",
+      "category": [
+        "Web3",
+        "Marketing",
+        "Adoption",
+        "Usecase",
+        "Developer",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://ac2bch.com/en",
+      "announcement": [
+        "https://twitter.com/Thomas_Golddust/status/1588541089304440832"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/bringing-the-adult-community-to-web-30-and-bitcoin-cash_running_2022-11-06T1_Mz66xc5.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 75,
+      "title": "PanXCafé: Building a circular economy with Bitcoin Cash.",
+      "description": "**PanXCafé is a small bakery that was established with the support of the BCH community. Their goal is to contribute to the Bitcoin Cash adoption by creating a campaign centered around the bakery. They aim to go beyond simply downloading wallets and instead create an adoption-friendly environment within the bakery. Their strategies include accepting Bitcoin Cash as payment, paying suppliers in Bitcoin Cash, offering discounts and promotions for BCH payments, and creating an online BCH community to educate people about its benefits. The bakery's history reflects the owner's personal journey and their belief in Bitcoin Cash as true digital cash. Their objective is to build an active BCH community with at least 1,000 active members in their neighborhood, fostering sustained adoption and transactions.**",
+      "category": [
+        "Other"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://www.cryptobakery.cash/en",
+      "announcement": [
+        "https://read.cash/@ramonoropeza/the-cryptobakery-flipstarter-is-active-6e3d47fe"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/panxcafe-building-a-circular-economy-with-bitcoin-cash_running_2023-12-24T07_TT6h4qV.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 313,
+      "title": "Opal Wallet: Where Bitcoin Cash and Apple Vision Pro Meet",
+      "description": "Opal Wallet aims to revolutionize the Bitcoin Cash experience on Apple's platforms, including the groundbreaking Apple Vision Pro.\r\nDeveloped by a South Korea-based indie developer, the wallet focuses on technological innovation and adherence to the core principles of cryptocurrency. With features like native support for Apple Vision Pro, instant transactions, and a user-centric design, Opal Wallet aspires to be the go-to Bitcoin Cash wallet for Apple users.\r\nThe project seeks to raise 313 BCH for development, marketing, and operational costs.\r\nThis proposal outlines the vision, core features, development roadmap, and funding goals, inviting potential investors to be part of this exciting journey.",
+      "category": [
+        "Wallet",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.opalwallet.cash",
+      "announcement": [
+        "https://x.com/opalwallet/status/1697068941678616882"
+      ],
+      "archive": [
+        "https://archive.is/8ZlfX",
+        "http://flipbackend.bitcoincash.network/media/screenshots/opal-wallet-where-bitcoin-cash-and-apple-vision-pro-meet_success_2023-09-30T_N70LzI3.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 25,
+      "title": "CryptoBakery: The simple BCH ecosystem for everyone.",
+      "description": "# What is CryptoBakery?\r\nIt is an adoption project for Bitcoin Cash with the aim of massifying Satoshi Nakamoto's original idea by disseminating content in digital and alternative media, always focused on educating, entertaining and informing, dedicated to Spanish-speaking people who are not coiners and confused by BTC. .\r\n\r\nWe massify the concepts of the Bitcoin Cash ecosystem, we take it down from the pedestal of developers and academics and - without distorting it - we turn it into a mass consumer product, easily digestible and suitable for all audiences.",
+      "category": [
+        "SocialMedia",
+        "Informative",
+        "Education",
+        "Marketing",
+        "Adoption",
+        "News"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "http://www.cryptobakery.cash/en",
+      "announcement": [
+        "https://read.cash/@ramonoropeza/cryptobakery-the-simple-bch-ecosystem-for-everyone-flipstarter-1f2f5a3e"
+      ],
+      "archive": [
+        "https://archive.is/bxiS9",
+        "http://flipbackend.bitcoincash.network/media/screenshots/cryptobakery-the-simple-bch-ecosystem-for-everyone_running_2023-12-22T143442_FG9eF73.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 43.01,
+      "title": "TokenStork.com Flipstarter",
+      "description": "Innovative Tools for Growing the CashTokens Ecosystem\r\nWe stand at a pivotal moment in the evolution of the BCH CashTokens ecosystem. With TokenStork.com, Drop, and Survive the Bull Run, we have the potential to revolutionize how tokens are created, distributed, and engaged with on the BCH blockchain.\r\n\r\nBut to bring this vision to life, I need your support.\r\n\r\n\r\nA first-class token market cap website and tokenization platform (TokenStork).\r\nA first-class token airdrop tool (Drop).\r\nA creative and captivating game that encourages users to procure, hold and create new CashTokens (Survive the Bull Run).",
+      "category": [
+        "Infrastructure",
+        "Developer"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.tokenstork.com/en",
+      "announcement": [
+        "https://www.bitcoincashsite.com/blog/tokenstork"
+      ],
+      "archive": [
+        "https://archive.is/QSVDB",
+        "http://flipbackend.bitcoincash.network/media/screenshots/tokenstorkcom-flipstarter_running_2024-02-15T234636.0128830000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 77,
+      "title": "University adoption of Bitcoin Cash in Venezuela.",
+      "description": "Roadmap for university adoption of Bitcoin Cash in Venezuela.\r\n\r\nBitcoin Cash received the recognition of the students of the Central University of Venezuela as the real P2P electronic money, after teaching them the basic knowledge about cryptography in a fun and attractive way for the students, the reaction was very positive in each workshop held in the different faculties of the University City, and a very important point that was highlighted in each meeting is about the difference between the block size between Bitcoin Core and Bitcoin Cash and the amount of transactions per second that each blockchain can process separately.\r\n\r\nIt is important to note that Bitcoin Cash is currently being used within the Central University of Venezuela for payments in its facilities by students and even professors who had a great receptivity in each of the activities of Education and Adoption of Bitcoin Cash at UCV.",
+      "category": [
+        "Education"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://university-bch.criptocatia.cash/en",
+      "announcement": [
+        "https://x.com/HamphernyR/status/1761611720043139398?s=20"
+      ],
+      "archive": [
+        "https://archive.is/kJRsO"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 12,
+      "title": "An Evolved BCH Portal",
+      "description": "I've been working on evolving the \"portal\" concept, onboarding users to the Bitcoin Cash global ecosystem over the last year. I’m seeking funding to continue development full-time until the app is where it needs to be with version 2 over the next 12 months.\r\n\r\nWhat this platform provides is a directory where you can find everything you need to live your daily life using Bitcoin Cash. This app features community sats incentives generated from the usage of value added services.\r\n\r\nBCH Portal incentivizes the expansion of SPV wallet usage, featuring various tools and information utilized by a community of Cypherpunks.",
+      "category": [
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://www.bchportalflipstarter.cash/en",
+      "announcement": [
+        "https://x.com/thecyphercat/status/1773105924384686240?s=20"
+      ],
+      "archive": [
+        "https://archive.is/3VyOc",
+        "http://flipbackend.bitcoincash.network/media/screenshots/an-evolved-bch-portal_success_2024-04-04T155846.2959670000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 6,
+      "title": "An Evolved BCH Portal",
+      "description": "I've been working on evolving the \"portal\" concept, onboarding users to the Bitcoin Cash global ecosystem over the last year. I’m seeking funding to work full-time over the next 6 months. I am committed to providing updates throughout this time. \r\n\r\n# About\r\n\r\nThis is a free community onboarding app with everything you need to live daily life using Bitcoin Cash. It expands accessibility to the Bitcoin Cash space, promotes the usage of SPV wallets, provides community sats incentives generated from the usage of value added services and much more.",
+      "category": [
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://bchportalflipstarter.cash/en",
+      "announcement": [
+        "https://x.com/thecyphercat/status/1778174766513594567"
+      ],
+      "archive": [
+        "https://archive.is/CDgAe",
+        "http://flipbackend.bitcoincash.network/media/screenshots/an-evolved-bch-portal_success_2024-04-15T064634.6770320000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 265,
+      "title": "Enhance Mobazha user experience, robust and reliability, also engage marketing",
+      "description": "Mobazha is a **decentralized private domain e-commerce and social network**. You could consider it as a decentralized Amazon. Users have their stores in their own devices, and all devices connect to each other and build up the e-commerce network.\r\n\r\nWe are applying funding to improve the high security and reliability of the network, and also engage marketing.",
+      "category": [
+        "Web3",
+        "Infrastructure",
+        "Marketing"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter2.mobazha.info",
+      "announcement": [
+        "https://twitter.com/mobazha_market/status/1779432370657235273"
+      ],
+      "archive": [
+        "https://archive.is/il4zP",
+        "http://flipbackend.bitcoincash.network/media/screenshots/enhance-mobazha-user-experience-robust-and-reliability-also-engage-marketing_lMsfFwY.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 0.9,
+      "title": "Buenos Aires Educational Activity #1 (Puerto Madero/Microcentro)",
+      "description": "Bitcoin Cash adoption in Argentina may not be as widespread as in some other countries, it has gained traction, particularly among those seeking alternatives to the traditional financial system and those looking for ways to mitigate the effects of economic instability.\r\n\r\nWe planned to do a BCH educational promotion close to the \"Puente de la Mujer\" (Tourist attractiveness).This is one of the most famous landmarks in the neighbourhood of Puerto Madero. Most of tourist tours visit this place everyday, when we visited there is no info or use of other cryptos, we started to put some BCH stickers in light poles and gift some of them to tourist and national visitors. We would love to start some educational activities around this place to welcome more tourist with Bitcoin Cash in Argentina.",
+      "category": [
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://buenosairesbch.chickenkiller.com/en",
+      "announcement": [
+        "https://www.reddit.com/r/Bitcoincash/comments/1ca1bpe/flipstarter_educational_activity_1_buenos_aires/"
+      ],
+      "archive": [
+        "https://archive.is/vcZAi",
+        "http://flipbackend.bitcoincash.network/media/screenshots/buenos-aires-educational-activity-1-puerto-maderomicrocentro_running_2024-04_uZuLVBC.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 14,
+      "title": "An urgent call for solidarity and hope.",
+      "description": "*Dear BCH community, throughout my journey, you have been my l.ighthouse, my unwavering support. Today, in a time of pain and challenge, I turn to you with my heart in my hand.\r\nJust a week ago, my life changed in an instant. A car accident left a young man named Samuel in a critical situation. Today, I ask for his help. Samuel needs our solidarity. Every small contribution counts. Together, we can ease his suffering and give him a chance at recovery. Please consider donating and share this message with those who can join this cause.*",
+      "category": [
+        "Charity"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://accident.cryptobakery.cash/",
+      "announcement": [
+        "https://x.com/CryptoBakeryVe/status/1784255849004687544"
+      ],
+      "archive": [
+        "https://archive.is/E4DgT",
+        "http://flipbackend.bitcoincash.network/media/screenshots/an-urgent-call-for-solidarity-and-hope_running_2024-04-30T202100.4495990000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 77,
+      "title": "Educating and Onboarding Hausa-Speaking Countries to Bitcoin Cash",
+      "description": "To further engage and onboard more Hausa speakers in African countries to Bitcoin Cash, I have come up with the following proposal for my next project, which will run from June to December 2024",
+      "category": [
+        "Education",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.techhausa.com/en",
+      "announcement": [
+        "https://twitter.com/BchHausa/status/1787405717374198194?t=Iq8LokuIjGLdESCGBzfnlA&s=19"
+      ],
+      "archive": [
+        "https://archive.is/Bztuc",
+        "https://archive.is/wWUDf",
+        "http://flipbackend.bitcoincash.network/media/screenshots/educating-and-onboarding-hausa-speaking-countries-to-bitcoin-cash_success_20_6aI06t4.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 150,
+      "title": "Enhance Mobazha user experience, robust and reliability, also engage marketing",
+      "description": "Mobazha is a **decentralized private domain e-commerce and social network**. You could consider it as a decentralized Amazon. Users have their stores in their own devices, and all devices connect to each other and build up the e-commerce network.\r\n\r\nWe are applying funding to improve the high security and reliability of the network, and also engage marketing.",
+      "category": [
+        "Web3",
+        "Infrastructure",
+        "Marketing"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter2.mobazha.info",
+      "announcement": [
+        "https://twitter.com/mobazha_market/status/1779432370657235273"
+      ],
+      "archive": [
+        "https://archive.is/H5Oyz",
+        "http://flipbackend.bitcoincash.network/media/screenshots/enhance-mobazha-user-experience-robust-and-reliability-also-engage-marketing_v4xf9lM.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 32.4,
+      "title": "eatBCH: Helping Communities",
+      "description": "Hello Everyone I’m Emmanuel on [Twitter]https://x.com/Elobijo?s=09)  currently the team leader for https://twitter.com/eatBCH_SS ,I’m spear heading the fundraising https://eatbch-flipstarter.ra3.us/en more about me on this thread https://twitter.com/eatBCH_SS/status/1790420804187951317?s=19\r\n\r\nThree weeks ago I launched this flipstarter https://eatbch-flipstarter.ra3.us/en as our come back after a year of being unoperational, but our ambitious goal to provide food bags and cooked meals as we have been doing was not funded we got in total 17 generous donors that raise 2.66 BCH out of our goal of 75 BCH, the year of this setback were numerous which includes the lost in contact with our Venezuela friends and my accident, thanks to the ever supporting community I’m fully back on my feet and wants to continue doing what we can to support our neighbors in times of uncertainty together with team of amazing volunteers with your generosity. The past 5 years had been beautiful seeing us with your support putting smiles to the faces of Thousands, responding to serious emergency issues from displacement of children and mothers due to conflict to responding to flood affected victims, and visiting orphanages to visiting hospitals with surprise food bags, we have saves many lives, brought smiles in the faces, feed many hungry children together. Today I’m relaunching this flipstarter again as a pilot, instead of 6 months only for three months to use all the new strategies from your comments to better share our work and continue helping communities together.\r\n\r\nI sincerely wants to thank each and everyone who have contributed In all our past flipstarter and who have supported us in one way or the other, you are all amazing, every BCH however little goes a long way.",
+      "category": [
+        "Charity"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://eatbch-flipstarter.ra3.us/en",
+      "announcement": [
+        "https://twitter.com/eatBCH_SS/status/1796784169332195365?t=i0-4pA9rLM-Y3qNF7juOyg&s=19"
+      ],
+      "archive": [
+        "https://archive.is/aqvI4"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 74.47,
+      "title": "Bitcoin Cash FAQ: Building Domain Authority With Quality, SEO, BCH-Centric Content - Phase 2",
+      "description": "Bitcoin Cash fundamentals are undeniable and the growing ecosystem is extremely exciting. However, in large measure, the Bitcoin Cash community has unwittingly ignored the importance of SEO content and allowed those who are hostile or indifferent to electronic peer-to-peer cash to direct the narrative and define Bitcoin Cash in the eyes of the general public. That is, most of the SEO content out there on the topic of Bitcoin Cash is filled with outright lies or nonsense.\r\n\r\nThe scope of this Flipstarter campaign is Phase 2, which includes ongoing site maintenance, 36+ long-form evergreen blog posts (in addition to the twelve already-published articles), an overhaul of the landing page, regular revisions of content when needed, a continuation of the mailing list, continued email updates, a continued social media presence, expansion of the knowledge base, user guides for important and popular BCH products and software, and a PDF [lead magnet](https://www.investopedia.com/terms/l/lead-magnet.asp) designed to be a comprehensive comparison of the leading BCH wallets and their features. Each piece of content will target a specific keyword that research finds the public is using or will likely use in the near future.",
+      "category": [
+        "Informative",
+        "Education",
+        "Marketing"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.bchfaq.com/",
+      "announcement": [
+        "https://www.reddit.com/r/Bitcoincash/s/ng2Tj3UBQH"
+      ],
+      "archive": [
+        "https://archive.is/0zsr4",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-faq-building-domain-authority-with-quality-seo-bch-centric-cont_FbzDydA.png",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-faq-building-domain-authority-with-quality-seo-bch-centric-cont_fTT79YC.png",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-faq-building-domain-authority-with-quality-seo-bch-centric-cont_7oQsCNp.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 10,
+      "title": "Bitcoin Cash Meetups: Education for Economic Prosperity",
+      "description": "In a country where censorship and arbitrary decisions are the order of the day, offering a message of hope to workers and youth is necessary, but it is only possible with experiences and education for all.",
+      "category": [
+        "Education",
+        "Crowdfunding",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://bchwazobia.com/en",
+      "announcement": [
+        "https://x.com/bchwazobia/status/1804310000526897595?t=fOTUa3ViXsauroB_S5wzrw&s=19"
+      ],
+      "archive": [
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-meetups-education-for-economic-prosperity_running_2024-07-03T08_FQtJWAK.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 3.8,
+      "title": "Bitcoin Cash Mesh Network #5: Bitcoin Cash Education and Energy upgrade",
+      "description": "We are excited to announce the launch of our fifth campaign, a bold initiative focused on developing vital tools for a decentralized internet network in Cuba, powered by Bitcoin Cash (BCH).",
+      "category": [
+        "Education",
+        "Adoption",
+        "Usecase"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://mesh-network5-cu.mooo.com/en",
+      "announcement": [
+        "https://www.reddit.com/r/Bitcoincash/comments/1dsaviz/flipstarter_bitcoin_cash_mesh_network_5/"
+      ],
+      "archive": [
+        "https://archive.is/LvmrZ",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-mesh-network-5-bitcoin-cash-education-and-energy-upgrade_runnin_YIxzRY5.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 25,
+      "title": "Flipstarter: Continuing to Create Bitcoin Cash Educational Videos in Hausa for Greater Outreach and Adoption",
+      "description": "**Bitcoin Cash Hausa: Empowering Bitcoin Cash Education in Local Language**\r\n\r\nBitcoin Cash Hausa is an initiative dedicated to educating people about Bitcoin Cash in their native language, Hausa. With over 80 million native speakers in Nigeria alone and millions more using it as a second language, Hausa represents a significant population largely unfamiliar with English. This project aims to bridge that gap and empower individuals with the knowledge of peer-to-peer transactions and the benefits of Bitcoin Cash.\r\n\r\nBuilding on existing engagement, we will create more Hausa-language Bitcoin cash content for TikTok and YouTube.\r\n\r\nLaunching a Weekly Bitcoin Cash Hausa Podcast: We will host discussions with individuals from Nigeria and the African crypto space, exploring various topics related to Bitcoin Cash.\r\n\r\nOnboarding 1,000 Users to Bitcoin Cash: We will engage our TikTok audience by creating a challenge that incentivizes downloading a Bitcoin Cash wallet.",
+      "category": [
+        "SocialMedia"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.techhausa.com/en",
+      "announcement": [
+        "https://www.reddit.com/r/btc/s/qDTnDbkfMW"
+      ],
+      "archive": [
+        "https://archive.is/0vLUt",
+        "http://flipbackend.bitcoincash.network/media/screenshots/flipstarter-continuing-to-create-bitcoin-cash-educational-videos-in-hausa-fo_HHvPRIk.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 0.0000024,
+      "title": "Bitcoin Verde 2025 Upgrade",
+      "description": "Bitcoin Verde is looking to secure funding to implement the 2025 BCH Upgrade, supporting both the `CHIP-2024-07-BigInt` and `CHIP-2021-05-vm-limits` CHIPs.  Aligned with the foundational premise of Bitcoin Verde's creation (node implementation diversity), we are also looking to immediately (October 2024) provide a POC implementation of these CHIPs to facilitate research, adoption, and implementation diversity to these CHIPs prior to its proposed activation in 2025.",
+      "category": [
+        "Developer",
+        "Software"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://flipstarter.bitcoinverde.org/",
+      "announcement": [
+        "https://new.reddit.com/r/btc/comments/1fjrn5s/bitcoin_verde_is_hosting_a_flipstarter_campaign/"
+      ],
+      "archive": [
+        "https://archive.is/99loI",
+        "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-verde-2025-upgrade_running_2024-09-19T044150.4077320000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 30,
+      "title": "An Electron-Cash Plugin for Future Bitcoin Cash (FBCH)",
+      "description": "This campaign is for an Electron Cash plugin to interact with Future Bitcoin Cash (FBCH) contracts directly from Electron Cash.\r\n\r\nIt will enable easily swapping, automatically redeeming, automatically taking coupons paying above a certain threshold and have more tools for coupon writers.",
+      "category": [
+        "License-MIT",
+        "Rewards"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://fs.futurebitcoin.cash",
+      "announcement": [
+        "https://memo.cash/a/5fdb433bef"
+      ],
+      "archive": [
+        "https://archive.is/BoP1w",
+        "http://flipbackend.bitcoincash.network/media/screenshots/an-electron-cash-plugin-for-future-bitcoin-cash-fbch_expired_2024-12-24T1127_vKg8N8x.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  },
+  {
+    "campaign": {
+      "amount": 19.3,
+      "title": "CriptoCatia Podcast",
+      "description": "# Who am I?\r\n\r\nHi, my name is Hampherny Rico, I'm from Caracas, Venezuela and I've been actively promoting the adoption of Bitcoin Cash since 2022.\r\n\r\n![](https://i.postimg.cc/L5gRjnwT/00277372-2827-4417-8-AAB-5-B6-E98-C4-DF87.jpg)\r\n\r\nFirst I was promoting the use of BCH in different businesses in Caracas, which are still active accepting this payment method, most merchants after receiving the payment, exchange it in Binance or visit wholesale stores where they accept BCH and other Cryptocurrencies, the truth is that in an economy like Venezuela's this is very normal and despite the fact that inflation has been falling in recent years, Venezuelans have already learned to use different payment methods on digital platforms and pay with cash currencies such as the Dollar or the Euro and even in areas on the border with Colombia, Colombian Pesos are accepted.\r\n\r\n![](https://i.postimg.cc/8PWfS5cM/20241223-030833.jpg)\r\n\r\nAfter this, I organized in-person and online Meetups where the participants who attended were mostly people who knew nothing about Cryptocurrencies in general. After giving them introductory knowledge and explaining how to create their first wallet, they were also advised on how they should save their seed phrases and how to be responsible for their money, each of them was sent a little BCH.\r\n\r\n![](https://i.postimg.cc/C1BLsPfk/20241223-032209.jpg)\r\n\r\n![](https://i.postimg.cc/Zqv1f1Vb/20241223-032324-2.jpg)\r\n\r\n![](https://i.postimg.cc/sXhshMtJ/20241223-032406.jpg)\r\n\r\nI received an important diploma from the University of Carabobo (UC) where I am certified as a university professor, to educate in everything related to Cryptocurrencies and related areas.\r\n\r\n![](https://i.postimg.cc/bwVhV0PT/20241223-033404.jpg)\r\n\r\nThis diploma opened many doors for me, and I was able to take advantage of this opportunity to promote the use of Bitcoin Cash in different Universities in Venezuela, through educational workshops and Crypto Fairs were also held with more than 30 entrepreneurs, who study at this University, the day that had the most impact was the one held at the Central University of Venezuela (UCV), since it is the number one University in the ranking of Universities in my Country, this was very important because it led to BCH being adopted by many students, and to this day this cryptocurrency is used as a payment method in this prestigious educational institution.\r\n\r\n![](https://i.postimg.cc/W1LrFZC5/20241223-034837.jpg)\r\n\r\n![](https://i.postimg.cc/wB9mFp6J/20241223-034923.jpg)\r\n\r\n![](https://i.postimg.cc/FRRJ5VkH/20241223-035016.jpg)\r\n\r\n![](https://i.postimg.cc/PNGLDG3C/20241223-034942.jpg)\r\n\r\n![](https://i.postimg.cc/1R8JDp7S/20241223-034958.jpg)\r\n\r\n![](https://i.postimg.cc/yxRmty2S/20241223-040242.jpg)\r\n\r\nThis is a brief summary of my career, I mention it so that you can see the commitment I have with Bitcoin Cash and the desire for the adoption of BCH to grow more and more in Venezuela and other Latin American countries.\r\n\r\nIf you want to expand the information and learn more about my career, the latest work on the adoption of Bitcoin Cash in businesses, Meetups, workshops and fairs at universities, everything is published on my X account and different social networks, where I am @HamphernyR and the account of our adoption project is @CriptoCatia and we are also available on Instagram and Facebook.",
+      "category": [
+        "Education",
+        "Marketing",
+        "Adoption"
+      ],
+      "status": "expired",
+      "tx": "",
+      "url": "https://criptocatia-podcast.f10.cash/en",
+      "announcement": [
+        "https://x.com/HamphernyR/status/1872368167185739783?t=NJRKXNYKS9d2DPQWDDu90w&s=19"
+      ],
+      "archive": [
+        "https://archive.is/w4eLh",
+        "http://flipbackend.bitcoincash.network/media/screenshots/criptocatia-podcast_running_2025-01-14T043802.6189940000.png",
+        "http://flipbackend.bitcoincash.network/media/screenshots/criptocatia-podcast_expired_2025-01-29T042138.4028380000.png",
+        "http://flipbackend.bitcoincash.network/media/screenshots/criptocatia-podcast_expired_2025-01-29T042243.0140980000.png"
+      ]
+    },
+    "recipients": [],
+    "source": "none"
+  }
+]
