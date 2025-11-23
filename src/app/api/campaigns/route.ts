@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams
 
     // Parse filters from query params
-    const platform = searchParams.get('platform')
+    const platform = searchParams.getAll('platform')
     const status = searchParams.getAll('status')
     const search = searchParams.get('search')
     const minAmount = searchParams.get('minAmount')
@@ -15,8 +15,8 @@ export async function GET(request: NextRequest) {
     // Build where clause
     const where: any = {}
 
-    if (platform) {
-      where.platform = platform
+    if (platform.length > 0) {
+      where.platform = { in: platform }
     }
 
     if (status.length > 0) {

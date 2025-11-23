@@ -16,6 +16,9 @@ async function fetchCampaigns(filters: FilterState): Promise<Campaign[]> {
   if (filters.status.size > 0) {
     filters.status.forEach(s => params.append('status', s))
   }
+  if (filters.platform.size > 0) {
+    filters.platform.forEach(p => params.append('platform', p))
+  }
   if (filters.amountRange.min) params.set('minAmount', filters.amountRange.min)
   if (filters.amountRange.max) params.set('maxAmount', filters.amountRange.max)
 
@@ -42,6 +45,7 @@ export default function CampaignsPage() {
     'campaigns',
     filters.search,
     Array.from(filters.status),
+    Array.from(filters.platform),
     filters.amountRange.min,
     filters.amountRange.max,
   ]
@@ -82,15 +86,23 @@ export default function CampaignsPage() {
     switch (sortBy) {
       case 'date-desc':
         return campaigns.sort((a, b) => {
-          const dateA = a.time ? new Date(a.time).getTime() : 0
-          const dateB = b.time ? new Date(b.time).getTime() : 0
+          // Campaigns without dates go to the end
+          if (!a.time && !b.time) return 0
+          if (!a.time) return 1
+          if (!b.time) return -1
+          const dateA = new Date(a.time).getTime()
+          const dateB = new Date(b.time).getTime()
           return dateB - dateA
         })
 
       case 'date-asc':
         return campaigns.sort((a, b) => {
-          const dateA = a.time ? new Date(a.time).getTime() : 0
-          const dateB = b.time ? new Date(b.time).getTime() : 0
+          // Campaigns without dates go to the end
+          if (!a.time && !b.time) return 0
+          if (!a.time) return 1
+          if (!b.time) return -1
+          const dateA = new Date(a.time).getTime()
+          const dateB = new Date(b.time).getTime()
           return dateA - dateB
         })
 

@@ -27,11 +27,14 @@ async function main() {
       else if (statusLower === 'expired' || statusLower === 'failed') status = 'expired'
       else if (statusLower === 'running' || statusLower === 'active') status = 'running'
 
-      // Parse time
+      // Parse time from transactionTimestamp (Unix timestamp in seconds)
+      // Note: Failed/expired campaigns often don't have transactionTimestamp
+      // In that case, we leave time as null and they'll sort to the end
       let time: Date | null = null
-      if (raw.time) {
+      if (raw.transactionTimestamp) {
         try {
-          time = new Date(raw.time)
+          // Convert Unix timestamp (seconds) to milliseconds
+          time = new Date(parseInt(raw.transactionTimestamp) * 1000)
           if (isNaN(time.getTime())) time = null
         } catch {
           time = null
