@@ -28,8 +28,7 @@ async function main() {
       else if (statusLower === 'running' || statusLower === 'active') status = 'running'
 
       // Parse time from transactionTimestamp (Unix timestamp in seconds)
-      // Note: Failed/expired campaigns often don't have transactionTimestamp
-      // In that case, we leave time as null and they'll sort to the end
+      // For failed/expired campaigns, try to extract date from archive URLs
       let time: Date | null = null
       if (raw.transactionTimestamp) {
         try {
@@ -38,6 +37,22 @@ async function main() {
           if (isNaN(time.getTime())) time = null
         } catch {
           time = null
+        }
+      } else if (status === 'expired' && raw.archive && Array.isArray(raw.archive)) {
+        // Try to extract expiry date from archive URLs for failed campaigns
+        for (const archiveUrl of raw.archive) {
+          const dateMatch = archiveUrl.match(/(\d{4}-\d{2}-\d{2})/)
+          if (dateMatch) {
+            try {
+              time = new Date(dateMatch[1])
+              if (!isNaN(time.getTime())) {
+                break // Found valid date
+              }
+              time = null
+            } catch {
+              time = null
+            }
+          }
         }
       }
 
