@@ -56,6 +56,35 @@ async function main() {
         }
       }
 
+      // NEW: Additional fallback - extract from archive.org URLs
+      // archive.org URLs contain dates in format: /web/YYYYMMDDHHMMSS/
+      if (!time && raw.archive && Array.isArray(raw.archive)) {
+        for (const archiveUrl of raw.archive) {
+          if (archiveUrl.includes('archive.org') || archiveUrl.includes('web.archive.org')) {
+            const archiveOrgMatch = archiveUrl.match(/\/web\/(\d{14})\//)
+            if (archiveOrgMatch) {
+              try {
+                const timestamp = archiveOrgMatch[1]
+                const year = parseInt(timestamp.substring(0, 4))
+                const month = parseInt(timestamp.substring(4, 6)) - 1  // JS months are 0-indexed
+                const day = parseInt(timestamp.substring(6, 8))
+                const hour = parseInt(timestamp.substring(8, 10))
+                const minute = parseInt(timestamp.substring(10, 12))
+                const second = parseInt(timestamp.substring(12, 14))
+
+                time = new Date(year, month, day, hour, minute, second)
+                if (!isNaN(time.getTime())) {
+                  break // Found valid date
+                }
+                time = null
+              } catch {
+                time = null
+              }
+            }
+          }
+        }
+      }
+
       // Handle category - convert array to string
       let category: string | null = null
       if (raw.category) {

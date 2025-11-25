@@ -11,7 +11,12 @@
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "test:env-safety": "tsx tests/1-environment/env-safety-check.ts",
+    "test:pre-push": "tsx tests/1-environment/pre-push-guard.ts",
+    "test:db-health": "tsx tests/2-health/db-health-check.ts",
+    "test:db-counts": "tsx tests/2-health/db-record-counts.ts",
+    "test:all": "npm run test:env-safety && npm run test:db-health && npm run test:db-counts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
