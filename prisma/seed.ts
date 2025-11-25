@@ -85,6 +85,52 @@ async function main() {
         }
       }
 
+      // FINAL FALLBACK: Try Wayback Machine CDX API if still no date
+      if (!time && raw.url) {
+        try {
+          // Clean the URL - remove protocol
+          const cleanUrl = raw.url.replace(/^https?:\/\//, '')
+
+          // Query Wayback Machine CDX API for first snapshot
+          const apiUrl = `https://web.archive.org/cdx/search/cdx?url=${encodeURIComponent(cleanUrl)}&output=json&limit=1&fl=timestamp`
+
+          const response = await fetch(apiUrl, {
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (compatible; BCH-Atlas/1.0)'
+            }
+          })
+
+          if (response.ok) {
+            const data = await response.json()
+
+            // CDX returns array of arrays: [["timestamp"], ["20200817074951"], ...]
+            // First row is headers, second row is data
+            if (data.length >= 2) {
+              const timestamp = data[1][0]
+
+              // Parse timestamp: YYYYMMDDHHMMSS
+              const year = parseInt(timestamp.substring(0, 4))
+              const month = parseInt(timestamp.substring(4, 6)) - 1
+              const day = parseInt(timestamp.substring(6, 8))
+              const hour = parseInt(timestamp.substring(8, 10))
+              const minute = parseInt(timestamp.substring(10, 12))
+              const second = parseInt(timestamp.substring(12, 14))
+
+              time = new Date(year, month, day, hour, minute, second)
+              if (isNaN(time.getTime())) {
+                time = null
+              }
+            }
+          }
+
+          // Small delay to be nice to the API (rate limiting)
+          await new Promise(resolve => setTimeout(resolve, 500))
+        } catch {
+          // Silently fail - this is best-effort date extraction
+          time = null
+        }
+      }
+
       // Handle category - convert array to string
       let category: string | null = null
       if (raw.category) {
