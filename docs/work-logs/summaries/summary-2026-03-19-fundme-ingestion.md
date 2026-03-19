@@ -24,6 +24,16 @@
 - FundMe campaigns: 101
 - Total campaigns: 326
 - Total recipient addresses: 203
+- FundMe status breakdown: 23 expired, 65 unknown, 11 running, 2 success
+
+## API Field Mapping Notes
+
+The FundMe API uses different field names than expected:
+- `id` (string, not `campaignID`)
+- `name` (not `title`)
+- No `goalAmount` or `amountRaised` — `raised` is computed by summing `pledges[].amount`
+- `ownersAddress` has trailing whitespace that needs trimming
+- `isComplete` boolean used alongside `status` string for status mapping
 
 ## Verification
 
