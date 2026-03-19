@@ -72,8 +72,11 @@ function stripHtml(html: string): string {
     .trim()
 }
 
-function mapStatus(raw: FundMeRaw): Campaign['status'] {
+function mapStatus(raw: FundMeRaw, raised: number, amount: number): Campaign['status'] {
   if (raw.isComplete) return 'success'
+  // FundMe returns 'stopped' for both funded and failed campaigns.
+  // If the campaign raised its goal, it's funded — not expired.
+  if (raised >= amount && amount > 0) return 'success'
   const status = (raw.status || '').toLowerCase()
   if (status === 'stopped' || status === 'canceled' || status === 'cancelled' || status === 'archived') return 'expired'
   if (status === 'active' || status === 'running' || status === 'open') return 'running'
@@ -89,8 +92,9 @@ function transformCampaign(raw: FundMeRaw, apiId: string): Campaign {
   const title = raw.name || `FundMe Campaign #${apiId}`
   const url = `https://fundme.cash/?id=${apiId}`
   const time = new Date().toISOString().split('T')[0]
-  const status = mapStatus(raw)
   const raised = sumPledges(raw.pledges)
+  const amount = raised > 0 ? raised : 0
+  const status = mapStatus(raw, raised, amount)
 
   const strippedDesc = raw.description ? stripHtml(raw.description) : undefined
   const campaign: Campaign = {
@@ -99,7 +103,7 @@ function transformCampaign(raw: FundMeRaw, apiId: string): Campaign {
     title,
     description: strippedDesc,
     continent: inferContinent(title, strippedDesc),
-    amount: raised > 0 ? raised : 0, // FundMe API has no goal field; use raised total
+    amount, // FundMe API has no goal field; use raised total
     raised: raised > 0 ? raised : undefined,
     status,
     time,
