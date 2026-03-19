@@ -45,13 +45,13 @@ function seededRandom(seed: string, index: number): number {
 // Continent center positions — wide spread, core at CENTER
 const CONTINENT_CENTERS: Record<string, { x: number; y: number; label: string }> = {
   core:       { x: 0,     y: 0,     label: 'CORE INFRASTRUCTURE' },
-  ecosystem:  { x: 0,     y: -1500, label: 'ECOSYSTEM INITIATIVES' },
-  media:      { x: -1500, y: -550,  label: 'MEDIA & EDUCATION' },
-  apps:       { x: 1500,  y: -550,  label: 'APPS & WALLETS' },
-  middleware:  { x: -1500, y: 680,   label: 'MIDDLEWARE & LIBRARIES' },
-  defi:       { x: 1500,  y: 680,   label: 'DEFI & CONTRACTS' },
-  charity:    { x: 0,     y: 1500,  label: 'CHARITY & ADOPTION' },
-  other:      { x: 0,     y: 2400,  label: 'OTHER' },
+  ecosystem:  { x: 0,     y: -2000, label: 'ECOSYSTEM INITIATIVES' },
+  media:      { x: -2000, y: -730,  label: 'MEDIA & EDUCATION' },
+  apps:       { x: 2000,  y: -730,  label: 'APPS & WALLETS' },
+  middleware:  { x: -2000, y: 900,   label: 'MIDDLEWARE & LIBRARIES' },
+  defi:       { x: 2000,  y: 900,   label: 'DEFI & CONTRACTS' },
+  charity:    { x: 0,     y: 2000,  label: 'CHARITY & ADOPTION' },
+  other:      { x: 0,     y: 3200,  label: 'OTHER' },
 }
 
 // Planetary system layout: sun at center, concentric rings by funding size
@@ -86,11 +86,12 @@ function computePlanetaryPositions(
   }
 
   // Remaining funded campaigns go in concentric rings
-  const ringCapacities = [5, 8, 12, 16, 20, 24] // nodes per ring
+  const ringCapacities = [5, 6, 5, 6, 5, 6] // nodes per ring — keep rings uncrowded
   let ringIndex = 0
   let slotInRing = 0
-  const RING_START = 100
-  const RING_STEP = 80
+  const RING_START = 150
+  const RING_STEP = 120
+  const MIN_SPACING = 40 // minimum distance between any two nodes
 
   // Track ring radii for orbit ring visualization
   const ringRadii: number[] = []
@@ -121,7 +122,7 @@ function computePlanetaryPositions(
 
   // Failed campaigns at the outer edge — one more ring beyond the last funded ring
   const outerRingStart = RING_START + (ringIndex + 1) * RING_STEP
-  const failedRingCapacities = [8, 12, 16, 20, 24]
+  const failedRingCapacities = [5, 6, 5, 6, 5, 6]
   let failedRingIndex = 0
   let failedSlot = 0
 
@@ -146,6 +147,29 @@ function computePlanetaryPositions(
     if (failedSlot >= capacity) {
       failedSlot = 0
       failedRingIndex++
+    }
+  }
+
+  // Collision resolution: push apart any nodes closer than MIN_SPACING
+  const allIds = Array.from(positions.keys())
+  for (let pass = 0; pass < 3; pass++) {
+    for (let i = 0; i < allIds.length; i++) {
+      for (let j = i + 1; j < allIds.length; j++) {
+        const a = positions.get(allIds[i])!
+        const b = positions.get(allIds[j])!
+        const dx = b.x - a.x
+        const dy = b.y - a.y
+        const dist = Math.sqrt(dx * dx + dy * dy)
+        if (dist < MIN_SPACING && dist > 0) {
+          const push = (MIN_SPACING - dist) / 2
+          const nx = dx / dist
+          const ny = dy / dist
+          a.x -= nx * push
+          a.y -= ny * push
+          b.x += nx * push
+          b.y += ny * push
+        }
+      }
     }
   }
 
@@ -300,7 +324,7 @@ export function GraphVisualization({
 
       // Position label nodes ABOVE continent centers so they don't overlap campaign nodes
       for (const [key, val] of Object.entries(CONTINENT_CENTERS)) {
-        positions.set(`label-${key}`, { x: val.x, y: val.y - 220 })
+        positions.set(`label-${key}`, { x: val.x, y: val.y - 280 })
       }
 
       // Add positions to nodes
@@ -662,14 +686,17 @@ export function GraphVisualization({
         layer.clear(ctx)
         layer.setTransform(ctx)
 
-        ctx.strokeStyle = 'rgba(0, 224, 160, 0.08)'
-        ctx.lineWidth = 0.5
+        ctx.strokeStyle = 'rgba(0, 224, 160, 0.2)'
+        ctx.lineWidth = 1.0
+        ctx.setLineDash([8, 12])
 
         for (const ring of orbitRings) {
           ctx.beginPath()
           ctx.arc(ring.cx, ring.cy, ring.radius, 0, Math.PI * 2)
           ctx.stroke()
         }
+
+        ctx.setLineDash([]) // reset dash pattern
       })
 
       cyRef.current = cy

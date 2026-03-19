@@ -9,7 +9,7 @@ const KEYWORD_MAP: Record<Continent, RegExp> = {
   media: /\b(podcast|video|tutorial|education|content|media|documentary|show|stream|article|blog|news|magazine|film|animation|music|creative|journalist|reporter|awareness|marketing|promotion)\b/i,
   defi: /\b(defi|swap|dex|contract|cashtokens?|nft|token|fungible|smartbch|sidechain|bridge|oracle|amm|cashstarter|fundme|crowdfunding.?platform|anyhedge|detoken)\b/i,
   charity: /\b(charity|donat|food|humanitarian|adoption|orphan|relief|school|health|eatbch|volunteer|aid|shelter|water|venezuela|south.?sudan|ghana|africa|community.?outreach|feeding)\b/i,
-  ecosystem: /\b(accelerator|bch-?1|governance|dao|foundation|collective|hackathon|conference|bliss|meetup|summit|initiative|fund.?raising|ecosystem|general.?fund|bounty|grant)\b/i,
+  ecosystem: /\b(accelerator|bch[\u002d\u2010\u2011\u2012\u2013\u2014\u2015]?1|governance|dao|foundation|collective|hackathon|conference|bliss|meetup|summit|initiative|fund.?raising|ecosystem|general.?fund|bounty|grant|booster|phase|event|festival)\b/i,
   other: /(?!)/,  // never matches — fallback only
 }
 
@@ -31,7 +31,7 @@ const TITLE_OVERRIDES: [RegExp, Continent][] = [
   [/\b(electron cash|cashual wallet|zapit|selene|badger)\b/i, 'apps'],
   [/\b(mainnet\.?js|libauth|cashscript|bitauth|bitbox)\b/i, 'middleware'],
   [/\b(eatbch|eat\s?bch)\b/i, 'charity'],
-  [/\b(bch-?1|bliss|bitcoin cash city)\b/i, 'ecosystem'],
+  [/\b(bch[\u002d\u2010\u2011\u2012\u2013\u2014\u2015]?1|bliss|bitcoin cash city)\b/i, 'ecosystem'],
 ]
 
 export function mapToContinent(campaign: Partial<Campaign>): Continent {
