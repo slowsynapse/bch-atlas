@@ -1,33 +1,25 @@
 import Link from 'next/link'
-import { getCampaignById, getCampaigns } from '@/lib/data/campaigns'
+import { getCampaignById } from '@/lib/data/campaigns'
 import { ContributorsList } from '@/components/campaigns/ContributorsList'
 import { notFound } from 'next/navigation'
 
 function getStatusColor(status: string): string {
   switch (status) {
-    case 'success':
-      return 'bg-green-500'
+    case 'success': return 'text-ds-green'
     case 'expired':
-    case 'failed':
-      return 'bg-red-500'
-    case 'running':
-      return 'bg-blue-500'
-    default:
-      return 'bg-gray-500'
+    case 'failed': return 'text-ds-red'
+    case 'running': return 'text-ds-cyan'
+    default: return 'text-ds-text-secondary'
   }
 }
 
 function getStatusLabel(status: string): string {
   switch (status) {
-    case 'success':
-      return 'SUCCESS'
+    case 'success': return 'SUCCESS'
     case 'expired':
-    case 'failed':
-      return 'FAILED'
-    case 'running':
-      return 'RUNNING'
-    default:
-      return status.toUpperCase()
+    case 'failed': return 'FAILED'
+    case 'running': return 'RUNNING'
+    default: return status.toUpperCase()
   }
 }
 
@@ -35,23 +27,14 @@ function formatDate(dateString?: string, timestamp?: number): string {
   if (timestamp) {
     const date = new Date(timestamp * 1000)
     return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+      year: 'numeric', month: 'long', day: 'numeric',
+      hour: '2-digit', minute: '2-digit'
     })
   }
-
   if (!dateString) return 'Unknown'
-
   try {
     const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   } catch {
     return 'Unknown'
   }
@@ -79,95 +62,75 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
     notFound()
   }
 
-  const statusColor = getStatusColor(campaign.status)
   const contributors = (campaign.recipientAddresses || []).map(address => ({ address }))
-
-  // Calculate funding progress
   const goalAmount = campaign.amount
   const raisedAmount = campaign.raised || campaign.amount
   const progressPercent = (raisedAmount / goalAmount) * 100
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ds-fade-in">
       {/* Header */}
-      <header className="bg-white border-b shadow-sm">
+      <header className="ds-panel border-0 border-b border-[rgba(0,212,255,0.1)]">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <Link href="/" className="text-2xl font-bold text-blue-600 hover:text-blue-700">
+              <Link href="/" className="text-lg font-light tracking-[0.15em] uppercase text-ds-cyan hover:opacity-80 transition-opacity">
                 BCH ATLAS
               </Link>
-              <p className="text-sm text-gray-600">Campaign Details</p>
+              <p className="ds-label mt-0.5">Campaign Detail</p>
             </div>
-            <div className="flex gap-4">
-              <Link
-                href="/campaigns"
-                className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium"
-              >
-                ← Back to List
+            <div className="flex gap-3">
+              <Link href="/campaigns" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
+                Back
               </Link>
-              <Link
-                href="/graph"
-                className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium"
-              >
-                View in Graph
+              <Link href="/graph" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
+                Graph
               </Link>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Main */}
       <main className="container mx-auto px-4 py-8 max-w-5xl">
         {/* Campaign Header */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-6">
-          <div className="flex justify-between items-start gap-4 mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">{campaign.title}</h1>
-            <span className={`px-4 py-2 rounded-full text-sm font-semibold text-white ${statusColor}`}>
+        <div className="ds-panel p-8 mb-6">
+          <div className="flex justify-between items-start gap-4 mb-6">
+            <h1 className="text-xl md:text-2xl font-light text-ds-text">{campaign.title}</h1>
+            <span className={`ds-label text-xs flex-shrink-0 ${getStatusColor(campaign.status)}`}>
               {getStatusLabel(campaign.status)}
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-6">
-            <span className="flex items-center gap-1">
-              <span className="font-semibold">Platform:</span>
-              <span className="capitalize">{campaign.platform}</span>
-            </span>
-
+          <div className="flex flex-wrap gap-4 text-xs text-ds-text-secondary mb-6">
+            <span className="font-mono capitalize">{campaign.platform}</span>
             {campaign.time && (
-              <span className="flex items-center gap-1">
-                <span className="font-semibold">Date:</span>
-                <span>{formatDate(campaign.time)}</span>
-              </span>
+              <span className="font-mono">{formatDate(campaign.time)}</span>
             )}
-
             {campaign.tx && (
-              <span className="flex items-center gap-1 text-green-600">
-                <span>✓</span>
-                <span className="font-semibold">Blockchain Verified</span>
-              </span>
+              <span className="text-ds-cyan font-mono">Verified</span>
             )}
           </div>
 
-          {/* Funding Progress */}
+          {/* Funding */}
           <div className="mb-6">
-            <div className="flex justify-between items-end mb-2">
+            <div className="flex justify-between items-end mb-3">
               <div>
-                <div className="text-3xl font-bold text-green-600">{goalAmount.toFixed(2)} BCH</div>
-                <div className="text-sm text-gray-600">Goal Amount</div>
+                <div className="font-mono text-3xl text-ds-green">{goalAmount.toFixed(2)} <span className="text-sm text-ds-text-secondary">BCH</span></div>
+                <span className="ds-label">Goal</span>
               </div>
               {campaign.status === 'success' && (
                 <div className="text-right">
-                  <div className="text-xl font-semibold text-gray-900">{progressPercent.toFixed(0)}%</div>
-                  <div className="text-sm text-gray-600">Funded</div>
+                  <div className="font-mono text-lg text-ds-text">{progressPercent.toFixed(0)}%</div>
+                  <span className="ds-label">Funded</span>
                 </div>
               )}
             </div>
 
             {campaign.status === 'success' && (
-              <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+              <div className="w-full h-1 bg-ds-bg-tertiary overflow-hidden">
                 <div
-                  className="bg-green-500 h-full transition-all"
+                  className="h-full bg-ds-green transition-all"
                   style={{ width: `${Math.min(progressPercent, 100)}%` }}
                 />
               </div>
@@ -176,34 +139,33 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
 
           {/* Description */}
           {campaign.description && (
-            <div className="prose max-w-none">
-              <h2 className="text-xl font-semibold mb-3">Description</h2>
-              <p className="text-gray-700 whitespace-pre-wrap">{campaign.description}</p>
+            <div>
+              <h2 className="ds-label mb-3">Description</h2>
+              <p className="text-ds-text-secondary text-sm font-light whitespace-pre-wrap leading-relaxed">{campaign.description}</p>
             </div>
           )}
         </div>
 
         {/* Timeline */}
-        {(campaign.time || (campaign as any).transactionTimestamp) && (
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4">Timeline</h2>
+        {(campaign.time || campaign.transactionTimestamp) && (
+          <div className="ds-panel p-6 mb-6">
+            <h2 className="ds-label mb-4">Timeline</h2>
             <div className="space-y-3">
               {campaign.time && (
                 <div>
-                  <div className="text-sm text-gray-600">Completion Date</div>
-                  <div className="font-medium">{formatDate(campaign.time)}</div>
+                  <span className="ds-label">Completion</span>
+                  <p className="text-ds-text text-sm font-mono mt-0.5">{formatDate(campaign.time)}</p>
                 </div>
               )}
-
-              {(campaign as any).transactionTimestamp && (
+              {campaign.transactionTimestamp && (
                 <>
                   <div>
-                    <div className="text-sm text-gray-600">Funded On</div>
-                    <div className="font-medium">{formatDate(undefined, (campaign as any).transactionTimestamp)}</div>
+                    <span className="ds-label">Funded</span>
+                    <p className="text-ds-text text-sm font-mono mt-0.5">{formatDate(undefined, Number(campaign.transactionTimestamp))}</p>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600">Time Since Funded</div>
-                    <div className="font-medium text-blue-600">{getTimeSince(undefined, (campaign as any).transactionTimestamp)}</div>
+                    <span className="ds-label">Time Since</span>
+                    <p className="text-ds-cyan text-sm font-mono mt-0.5">{getTimeSince(undefined, Number(campaign.transactionTimestamp))}</p>
                   </div>
                 </>
               )}
@@ -211,26 +173,26 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
           </div>
         )}
 
-        {/* Contributors/Recipients */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-          <h2 className="text-xl font-semibold mb-4">
-            Recipients {contributors.length > 0 && `(${contributors.length})`}
+        {/* Recipients */}
+        <div className="ds-panel p-6 mb-6">
+          <h2 className="ds-label mb-4">
+            Recipients {contributors.length > 0 && <span className="text-ds-cyan font-mono">({contributors.length})</span>}
           </h2>
           <ContributorsList contributors={contributors} />
         </div>
 
         {/* Links */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h2 className="text-xl font-semibold mb-4">Links & Resources</h2>
+        <div className="ds-panel p-6">
+          <h2 className="ds-label mb-4">Links</h2>
           <div className="space-y-3">
             {campaign.url && (
               <div>
-                <div className="text-sm text-gray-600 mb-1">Original Campaign URL</div>
+                <span className="ds-label">Original URL</span>
                 <a
                   href={campaign.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-700 underline break-all"
+                  className="block text-ds-cyan text-sm font-mono mt-0.5 hover:opacity-80 transition-opacity break-all"
                 >
                   {campaign.url}
                 </a>
@@ -239,19 +201,19 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
 
             {campaign.archive && campaign.archive.length > 0 && (
               <div>
-                <div className="text-sm text-gray-600 mb-1">Archived Snapshots</div>
-                <div className="space-y-1">
+                <span className="ds-label">Archives</span>
+                <div className="space-y-1 mt-0.5">
                   {campaign.archive.map((archiveUrl, index) => (
                     <a
                       key={index}
                       href={archiveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block text-blue-600 hover:text-blue-700 underline text-sm break-all"
+                      className="block text-ds-cyan-dim text-xs font-mono hover:text-ds-cyan transition-colors break-all"
                     >
                       {archiveUrl.includes('archive.is') ? 'Archive.is' :
                        archiveUrl.includes('web.archive.org') ? 'Wayback Machine' :
-                       `Archive ${index + 1}`} →
+                       `Archive ${index + 1}`}
                     </a>
                   ))}
                 </div>
@@ -260,31 +222,31 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
 
             {campaign.tx && (
               <div>
-                <div className="text-sm text-gray-600 mb-1">Blockchain Transaction</div>
+                <span className="ds-label">Transaction</span>
                 <a
                   href={`https://blockchair.com/bitcoin-cash/transaction/${campaign.tx}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-700 underline break-all text-sm"
+                  className="block text-ds-cyan text-xs font-mono mt-0.5 hover:opacity-80 transition-opacity break-all"
                 >
-                  {campaign.tx} →
+                  {campaign.tx}
                 </a>
               </div>
             )}
 
             {campaign.announcement && campaign.announcement.length > 0 && (
               <div>
-                <div className="text-sm text-gray-600 mb-1">Announcements</div>
-                <div className="space-y-1">
-                  {campaign.announcement.map((announcementUrl, index) => (
+                <span className="ds-label">Announcements</span>
+                <div className="space-y-1 mt-0.5">
+                  {campaign.announcement.map((url, index) => (
                     <a
                       key={index}
-                      href={announcementUrl}
+                      href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block text-blue-600 hover:text-blue-700 underline text-sm break-all"
+                      className="block text-ds-cyan-dim text-xs font-mono hover:text-ds-cyan transition-colors break-all"
                     >
-                      {announcementUrl.includes('reddit.com') ? 'Reddit' : `Announcement ${index + 1}`} →
+                      {url.includes('reddit.com') ? 'Reddit' : `Announcement ${index + 1}`}
                     </a>
                   ))}
                 </div>

@@ -16,18 +16,13 @@ function getTimeSinceDate(dateString?: string, timestamp?: number): string {
   const diffMonths = Math.floor(diffDays / 30)
   const diffYears = Math.floor(diffDays / 365)
 
-  if (diffYears > 0) {
-    return `${diffYears} year${diffYears > 1 ? 's' : ''} ago`
-  } else if (diffMonths > 0) {
-    return `${diffMonths} month${diffMonths > 1 ? 's' : ''} ago`
-  } else {
-    return `${diffDays} day${diffDays !== 1 ? 's' : ''} ago`
-  }
+  if (diffYears > 0) return `${diffYears}y ago`
+  if (diffMonths > 0) return `${diffMonths}mo ago`
+  return `${diffDays}d ago`
 }
 
 function formatDate(dateString?: string, timestamp?: number): string {
   if (!dateString && !timestamp) return 'Unknown'
-
   const date = timestamp ? new Date(timestamp * 1000) : new Date(dateString!)
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
 }
@@ -55,32 +50,27 @@ export default function GraphPage() {
 
   return (
     <div className="h-screen flex flex-col">
-      <header className="bg-white border-b p-4 shadow-sm">
+      {/* Header */}
+      <header className="ds-panel border-0 border-b border-[rgba(0,212,255,0.1)] px-4 py-3 z-10">
         <div className="container mx-auto flex justify-between items-center">
           <div>
-            <Link href="/" className="text-2xl font-bold text-blue-600 hover:text-blue-700">
+            <Link href="/" className="text-lg font-light tracking-[0.15em] uppercase text-ds-cyan hover:opacity-80 transition-opacity">
               BCH ATLAS
             </Link>
-            <p className="text-sm text-gray-600">Ecosystem Graph Explorer</p>
+            <p className="ds-label mt-0.5">Graph Explorer</p>
           </div>
-          <div className="flex gap-4">
-            <Link
-              href="/campaigns"
-              className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium"
-            >
-              Browse Campaigns
+          <div className="flex gap-3">
+            <Link href="/campaigns" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
+              Campaigns
             </Link>
-            <Link
-              href="/"
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium"
-            >
+            <Link href="/" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
               Home
             </Link>
           </div>
         </div>
       </header>
 
-      <div className="flex-1 flex">
+      <div className="flex-1 flex relative">
         <main className="flex-1 relative">
           <GraphVisualization
             nodes={nodes}
@@ -89,160 +79,126 @@ export default function GraphPage() {
             filters={filters}
           />
 
-          <div className="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-xs">
-            <h3 className="font-bold mb-3">Graph Controls</h3>
+          {/* Controls */}
+          <div className="absolute top-4 left-4 ds-panel p-4 max-w-xs ds-fade-in">
+            <h3 className="ds-label mb-3">Filters</h3>
+            <div className="space-y-2 text-sm mb-4">
+              <label className="flex items-center gap-2 cursor-pointer hover:bg-white/5 p-1 rounded transition-colors">
+                <input type="checkbox" checked={filters.showSuccessful} onChange={() => toggleFilter('showSuccessful')} className="w-3.5 h-3.5 accent-[#00FF88]" />
+                <span className="w-3 h-3 rounded-full" style={{ background: '#00FF88' }}></span>
+                <span className="text-ds-text-secondary text-xs">Success</span>
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer hover:bg-white/5 p-1 rounded transition-colors">
+                <input type="checkbox" checked={filters.showFailed} onChange={() => toggleFilter('showFailed')} className="w-3.5 h-3.5 accent-[#FF3344]" />
+                <span className="w-3 h-3 rounded-full" style={{ background: '#FF3344' }}></span>
+                <span className="text-ds-text-secondary text-xs">Failed</span>
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer hover:bg-white/5 p-1 rounded transition-colors">
+                <input type="checkbox" checked={filters.showRunning} onChange={() => toggleFilter('showRunning')} className="w-3.5 h-3.5 accent-[#00D4FF]" />
+                <span className="w-3 h-3 rounded-full" style={{ background: '#00D4FF' }}></span>
+                <span className="text-ds-text-secondary text-xs">Running</span>
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer hover:bg-white/5 p-1 rounded transition-colors">
+                <input type="checkbox" checked={filters.showRecipients} onChange={() => toggleFilter('showRecipients')} className="w-3.5 h-3.5 accent-[#FF8C00]" />
+                <span className="w-3 h-3" style={{ background: '#FF8C00', clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}></span>
+                <span className="text-ds-text-secondary text-xs">Recipients</span>
+              </label>
+            </div>
 
-            {/* Filters */}
-            <div className="mb-4">
-              <p className="text-xs font-semibold text-gray-600 mb-2">Show/Hide Nodes</p>
-              <div className="space-y-2 text-sm">
-                <label className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded">
-                  <input
-                    type="checkbox"
-                    checked={filters.showSuccessful}
-                    onChange={() => toggleFilter('showSuccessful')}
-                    className="w-4 h-4"
-                  />
-                  <div className="w-6 h-6 bg-green-500 rounded-full"></div>
-                  <span>Success (150)</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded">
-                  <input
-                    type="checkbox"
-                    checked={filters.showFailed}
-                    onChange={() => toggleFilter('showFailed')}
-                    className="w-4 h-4"
-                  />
-                  <div className="w-6 h-6 bg-red-500 rounded-full"></div>
-                  <span>Failed (73)</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded">
-                  <input
-                    type="checkbox"
-                    checked={filters.showRunning}
-                    onChange={() => toggleFilter('showRunning')}
-                    className="w-4 h-4"
-                  />
-                  <div className="w-6 h-6 bg-blue-500 rounded-full"></div>
-                  <span>Running (2)</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded">
-                  <input
-                    type="checkbox"
-                    checked={filters.showRecipients}
-                    onChange={() => toggleFilter('showRecipients')}
-                    className="w-4 h-4"
-                  />
-                  <div className="w-6 h-6 bg-purple-600 rounded-full transform rotate-45"></div>
-                  <span>Recipients (138)</span>
-                </label>
+            <div className="border-t border-ds-cyan/10 pt-3 mb-3">
+              <p className="ds-label mb-2">Controls</p>
+              <div className="space-y-1 text-xs text-ds-text-secondary">
+                <div><span className="text-ds-cyan">Scroll</span> — Zoom</div>
+                <div><span className="text-ds-cyan">Drag</span> — Pan</div>
+                <div><span className="text-ds-cyan">Click</span> — Select</div>
+                <div><span className="text-ds-cyan">Dbl-click</span> — Focus</div>
               </div>
             </div>
 
-            {/* Mouse Controls */}
-            <div className="mb-3 border-t pt-3">
-              <p className="text-xs font-semibold text-gray-600 mb-2">Mouse Controls</p>
-              <div className="space-y-1 text-xs text-gray-700">
-                <div>🖱️ <strong>Middle button scroll:</strong> Zoom in/out</div>
-                <div>✋ <strong>Left click + drag:</strong> Pan around</div>
-                <div>👆 <strong>Click node:</strong> View details</div>
-                <div>🔍 <strong>Double-click:</strong> Focus on node</div>
-              </div>
-            </div>
-
-            <p className="text-xs text-gray-500 italic border-t pt-2">
-              Node size = BCH amount. Purple diamonds show addresses that received funds from 2+ campaigns.
+            <p className="text-[10px] text-ds-text-secondary/60 border-t border-ds-cyan/10 pt-2">
+              Node size = BCH amount. Diamonds = shared recipients.
             </p>
           </div>
         </main>
 
+        {/* Detail Sidebar */}
         {selectedNode && (
-          <aside className="w-80 bg-white border-l p-6 overflow-y-auto">
-            <button
-              onClick={() => setSelectedNode(null)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
-            >
-              ✕
-            </button>
-
-            <h2 className="text-xl font-bold mb-4">{selectedNode.label}</h2>
+          <aside className="w-80 ds-panel border-0 border-l border-[rgba(0,212,255,0.1)] p-6 overflow-y-auto ds-slide-in">
+            <div className="flex justify-between items-start mb-4">
+              <h2 className="text-sm font-medium text-ds-text pr-2 leading-tight">{selectedNode.label}</h2>
+              <button
+                onClick={() => setSelectedNode(null)}
+                className="text-ds-text-secondary hover:text-ds-cyan transition-colors text-lg leading-none flex-shrink-0"
+              >
+                x
+              </button>
+            </div>
 
             <div className="space-y-4">
               <div>
-                <span className="text-sm text-gray-600">Type:</span>
-                <p className="font-medium capitalize">{selectedNode.type}</p>
+                <span className="ds-label">Type</span>
+                <p className="text-ds-text text-sm capitalize mt-0.5">{selectedNode.type}</p>
               </div>
 
               {selectedNode.type === 'campaign' && (
                 <>
                   <div>
-                    <span className="text-sm text-gray-600">Platform:</span>
-                    <p className="font-medium capitalize">{selectedNode.metadata.platform}</p>
+                    <span className="ds-label">Platform</span>
+                    <p className="text-ds-text text-sm capitalize mt-0.5">{selectedNode.metadata.platform}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Status:</span>
-                    <p className="font-medium capitalize">{selectedNode.metadata.status}</p>
+                    <span className="ds-label">Status</span>
+                    <p className={`text-sm capitalize mt-0.5 ${
+                      selectedNode.metadata.status === 'success' ? 'text-ds-green' :
+                      selectedNode.metadata.status === 'expired' ? 'text-ds-red' :
+                      'text-ds-cyan'
+                    }`}>{selectedNode.metadata.status}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Amount:</span>
-                    <p className="font-bold text-green-600 text-2xl">{selectedNode.value} BCH</p>
+                    <span className="ds-label">Amount</span>
+                    <p className="font-mono text-2xl text-ds-green mt-0.5">{selectedNode.value} <span className="text-sm text-ds-text-secondary">BCH</span></p>
                   </div>
                   {selectedNode.metadata.time && (
-                    <>
-                      <div>
-                        <span className="text-sm text-gray-600">Completion Date:</span>
-                        <p className="font-medium">{formatDate(selectedNode.metadata.time)}</p>
-                      </div>
-                      <div>
-                        <span className="text-sm text-gray-600">Time Since Finished:</span>
-                        <p className="font-medium text-blue-600">{getTimeSinceDate(selectedNode.metadata.time)}</p>
-                      </div>
-                    </>
+                    <div>
+                      <span className="ds-label">Date</span>
+                      <p className="text-ds-text text-sm font-mono mt-0.5">{formatDate(selectedNode.metadata.time)}</p>
+                      <p className="text-ds-cyan-dim text-xs font-mono">{getTimeSinceDate(selectedNode.metadata.time)}</p>
+                    </div>
                   )}
                   {selectedNode.metadata.transactionTimestamp && (
-                    <>
-                      <div>
-                        <span className="text-sm text-gray-600">Funded On:</span>
-                        <p className="font-medium">{formatDate(undefined, selectedNode.metadata.transactionTimestamp)}</p>
-                      </div>
-                      <div>
-                        <span className="text-sm text-gray-600">Time Since Funded:</span>
-                        <p className="font-medium text-blue-600">{getTimeSinceDate(undefined, selectedNode.metadata.transactionTimestamp)}</p>
-                      </div>
-                    </>
+                    <div>
+                      <span className="ds-label">Funded</span>
+                      <p className="text-ds-text text-sm font-mono mt-0.5">{formatDate(undefined, selectedNode.metadata.transactionTimestamp)}</p>
+                      <p className="text-ds-cyan-dim text-xs font-mono">{getTimeSinceDate(undefined, selectedNode.metadata.transactionTimestamp)}</p>
+                    </div>
                   )}
-                  <div>
-                    <Link
-                      href={`/campaigns/${selectedNode.id}`}
-                      className="block w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-center font-medium"
-                    >
-                      View Campaign Details
-                    </Link>
-                  </div>
+                  <Link
+                    href={`/campaigns/${selectedNode.id}`}
+                    className="block w-full px-4 py-2 border border-ds-cyan text-ds-cyan text-center text-xs tracking-[0.08em] uppercase hover:bg-ds-cyan/10 transition-all"
+                  >
+                    View Details
+                  </Link>
                 </>
               )}
 
               {selectedNode.type === 'recipient' && (
                 <>
                   <div>
-                    <span className="text-sm text-gray-600">Address:</span>
-                    <p className="font-mono text-xs break-all bg-gray-100 p-2 rounded">{selectedNode.metadata.fullAddress}</p>
+                    <span className="ds-label">Address</span>
+                    <p className="font-mono text-xs text-ds-text-secondary break-all mt-1 p-2 bg-white/5 rounded">{selectedNode.metadata.fullAddress}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Campaigns:</span>
-                    <p className="font-bold text-2xl">{selectedNode.metadata.campaigns}</p>
+                    <span className="ds-label">Campaigns</span>
+                    <p className="font-mono text-2xl text-ds-amber mt-0.5">{selectedNode.metadata.campaigns}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Total Received:</span>
-                    <p className="font-bold text-purple-600 text-2xl">{selectedNode.metadata.totalBCH.toFixed(2)} BCH</p>
+                    <span className="ds-label">Total Received</span>
+                    <p className="font-mono text-2xl text-ds-green mt-0.5">{selectedNode.metadata.totalBCH.toFixed(2)} <span className="text-sm text-ds-text-secondary">BCH</span></p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Success Rate:</span>
-                    <p className="font-bold text-xl">{(selectedNode.metadata.successRate * 100).toFixed(0)}%</p>
-                  </div>
-                  <div>
-                    <span className="text-sm text-gray-600">Successful:</span>
-                    <p className="font-medium">{selectedNode.metadata.successfulCampaigns} / {selectedNode.metadata.campaigns}</p>
+                    <span className="ds-label">Success Rate</span>
+                    <p className="font-mono text-lg text-ds-text mt-0.5">{(selectedNode.metadata.successRate * 100).toFixed(0)}%</p>
+                    <p className="text-xs text-ds-text-secondary font-mono">{selectedNode.metadata.successfulCampaigns}/{selectedNode.metadata.campaigns}</p>
                   </div>
                 </>
               )}
@@ -250,16 +206,16 @@ export default function GraphPage() {
               {selectedNode.type === 'entity' && (
                 <>
                   <div>
-                    <span className="text-sm text-gray-600">Campaigns:</span>
-                    <p className="font-bold text-2xl">{selectedNode.metadata.campaigns}</p>
+                    <span className="ds-label">Campaigns</span>
+                    <p className="font-mono text-2xl text-ds-cyan mt-0.5">{selectedNode.metadata.campaigns}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Total Raised:</span>
-                    <p className="font-bold text-green-600 text-2xl">{selectedNode.metadata.totalBCH.toFixed(2)} BCH</p>
+                    <span className="ds-label">Total Raised</span>
+                    <p className="font-mono text-2xl text-ds-green mt-0.5">{selectedNode.metadata.totalBCH.toFixed(2)} <span className="text-sm text-ds-text-secondary">BCH</span></p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Success Rate:</span>
-                    <p className="font-bold text-xl">{(selectedNode.metadata.successRate * 100).toFixed(0)}%</p>
+                    <span className="ds-label">Success Rate</span>
+                    <p className="font-mono text-lg text-ds-text mt-0.5">{(selectedNode.metadata.successRate * 100).toFixed(0)}%</p>
                   </div>
                 </>
               )}

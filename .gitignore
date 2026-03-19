@@ -42,3 +42,9 @@ next-env.d.ts
 
 /src/generated/prisma
 .env*.local
+
+# Claude Code local settings and generated artifacts
+.claude/settings.local.json
+.claude/jobs/
+docs/work-logs/progress/
+docs/work-logs/test-reports/

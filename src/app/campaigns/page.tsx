@@ -28,7 +28,6 @@ async function fetchCampaigns(filters: FilterState): Promise<Campaign[]> {
 }
 
 export default function CampaignsPage() {
-
   const [filters, setFilters] = useState<FilterState>({
     search: '',
     status: new Set(),
@@ -39,8 +38,6 @@ export default function CampaignsPage() {
 
   const [sortBy, setSortBy] = useState<SortOption>('date-desc')
 
-  // Fetch campaigns from API with filters
-  // Convert Sets to Arrays for queryKey serialization
   const queryKey = [
     'campaigns',
     filters.search,
@@ -55,7 +52,6 @@ export default function CampaignsPage() {
     queryFn: () => fetchCampaigns(filters),
   })
 
-  // Calculate stats from all campaigns (fetch without filters for stats)
   const { data: allCampaignsUnfiltered = [] } = useQuery({
     queryKey: ['campaigns-stats'],
     queryFn: () => fetchCampaigns({
@@ -72,77 +68,54 @@ export default function CampaignsPage() {
     const success = allCampaignsUnfiltered.filter(c => c.status === 'success').length
     const failed = allCampaignsUnfiltered.filter(c => c.status === 'expired').length
     const running = allCampaignsUnfiltered.filter(c => c.status === 'running').length
-
     return { total, success, failed, running }
   }, [allCampaignsUnfiltered])
 
-  // Campaigns are already filtered by API, just use them directly
-  const filteredCampaigns = allCampaigns
-
-  // Apply sorting
   const sortedCampaigns = useMemo(() => {
-    const campaigns = [...filteredCampaigns]
-
+    const campaigns = [...allCampaigns]
     switch (sortBy) {
       case 'date-desc':
         return campaigns.sort((a, b) => {
-          // Campaigns without dates go to the end
           if (!a.time && !b.time) return 0
           if (!a.time) return 1
           if (!b.time) return -1
-          const dateA = new Date(a.time).getTime()
-          const dateB = new Date(b.time).getTime()
-          return dateB - dateA
+          return new Date(b.time).getTime() - new Date(a.time).getTime()
         })
-
       case 'date-asc':
         return campaigns.sort((a, b) => {
-          // Campaigns without dates go to the end
           if (!a.time && !b.time) return 0
           if (!a.time) return 1
           if (!b.time) return -1
-          const dateA = new Date(a.time).getTime()
-          const dateB = new Date(b.time).getTime()
-          return dateA - dateB
+          return new Date(a.time).getTime() - new Date(b.time).getTime()
         })
-
       case 'amount-desc':
         return campaigns.sort((a, b) => b.amount - a.amount)
-
       case 'amount-asc':
         return campaigns.sort((a, b) => a.amount - b.amount)
-
       case 'title-asc':
         return campaigns.sort((a, b) => a.title.localeCompare(b.title))
-
       default:
         return campaigns
     }
-  }, [filteredCampaigns, sortBy])
+  }, [allCampaigns, sortBy])
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header */}
-      <header className="bg-white border-b shadow-sm">
+      <header className="ds-panel border-0 border-b border-[rgba(0,212,255,0.1)]">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <Link href="/" className="text-2xl font-bold text-blue-600 hover:text-blue-700">
+              <Link href="/" className="text-lg font-light tracking-[0.15em] uppercase text-ds-cyan hover:opacity-80 transition-opacity">
                 BCH ATLAS
               </Link>
-              <p className="text-sm text-gray-600">Browse All Campaigns</p>
+              <p className="ds-label mt-0.5">Campaign Archive</p>
             </div>
-            <div className="flex gap-4">
-              <Link
-                href="/graph"
-                className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium"
-              >
-                Graph View
+            <div className="flex gap-3">
+              <Link href="/graph" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
+                Graph
               </Link>
-              <Link
-                href="/"
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium"
-              >
+              <Link href="/" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
                 Home
               </Link>
             </div>
@@ -150,37 +123,30 @@ export default function CampaignsPage() {
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        {/* Filters */}
+      {/* Main */}
+      <main className="container mx-auto px-4 py-8 ds-fade-in">
         <CampaignFilters filters={filters} onFilterChange={setFilters} stats={stats} />
 
         {/* Results Header */}
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">
-              {sortedCampaigns.length} Campaign{sortedCampaigns.length !== 1 ? 's' : ''}
+            <h2 className="text-lg font-light text-ds-text">
+              <span className="font-mono text-ds-cyan">{sortedCampaigns.length}</span> Campaign{sortedCampaigns.length !== 1 ? 's' : ''}
             </h2>
-            {sortedCampaigns.length !== allCampaigns.length && (
-              <p className="text-sm text-gray-600">
-                Filtered from {allCampaigns.length} total campaigns
-              </p>
-            )}
           </div>
 
-          {/* Sort Dropdown */}
           <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-gray-700">Sort by:</label>
+            <label className="ds-label">Sort</label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-3 py-1.5 bg-ds-bg-secondary border border-ds-cyan/15 text-ds-text text-xs focus:border-ds-cyan/40 focus:outline-none transition-colors"
             >
-              <option value="date-desc">Date (Newest First)</option>
-              <option value="date-asc">Date (Oldest First)</option>
-              <option value="amount-desc">Amount (Highest First)</option>
-              <option value="amount-asc">Amount (Lowest First)</option>
-              <option value="title-asc">Title (A-Z)</option>
+              <option value="date-desc">Newest</option>
+              <option value="date-asc">Oldest</option>
+              <option value="amount-desc">Highest</option>
+              <option value="amount-asc">Lowest</option>
+              <option value="title-asc">A-Z</option>
             </select>
           </div>
         </div>
@@ -188,12 +154,12 @@ export default function CampaignsPage() {
         {/* Campaign List */}
         {isLoading ? (
           <div className="text-center py-16">
-            <div className="inline-block w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-            <p className="text-gray-500 text-lg mt-4">Loading campaigns...</p>
+            <div className="inline-block w-6 h-6 border-2 border-ds-cyan border-t-transparent rounded-full animate-spin"></div>
+            <p className="text-ds-text-secondary text-sm mt-4">Loading...</p>
           </div>
         ) : sortedCampaigns.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-gray-500 text-lg">No campaigns found matching your filters.</p>
+            <p className="text-ds-text-secondary text-sm">No campaigns match filters.</p>
             <button
               onClick={() =>
                 setFilters({
@@ -204,13 +170,13 @@ export default function CampaignsPage() {
                   platform: new Set()
                 })
               }
-              className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium"
+              className="mt-4 px-6 py-2 border border-ds-cyan text-ds-cyan text-xs tracking-[0.08em] uppercase hover:bg-ds-cyan/10 transition-all"
             >
               Clear Filters
             </button>
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-3">
             {sortedCampaigns.map(campaign => (
               <CampaignCard key={campaign.id} campaign={campaign} />
             ))}

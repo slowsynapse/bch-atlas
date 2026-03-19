@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react'
 import type { GraphNode, GraphEdge } from '@/types/campaign'
 
-// Dynamic import to avoid SSR issues
 let cytoscape: any
 let fcose: any
 
@@ -29,7 +28,6 @@ export function GraphVisualization({
   const cyRef = useRef<any>(null)
 
   useEffect(() => {
-    // Import cytoscape dynamically (client-side only)
     const initCytoscape = async () => {
       if (!cytoscape) {
         cytoscape = (await import('cytoscape')).default
@@ -39,7 +37,6 @@ export function GraphVisualization({
 
       if (!containerRef.current || cyRef.current) return
 
-      // Filter nodes based on filter settings
       const filteredNodes = nodes.filter(node => {
         const { type, metadata } = node.data
 
@@ -55,10 +52,7 @@ export function GraphVisualization({
         return true
       })
 
-      // Get IDs of visible nodes
       const visibleNodeIds = new Set(filteredNodes.map(n => n.data.id))
-
-      // Filter edges to only include those connecting visible nodes
       const filteredEdges = edges.filter(edge =>
         visibleNodeIds.has(edge.data.source) && visibleNodeIds.has(edge.data.target)
       )
@@ -77,10 +71,10 @@ export function GraphVisualization({
             style: {
               'background-color': (ele: any) => {
                 const status = ele.data('metadata').status
-                return status === 'success' ? '#22C55E' :  // Green for success
-                       status === 'expired' ? '#EF4444' :   // Red for expired/failed
-                       status === 'running' ? '#3B82F6' :   // Blue for running
-                       '#9CA3AF'  // Gray for unknown
+                return status === 'success' ? '#00FF88' :
+                       status === 'expired' ? '#FF3344' :
+                       status === 'running' ? '#00D4FF' :
+                       '#555566'
               },
               'label': 'data(label)',
               'width': (ele: any) => Math.max(20, Math.sqrt(ele.data('value')) * 5),
@@ -90,12 +84,15 @@ export function GraphVisualization({
               'text-halign': 'center',
               'text-wrap': 'wrap',
               'text-max-width': '80px',
+              'color': '#E8E8EC',
+              'text-outline-color': '#0A0A0C',
+              'text-outline-width': 1.5,
             }
           },
           {
             selector: 'node[type="recipient"]',
             style: {
-              'background-color': '#8B5CF6',  // Purple for recipients
+              'background-color': '#FF8C00',
               'label': 'data(label)',
               'width': (ele: any) => Math.max(30, Math.sqrt(ele.data('value')) * 4),
               'height': (ele: any) => Math.max(30, Math.sqrt(ele.data('value')) * 4),
@@ -105,9 +102,11 @@ export function GraphVisualization({
               'text-valign': 'bottom',
               'text-halign': 'center',
               'text-margin-y': 5,
-              'color': '#4C1D95',
+              'color': '#FF8C00',
               'border-width': 2,
-              'border-color': '#6D28D9',
+              'border-color': '#CC7000',
+              'text-outline-color': '#0A0A0C',
+              'text-outline-width': 1,
             }
           },
           {
@@ -115,8 +114,8 @@ export function GraphVisualization({
             style: {
               'background-color': (ele: any) => {
                 const successRate = ele.data('metadata').successRate
-                return successRate > 0.7 ? '#22C55E' :
-                       successRate > 0.3 ? '#F59E0B' : '#EF4444'
+                return successRate > 0.7 ? '#00FF88' :
+                       successRate > 0.3 ? '#FF8C00' : '#FF3344'
               },
               'label': 'data(label)',
               'width': (ele: any) => Math.max(40, ele.data('metadata').campaigns * 15),
@@ -126,8 +125,8 @@ export function GraphVisualization({
               'font-weight': 'bold',
               'text-valign': 'center',
               'text-halign': 'center',
-              'color': '#fff',
-              'text-outline-color': '#000',
+              'color': '#E8E8EC',
+              'text-outline-color': '#0A0A0C',
               'text-outline-width': 2,
             }
           },
@@ -135,8 +134,8 @@ export function GraphVisualization({
             selector: 'edge[type="created"]',
             style: {
               'width': 2,
-              'line-color': '#94A3B8',
-              'target-arrow-color': '#94A3B8',
+              'line-color': 'rgba(0, 212, 255, 0.2)',
+              'target-arrow-color': 'rgba(0, 212, 255, 0.2)',
               'target-arrow-shape': 'triangle',
               'curve-style': 'bezier',
             }
@@ -145,7 +144,7 @@ export function GraphVisualization({
             selector: 'edge[type="related"]',
             style: {
               'width': 4,
-              'line-color': '#8B5CF6',
+              'line-color': 'rgba(0, 212, 255, 0.3)',
               'line-style': 'dashed',
               'curve-style': 'bezier',
             }
@@ -154,8 +153,8 @@ export function GraphVisualization({
             selector: 'edge[type="received"]',
             style: {
               'width': 2,
-              'line-color': '#A78BFA',
-              'target-arrow-color': '#A78BFA',
+              'line-color': 'rgba(255, 140, 0, 0.3)',
+              'target-arrow-color': 'rgba(255, 140, 0, 0.3)',
               'target-arrow-shape': 'triangle',
               'curve-style': 'bezier',
               'opacity': 0.6,
@@ -165,7 +164,7 @@ export function GraphVisualization({
             selector: ':selected',
             style: {
               'border-width': 3,
-              'border-color': '#FF6B6B',
+              'border-color': '#00D4FF',
             }
           }
         ],
@@ -184,13 +183,34 @@ export function GraphVisualization({
 
         minZoom: 0.1,
         maxZoom: 3,
-        wheelSensitivity: 0.5,  // Increased for faster zoom (was 0.2)
+        wheelSensitivity: 0.5,
       })
 
-      // Click handler
+      // Click: select and highlight connections
       cy.on('tap', 'node', (evt: any) => {
         const node = evt.target
         onNodeClick?.(node.id(), node.data())
+
+        // Dim all, brighten connected
+        cy.elements().forEach((ele: any) => {
+          ele.style('opacity', 0.15)
+        })
+        node.style('opacity', 1)
+        node.connectedEdges().forEach((edge: any) => {
+          edge.style('opacity', 1)
+          edge.style('line-color', edge.data('type') === 'received' ? '#FF8C00' : '#00D4FF')
+          edge.connectedNodes().style('opacity', 1)
+        })
+      })
+
+      // Click background: reset
+      cy.on('tap', (evt: any) => {
+        if (evt.target === cy) {
+          cy.elements().forEach((ele: any) => {
+            ele.removeStyle('opacity')
+            ele.removeStyle('line-color')
+          })
+        }
       })
 
       // Double-click to focus
@@ -221,8 +241,8 @@ export function GraphVisualization({
   return (
     <div
       ref={containerRef}
-      className="w-full h-full bg-gray-50"
-      style={{ minHeight: '600px' }}
+      className="w-full h-full"
+      style={{ minHeight: '600px', background: '#0A0A0C' }}
     />
   )
 }

@@ -8,11 +8,6 @@ interface ContributorsListProps {
   contributors: Contributor[]
 }
 
-function truncateAddress(address: string): string {
-  if (address.length <= 20) return address
-  return `${address.slice(0, 20)}...${address.slice(-8)}`
-}
-
 function copyToClipboard(text: string) {
   navigator.clipboard.writeText(text)
 }
@@ -20,66 +15,61 @@ function copyToClipboard(text: string) {
 export function ContributorsList({ contributors }: ContributorsListProps) {
   if (!contributors || contributors.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500">
-        No contributor information available for this campaign.
+      <div className="text-center py-6 text-ds-text-secondary text-xs">
+        No recipient information available.
       </div>
     )
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       {contributors.map((contributor, index) => (
         <div
           key={contributor.address + index}
-          className="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-colors"
+          className="bg-white/[0.03] border border-ds-cyan/8 p-3 hover:border-ds-cyan/20 transition-colors"
         >
-          <div className="flex justify-between items-start gap-4">
+          <div className="flex justify-between items-start gap-3">
             <div className="flex-1 min-w-0">
               {contributor.name && (
-                <div className="font-semibold text-gray-900 mb-1">
-                  {contributor.name}
-                </div>
+                <div className="text-ds-text text-sm mb-1">{contributor.name}</div>
               )}
               <div className="flex items-center gap-2">
-                <code className="text-sm text-gray-600 font-mono break-all">
+                <code className="text-xs text-ds-text-secondary font-mono break-all">
                   {contributor.address}
                 </code>
                 <button
                   onClick={() => copyToClipboard(contributor.address)}
-                  className="flex-shrink-0 text-blue-600 hover:text-blue-700 text-xs"
-                  title="Copy address"
+                  className="flex-shrink-0 text-ds-cyan-dim hover:text-ds-cyan text-xs transition-colors"
+                  title="Copy"
                 >
-                  📋
+                  copy
                 </button>
               </div>
             </div>
 
             {contributor.amount !== undefined && (
-              <div className="text-right flex-shrink-0">
-                <div className="text-sm font-semibold text-green-600">
-                  {contributor.amount.toFixed(4)} BCH
-                </div>
+              <div className="font-mono text-sm text-ds-green flex-shrink-0">
+                {contributor.amount.toFixed(4)} BCH
               </div>
             )}
           </div>
 
-          {/* Links to explorer */}
-          <div className="mt-2 flex gap-3 text-xs">
+          <div className="mt-2 flex gap-3">
             <a
               href={`https://blockchair.com/bitcoin-cash/address/${contributor.address}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-700 underline"
+              className="text-ds-cyan-dim text-[10px] font-mono hover:text-ds-cyan transition-colors"
             >
-              View on Blockchair →
+              Blockchair
             </a>
             <a
               href={`https://explorer.bitcoinunlimited.info/address/${contributor.address}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-700 underline"
+              className="text-ds-cyan-dim text-[10px] font-mono hover:text-ds-cyan transition-colors"
             >
-              View on BU Explorer →
+              BU Explorer
             </a>
           </div>
         </div>

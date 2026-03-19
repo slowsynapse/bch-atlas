@@ -1,181 +1,187 @@
-# CLAUDE.md — BCH ATLAS
+# CLAUDE.md — BCH Atlas
 
-## Project Overview
+## Repository Purpose
 
-**BCH ATLAS** (Archive & Tracking Ledger for Assurance Schemes) preserves Bitcoin Cash crowdfunding campaign history from Flipstarter and FundMe.cash platforms. It provides an interactive graph visualization revealing ecosystem relationships between campaigns, creators, and recipients.
+BCH Atlas (Archive & Tracking Ledger for Assurance Schemes) preserves Bitcoin Cash crowdfunding campaign history from Flipstarter and FundMe.cash platforms. It provides an interactive graph visualization revealing ecosystem relationships between campaigns, creators, and recipient addresses. Data comes from static JSON files derived from the Flipstarter directory and Chaingraph blockchain queries.
 
-**Stage:** 1 (MVP Build)
-**Repo:** `github.com/slowsynapse/bch-atlas`
-**Deploy Target:** Vercel
+---
 
-## Tech Stack
+## Current Topology
 
-- **Framework:** Next.js 16 (App Router, TypeScript)
-- **Styling:** Tailwind CSS v4
-- **Graph:** Cytoscape.js + cytoscape-fcose layout
-- **Database:** PostgreSQL via Prisma (Vercel Postgres / Neon)
-- **State:** Zustand, TanStack React Query
-- **Search:** Fuse.js (client-side fuzzy)
-- **Blockchain:** Chaingraph GraphQL API (`gql.chaingraph.pat.mn`)
-- **Scraping:** Cheerio, Puppeteer
+**Stack:** Next.js 16 (App Router, TypeScript), Tailwind CSS v4, Cytoscape.js
 
-## Architecture
+**Components:**
+- **Homepage** (`app/page.tsx`): Stats dashboard with campaign metrics. Server component, reads JSON directly.
+- **Graph Explorer** (`app/graph/page.tsx`): Interactive Cytoscape.js force-directed graph. Client component. The hero feature.
+- **Campaign List** (`app/campaigns/page.tsx`): Filterable campaign browser. Client component, fetches from API route.
+- **Campaign Detail** (`app/campaigns/[id]/page.tsx`): Individual campaign page. Server component, reads JSON directly.
+- **API Route** (`app/api/campaigns/route.ts`): Campaign search/filter endpoint. Reads from static JSON, no database.
+- **Data Layer** (`lib/data/`): Campaign loader, entity resolver. Imports `data/flipstarters-with-addresses.json`.
+- **Graph Builder** (`lib/graph/`): Builds Cytoscape nodes/edges from campaigns + recipient addresses.
+- **Entity Extractor** (`lib/parsers/`): Named entity recognition for BCH ecosystem teams.
+- **Chaingraph Client** (`lib/chaingraph/`): GraphQL client for BCH blockchain queries (not yet used in UI).
 
-### Data Flow (Current)
+**Planned direction:** Vercel deployment. FundMe.cash integration. Automated Wayback Machine discovery. Blockchain verification badges. Community submission form. Eventually a research API.
 
-```
-Static JSON (data/flipstarters-with-addresses.json, 225 campaigns)
-  → lib/data/campaigns.ts (transform + entity extraction)
-  → Prisma PostgreSQL (via seed script)
-  → API routes (/api/campaigns) with Prisma queries
-  → React Query on frontend
-```
+---
 
-### Key Directories
+## Build & Test Commands
 
-```
-src/
-├── app/
-│   ├── page.tsx                    # Homepage with stats
-│   ├── graph/page.tsx              # Interactive graph explorer
-│   ├── campaigns/page.tsx          # Campaign list with filters
-│   ├── campaigns/[id]/page.tsx     # Campaign detail
-│   ├── api/campaigns/route.ts      # Campaign API (Prisma)
-│   └── providers.tsx               # React Query provider
-├── components/
-│   ├── graph/GraphVisualization.tsx # Cytoscape.js graph
-│   └── campaigns/                  # Card, Filters, ContributorsList
-├── lib/
-│   ├── data/campaigns.ts           # Data access layer + stats
-│   ├── data/entity-resolver.ts     # Entity deduplication
-│   ├── parsers/entity-extractor.ts # Named entity extraction
-│   ├── graph/builder.ts            # Graph node/edge construction
-│   ├── graph/address-analyzer.ts   # Recipient address analysis
-│   ├── chaingraph/                 # Chaingraph GraphQL client
-│   └── prisma.ts                   # Prisma client singleton
-├── types/campaign.ts               # Core type definitions
-data/
-├── flipstarters-with-addresses.json  # Primary dataset (225 campaigns)
-├── flipstarters-new.json             # New campaigns from API
-├── flipstarters-old-85.json          # Legacy data
-├── failed-campaigns-recipients.json  # Failed campaign addresses
-scripts/                              # Data extraction scripts
-prisma/
-├── schema.prisma                     # DB schema
-└── seed.ts                           # JSON → Postgres seeder
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Run linter
+npm run lint
+
+# Build for production
+npm run build
+
+# Type check (no emit)
+npx tsc --noEmit
 ```
 
-### Dual Data Path (Important!)
+---
 
-The app currently has TWO data paths — this is a known architectural issue:
+## Never Ship Without Verification
 
-1. **Homepage + Graph:** Import JSON directly via `lib/data/campaigns.ts` (server components)
-2. **Campaign List:** Fetch from `/api/campaigns` which queries Prisma/Postgres
+**Mandatory checks before any commit:**
+- [ ] `npm run build` passes
+- [ ] `npm run lint` passes (pre-existing warnings OK, no new errors)
+- [ ] No new TypeScript errors (`npx tsc --noEmit`)
+- [ ] Dev server starts and homepage loads (`npm run dev`)
 
-Both need to work. The homepage/graph use static imports for SSG performance. The campaign list uses the API for dynamic filtering. Future work should unify these.
+**No test framework yet.** When adding tests, use Playwright for E2E and Vitest for unit tests.
 
-## Data Shape
+---
 
-```typescript
-interface Campaign {
-  id: string              // SHA256 hash (16 chars)
-  platform: 'flipstarter' | 'fundme'
-  title: string
-  description?: string
-  category?: string[]
-  amount: number          // Goal BCH
-  raised?: number
-  status: 'success' | 'expired' | 'running' | 'unknown'
-  time: string            // ISO date
-  url: string
-  archive?: string[]      // Archive.is / Wayback links
-  announcement?: string[]
-  tx?: string             // Funding transaction hash
-  entities: string[]      // Extracted entity names
-  recipientAddresses?: string[]
-  blockHeight?: number | string
-  transactionTimestamp?: string
+## Expected Workflow Order
+
+When you receive a task:
+
+1. **Inspect** — Read relevant files, check git status, understand current state.
+2. **Plan** — Write a brief plan in `docs/work-logs/plans/plan-YYYY-MM-DD-description.md`.
+3. **Implement** — Make the changes.
+4. **Verify** — Run build, lint, dev server. Check affected pages in browser if possible.
+5. **Summarize** — Write a summary in `docs/work-logs/summaries/summary-YYYY-MM-DD-description.md`.
+
+**Output all plans and summaries to:** `docs/work-logs/`
+
+---
+
+## How to Handle Ambiguous Tasks
+
+If a task is unclear:
+- **Do NOT guess and proceed.**
+- Write a clarification request in `docs/work-logs/questions/questions-YYYY-MM-DD.md`
+- List what you understand, what's ambiguous, and what options exist
+- Wait for human input before implementing
+
+---
+
+## How to Log Progress
+
+**Machine-readable format:** JSON in `docs/work-logs/progress/`
+
+```json
+{
+  "task": "description",
+  "started_at": "timestamp",
+  "completed_at": "timestamp or null",
+  "status": "in_progress | completed | blocked",
+  "changes": ["file1", "file2"],
+  "verification": "passed | failed | not_run",
+  "blockers": ["reason1"],
+  "next_step": "what should happen next"
 }
 ```
 
-## Database
+---
 
-PostgreSQL via Prisma. Schema in `prisma/schema.prisma`.
+## How to Resume Interrupted Work
 
-**Tables:** Campaign, Recipient, Entity
+1. Check `docs/work-logs/` for the most recent plan/summary
+2. Check `git status` and `git log --oneline -5`
+3. Read the "next_step" from the last progress log
+4. If unclear, ask for confirmation before proceeding
 
-**Setup:**
-```bash
-vercel env pull .env.local   # Get connection strings
-npx prisma generate
-npm run db:push              # Push schema
-npm run db:seed              # Seed from JSON
-npm run db:studio            # Browse data at localhost:5555
-```
+**Always leave work in a resumable state:**
+- Commit working changes
+- Write a progress log before pausing
 
-## Graph Visualization
+---
 
-Cytoscape.js with fcose (force-directed) layout. Three node types:
+## Where Generated Plans/Reports Go
 
-- **Campaign nodes** (circles): Sized by BCH amount, colored by status (green=success, red=failed, blue=running)
-- **Entity nodes** (hexagons): Known teams/projects, colored by success rate
-- **Recipient nodes** (diamonds): BCH addresses that received funds from 2+ campaigns, purple
+All work artifacts go in: `docs/work-logs/`
 
-Dynamic import to avoid SSR issues. WebGL rendering needed for 500+ nodes.
+- Plans: `plans/plan-YYYY-MM-DD-brief-description.md`
+- Summaries: `summaries/summary-YYYY-MM-DD-brief-description.md`
+- Questions: `questions/questions-YYYY-MM-DD.md`
+- Progress: `progress/progress-YYYY-MM-DD-task-name.json` (gitignored)
 
-## Entity Extraction
+---
 
-`lib/parsers/entity-extractor.ts` uses a known-entities dictionary (BCHN, Electron Cash, General Protocols, etc.) to tag campaigns. Only matches known entities — does NOT auto-create from unknown URL subdomains. Entity resolution via `lib/data/entity-resolver.ts` handles aliases and deduplication.
+## What Counts as "Done"
 
-## Known Issues
+- [ ] Code implements the requested feature/fix
+- [ ] `npm run build` passes
+- [ ] `npm run lint` passes
+- [ ] A summary exists in `docs/work-logs/summaries/`
+- [ ] Changes are committed with a clear verb-first message
 
-1. **Dual data path** — Homepage/graph read JSON directly; campaign list uses Prisma API. Need unification.
-2. **Running filter ghost** — Running filter shows a campaign with FAILED badge (data quality issue in source JSON).
-3. **No FundMe.cash data yet** — Only Flipstarter campaigns. FundMe scraper exists but hasn't been run.
-4. **Entity extraction limited** — Only ~12 known entities. Many campaigns untagged.
+---
 
-## Commands
+## What Claude Should Never Modify Without Approval
 
-```bash
-npm run dev          # Dev server (localhost:3000)
-npm run build        # Production build
-npm run lint         # ESLint
-npm run db:push      # Push Prisma schema
-npm run db:seed      # Seed database from JSON
-npm run db:studio    # Prisma Studio UI
-```
+**Danger zones:**
+- [ ] `data/*.json` — Source datasets. Never modify campaign data files.
+- [ ] `scripts/` — Data extraction scripts that produced the JSON. Don't change without understanding impact.
+- [ ] Any deployment config (vercel.json, .env files) — when they exist
+- [ ] ID generation logic in `lib/data/campaigns.ts` (`generateId()`) — changing this breaks all campaign URLs
 
-## Commit Conventions
+---
 
-Verb-first, scoped messages:
+## Project-Specific Notes
+
+### Architecture
+
+- **Static JSON, no database.** All campaign data lives in `data/flipstarters-with-addresses.json` (225 campaigns). No Prisma, no Postgres.
+- **Dual data path:** Homepage/graph import JSON at build time (server components). Campaign list fetches from `/api/campaigns` (client component → API route → same JSON). Both paths use `lib/data/campaigns.ts`.
+- **Components never import JSON directly** — always use the data access layer (`getCampaigns()`, `getEntities()`, etc.).
+
+### Design System
+
+- **Death Stranding aesthetic.** Dark backgrounds (#0A0A0C), cyan holographic accents (#00D4FF), amber warnings (#FF8C00), frosted glass panels, monospace data, scan-line overlay.
+- Typography: Inter for UI, JetBrains Mono for data/addresses/numbers.
+- Sharp corners (2px border-radius), thin borders, translucent panels with backdrop-blur.
+
+### Graph Visualization
+
+- Cytoscape.js with fcose layout. Dynamic import to avoid SSR issues.
+- Three node types: campaigns (circles), entities (hexagons), recipients (diamonds).
+- Recipients colored amber — these are the "strands" connecting campaigns.
+- ~225 campaign nodes + ~138 recipient address nodes.
+
+### Known Issues
+
+- Campaign list page has contrast issues (cards too dark)
+- Entity extraction only covers ~12 known entities; most campaigns untagged
+- FundMe.cash data not yet integrated
+- No test framework set up
+
+### Commit Messages
+
+Verb-first, scoped:
 ```
 Add graph filtering by campaign status
 Fix duplicate campaign IDs in entity resolver
-Extract recipient addresses from archive URLs
+Strip Prisma dependency, unify to static JSON
 ```
 
-## External Services
+---
 
-- **Chaingraph:** `https://gql.chaingraph.pat.mn/v1/graphql` — BCH blockchain GraphQL
-- **Archive.org:** Wayback Machine API (rate limit: 15 req/min)
-- **Vercel:** Hosting + Postgres + Cron
-- **IPFS/Pinata:** Future archival (not yet implemented)
-
-## Testing
-
-No test framework set up yet. Manual testing documented in `test-results.md`.
-
-Pre-commit verification:
-```bash
-npm run build        # Must pass
-npm run lint         # Must pass
-```
-
-## Environment Variables
-
-```
-DATABASE_URL=postgres://...          # Vercel Postgres (pooled)
-POSTGRES_PRISMA_URL=postgres://...   # Prisma connection
-POSTGRES_URL_NON_POOLING=postgres:// # Direct connection
-CHAINGRAPH_URL=https://gql.chaingraph.pat.mn/v1/graphql
-```
+*Last updated: March 19, 2026*

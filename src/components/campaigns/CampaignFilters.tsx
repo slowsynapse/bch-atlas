@@ -70,159 +70,106 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
     filters.platform.size > 0
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+    <div className="ds-panel p-5 mb-6">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold text-gray-900">Filters</h2>
+        <h2 className="ds-label">Filters</h2>
         {hasActiveFilters && (
           <button
             onClick={clearFilters}
-            className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+            className="text-xs text-ds-cyan hover:text-ds-cyan/80 transition-colors tracking-[0.05em] uppercase"
           >
-            Clear All
+            Clear
           </button>
         )}
       </div>
 
-      {/* Search Bar */}
+      {/* Search */}
       <div className="mb-4">
         <input
           type="text"
-          placeholder="Search campaigns by title or description..."
+          placeholder="Search campaigns..."
           value={filters.search}
           onChange={(e) => updateFilter('search', e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 bg-ds-bg-tertiary border border-ds-cyan/15 text-ds-text text-sm placeholder-ds-text-secondary/50 focus:border-ds-cyan/40 focus:outline-none transition-colors"
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Status Filter */}
+        {/* Status */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Status
-          </label>
+          <label className="ds-label block mb-2">Status</label>
           <div className="space-y-2">
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={filters.status.has('success')}
-                onChange={() => toggleStatus('success')}
-                className="w-4 h-4 rounded"
-              />
-              <span className="text-sm">Success ({stats.success})</span>
+            <label className="flex items-center gap-2 cursor-pointer text-xs text-ds-text-secondary hover:text-ds-text transition-colors">
+              <input type="checkbox" checked={filters.status.has('success')} onChange={() => toggleStatus('success')} className="w-3.5 h-3.5 accent-[#00FF88]" />
+              <span>Success ({stats.success})</span>
             </label>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={filters.status.has('expired')}
-                onChange={() => toggleStatus('expired')}
-                className="w-4 h-4 rounded"
-              />
-              <span className="text-sm">Failed ({stats.failed})</span>
+            <label className="flex items-center gap-2 cursor-pointer text-xs text-ds-text-secondary hover:text-ds-text transition-colors">
+              <input type="checkbox" checked={filters.status.has('expired')} onChange={() => toggleStatus('expired')} className="w-3.5 h-3.5 accent-[#FF3344]" />
+              <span>Failed ({stats.failed})</span>
             </label>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={filters.status.has('running')}
-                onChange={() => toggleStatus('running')}
-                className="w-4 h-4 rounded"
-              />
-              <span className="text-sm">Running ({stats.running})</span>
+            <label className="flex items-center gap-2 cursor-pointer text-xs text-ds-text-secondary hover:text-ds-text transition-colors">
+              <input type="checkbox" checked={filters.status.has('running')} onChange={() => toggleStatus('running')} className="w-3.5 h-3.5 accent-[#00D4FF]" />
+              <span>Running ({stats.running})</span>
             </label>
           </div>
         </div>
 
-        {/* Platform Filter */}
+        {/* Platform */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Platform
-          </label>
+          <label className="ds-label block mb-2">Platform</label>
           <div className="space-y-2">
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={filters.platform.has('flipstarter')}
-                onChange={() => togglePlatform('flipstarter')}
-                className="w-4 h-4 rounded"
-              />
-              <span className="text-sm">Flipstarter</span>
+            <label className="flex items-center gap-2 cursor-pointer text-xs text-ds-text-secondary hover:text-ds-text transition-colors">
+              <input type="checkbox" checked={filters.platform.has('flipstarter')} onChange={() => togglePlatform('flipstarter')} className="w-3.5 h-3.5 accent-[#00D4FF]" />
+              <span>Flipstarter</span>
             </label>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={filters.platform.has('fundme')}
-                onChange={() => togglePlatform('fundme')}
-                className="w-4 h-4 rounded"
-              />
-              <span className="text-sm">FundMe.cash</span>
+            <label className="flex items-center gap-2 cursor-pointer text-xs text-ds-text-secondary hover:text-ds-text transition-colors">
+              <input type="checkbox" checked={filters.platform.has('fundme')} onChange={() => togglePlatform('fundme')} className="w-3.5 h-3.5 accent-[#00D4FF]" />
+              <span>FundMe.cash</span>
             </label>
           </div>
         </div>
 
-        {/* Date Range Filter */}
+        {/* Date Range */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Date Range
-          </label>
+          <label className="ds-label block mb-2">Date Range</label>
           <div className="space-y-2">
-            <div>
-              <label className="text-xs text-gray-500 block mb-1">From</label>
-              <input
-                type="date"
-                value={filters.dateRange.start}
-                onChange={(e) =>
-                  updateFilter('dateRange', { ...filters.dateRange, start: e.target.value })
-                }
-                className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label className="text-xs text-gray-500 block mb-1">To</label>
-              <input
-                type="date"
-                value={filters.dateRange.end}
-                onChange={(e) =>
-                  updateFilter('dateRange', { ...filters.dateRange, end: e.target.value })
-                }
-                className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-            </div>
+            <input
+              type="date"
+              value={filters.dateRange.start}
+              onChange={(e) => updateFilter('dateRange', { ...filters.dateRange, start: e.target.value })}
+              className="w-full px-3 py-1.5 bg-ds-bg-tertiary border border-ds-cyan/15 text-ds-text text-xs focus:border-ds-cyan/40 focus:outline-none transition-colors"
+            />
+            <input
+              type="date"
+              value={filters.dateRange.end}
+              onChange={(e) => updateFilter('dateRange', { ...filters.dateRange, end: e.target.value })}
+              className="w-full px-3 py-1.5 bg-ds-bg-tertiary border border-ds-cyan/15 text-ds-text text-xs focus:border-ds-cyan/40 focus:outline-none transition-colors"
+            />
           </div>
         </div>
 
-        {/* Amount Range Filter */}
+        {/* Amount Range */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Amount (BCH)
-          </label>
+          <label className="ds-label block mb-2">Amount (BCH)</label>
           <div className="space-y-2">
-            <div>
-              <label className="text-xs text-gray-500 block mb-1">Minimum</label>
-              <input
-                type="number"
-                value={filters.amountRange.min}
-                onChange={(e) =>
-                  updateFilter('amountRange', { ...filters.amountRange, min: e.target.value })
-                }
-                className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="0.00"
-                min="0"
-                step="0.01"
-              />
-            </div>
-            <div>
-              <label className="text-xs text-gray-500 block mb-1">Maximum</label>
-              <input
-                type="number"
-                value={filters.amountRange.max}
-                onChange={(e) =>
-                  updateFilter('amountRange', { ...filters.amountRange, max: e.target.value })
-                }
-                className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="1000.00"
-                min="0"
-                step="0.01"
-              />
-            </div>
+            <input
+              type="number"
+              value={filters.amountRange.min}
+              onChange={(e) => updateFilter('amountRange', { ...filters.amountRange, min: e.target.value })}
+              className="w-full px-3 py-1.5 bg-ds-bg-tertiary border border-ds-cyan/15 text-ds-text text-xs font-mono focus:border-ds-cyan/40 focus:outline-none transition-colors"
+              placeholder="Min"
+              min="0"
+              step="0.01"
+            />
+            <input
+              type="number"
+              value={filters.amountRange.max}
+              onChange={(e) => updateFilter('amountRange', { ...filters.amountRange, max: e.target.value })}
+              className="w-full px-3 py-1.5 bg-ds-bg-tertiary border border-ds-cyan/15 text-ds-text text-xs font-mono focus:border-ds-cyan/40 focus:outline-none transition-colors"
+              placeholder="Max"
+              min="0"
+              step="0.01"
+            />
           </div>
         </div>
       </div>

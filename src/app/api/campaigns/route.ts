@@ -1,73 +1,53 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { getCampaigns } from '@/lib/data/campaigns'
 
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
 
-    // Parse filters from query params
     const platform = searchParams.getAll('platform')
     const status = searchParams.getAll('status')
     const search = searchParams.get('search')
     const minAmount = searchParams.get('minAmount')
     const maxAmount = searchParams.get('maxAmount')
 
-    // Build where clause
-    const where: any = {}
+    let campaigns = getCampaigns()
 
     if (platform.length > 0) {
-      where.platform = { in: platform }
+      campaigns = campaigns.filter(c => platform.includes(c.platform))
     }
 
     if (status.length > 0) {
-      where.status = { in: status }
+      campaigns = campaigns.filter(c => status.includes(c.status))
     }
 
     if (search) {
-      where.OR = [
-        { title: { contains: search, mode: 'insensitive' } },
-        { description: { contains: search, mode: 'insensitive' } },
-      ]
+      const searchLower = search.toLowerCase()
+      campaigns = campaigns.filter(c =>
+        c.title.toLowerCase().includes(searchLower) ||
+        (c.description && c.description.toLowerCase().includes(searchLower))
+      )
     }
 
-    if (minAmount || maxAmount) {
-      where.amount = {}
-      if (minAmount) where.amount.gte = parseFloat(minAmount)
-      if (maxAmount) where.amount.lte = parseFloat(maxAmount)
+    if (minAmount) {
+      const min = parseFloat(minAmount)
+      campaigns = campaigns.filter(c => c.amount >= min)
     }
 
-    // Fetch campaigns with recipients
-    const campaigns = await prisma.campaign.findMany({
-      where,
-      include: {
-        recipients: true,
-      },
-      orderBy: {
-        time: 'desc',
-      },
+    if (maxAmount) {
+      const max = parseFloat(maxAmount)
+      campaigns = campaigns.filter(c => c.amount <= max)
+    }
+
+    // Sort by date descending (newest first)
+    campaigns.sort((a, b) => {
+      if (!a.time && !b.time) return 0
+      if (!a.time) return 1
+      if (!b.time) return -1
+      return new Date(b.time).getTime() - new Date(a.time).getTime()
     })
 
-    // Transform to match frontend format
-    const transformed = campaigns.map((campaign) => ({
-      id: campaign.id,
-      platform: campaign.platform,
-      title: campaign.title,
-      description: campaign.description,
-      category: campaign.category,
-      amount: campaign.amount,
-      raised: campaign.raised || null,
-      status: campaign.status,
-      time: campaign.time?.toISOString() || null,
-      transactionTimestamp: campaign.transactionTimestamp,
-      url: campaign.url,
-      archive: campaign.archive,
-      announcement: campaign.announcement,
-      tx: campaign.tx,
-      blockHeight: campaign.blockHeight,
-      recipientAddresses: campaign.recipients.map((r) => r.address),
-    }))
-
-    return NextResponse.json(transformed)
+    return NextResponse.json(campaigns)
   } catch (error) {
     console.error('Error fetching campaigns:', error)
     return NextResponse.json(
