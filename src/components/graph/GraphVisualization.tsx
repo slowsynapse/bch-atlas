@@ -4,13 +4,120 @@ import { useEffect, useRef } from 'react'
 import type { GraphNode, GraphEdge } from '@/types/campaign'
 
 let cytoscape: any
-let fcose: any
 
 export interface NodeFilters {
   showSuccessful: boolean
   showFailed: boolean
   showRunning: boolean
   showRecipients: boolean
+}
+
+// Continent center positions on canvas (x, y) — laid out like a map
+const CONTINENT_CENTERS: Record<string, { x: number; y: number; label: string }> = {
+  infrastructure: { x: -400, y: -250, label: 'INFRASTRUCTURE' },
+  wallets:        { x: 400, y: -250, label: 'WALLETS & TOOLS' },
+  defi:           { x: 0, y: 0, label: 'DEFI & CONTRACTS' },
+  media:          { x: -400, y: 250, label: 'MEDIA & EDUCATION' },
+  commerce:       { x: 400, y: 250, label: 'COMMERCE' },
+  charity:        { x: 0, y: 350, label: 'CHARITY & ADOPTION' },
+  other:          { x: 0, y: -350, label: 'OTHER' },
+}
+
+// Spiral positioning: bigger campaigns closer to center
+function computeSpiralPosition(
+  centerX: number,
+  centerY: number,
+  index: number,
+  total: number,
+  amount: number,
+  maxAmount: number
+): { x: number; y: number } {
+  if (total === 0) return { x: centerX, y: centerY }
+
+  // Distance from center: small amounts farther out, big amounts close
+  const normalizedAmount = Math.log2((amount || 0) + 1) / Math.log2((maxAmount || 1) + 1)
+  const baseRadius = 40 + (1 - normalizedAmount) * 160
+
+  // Spiral angle
+  const goldenAngle = 2.399963 // ~137.5 degrees in radians
+  const angle = index * goldenAngle
+  const radiusGrowth = 1 + (index / Math.max(total, 1)) * 0.5
+  const radius = baseRadius * radiusGrowth
+
+  // Add small jitter to prevent perfect overlaps
+  const jitterX = (Math.sin(index * 7.3) * 8)
+  const jitterY = (Math.cos(index * 11.7) * 8)
+
+  return {
+    x: centerX + Math.cos(angle) * radius + jitterX,
+    y: centerY + Math.sin(angle) * radius + jitterY,
+  }
+}
+
+function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): Map<string, { x: number; y: number }> {
+  const positions = new Map<string, { x: number; y: number }>()
+
+  // Group campaign nodes by continent
+  const continentGroups = new Map<string, GraphNode[]>()
+  const campaignNodes: GraphNode[] = []
+  const recipientNodes: GraphNode[] = []
+
+  for (const node of nodes) {
+    if (node.data.type === 'campaign') {
+      campaignNodes.push(node)
+      const continent = node.data.metadata?.continent || 'other'
+      if (!continentGroups.has(continent)) continentGroups.set(continent, [])
+      continentGroups.get(continent)!.push(node)
+    } else if (node.data.type === 'recipient') {
+      recipientNodes.push(node)
+    }
+  }
+
+  // Position campaign nodes in spiral within each continent
+  for (const [continent, group] of continentGroups) {
+    const center = CONTINENT_CENTERS[continent] || CONTINENT_CENTERS.other
+    // Sort by amount descending so biggest campaigns get spiral index 0 (closest to center)
+    group.sort((a, b) => (b.data.value || 0) - (a.data.value || 0))
+    const maxAmount = group[0]?.data.value || 1
+
+    for (let i = 0; i < group.length; i++) {
+      const pos = computeSpiralPosition(center.x, center.y, i, group.length, group[i].data.value, maxAmount)
+      positions.set(group[i].data.id, pos)
+    }
+  }
+
+  // Position recipient nodes: average position of their connected campaigns
+  const campaignPositions = positions
+  for (const rNode of recipientNodes) {
+    const connectedEdges = edges.filter(e => e.data.target === rNode.data.id || e.data.source === rNode.data.id)
+    let sumX = 0, sumY = 0, count = 0
+    for (const edge of connectedEdges) {
+      const campaignId = edge.data.source === rNode.data.id ? edge.data.target : edge.data.source
+      const pos = campaignPositions.get(campaignId)
+      if (pos) {
+        sumX += pos.x
+        sumY += pos.y
+        count++
+      }
+    }
+    if (count > 0) {
+      // Place recipient slightly offset from the average of its connected campaigns
+      const jitterX = Math.sin(rNode.data.id.length * 3.7) * 20
+      const jitterY = Math.cos(rNode.data.id.length * 5.3) * 20
+      positions.set(rNode.data.id, { x: sumX / count + jitterX, y: sumY / count + jitterY })
+    } else {
+      positions.set(rNode.data.id, { x: 0, y: 0 })
+    }
+  }
+
+  // Entity nodes: average of their campaigns
+  for (const node of nodes) {
+    if (node.data.type === 'entity') {
+      positions.set(node.data.id, { x: 0, y: 0 })
+    }
+  }
+
+  return positions
 }
 
 export function GraphVisualization({
@@ -31,8 +138,6 @@ export function GraphVisualization({
     const initCytoscape = async () => {
       if (!cytoscape) {
         cytoscape = (await import('cytoscape')).default
-        fcose = (await import('cytoscape-fcose')).default
-        cytoscape.use(fcose)
       }
 
       if (!containerRef.current || cyRef.current) return
@@ -57,15 +162,60 @@ export function GraphVisualization({
         visibleNodeIds.has(edge.data.source) && visibleNodeIds.has(edge.data.target)
       )
 
+      // Compute positions before creating graph
+      const positions = computePresetPositions(filteredNodes, filteredEdges)
+
+      // Add continent label nodes
+      const labelNodes: GraphNode[] = Object.entries(CONTINENT_CENTERS).map(([key, val]) => ({
+        data: {
+          id: `label-${key}`,
+          label: val.label,
+          type: 'continent-label' as any,
+          value: 0,
+          metadata: { continent: key }
+        }
+      }))
+
+      // Set label positions
+      for (const [key, val] of Object.entries(CONTINENT_CENTERS)) {
+        positions.set(`label-${key}`, { x: val.x, y: val.y - 200 })
+      }
+
+      // Add positions to nodes
+      const nodesWithPositions = [...filteredNodes, ...labelNodes].map(n => ({
+        ...n,
+        position: positions.get(n.data.id) || { x: 0, y: 0 }
+      }))
+
       const cy = cytoscape({
         container: containerRef.current,
 
         elements: {
-          nodes: filteredNodes,
+          nodes: nodesWithPositions,
           edges: filteredEdges,
         },
 
         style: [
+          // Continent label nodes
+          {
+            selector: 'node[type="continent-label"]',
+            style: {
+              'background-opacity': 0,
+              'label': 'data(label)',
+              'font-size': '14px',
+              'font-weight': '300',
+              'text-valign': 'center',
+              'text-halign': 'center',
+              'color': 'rgba(0, 224, 160, 0.2)',
+              'text-outline-width': 0,
+              'width': 1,
+              'height': 1,
+              'overlay-opacity': 0,
+              'events': 'no',
+              'border-width': 0,
+            }
+          },
+          // Campaign nodes — running campaigns are rectangles (squares)
           {
             selector: 'node[type="campaign"]',
             style: {
@@ -77,6 +227,9 @@ export function GraphVisualization({
                        '#556677'
               },
               'background-opacity': 0.85,
+              'shape': (ele: any) => {
+                return ele.data('metadata').status === 'running' ? 'rectangle' : 'ellipse'
+              },
               'label': (ele: any) => {
                 const val = ele.data('value') || 0
                 return val > 10 ? ele.data('label') : ''
@@ -92,7 +245,6 @@ export function GraphVisualization({
               'text-outline-color': '#0B0E11',
               'text-outline-width': 1.5,
               'overlay-opacity': 0,
-              // Subtle glow via shadow
               'shadow-blur': 12,
               'shadow-color': (ele: any) => {
                 const status = ele.data('metadata').status
@@ -213,16 +365,7 @@ export function GraphVisualization({
         ],
 
         layout: {
-          name: 'fcose',
-          quality: 'proof',
-          animate: false,
-          randomize: false,
-          nodeDimensionsIncludeLabels: true,
-          idealEdgeLength: 65,
-          nodeRepulsion: 2500,
-          edgeElasticity: 0.7,
-          nestingFactor: 0.1,
-          padding: 15,
+          name: 'preset',
         },
 
         minZoom: 0.1,
@@ -233,6 +376,7 @@ export function GraphVisualization({
       // Click: select and highlight connections
       cy.on('tap', 'node', (evt: any) => {
         const node = evt.target
+        if (node.data('type') === 'continent-label') return
         onNodeClick?.(node.id(), node.data())
 
         // Dim all, brighten connected
@@ -262,10 +406,13 @@ export function GraphVisualization({
       // Hover: show label for small nodes
       cy.on('mouseover', 'node', (evt: any) => {
         const node = evt.target
-        node.style('label', node.data('label'))
+        if (node.data('type') !== 'continent-label') {
+          node.style('label', node.data('label'))
+        }
       })
       cy.on('mouseout', 'node', (evt: any) => {
         const node = evt.target
+        if (node.data('type') === 'continent-label') return
         const val = node.data('value') || 0
         const type = node.data('type')
         const threshold = type === 'recipient' ? 5 : type === 'entity' ? 0 : 10
@@ -277,6 +424,7 @@ export function GraphVisualization({
       // Double-click to focus
       cy.on('dbltap', 'node', (evt: any) => {
         const node = evt.target
+        if (node.data('type') === 'continent-label') return
         cy.animate({
           zoom: {
             level: 1.5,

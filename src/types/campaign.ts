@@ -6,6 +6,7 @@ export interface Campaign {
   title: string
   description?: string
   category?: string[]
+  continent?: string            // Mapped category group: infrastructure, wallets, media, charity, defi, commerce, other
 
   // Financial
   amount: number                // Goal in BCH

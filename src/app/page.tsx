@@ -274,6 +274,91 @@ export default function AtlasPage() {
           filters={filters}
         />
 
+        {/* LIVE MISSIONS PANEL — top-right */}
+        {(() => {
+          const activeCampaigns = campaigns.filter(c => c.status === 'running')
+          if (activeCampaigns.length === 0) return null
+          return (
+            <div
+              className="absolute top-3 right-3 z-30 w-64 max-h-80 overflow-y-auto"
+              style={{
+                background: 'rgba(7, 14, 12, 0.88)',
+                border: '1px solid rgba(0, 224, 160, 0.2)',
+                borderRadius: '2px',
+                backdropFilter: 'blur(12px)',
+                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 180, 140, 0.03)',
+              }}
+            >
+              <div className="px-3 py-2" style={{ borderBottom: '1px solid rgba(0, 224, 160, 0.1)' }}>
+                <span className="text-[9px] uppercase tracking-[0.2em] font-mono" style={{ color: '#4ECDC4' }}>
+                  Live Missions
+                </span>
+                <span className="ml-2 text-[9px] font-mono" style={{ color: '#3A6A5A' }}>
+                  {activeCampaigns.length}
+                </span>
+              </div>
+              <div className="py-1">
+                {activeCampaigns.map(c => {
+                  const progress = (c.raised && c.amount > 0) ? Math.min(c.raised / c.amount, 1) : 0
+                  return (
+                    <button
+                      key={c.id}
+                      onClick={() => handleNodeClick(c.id, {
+                        id: c.id,
+                        label: c.title,
+                        type: 'campaign',
+                        value: c.amount,
+                        metadata: { platform: c.platform, status: c.status, url: c.url, time: c.time }
+                      })}
+                      className="w-full text-left px-3 py-1.5 flex items-start gap-2 transition-colors"
+                      style={{ borderBottom: '1px solid rgba(0, 224, 160, 0.04)' }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(0, 224, 160, 0.06)'}
+                      onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
+                    >
+                      <span
+                        className="w-2 h-2 mt-1 flex-shrink-0"
+                        style={{ background: '#4ECDC4', borderRadius: '1px' }}
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[11px] text-[#C0D0D0] truncate">{c.title}</div>
+                        <div className="flex items-center gap-2 mt-0.5">
+                          <span
+                            className="text-[8px] font-mono uppercase px-1 py-px"
+                            style={{
+                              background: c.platform === 'flipstarter' ? 'rgba(86, 232, 156, 0.12)' : 'rgba(78, 205, 196, 0.12)',
+                              color: c.platform === 'flipstarter' ? '#56E89C' : '#4ECDC4',
+                              border: `1px solid ${c.platform === 'flipstarter' ? 'rgba(86, 232, 156, 0.2)' : 'rgba(78, 205, 196, 0.2)'}`,
+                              borderRadius: '1px',
+                            }}
+                          >
+                            {c.platform}
+                          </span>
+                          {c.raised !== undefined && (
+                            <span className="text-[9px] font-mono" style={{ color: '#3A6A5A' }}>
+                              {c.raised.toFixed(2)} BCH
+                            </span>
+                          )}
+                        </div>
+                        {c.raised !== undefined && c.amount > 0 && (
+                          <div className="mt-1 h-px w-full" style={{ background: 'rgba(0, 224, 160, 0.1)' }}>
+                            <div
+                              className="h-full"
+                              style={{
+                                width: `${progress * 100}%`,
+                                background: 'rgba(78, 205, 196, 0.6)',
+                              }}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })()}
+
         {/* Detail Sidebar — right side, appears on click */}
         {selectedNode && (
           <aside

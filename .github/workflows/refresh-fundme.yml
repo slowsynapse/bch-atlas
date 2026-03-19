@@ -1,0 +1,38 @@
+name: Refresh FundMe Data
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Daily at midnight UTC
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Fetch fresh FundMe data
+        run: npx tsx scripts/fetch-fundme.ts
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet data/fundme.json || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "BCH Atlas Bot"
+          git config user.email "bot@bch-atlas.org"
+          git add data/fundme.json
+          git commit -m "chore: refresh FundMe campaign data"
+          git push

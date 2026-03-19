@@ -16,11 +16,14 @@ interface FundMeRaw {
   banner?: string
 }
 
+type Continent = 'infrastructure' | 'wallets' | 'media' | 'charity' | 'defi' | 'commerce' | 'other'
+
 interface Campaign {
   id: string
   platform: 'fundme'
   title: string
   description?: string
+  continent?: Continent
   amount: number
   raised?: number
   status: 'success' | 'expired' | 'running' | 'unknown'
@@ -28,6 +31,24 @@ interface Campaign {
   url: string
   entities: string[]
   recipientAddresses?: string[]
+}
+
+const KEYWORD_MAP: Record<Continent, RegExp> = {
+  infrastructure: /\b(node|protocol|network|upgrade|consensus|fork|specification|chip|infrastructure|server|mining|hashrate|bchn|bchd|verde|knuth|abc|full.?node)\b/i,
+  wallets: /\b(wallet|tool|library|sdk|api|extension|app|browser|mobile|electron.?cash|badger|cashual|zapit|flowee|selene)\b/i,
+  media: /\b(podcast|video|tutorial|education|content|media|documentary|show|stream|article|blog|news|magazine|film|animation|music|creative)\b/i,
+  charity: /\b(charity|donat|food|humanitarian|adoption|community|orphan|relief|school|health|eatbch|volunteer|aid|shelter|water)\b/i,
+  defi: /\b(defi|swap|dex|contract|cashscript|cashtokens?|nft|token|fungible|smartbch|sidechain|bridge|oracle|amm)\b/i,
+  commerce: /\b(merchant|shop|store|payment|pos|commerce|business|marketplace|retail|vendor|trade|exchange)\b/i,
+}
+
+function inferContinent(title: string, description?: string): Continent {
+  const text = [title, (description || '').slice(0, 500)].join(' ')
+  const priority: Continent[] = ['defi', 'wallets', 'infrastructure', 'media', 'charity', 'commerce']
+  for (const continent of priority) {
+    if (KEYWORD_MAP[continent].test(text)) return continent
+  }
+  return 'other'
 }
 
 function generateId(url: string, title: string, tx?: string, time?: string): string {
@@ -71,11 +92,13 @@ function transformCampaign(raw: FundMeRaw, apiId: string): Campaign {
   const status = mapStatus(raw)
   const raised = sumPledges(raw.pledges)
 
+  const strippedDesc = raw.description ? stripHtml(raw.description) : undefined
   const campaign: Campaign = {
     id: generateId(url, title, undefined, time),
     platform: 'fundme',
     title,
-    description: raw.description ? stripHtml(raw.description) : undefined,
+    description: strippedDesc,
+    continent: inferContinent(title, strippedDesc),
     amount: raised > 0 ? raised : 0, // FundMe API has no goal field; use raised total
     raised: raised > 0 ? raised : undefined,
     status,

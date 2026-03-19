@@ -3,6 +3,7 @@ import fundmeData from '../../../data/fundme.json'
 import type { Campaign, FlipstarterRaw, Entity } from '@/types/campaign'
 import { extractEntities } from '../parsers/entity-extractor'
 import { buildEntityMap } from './entity-resolver'
+import { mapToContinent } from './continent-mapper'
 import { createHash } from 'crypto'
 
 // Transform raw Flipstarter data to our schema
@@ -25,11 +26,14 @@ function transformFlipstarterCampaign(raw: any): Campaign {
     transactionTimestamp: raw.transactionTimestamp,
   }
 
-  return {
+  const full = {
     ...campaign,
     id: generateId(campaign.url!, campaign.title!, campaign.tx, campaign.time),
     entities: extractEntities(campaign),
   } as Campaign
+
+  full.continent = mapToContinent(full)
+  return full
 }
 
 function mapStatus(status: string): Campaign['status'] {
@@ -52,7 +56,10 @@ function generateId(url: string, title: string, tx?: string, time?: string): str
 // Main data access functions
 export function getCampaigns(): Campaign[] {
   const flipstarters = (flipstartersWithAddresses as any[]).map(transformFlipstarterCampaign)
-  const fundme = (fundmeData as unknown as Campaign[])
+  const fundme = (fundmeData as unknown as Campaign[]).map(c => ({
+    ...c,
+    continent: c.continent || mapToContinent(c),
+  }))
 
   return [...flipstarters, ...fundme]
 }

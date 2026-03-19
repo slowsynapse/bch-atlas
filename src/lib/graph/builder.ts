@@ -24,6 +24,7 @@ export function buildGraph(
         metadata: {
           platform: campaign.platform,
           status: campaign.status,
+          continent: campaign.continent || 'other',
           url: campaign.url,
           time: campaign.time,
           transactionTimestamp: (campaign as any).transactionTimestamp,
