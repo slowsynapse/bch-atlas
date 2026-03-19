@@ -6,7 +6,7 @@ export interface Campaign {
   title: string
   description?: string
   category?: string[]
-  continent?: string            // Mapped category group: infrastructure, wallets, media, charity, defi, commerce, other
+  continent?: string            // Mapped category group: core, middleware, apps, media, defi, charity, ecosystem, other
 
   // Financial
   amount: number                // Goal in BCH
@@ -54,7 +54,7 @@ export interface GraphEdge {
     id: string
     source: string
     target: string
-    type: 'created' | 'related' | 'received'
+    type: 'created' | 'related' | 'received' | 'same-entity' | 'shared-address'
     weight: number
   }
 }

@@ -1,5 +1,5 @@
 import type { Campaign, Entity, GraphNode, GraphEdge } from '@/types/campaign'
-import { buildRecipientMap, getMultiCampaignRecipients } from './address-analyzer'
+import { buildRecipientMap } from './address-analyzer'
 
 export function buildGraph(
   campaigns: Campaign[],
@@ -7,6 +7,7 @@ export function buildGraph(
 ): { nodes: GraphNode[], edges: GraphEdge[] } {
   const nodes: GraphNode[] = []
   const edges: GraphEdge[] = []
+  const edgeSet = new Set<string>() // deduplicate edges
 
   // Build recipient map to find all recipients
   const allRecipients = buildRecipientMap(campaigns)
@@ -34,7 +35,7 @@ export function buildGraph(
     })
   })
 
-  // Add recipient nodes for all addresses
+  // Add recipient nodes (kept but made tiny in visualization)
   allRecipients.forEach((recipient, address) => {
     nodes.push({
       data: {
@@ -54,7 +55,7 @@ export function buildGraph(
     })
   })
 
-  // Create edges connecting campaigns to recipients (showing fund flow)
+  // Create edges connecting campaigns to recipients (dim fund-flow strands)
   allRecipients.forEach((recipient, address) => {
     recipient.campaigns.forEach(campaignId => {
       edges.push({
@@ -67,6 +68,65 @@ export function buildGraph(
         }
       })
     })
+  })
+
+  // --- SAME-ENTITY EDGES: direct campaign-to-campaign links ---
+  // Group campaigns by entity name
+  const entityCampaigns = new Map<string, string[]>()
+  campaigns.forEach(campaign => {
+    if (campaign.entities && campaign.entities.length > 0) {
+      campaign.entities.forEach(entityName => {
+        if (!entityCampaigns.has(entityName)) entityCampaigns.set(entityName, [])
+        entityCampaigns.get(entityName)!.push(campaign.id)
+      })
+    }
+  })
+
+  // Create direct edges between campaigns sharing an entity
+  entityCampaigns.forEach((campaignIds, entityName) => {
+    if (campaignIds.length < 2) return
+    for (let i = 0; i < campaignIds.length; i++) {
+      for (let j = i + 1; j < campaignIds.length; j++) {
+        const key = `entity-${campaignIds[i]}-${campaignIds[j]}`
+        if (!edgeSet.has(key)) {
+          edgeSet.add(key)
+          edges.push({
+            data: {
+              id: key,
+              source: campaignIds[i],
+              target: campaignIds[j],
+              type: 'same-entity',
+              weight: 2
+            }
+          })
+        }
+      }
+    }
+  })
+
+  // --- SHARED-ADDRESS EDGES: direct campaign-to-campaign links ---
+  // For recipients appearing in multiple campaigns, link those campaigns directly
+  allRecipients.forEach((recipient) => {
+    if (recipient.campaigns.length < 2) return
+    for (let i = 0; i < recipient.campaigns.length; i++) {
+      for (let j = i + 1; j < recipient.campaigns.length; j++) {
+        const a = recipient.campaigns[i]
+        const b = recipient.campaigns[j]
+        const key = `shared-${a}-${b}`
+        if (!edgeSet.has(key)) {
+          edgeSet.add(key)
+          edges.push({
+            data: {
+              id: key,
+              source: a,
+              target: b,
+              type: 'shared-address',
+              weight: 1
+            }
+          })
+        }
+      }
+    }
   })
 
   return { nodes, edges }
