@@ -15,7 +15,7 @@ function copyToClipboard(text: string) {
 export function ContributorsList({ contributors }: ContributorsListProps) {
   if (!contributors || contributors.length === 0) {
     return (
-      <div className="text-center py-6 text-ds-text-secondary text-xs">
+      <div className="text-center py-6 text-[#7A8899] text-xs">
         No recipient information available.
       </div>
     )
@@ -26,15 +26,15 @@ export function ContributorsList({ contributors }: ContributorsListProps) {
       {contributors.map((contributor, index) => (
         <div
           key={contributor.address + index}
-          className="bg-white/[0.03] border border-ds-cyan/8 p-3 hover:border-ds-cyan/20 transition-colors"
+          className="bg-[rgba(11,14,17,0.4)] border border-[rgba(78,205,196,0.06)] p-3 hover:border-[rgba(78,205,196,0.15)] transition-colors"
         >
           <div className="flex justify-between items-start gap-3">
             <div className="flex-1 min-w-0">
               {contributor.name && (
-                <div className="text-ds-text text-sm mb-1">{contributor.name}</div>
+                <div className="text-[#E0E4E8] text-sm mb-1">{contributor.name}</div>
               )}
               <div className="flex items-center gap-2">
-                <code className="text-xs text-ds-text-secondary font-mono break-all">
+                <code className="text-xs text-[#8A9AAB] font-mono break-all">
                   {contributor.address}
                 </code>
                 <button
@@ -59,7 +59,7 @@ export function ContributorsList({ contributors }: ContributorsListProps) {
               href={`https://blockchair.com/bitcoin-cash/address/${contributor.address}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ds-cyan-dim text-[10px] font-mono hover:text-ds-cyan transition-colors"
+              className="text-ds-cyan-dim text-[10px] font-mono hover:text-ds-cyan transition-colors tracking-wider uppercase"
             >
               Blockchair
             </a>
@@ -67,7 +67,7 @@ export function ContributorsList({ contributors }: ContributorsListProps) {
               href={`https://explorer.bitcoinunlimited.info/address/${contributor.address}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ds-cyan-dim text-[10px] font-mono hover:text-ds-cyan transition-colors"
+              className="text-ds-cyan-dim text-[10px] font-mono hover:text-ds-cyan transition-colors tracking-wider uppercase"
             >
               BU Explorer
             </a>

@@ -71,11 +71,12 @@ export function GraphVisualization({
             style: {
               'background-color': (ele: any) => {
                 const status = ele.data('metadata').status
-                return status === 'success' ? '#00FF88' :
-                       status === 'expired' ? '#FF3344' :
-                       status === 'running' ? '#00D4FF' :
-                       '#555566'
+                return status === 'success' ? '#56E89C' :
+                       status === 'expired' ? '#E85454' :
+                       status === 'running' ? '#4ECDC4' :
+                       '#556677'
               },
+              'background-opacity': 0.85,
               'label': 'data(label)',
               'width': (ele: any) => Math.max(20, Math.sqrt(ele.data('value')) * 5),
               'height': (ele: any) => Math.max(20, Math.sqrt(ele.data('value')) * 5),
@@ -84,15 +85,29 @@ export function GraphVisualization({
               'text-halign': 'center',
               'text-wrap': 'wrap',
               'text-max-width': '80px',
-              'color': '#E8E8EC',
-              'text-outline-color': '#0A0A0C',
+              'color': '#E0E4E8',
+              'text-outline-color': '#0B0E11',
               'text-outline-width': 1.5,
+              'overlay-opacity': 0,
+              // Subtle glow via shadow
+              'shadow-blur': 12,
+              'shadow-color': (ele: any) => {
+                const status = ele.data('metadata').status
+                return status === 'success' ? 'rgba(86, 232, 156, 0.4)' :
+                       status === 'expired' ? 'rgba(232, 84, 84, 0.4)' :
+                       status === 'running' ? 'rgba(78, 205, 196, 0.4)' :
+                       'rgba(85, 102, 119, 0.3)'
+              },
+              'shadow-offset-x': 0,
+              'shadow-offset-y': 0,
+              'shadow-opacity': 0.6,
             }
           },
           {
             selector: 'node[type="recipient"]',
             style: {
-              'background-color': '#FF8C00',
+              'background-color': '#E8A838',
+              'background-opacity': 0.85,
               'label': 'data(label)',
               'width': (ele: any) => Math.max(30, Math.sqrt(ele.data('value')) * 4),
               'height': (ele: any) => Math.max(30, Math.sqrt(ele.data('value')) * 4),
@@ -102,11 +117,17 @@ export function GraphVisualization({
               'text-valign': 'bottom',
               'text-halign': 'center',
               'text-margin-y': 5,
-              'color': '#FF8C00',
-              'border-width': 2,
-              'border-color': '#CC7000',
-              'text-outline-color': '#0A0A0C',
+              'color': '#E8A838',
+              'border-width': 1.5,
+              'border-color': 'rgba(232, 168, 56, 0.5)',
+              'text-outline-color': '#0B0E11',
               'text-outline-width': 1,
+              'overlay-opacity': 0,
+              'shadow-blur': 10,
+              'shadow-color': 'rgba(232, 168, 56, 0.35)',
+              'shadow-offset-x': 0,
+              'shadow-offset-y': 0,
+              'shadow-opacity': 0.5,
             }
           },
           {
@@ -114,9 +135,10 @@ export function GraphVisualization({
             style: {
               'background-color': (ele: any) => {
                 const successRate = ele.data('metadata').successRate
-                return successRate > 0.7 ? '#00FF88' :
-                       successRate > 0.3 ? '#FF8C00' : '#FF3344'
+                return successRate > 0.7 ? '#56E89C' :
+                       successRate > 0.3 ? '#E8A838' : '#E85454'
               },
+              'background-opacity': 0.85,
               'label': 'data(label)',
               'width': (ele: any) => Math.max(40, ele.data('metadata').campaigns * 15),
               'height': (ele: any) => Math.max(40, ele.data('metadata').campaigns * 15),
@@ -125,46 +147,61 @@ export function GraphVisualization({
               'font-weight': 'bold',
               'text-valign': 'center',
               'text-halign': 'center',
-              'color': '#E8E8EC',
-              'text-outline-color': '#0A0A0C',
+              'color': '#E0E4E8',
+              'text-outline-color': '#0B0E11',
               'text-outline-width': 2,
+              'overlay-opacity': 0,
+              'shadow-blur': 16,
+              'shadow-color': (ele: any) => {
+                const successRate = ele.data('metadata').successRate
+                return successRate > 0.7 ? 'rgba(86, 232, 156, 0.4)' :
+                       successRate > 0.3 ? 'rgba(232, 168, 56, 0.4)' : 'rgba(232, 84, 84, 0.4)'
+              },
+              'shadow-offset-x': 0,
+              'shadow-offset-y': 0,
+              'shadow-opacity': 0.6,
             }
           },
           {
             selector: 'edge[type="created"]',
             style: {
-              'width': 2,
-              'line-color': 'rgba(0, 212, 255, 0.2)',
-              'target-arrow-color': 'rgba(0, 212, 255, 0.2)',
+              'width': 1.5,
+              'line-color': 'rgba(78, 205, 196, 0.25)',
+              'target-arrow-color': 'rgba(78, 205, 196, 0.25)',
               'target-arrow-shape': 'triangle',
               'curve-style': 'bezier',
+              'opacity': 0.7,
             }
           },
           {
             selector: 'edge[type="related"]',
             style: {
-              'width': 4,
-              'line-color': 'rgba(0, 212, 255, 0.3)',
+              'width': 3,
+              'line-color': 'rgba(78, 205, 196, 0.35)',
               'line-style': 'dashed',
-              'curve-style': 'bezier',
-            }
-          },
-          {
-            selector: 'edge[type="received"]',
-            style: {
-              'width': 2,
-              'line-color': 'rgba(255, 140, 0, 0.3)',
-              'target-arrow-color': 'rgba(255, 140, 0, 0.3)',
-              'target-arrow-shape': 'triangle',
               'curve-style': 'bezier',
               'opacity': 0.6,
             }
           },
           {
+            selector: 'edge[type="received"]',
+            style: {
+              'width': 1.5,
+              'line-color': 'rgba(232, 168, 56, 0.35)',
+              'target-arrow-color': 'rgba(232, 168, 56, 0.35)',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.5,
+            }
+          },
+          {
             selector: ':selected',
             style: {
-              'border-width': 3,
-              'border-color': '#00D4FF',
+              'border-width': 2,
+              'border-color': '#4ECDC4',
+              'shadow-blur': 25,
+              'shadow-color': 'rgba(78, 205, 196, 0.6)',
+              'shadow-opacity': 1,
             }
           }
         ],
@@ -193,12 +230,13 @@ export function GraphVisualization({
 
         // Dim all, brighten connected
         cy.elements().forEach((ele: any) => {
-          ele.style('opacity', 0.15)
+          ele.style('opacity', 0.1)
         })
         node.style('opacity', 1)
         node.connectedEdges().forEach((edge: any) => {
-          edge.style('opacity', 1)
-          edge.style('line-color', edge.data('type') === 'received' ? '#FF8C00' : '#00D4FF')
+          edge.style('opacity', 0.9)
+          edge.style('line-color', edge.data('type') === 'received' ? '#E8A838' : '#4ECDC4')
+          edge.style('width', edge.data('type') === 'received' ? 2.5 : 2)
           edge.connectedNodes().style('opacity', 1)
         })
       })
@@ -209,6 +247,7 @@ export function GraphVisualization({
           cy.elements().forEach((ele: any) => {
             ele.removeStyle('opacity')
             ele.removeStyle('line-color')
+            ele.removeStyle('width')
           })
         }
       })
@@ -242,7 +281,15 @@ export function GraphVisualization({
     <div
       ref={containerRef}
       className="w-full h-full"
-      style={{ minHeight: '600px', background: '#0A0A0C' }}
+      style={{
+        minHeight: '600px',
+        background: `
+          radial-gradient(ellipse 60% 50% at 50% 50%, rgba(78, 205, 196, 0.03) 0%, transparent 70%),
+          radial-gradient(ellipse 40% 40% at 75% 25%, rgba(42, 157, 143, 0.02) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 50% at 25% 75%, rgba(78, 205, 196, 0.015) 0%, transparent 50%),
+          #0B0E11
+        `,
+      }}
     />
   )
 }

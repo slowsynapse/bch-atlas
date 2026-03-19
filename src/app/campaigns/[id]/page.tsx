@@ -9,7 +9,7 @@ function getStatusColor(status: string): string {
     case 'expired':
     case 'failed': return 'text-ds-red'
     case 'running': return 'text-ds-cyan'
-    default: return 'text-ds-text-secondary'
+    default: return 'text-[#7A8899]'
   }
 }
 
@@ -70,7 +70,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
   return (
     <div className="min-h-screen ds-fade-in">
       {/* Header */}
-      <header className="ds-panel border-0 border-b border-[rgba(0,212,255,0.1)]">
+      <header className="ds-holographic border-0 border-b border-[rgba(78,205,196,0.08)]">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div>
@@ -80,10 +80,10 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
               <p className="ds-label mt-0.5">Campaign Detail</p>
             </div>
             <div className="flex gap-3">
-              <Link href="/campaigns" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
+              <Link href="/campaigns" className="px-4 py-1.5 border border-[rgba(78,205,196,0.12)] text-[#7A8899] text-xs tracking-[0.08em] uppercase hover:border-[rgba(78,205,196,0.25)] hover:text-[#E0E4E8] transition-all">
                 Back
               </Link>
-              <Link href="/graph" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
+              <Link href="/graph" className="px-4 py-1.5 border border-[rgba(78,205,196,0.12)] text-[#7A8899] text-xs tracking-[0.08em] uppercase hover:border-[rgba(78,205,196,0.25)] hover:text-[#E0E4E8] transition-all">
                 Graph
               </Link>
             </div>
@@ -94,21 +94,21 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
       {/* Main */}
       <main className="container mx-auto px-4 py-8 max-w-5xl">
         {/* Campaign Header */}
-        <div className="ds-panel p-8 mb-6">
+        <div className="ds-holographic p-8 mb-6">
           <div className="flex justify-between items-start gap-4 mb-6">
-            <h1 className="text-xl md:text-2xl font-light text-ds-text">{campaign.title}</h1>
+            <h1 className="text-xl md:text-2xl font-light text-[#E0E4E8]">{campaign.title}</h1>
             <span className={`ds-label text-xs flex-shrink-0 ${getStatusColor(campaign.status)}`}>
               {getStatusLabel(campaign.status)}
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-4 text-xs text-ds-text-secondary mb-6">
-            <span className="font-mono capitalize">{campaign.platform}</span>
+          <div className="flex flex-wrap gap-4 text-xs text-[#7A8899] mb-6">
+            <span className="font-mono capitalize tracking-wider uppercase">{campaign.platform}</span>
             {campaign.time && (
               <span className="font-mono">{formatDate(campaign.time)}</span>
             )}
             {campaign.tx && (
-              <span className="text-ds-cyan font-mono">Verified</span>
+              <span className="text-ds-cyan font-mono tracking-wider">Verified</span>
             )}
           </div>
 
@@ -116,22 +116,31 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
           <div className="mb-6">
             <div className="flex justify-between items-end mb-3">
               <div>
-                <div className="font-mono text-3xl text-ds-green">{goalAmount.toFixed(2)} <span className="text-sm text-ds-text-secondary">BCH</span></div>
+                <div
+                  className="font-mono text-3xl"
+                  style={{ color: '#56E89C', textShadow: '0 0 20px rgba(86, 232, 156, 0.2)' }}
+                >
+                  {goalAmount.toFixed(2)} <span className="text-sm text-[#7A8899]">BCH</span>
+                </div>
                 <span className="ds-label">Goal</span>
               </div>
               {campaign.status === 'success' && (
                 <div className="text-right">
-                  <div className="font-mono text-lg text-ds-text">{progressPercent.toFixed(0)}%</div>
+                  <div className="font-mono text-lg text-[#E0E4E8]">{progressPercent.toFixed(0)}%</div>
                   <span className="ds-label">Funded</span>
                 </div>
               )}
             </div>
 
             {campaign.status === 'success' && (
-              <div className="w-full h-1 bg-ds-bg-tertiary overflow-hidden">
+              <div className="w-full h-1 bg-[rgba(11,14,17,0.5)] overflow-hidden rounded-full">
                 <div
-                  className="h-full bg-ds-green transition-all"
-                  style={{ width: `${Math.min(progressPercent, 100)}%` }}
+                  className="h-full rounded-full transition-all"
+                  style={{
+                    width: `${Math.min(progressPercent, 100)}%`,
+                    background: 'linear-gradient(90deg, #2A9D8F, #56E89C)',
+                    boxShadow: '0 0 10px rgba(86, 232, 156, 0.3)',
+                  }}
                 />
               </div>
             )}
@@ -141,27 +150,27 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
           {campaign.description && (
             <div>
               <h2 className="ds-label mb-3">Description</h2>
-              <p className="text-ds-text-secondary text-sm font-light whitespace-pre-wrap leading-relaxed">{campaign.description}</p>
+              <p className="text-[#8A9AAB] text-sm font-light whitespace-pre-wrap leading-relaxed">{campaign.description}</p>
             </div>
           )}
         </div>
 
         {/* Timeline */}
         {(campaign.time || campaign.transactionTimestamp) && (
-          <div className="ds-panel p-6 mb-6">
+          <div className="ds-holographic p-6 mb-6">
             <h2 className="ds-label mb-4">Timeline</h2>
             <div className="space-y-3">
               {campaign.time && (
                 <div>
                   <span className="ds-label">Completion</span>
-                  <p className="text-ds-text text-sm font-mono mt-0.5">{formatDate(campaign.time)}</p>
+                  <p className="text-[#E0E4E8] text-sm font-mono mt-0.5">{formatDate(campaign.time)}</p>
                 </div>
               )}
               {campaign.transactionTimestamp && (
                 <>
                   <div>
                     <span className="ds-label">Funded</span>
-                    <p className="text-ds-text text-sm font-mono mt-0.5">{formatDate(undefined, Number(campaign.transactionTimestamp))}</p>
+                    <p className="text-[#E0E4E8] text-sm font-mono mt-0.5">{formatDate(undefined, Number(campaign.transactionTimestamp))}</p>
                   </div>
                   <div>
                     <span className="ds-label">Time Since</span>
@@ -174,7 +183,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
         )}
 
         {/* Recipients */}
-        <div className="ds-panel p-6 mb-6">
+        <div className="ds-holographic p-6 mb-6">
           <h2 className="ds-label mb-4">
             Recipients {contributors.length > 0 && <span className="text-ds-cyan font-mono">({contributors.length})</span>}
           </h2>
@@ -182,7 +191,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
         </div>
 
         {/* Links */}
-        <div className="ds-panel p-6">
+        <div className="ds-holographic p-6">
           <h2 className="ds-label mb-4">Links</h2>
           <div className="space-y-3">
             {campaign.url && (

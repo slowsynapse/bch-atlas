@@ -1,21 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --ds-bg-primary: #0A0A0C;
-  --ds-bg-secondary: #111114;
-  --ds-bg-tertiary: #1A1A1E;
-  --ds-border: rgba(0, 212, 255, 0.15);
-  --ds-cyan: #00D4FF;
-  --ds-cyan-glow: rgba(0, 212, 255, 0.3);
-  --ds-cyan-dim: #0088AA;
-  --ds-amber: #FF8C00;
-  --ds-amber-glow: rgba(255, 140, 0, 0.3);
+  /* 
+   * Death Stranding + Astral Chain inspired palette
+   * Key insight: panels are TINTED with the accent color, not dark boxes with colored borders
+   * The green holographic glow from the DS chiral network map is the signature
+   */
+  --ds-bg-primary: #070A0D;
+  --ds-bg-secondary: #0C1014;
+  --ds-bg-tertiary: #131A1E;
+  --ds-border: rgba(0, 230, 160, 0.15);
+
+  /* Primary: holographic green (from DS chiral network) */
+  --ds-cyan: #00E0A0;
+  --ds-cyan-glow: rgba(0, 224, 160, 0.3);
+  --ds-cyan-dim: #00A878;
+
+  /* Accent colors */
+  --ds-amber: #E8A838;
+  --ds-amber-glow: rgba(232, 168, 56, 0.3);
   --ds-green: #00FF88;
   --ds-green-glow: rgba(0, 255, 136, 0.3);
-  --ds-red: #FF3344;
-  --ds-text-primary: #E8E8EC;
-  --ds-text-secondary: #8888A0;
-  --ds-text-accent: #00D4FF;
+  --ds-red: #FF4455;
+
+  /* Text */
+  --ds-text-primary: #E8ECF0;
+  --ds-text-secondary: #7A9090;
+  --ds-text-accent: #00E0A0;
+
+  /* Panel: teal-tinted translucent (Astral Chain style) */
+  --ds-panel-bg: rgba(0, 180, 140, 0.08);
+  --ds-panel-bg-hover: rgba(0, 180, 140, 0.14);
+  --ds-panel-border: rgba(0, 224, 160, 0.18);
 }
 
 @theme inline {
@@ -23,16 +39,16 @@
   --color-foreground: var(--ds-text-primary);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
-  --color-ds-bg: #0A0A0C;
-  --color-ds-bg-secondary: #111114;
-  --color-ds-bg-tertiary: #1A1A1E;
-  --color-ds-cyan: #00D4FF;
-  --color-ds-cyan-dim: #0088AA;
-  --color-ds-amber: #FF8C00;
+  --color-ds-bg: #070A0D;
+  --color-ds-bg-secondary: #0C1014;
+  --color-ds-bg-tertiary: #131A1E;
+  --color-ds-cyan: #00E0A0;
+  --color-ds-cyan-dim: #00A878;
+  --color-ds-amber: #E8A838;
   --color-ds-green: #00FF88;
-  --color-ds-red: #FF3344;
-  --color-ds-text: #E8E8EC;
-  --color-ds-text-secondary: #8888A0;
+  --color-ds-red: #FF4455;
+  --color-ds-text: #E8ECF0;
+  --color-ds-text-secondary: #7A9090;
 }
 
 html {
@@ -41,10 +57,28 @@ html {
 }
 
 body {
-  background: var(--ds-bg-primary);
+  background:
+    /* Central holographic glow — like DS map projection */
+    radial-gradient(ellipse 100% 70% at 50% 30%, rgba(0, 224, 160, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 70%, rgba(0, 180, 140, 0.025) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 60% at 15% 50%, rgba(0, 200, 150, 0.02) 0%, transparent 40%),
+    var(--ds-bg-primary);
   color: var(--ds-text-primary);
+  min-height: 100vh;
 }
 
+/* Topographic contour lines — faint green, like DS terrain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='500' height='500' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='t' patternUnits='userSpaceOnUse' width='500' height='500'%3E%3Cellipse cx='250' cy='250' rx='220' ry='150' fill='none' stroke='rgba(0,224,160,0.03)' stroke-width='0.5'/%3E%3Cellipse cx='250' cy='250' rx='170' ry='110' fill='none' stroke='rgba(0,224,160,0.025)' stroke-width='0.5'/%3E%3Cellipse cx='250' cy='250' rx='120' ry='75' fill='none' stroke='rgba(0,224,160,0.03)' stroke-width='0.5'/%3E%3Cellipse cx='250' cy='250' rx='70' ry='45' fill='none' stroke='rgba(0,224,160,0.025)' stroke-width='0.5'/%3E%3Cellipse cx='400' cy='400' rx='130' ry='90' fill='none' stroke='rgba(0,224,160,0.025)' stroke-width='0.5'/%3E%3Cellipse cx='400' cy='400' rx='80' ry='55' fill='none' stroke='rgba(0,224,160,0.03)' stroke-width='0.5'/%3E%3Cellipse cx='80' cy='80' rx='100' ry='65' fill='none' stroke='rgba(0,224,160,0.025)' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23t)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+
+/* Scan lines — extremely subtle */
 body::after {
   content: '';
   position: fixed;
@@ -52,38 +86,92 @@ body::after {
   background: repeating-linear-gradient(
     0deg,
     transparent,
-    transparent 2px,
-    rgba(0, 212, 255, 0.015) 2px,
-    rgba(0, 212, 255, 0.015) 4px
+    transparent 3px,
+    rgba(0, 224, 160, 0.008) 3px,
+    rgba(0, 224, 160, 0.008) 6px
   );
   pointer-events: none;
   z-index: 9999;
 }
 
+/* 
+ * PANEL SYSTEM — Astral Chain inspired
+ * Panels are TEAL-TINTED, not dark boxes with teal borders
+ * They glow from within with the accent color
+ */
 .ds-panel {
-  background: rgba(17, 17, 20, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 212, 255, 0.12);
+  background: 
+    linear-gradient(180deg, rgba(0, 200, 150, 0.1) 0%, rgba(0, 180, 140, 0.05) 100%),
+    rgba(10, 18, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 224, 160, 0.2);
   border-radius: 2px;
+  position: relative;
+  box-shadow: 
+    inset 0 1px 0 rgba(0, 224, 160, 0.1),
+    0 0 20px rgba(0, 224, 160, 0.03);
 }
 
+/* Top edge glow line — holographic projection feel */
+.ds-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, rgba(0, 224, 160, 0.4) 30%, rgba(0, 224, 160, 0.5) 50%, rgba(0, 224, 160, 0.4) 70%, transparent 95%);
+}
+
+/* Label typography */
 .ds-label {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--ds-text-secondary);
-  font-weight: 500;
+  font-weight: 400;
 }
 
+/* Glow hover — panels brighten when hovered */
 .ds-glow {
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 .ds-glow:hover {
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
-  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(0, 224, 160, 0.15),
+    0 0 30px rgba(0, 224, 160, 0.08),
+    0 0 60px rgba(0, 224, 160, 0.04);
+  border-color: rgba(0, 224, 160, 0.35);
 }
 
+/* Holographic stat readout — slightly brighter panels for stats */
+.ds-holographic {
+  background:
+    linear-gradient(135deg, rgba(0, 224, 160, 0.12) 0%, rgba(0, 180, 140, 0.06) 100%),
+    rgba(10, 18, 20, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 224, 160, 0.22);
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 
+    inset 0 0 30px rgba(0, 224, 160, 0.04),
+    0 0 20px rgba(0, 224, 160, 0.05);
+}
+
+.ds-holographic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 224, 160, 0.5), transparent);
+}
+
+/* Animations */
 @keyframes ds-fade-in {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -102,19 +190,26 @@ body::after {
   animation: ds-slide-in 0.3s ease-out;
 }
 
+/* Subtle pulse for active elements */
+@keyframes ds-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--ds-bg-primary);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 212, 255, 0.2);
-  border-radius: 3px;
+  background: rgba(0, 224, 160, 0.2);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 212, 255, 0.4);
+  background: rgba(0, 224, 160, 0.4);
 }

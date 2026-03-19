@@ -102,7 +102,7 @@ export default function CampaignsPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="ds-panel border-0 border-b border-[rgba(0,212,255,0.1)]">
+      <header className="ds-holographic border-0 border-b border-[rgba(78,205,196,0.08)]">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div>
@@ -112,10 +112,10 @@ export default function CampaignsPage() {
               <p className="ds-label mt-0.5">Campaign Archive</p>
             </div>
             <div className="flex gap-3">
-              <Link href="/graph" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
+              <Link href="/graph" className="px-4 py-1.5 border border-[rgba(78,205,196,0.12)] text-[#7A8899] text-xs tracking-[0.08em] uppercase hover:border-[rgba(78,205,196,0.25)] hover:text-[#E0E4E8] transition-all">
                 Graph
               </Link>
-              <Link href="/" className="px-4 py-1.5 border border-ds-cyan/15 text-ds-text-secondary text-xs tracking-[0.08em] uppercase hover:border-ds-cyan/30 hover:text-ds-text transition-all">
+              <Link href="/" className="px-4 py-1.5 border border-[rgba(78,205,196,0.12)] text-[#7A8899] text-xs tracking-[0.08em] uppercase hover:border-[rgba(78,205,196,0.25)] hover:text-[#E0E4E8] transition-all">
                 Home
               </Link>
             </div>
@@ -140,7 +140,7 @@ export default function CampaignsPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="px-3 py-1.5 bg-ds-bg-secondary border border-ds-cyan/15 text-ds-text text-xs focus:border-ds-cyan/40 focus:outline-none transition-colors"
+              className="px-3 py-1.5 bg-[rgba(11,14,17,0.6)] border border-[rgba(78,205,196,0.1)] text-[#E0E4E8] text-xs focus:border-[rgba(78,205,196,0.3)] focus:outline-none transition-colors"
             >
               <option value="date-desc">Newest</option>
               <option value="date-asc">Oldest</option>
