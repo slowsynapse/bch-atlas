@@ -32,16 +32,26 @@ const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg x
   <polyline points="82,72 68,66 57,65" fill="none" stroke="#FF4455" stroke-width="1.5" stroke-linecap="round"/>
 </svg>`)
 
+// Simple seeded random from string — deterministic per node ID
+function seededRandom(seed: string, index: number): number {
+  let h = 0
+  const s = seed + ':' + index
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) - h + s.charCodeAt(i)) | 0
+  }
+  return ((h & 0x7fffffff) % 10000) / 10000
+}
+
 // Continent center positions — wide spread, core at CENTER
 const CONTINENT_CENTERS: Record<string, { x: number; y: number; label: string }> = {
   core:       { x: 0,     y: 0,     label: 'CORE INFRASTRUCTURE' },
-  ecosystem:  { x: 0,     y: -1100, label: 'ECOSYSTEM INITIATIVES' },
-  media:      { x: -1100, y: -400,  label: 'MEDIA & EDUCATION' },
-  apps:       { x: 1100,  y: -400,  label: 'APPS & WALLETS' },
-  middleware:  { x: -1100, y: 500,   label: 'MIDDLEWARE & LIBRARIES' },
-  defi:       { x: 1100,  y: 500,   label: 'DEFI & CONTRACTS' },
-  charity:    { x: 0,     y: 1100,  label: 'CHARITY & ADOPTION' },
-  other:      { x: 0,     y: 1800,  label: 'OTHER' },
+  ecosystem:  { x: 0,     y: -1500, label: 'ECOSYSTEM INITIATIVES' },
+  media:      { x: -1500, y: -550,  label: 'MEDIA & EDUCATION' },
+  apps:       { x: 1500,  y: -550,  label: 'APPS & WALLETS' },
+  middleware:  { x: -1500, y: 680,   label: 'MIDDLEWARE & LIBRARIES' },
+  defi:       { x: 1500,  y: 680,   label: 'DEFI & CONTRACTS' },
+  charity:    { x: 0,     y: 1500,  label: 'CHARITY & ADOPTION' },
+  other:      { x: 0,     y: 2400,  label: 'OTHER' },
 }
 
 // Planetary system layout: sun at center, concentric rings by funding size
@@ -49,9 +59,9 @@ function computePlanetaryPositions(
   centerX: number,
   centerY: number,
   campaigns: GraphNode[]
-): Map<string, { x: number; y: number }> {
+): { positions: Map<string, { x: number; y: number }>; ringRadii: number[] } {
   const positions = new Map<string, { x: number; y: number }>()
-  if (campaigns.length === 0) return positions
+  if (campaigns.length === 0) return { positions, ringRadii: [] }
 
   // Separate funded/active from failed
   const funded: GraphNode[] = []
@@ -79,15 +89,25 @@ function computePlanetaryPositions(
   const ringCapacities = [5, 8, 12, 16, 20, 24] // nodes per ring
   let ringIndex = 0
   let slotInRing = 0
-  const RING_START = 80
-  const RING_STEP = 60
+  const RING_START = 100
+  const RING_STEP = 80
+
+  // Track ring radii for orbit ring visualization
+  const ringRadii: number[] = []
 
   for (let i = 1; i < funded.length; i++) {
     const capacity = ringCapacities[Math.min(ringIndex, ringCapacities.length - 1)]
-    const radius = RING_START + ringIndex * RING_STEP
-    const angle = (slotInRing / capacity) * Math.PI * 2
+    const nominalRadius = RING_START + ringIndex * RING_STEP
+    if (!ringRadii.includes(nominalRadius)) ringRadii.push(nominalRadius)
+    const angleStep = (Math.PI * 2) / capacity
+    const id = funded[i].data.id
+    // Scatter: random angular offset + radial jitter (seeded by node ID)
+    const angularJitter = seededRandom(id, 0) * angleStep * 0.6
+    const radialScale = 0.85 + seededRandom(id, 1) * 0.3
+    const angle = slotInRing * angleStep + angularJitter
+    const radius = nominalRadius * radialScale
 
-    positions.set(funded[i].data.id, {
+    positions.set(id, {
       x: centerX + Math.cos(angle) * radius,
       y: centerY + Math.sin(angle) * radius,
     })
@@ -107,10 +127,17 @@ function computePlanetaryPositions(
 
   for (let i = 0; i < failed.length; i++) {
     const capacity = failedRingCapacities[Math.min(failedRingIndex, failedRingCapacities.length - 1)]
-    const radius = outerRingStart + failedRingIndex * RING_STEP
-    const angle = (failedSlot / capacity) * Math.PI * 2
+    const nominalRadius = outerRingStart + failedRingIndex * RING_STEP
+    if (!ringRadii.includes(nominalRadius)) ringRadii.push(nominalRadius)
+    const angleStep = (Math.PI * 2) / capacity
+    const id = failed[i].data.id
+    // Scatter: random angular offset + radial jitter
+    const angularJitter = seededRandom(id, 0) * angleStep * 0.6
+    const radialScale = 0.85 + seededRandom(id, 1) * 0.3
+    const angle = failedSlot * angleStep + angularJitter
+    const radius = nominalRadius * radialScale
 
-    positions.set(failed[i].data.id, {
+    positions.set(id, {
       x: centerX + Math.cos(angle) * radius,
       y: centerY + Math.sin(angle) * radius,
     })
@@ -122,11 +149,19 @@ function computePlanetaryPositions(
     }
   }
 
-  return positions
+  return { positions, ringRadii }
 }
 
-function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): Map<string, { x: number; y: number }> {
+// Orbit ring data for canvas rendering
+interface OrbitRing {
+  cx: number
+  cy: number
+  radius: number
+}
+
+function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): { positions: Map<string, { x: number; y: number }>; orbitRings: OrbitRing[] } {
   const positions = new Map<string, { x: number; y: number }>()
+  const orbitRings: OrbitRing[] = []
 
   // Group campaign nodes by continent
   const continentGroups = new Map<string, GraphNode[]>()
@@ -145,9 +180,12 @@ function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): Map<str
   // Position campaign nodes as planetary systems within each continent
   for (const [continent, group] of continentGroups) {
     const center = CONTINENT_CENTERS[continent] || CONTINENT_CENTERS.other
-    const planetaryPositions = computePlanetaryPositions(center.x, center.y, group)
+    const { positions: planetaryPositions, ringRadii } = computePlanetaryPositions(center.x, center.y, group)
     for (const [id, pos] of planetaryPositions) {
       positions.set(id, pos)
+    }
+    for (const r of ringRadii) {
+      orbitRings.push({ cx: center.x, cy: center.y, radius: r })
     }
   }
 
@@ -175,7 +213,7 @@ function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): Map<str
     }
   }
 
-  return positions
+  return { positions, orbitRings }
 }
 
 // Check if an edge crosses continent boundaries
@@ -203,6 +241,8 @@ export function GraphVisualization({
     const initCytoscape = async () => {
       if (!cytoscape) {
         cytoscape = (await import('cytoscape')).default
+        const cytoscapeCanvas = (await import('cytoscape-canvas')).default
+        cytoscapeCanvas(cytoscape)
       }
 
       if (!containerRef.current || cyRef.current) return
@@ -245,7 +285,7 @@ export function GraphVisualization({
       }))
 
       // Compute positions before creating graph
-      const positions = computePresetPositions(filteredNodes, filteredEdges)
+      const { positions, orbitRings } = computePresetPositions(filteredNodes, filteredEdges)
 
       // Add continent watermark label nodes
       const labelNodes: GraphNode[] = Object.entries(CONTINENT_CENTERS).map(([key, val]) => ({
@@ -260,7 +300,7 @@ export function GraphVisualization({
 
       // Position label nodes ABOVE continent centers so they don't overlap campaign nodes
       for (const [key, val] of Object.entries(CONTINENT_CENTERS)) {
-        positions.set(`label-${key}`, { x: val.x, y: val.y - 175 })
+        positions.set(`label-${key}`, { x: val.x, y: val.y - 220 })
       }
 
       // Add positions to nodes
@@ -610,6 +650,26 @@ export function GraphVisualization({
           },
           duration: 500
         })
+      })
+
+      // Draw faint orbit rings on the canvas underlay
+      const layer = cy.cyCanvas({ zIndex: -1 })
+      const canvas = layer.getCanvas()
+      const ctx = canvas.getContext('2d')
+
+      cy.on('render cyCanvas.resize', () => {
+        layer.resetTransform(ctx)
+        layer.clear(ctx)
+        layer.setTransform(ctx)
+
+        ctx.strokeStyle = 'rgba(0, 224, 160, 0.08)'
+        ctx.lineWidth = 0.5
+
+        for (const ring of orbitRings) {
+          ctx.beginPath()
+          ctx.arc(ring.cx, ring.cy, ring.radius, 0, Math.PI * 2)
+          ctx.stroke()
+        }
       })
 
       cyRef.current = cy
