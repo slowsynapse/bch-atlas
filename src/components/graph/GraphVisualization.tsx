@@ -24,35 +24,85 @@ const CONTINENT_CENTERS: Record<string, { x: number; y: number; label: string }>
   other:      { x: 0,     y: 1800,  label: 'OTHER' },
 }
 
-// Spiral positioning: bigger campaigns closer to center, wider spacing
-function computeSpiralPosition(
+// Planetary system layout: sun at center, concentric rings by funding size
+function computePlanetaryPositions(
   centerX: number,
   centerY: number,
-  index: number,
-  total: number,
-  amount: number,
-  maxAmount: number
-): { x: number; y: number } {
-  if (total === 0) return { x: centerX, y: centerY }
+  campaigns: GraphNode[]
+): Map<string, { x: number; y: number }> {
+  const positions = new Map<string, { x: number; y: number }>()
+  if (campaigns.length === 0) return positions
 
-  // Distance from center: small amounts farther out, big amounts close
-  const normalizedAmount = Math.log2((amount || 0) + 1) / Math.log2((maxAmount || 1) + 1)
-  const baseRadius = 60 + (1 - normalizedAmount) * 300
-
-  // Spiral angle — golden angle
-  const goldenAngle = 2.399963
-  const angle = index * goldenAngle
-  const radiusGrowth = 1 + (index / Math.max(total, 1)) * 0.7
-  const radius = baseRadius * radiusGrowth
-
-  // Jitter to prevent overlaps
-  const jitterX = (Math.sin(index * 7.3) * 15)
-  const jitterY = (Math.cos(index * 11.7) * 15)
-
-  return {
-    x: centerX + Math.cos(angle) * radius + jitterX,
-    y: centerY + Math.sin(angle) * radius + jitterY,
+  // Separate funded/active from failed
+  const funded: GraphNode[] = []
+  const failed: GraphNode[] = []
+  for (const c of campaigns) {
+    const status = c.data.metadata?.status
+    if (status === 'expired' || status === 'failed') {
+      failed.push(c)
+    } else {
+      funded.push(c)
+    }
   }
+
+  // Sort funded by value descending — biggest is the sun
+  funded.sort((a, b) => (b.data.value || 0) - (a.data.value || 0))
+  // Sort failed by value descending too (sized by ask amount)
+  failed.sort((a, b) => (b.data.value || 0) - (a.data.value || 0))
+
+  // Place the sun at center
+  if (funded.length > 0) {
+    positions.set(funded[0].data.id, { x: centerX, y: centerY })
+  }
+
+  // Remaining funded campaigns go in concentric rings
+  const ringCapacities = [5, 8, 12, 16, 20, 24] // nodes per ring
+  let ringIndex = 0
+  let slotInRing = 0
+  const RING_START = 80
+  const RING_STEP = 60
+
+  for (let i = 1; i < funded.length; i++) {
+    const capacity = ringCapacities[Math.min(ringIndex, ringCapacities.length - 1)]
+    const radius = RING_START + ringIndex * RING_STEP
+    const angle = (slotInRing / capacity) * Math.PI * 2
+
+    positions.set(funded[i].data.id, {
+      x: centerX + Math.cos(angle) * radius,
+      y: centerY + Math.sin(angle) * radius,
+    })
+
+    slotInRing++
+    if (slotInRing >= capacity) {
+      slotInRing = 0
+      ringIndex++
+    }
+  }
+
+  // Failed campaigns at the outer edge — one more ring beyond the last funded ring
+  const outerRingStart = RING_START + (ringIndex + 1) * RING_STEP
+  const failedRingCapacities = [8, 12, 16, 20, 24]
+  let failedRingIndex = 0
+  let failedSlot = 0
+
+  for (let i = 0; i < failed.length; i++) {
+    const capacity = failedRingCapacities[Math.min(failedRingIndex, failedRingCapacities.length - 1)]
+    const radius = outerRingStart + failedRingIndex * RING_STEP
+    const angle = (failedSlot / capacity) * Math.PI * 2
+
+    positions.set(failed[i].data.id, {
+      x: centerX + Math.cos(angle) * radius,
+      y: centerY + Math.sin(angle) * radius,
+    })
+
+    failedSlot++
+    if (failedSlot >= capacity) {
+      failedSlot = 0
+      failedRingIndex++
+    }
+  }
+
+  return positions
 }
 
 function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): Map<string, { x: number; y: number }> {
@@ -72,15 +122,12 @@ function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): Map<str
     }
   }
 
-  // Position campaign nodes in spiral within each continent
+  // Position campaign nodes as planetary systems within each continent
   for (const [continent, group] of continentGroups) {
     const center = CONTINENT_CENTERS[continent] || CONTINENT_CENTERS.other
-    group.sort((a, b) => (b.data.value || 0) - (a.data.value || 0))
-    const maxAmount = group[0]?.data.value || 1
-
-    for (let i = 0; i < group.length; i++) {
-      const pos = computeSpiralPosition(center.x, center.y, i, group.length, group[i].data.value, maxAmount)
-      positions.set(group[i].data.id, pos)
+    const planetaryPositions = computePlanetaryPositions(center.x, center.y, group)
+    for (const [id, pos] of planetaryPositions) {
+      positions.set(id, pos)
     }
   }
 
@@ -109,6 +156,13 @@ function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): Map<str
   }
 
   return positions
+}
+
+// Check if an edge crosses continent boundaries
+function isCrossContinentEdge(edge: GraphEdge, nodeContMap: Map<string, string>): boolean {
+  const srcCont = nodeContMap.get(edge.data.source)
+  const tgtCont = nodeContMap.get(edge.data.target)
+  return !!(srcCont && tgtCont && srcCont !== tgtCont)
 }
 
 export function GraphVisualization({
@@ -153,6 +207,23 @@ export function GraphVisualization({
         visibleNodeIds.has(edge.data.source) && visibleNodeIds.has(edge.data.target)
       )
 
+      // Build node→continent map for cross-continent edge detection
+      const nodeContMap = new Map<string, string>()
+      for (const node of filteredNodes) {
+        if (node.data.type === 'campaign') {
+          nodeContMap.set(node.data.id, node.data.metadata?.continent || 'other')
+        }
+      }
+
+      // Tag cross-continent edges with metadata
+      const edgesWithCross = filteredEdges.map(e => ({
+        ...e,
+        data: {
+          ...e.data,
+          crossContinent: isCrossContinentEdge(e, nodeContMap) ? 'yes' : 'no',
+        }
+      }))
+
       // Compute positions before creating graph
       const positions = computePresetPositions(filteredNodes, filteredEdges)
 
@@ -183,11 +254,11 @@ export function GraphVisualization({
 
         elements: {
           nodes: nodesWithPositions,
-          edges: filteredEdges,
+          edges: edgesWithCross,
         },
 
         style: [
-          // Continent watermark labels — very large, very dim
+          // Continent watermark labels — very large, slightly brighter
           {
             selector: 'node[type="continent-label"]',
             style: {
@@ -197,7 +268,7 @@ export function GraphVisualization({
               'font-weight': '700',
               'text-valign': 'center',
               'text-halign': 'center',
-              'color': 'rgba(0, 224, 160, 0.08)',
+              'color': 'rgba(0, 224, 160, 0.12)',
               'text-outline-width': 0,
               'width': 1,
               'height': 1,
@@ -207,7 +278,7 @@ export function GraphVisualization({
               'text-transform': 'uppercase' as any,
             }
           },
-          // Failed/expired campaigns — supernova remnant: hollow ring, transparent fill
+          // Campaign nodes — green funded, cyan active, red failed (star shape)
           {
             selector: 'node[type="campaign"]',
             style: {
@@ -215,18 +286,21 @@ export function GraphVisualization({
                 const status = ele.data('metadata').status
                 if (status === 'success') return '#00FF88'
                 if (status === 'running') return '#00D4FF'
-                if (status === 'expired' || status === 'failed') return 'rgba(255, 68, 85, 0.1)'
+                if (status === 'expired' || status === 'failed') return '#FF4455'
                 return '#556677'
               },
               'background-opacity': (ele: any) => {
                 const status = ele.data('metadata').status
-                if (status === 'expired' || status === 'failed') return 0.15
+                if (status === 'expired' || status === 'failed') return 1
                 if (status === 'success') return 0.9
                 if (status === 'running') return 0.9
                 return 0.6
               },
               'shape': (ele: any) => {
-                return ele.data('metadata').status === 'running' ? 'rectangle' : 'ellipse'
+                const status = ele.data('metadata').status
+                if (status === 'running') return 'rectangle'
+                if (status === 'expired' || status === 'failed') return 'star'
+                return 'ellipse'
               },
               'label': '',  // Labels off by default
               'width': (ele: any) => Math.max(10, Math.log2((ele.data('value') || 0) + 1) * 9),
@@ -241,38 +315,34 @@ export function GraphVisualization({
               'text-outline-color': '#0B0E11',
               'text-outline-width': 1.5,
               'overlay-opacity': 0,
-              // Border for expired: hollow ring effect
               'border-width': (ele: any) => {
                 const status = ele.data('metadata').status
-                if (status === 'expired' || status === 'failed') return 2
+                if (status === 'expired' || status === 'failed') return 3
                 if (status === 'running') return 1.5
                 return 0
               },
               'border-color': (ele: any) => {
                 const status = ele.data('metadata').status
-                if (status === 'expired' || status === 'failed') return 'rgba(255, 68, 85, 0.4)'
+                if (status === 'expired' || status === 'failed') return '#FF4455'
                 if (status === 'running') return 'rgba(0, 212, 255, 0.6)'
                 return 'transparent'
               },
               'border-opacity': 1,
-              // Opacity: failed campaigns more transparent
-              'opacity': (ele: any) => {
-                const status = ele.data('metadata').status
-                if (status === 'expired' || status === 'failed') return 0.4
-                return 1
-              },
+              // Full opacity for all campaigns including failed
+              'opacity': 1,
               // Glow/shadow
               'shadow-blur': (ele: any) => {
                 const status = ele.data('metadata').status
                 if (status === 'success') return 15
                 if (status === 'running') return 20
+                if (status === 'expired' || status === 'failed') return 15
                 return 5
               },
               'shadow-color': (ele: any) => {
                 const status = ele.data('metadata').status
                 if (status === 'success') return 'rgba(0, 255, 136, 0.5)'
                 if (status === 'running') return 'rgba(0, 212, 255, 0.6)'
-                if (status === 'expired' || status === 'failed') return 'rgba(255, 68, 85, 0.2)'
+                if (status === 'expired' || status === 'failed') return 'rgba(255, 68, 85, 0.6)'
                 return 'rgba(85, 102, 119, 0.2)'
               },
               'shadow-offset-x': 0,
@@ -280,31 +350,29 @@ export function GraphVisualization({
               'shadow-opacity': 0.8,
             }
           },
-          // Recipient nodes — tiny, very transparent
+          // Recipient nodes — orange diamonds, bigger and visible
           {
             selector: 'node[type="recipient"]',
             style: {
-              'background-color': '#E8A838',
-              'background-opacity': 0.3,
+              'background-color': '#FF8C00',
+              'background-opacity': 0.7,
               'label': '',
-              'width': 4,
-              'height': 4,
+              'width': 10,
+              'height': 10,
               'shape': 'diamond',
-              'border-width': 0,
+              'border-width': 1,
+              'border-color': '#FF8C00',
+              'border-opacity': 0.5,
               'overlay-opacity': 0,
-              'opacity': 0.3,
+              'opacity': 0.7,
             }
           },
-          // Entity nodes (if any remain)
+          // Entity nodes — yellow hexagons
           {
             selector: 'node[type="entity"]',
             style: {
-              'background-color': (ele: any) => {
-                const successRate = ele.data('metadata').successRate
-                return successRate > 0.7 ? '#56E89C' :
-                       successRate > 0.3 ? '#E8A838' : '#E85454'
-              },
-              'background-opacity': 0.85,
+              'background-color': '#FFD700',
+              'background-opacity': 0.9,
               'label': 'data(label)',
               'width': (ele: any) => Math.max(40, ele.data('metadata').campaigns * 15),
               'height': (ele: any) => Math.max(40, ele.data('metadata').campaigns * 15),
@@ -313,41 +381,64 @@ export function GraphVisualization({
               'font-weight': 'bold',
               'text-valign': 'center',
               'text-halign': 'center',
-              'color': '#E0E4E8',
-              'text-outline-color': '#0B0E11',
+              'color': '#0B0E11',
+              'text-outline-color': 'rgba(255, 215, 0, 0.3)',
               'text-outline-width': 2,
               'overlay-opacity': 0,
+              'shadow-blur': 12,
+              'shadow-color': 'rgba(255, 215, 0, 0.4)',
+              'shadow-offset-x': 0,
+              'shadow-offset-y': 0,
+              'shadow-opacity': 0.8,
             }
           },
-          // Same-entity edges — bright green strands
+          // Same-entity edges — bright green strands, 3px wide
           {
             selector: 'edge[type="same-entity"]',
             style: {
-              'width': 2,
-              'line-color': 'rgba(0, 255, 136, 0.35)',
+              'width': 3,
+              'line-color': '#00FF88',
               'curve-style': 'bezier',
               'opacity': 0.6,
             }
           },
-          // Shared-address edges — dim amber
+          // Cross-continent same-entity edges — even more visible
+          {
+            selector: 'edge[type="same-entity"][crossContinent="yes"]',
+            style: {
+              'width': 4,
+              'line-color': '#00FF88',
+              'opacity': 0.8,
+            }
+          },
+          // Shared-address edges — orange, 2px wide
           {
             selector: 'edge[type="shared-address"]',
             style: {
-              'width': 1,
-              'line-color': 'rgba(232, 168, 56, 0.15)',
+              'width': 2,
+              'line-color': '#FF8C00',
               'curve-style': 'bezier',
-              'opacity': 0.3,
+              'opacity': 0.4,
             }
           },
-          // Received edges (campaign → recipient) — very dim
+          // Cross-continent shared-address edges — brighter
+          {
+            selector: 'edge[type="shared-address"][crossContinent="yes"]',
+            style: {
+              'width': 3,
+              'line-color': '#FF8C00',
+              'opacity': 0.7,
+            }
+          },
+          // Received edges (campaign → recipient) — subtle orange
           {
             selector: 'edge[type="received"]',
             style: {
-              'width': 0.5,
-              'line-color': 'rgba(232, 168, 56, 0.1)',
+              'width': 1,
+              'line-color': 'rgba(255, 140, 0, 0.2)',
               'target-arrow-shape': 'none',
               'curve-style': 'bezier',
-              'opacity': 0.2,
+              'opacity': 0.3,
             }
           },
           {
@@ -408,17 +499,18 @@ export function GraphVisualization({
         })
         node.style('opacity', 1)
         node.connectedEdges().forEach((edge: any) => {
-          edge.style('opacity', 0.9)
+          // Brighten connected edges to full opacity
+          edge.style('opacity', 1)
           const edgeType = edge.data('type')
           if (edgeType === 'same-entity') {
             edge.style('line-color', '#00FF88')
-            edge.style('width', 3)
+            edge.style('width', 5)
           } else if (edgeType === 'shared-address') {
-            edge.style('line-color', '#E8A838')
-            edge.style('width', 2)
+            edge.style('line-color', '#FF8C00')
+            edge.style('width', 4)
           } else {
             edge.style('line-color', '#4ECDC4')
-            edge.style('width', 2)
+            edge.style('width', 3)
           }
           edge.connectedNodes().style('opacity', 1)
         })
@@ -444,8 +536,8 @@ export function GraphVisualization({
         // Brighten recipients on hover
         if (node.data('type') === 'recipient') {
           node.style('opacity', 1)
-          node.style('width', 8)
-          node.style('height', 8)
+          node.style('width', 14)
+          node.style('height', 14)
         }
       })
       cy.on('mouseout', 'node', (evt: any) => {
