@@ -1,4 +1,5 @@
 import flipstartersWithAddresses from '../../../data/flipstarters-with-addresses.json'
+import fundmeData from '../../../data/fundme.json'
 import type { Campaign, FlipstarterRaw, Entity } from '@/types/campaign'
 import { extractEntities } from '../parsers/entity-extractor'
 import { buildEntityMap } from './entity-resolver'
@@ -51,12 +52,9 @@ function generateId(url: string, title: string, tx?: string, time?: string): str
 // Main data access functions
 export function getCampaigns(): Campaign[] {
   const flipstarters = (flipstartersWithAddresses as any[]).map(transformFlipstarterCampaign)
+  const fundme = (fundmeData as unknown as Campaign[])
 
-  // TODO: Merge with FundMe.cash data when available
-  // const fundme = fundmeData || []
-  // return [...flipstarters, ...fundme]
-
-  return flipstarters
+  return [...flipstarters, ...fundme]
 }
 
 export function getCampaignById(id: string): Campaign | undefined {

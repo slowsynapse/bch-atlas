@@ -1,0 +1,153 @@
+import * as fs from 'fs'
+import { createHash } from 'crypto'
+
+// Actual FundMe.cash API response shape
+interface FundMeRaw {
+  id: string
+  name?: string
+  owner?: string
+  description?: string
+  ownersAddress?: string
+  status?: string
+  isComplete?: boolean
+  pledges?: { campaignID: number; pledgeID: number; name: string; message: string; amount: string }[]
+  updates?: { number: number; text: string }[]
+  logo?: string
+  banner?: string
+}
+
+interface Campaign {
+  id: string
+  platform: 'fundme'
+  title: string
+  description?: string
+  amount: number
+  raised?: number
+  status: 'success' | 'expired' | 'running' | 'unknown'
+  time: string
+  url: string
+  entities: string[]
+  recipientAddresses?: string[]
+}
+
+function generateId(url: string, title: string, tx?: string, time?: string): string {
+  const unique = tx || time || Date.now().toString()
+  return createHash('sha256')
+    .update(`${url}-${title}-${unique}`)
+    .digest('hex')
+    .substring(0, 16)
+}
+
+function stripHtml(html: string): string {
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function mapStatus(raw: FundMeRaw): Campaign['status'] {
+  if (raw.isComplete) return 'success'
+  const status = (raw.status || '').toLowerCase()
+  if (status === 'stopped' || status === 'canceled' || status === 'cancelled') return 'expired'
+  if (status === 'active' || status === 'running') return 'running'
+  return 'unknown'
+}
+
+function sumPledges(pledges?: FundMeRaw['pledges']): number {
+  if (!pledges || pledges.length === 0) return 0
+  return pledges.reduce((sum, p) => sum + parseFloat(p.amount || '0'), 0)
+}
+
+function transformCampaign(raw: FundMeRaw, apiId: string): Campaign {
+  const title = raw.name || `FundMe Campaign #${apiId}`
+  const url = `https://fundme.cash/?id=${apiId}`
+  const time = new Date().toISOString().split('T')[0]
+  const status = mapStatus(raw)
+  const raised = sumPledges(raw.pledges)
+
+  const campaign: Campaign = {
+    id: generateId(url, title, undefined, time),
+    platform: 'fundme',
+    title,
+    description: raw.description ? stripHtml(raw.description) : undefined,
+    amount: 0, // FundMe API doesn't expose goal amount
+    raised: raised > 0 ? raised : undefined,
+    status,
+    time,
+    url,
+    entities: [],
+    recipientAddresses: raw.ownersAddress ? [raw.ownersAddress.trim()] : undefined,
+  }
+
+  return campaign
+}
+
+function delay(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function fetchCampaignList(): Promise<string[]> {
+  console.log('Fetching campaign list...')
+  const res = await fetch('https://fundme.cash/get-campaignlist')
+  if (!res.ok) throw new Error(`Failed to fetch campaign list: ${res.status}`)
+  const ids: string[] = await res.json()
+  console.log(`Found ${ids.length} campaign IDs`)
+  return ids
+}
+
+async function fetchCampaign(id: string): Promise<FundMeRaw | null> {
+  try {
+    const res = await fetch(`https://fundme.cash/get-campaign/${id}`)
+    if (!res.ok) {
+      console.warn(`  Failed to fetch campaign ${id}: ${res.status}`)
+      return null
+    }
+    return await res.json()
+  } catch (err) {
+    console.warn(`  Error fetching campaign ${id}:`, err)
+    return null
+  }
+}
+
+async function main() {
+  const ids = await fetchCampaignList()
+
+  const campaigns: Campaign[] = []
+  let failed = 0
+
+  for (let i = 0; i < ids.length; i++) {
+    const id = ids[i]
+    console.log(`Fetching campaign ${i + 1}/${ids.length}: ${id}`)
+
+    const raw = await fetchCampaign(id)
+    if (raw) {
+      // Strip base64 image data
+      delete raw.logo
+      delete raw.banner
+      campaigns.push(transformCampaign(raw, id))
+    } else {
+      failed++
+    }
+
+    // Be polite — 500ms delay between requests
+    if (i < ids.length - 1) {
+      await delay(500)
+    }
+  }
+
+  console.log(`\nFetched ${campaigns.length} campaigns (${failed} failed)`)
+
+  fs.writeFileSync('data/fundme.json', JSON.stringify(campaigns, null, 2))
+  console.log('Saved to data/fundme.json')
+}
+
+main().catch(err => {
+  console.error('Fatal error:', err)
+  process.exit(1)
+})
