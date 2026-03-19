@@ -54,8 +54,8 @@ function stripHtml(html: string): string {
 function mapStatus(raw: FundMeRaw): Campaign['status'] {
   if (raw.isComplete) return 'success'
   const status = (raw.status || '').toLowerCase()
-  if (status === 'stopped' || status === 'canceled' || status === 'cancelled') return 'expired'
-  if (status === 'active' || status === 'running') return 'running'
+  if (status === 'stopped' || status === 'canceled' || status === 'cancelled' || status === 'archived') return 'expired'
+  if (status === 'active' || status === 'running' || status === 'open') return 'running'
   return 'unknown'
 }
 
@@ -76,7 +76,7 @@ function transformCampaign(raw: FundMeRaw, apiId: string): Campaign {
     platform: 'fundme',
     title,
     description: raw.description ? stripHtml(raw.description) : undefined,
-    amount: 0, // FundMe API doesn't expose goal amount
+    amount: raised > 0 ? raised : 0, // FundMe API has no goal field; use raised total
     raised: raised > 0 ? raised : undefined,
     status,
     time,

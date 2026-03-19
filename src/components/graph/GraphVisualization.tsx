@@ -77,14 +77,17 @@ export function GraphVisualization({
                        '#556677'
               },
               'background-opacity': 0.85,
-              'label': 'data(label)',
-              'width': (ele: any) => Math.max(20, Math.sqrt(ele.data('value')) * 5),
-              'height': (ele: any) => Math.max(20, Math.sqrt(ele.data('value')) * 5),
-              'font-size': '10px',
+              'label': (ele: any) => {
+                const val = ele.data('value') || 0
+                return val > 10 ? ele.data('label') : ''
+              },
+              'width': (ele: any) => Math.max(8, Math.log2((ele.data('value') || 0) + 1) * 8),
+              'height': (ele: any) => Math.max(8, Math.log2((ele.data('value') || 0) + 1) * 8),
+              'font-size': '9px',
               'text-valign': 'center',
               'text-halign': 'center',
               'text-wrap': 'wrap',
-              'text-max-width': '80px',
+              'text-max-width': '70px',
               'color': '#E0E4E8',
               'text-outline-color': '#0B0E11',
               'text-outline-width': 1.5,
@@ -108,9 +111,12 @@ export function GraphVisualization({
             style: {
               'background-color': '#E8A838',
               'background-opacity': 0.85,
-              'label': 'data(label)',
-              'width': (ele: any) => Math.max(30, Math.sqrt(ele.data('value')) * 4),
-              'height': (ele: any) => Math.max(30, Math.sqrt(ele.data('value')) * 4),
+              'label': (ele: any) => {
+                const val = ele.data('value') || 0
+                return val > 5 ? ele.data('label') : ''
+              },
+              'width': (ele: any) => Math.max(12, Math.log2((ele.data('value') || 0) + 1) * 7),
+              'height': (ele: any) => Math.max(12, Math.log2((ele.data('value') || 0) + 1) * 7),
               'shape': 'diamond',
               'font-size': '9px',
               'font-weight': 'bold',
@@ -165,33 +171,33 @@ export function GraphVisualization({
           {
             selector: 'edge[type="created"]',
             style: {
-              'width': 1.5,
-              'line-color': 'rgba(78, 205, 196, 0.25)',
-              'target-arrow-color': 'rgba(78, 205, 196, 0.25)',
+              'width': 1,
+              'line-color': 'rgba(78, 205, 196, 0.15)',
+              'target-arrow-color': 'rgba(78, 205, 196, 0.15)',
               'target-arrow-shape': 'triangle',
               'curve-style': 'bezier',
-              'opacity': 0.7,
+              'opacity': 0.5,
             }
           },
           {
             selector: 'edge[type="related"]',
             style: {
-              'width': 3,
-              'line-color': 'rgba(78, 205, 196, 0.35)',
+              'width': 1.5,
+              'line-color': 'rgba(78, 205, 196, 0.2)',
               'line-style': 'dashed',
               'curve-style': 'bezier',
-              'opacity': 0.6,
+              'opacity': 0.4,
             }
           },
           {
             selector: 'edge[type="received"]',
             style: {
-              'width': 1.5,
-              'line-color': 'rgba(232, 168, 56, 0.35)',
-              'target-arrow-color': 'rgba(232, 168, 56, 0.35)',
+              'width': 1,
+              'line-color': 'rgba(232, 168, 56, 0.2)',
+              'target-arrow-color': 'rgba(232, 168, 56, 0.2)',
               'target-arrow-shape': 'triangle',
               'curve-style': 'bezier',
-              'opacity': 0.5,
+              'opacity': 0.35,
             }
           },
           {
@@ -212,10 +218,11 @@ export function GraphVisualization({
           animate: false,
           randomize: false,
           nodeDimensionsIncludeLabels: true,
-          idealEdgeLength: 100,
-          nodeRepulsion: 4500,
-          edgeElasticity: 0.45,
+          idealEdgeLength: 65,
+          nodeRepulsion: 2500,
+          edgeElasticity: 0.7,
           nestingFactor: 0.1,
+          padding: 15,
         },
 
         minZoom: 0.1,
@@ -249,6 +256,21 @@ export function GraphVisualization({
             ele.removeStyle('line-color')
             ele.removeStyle('width')
           })
+        }
+      })
+
+      // Hover: show label for small nodes
+      cy.on('mouseover', 'node', (evt: any) => {
+        const node = evt.target
+        node.style('label', node.data('label'))
+      })
+      cy.on('mouseout', 'node', (evt: any) => {
+        const node = evt.target
+        const val = node.data('value') || 0
+        const type = node.data('type')
+        const threshold = type === 'recipient' ? 5 : type === 'entity' ? 0 : 10
+        if (val <= threshold) {
+          node.style('label', '')
         }
       })
 
@@ -287,7 +309,7 @@ export function GraphVisualization({
           radial-gradient(ellipse 60% 50% at 50% 50%, rgba(78, 205, 196, 0.03) 0%, transparent 70%),
           radial-gradient(ellipse 40% 40% at 75% 25%, rgba(42, 157, 143, 0.02) 0%, transparent 60%),
           radial-gradient(ellipse 50% 50% at 25% 75%, rgba(78, 205, 196, 0.015) 0%, transparent 50%),
-          #0B0E11
+          #070A0D
         `,
       }}
     />
