@@ -65,8 +65,9 @@ function getTimeSince(dateString?: string, timestamp?: number): string {
   return `${diffDays} day${diffDays !== 1 ? 's' : ''} ago`
 }
 
-export default function CampaignDetailPage({ params }: { params: { id: string } }) {
-  const campaign = getCampaignById(params.id)
+export default async function CampaignDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const campaign = getCampaignById(id)
 
   if (!campaign) {
     notFound()

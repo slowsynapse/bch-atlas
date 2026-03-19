@@ -1,3 +1,5 @@
+'use client'
+
 interface Contributor {
   address: string
   name?: string
