@@ -12,6 +12,26 @@ export interface NodeFilters {
   showRecipients: boolean
 }
 
+// Cracked moon SVG for failed/expired campaigns — a fractured planet splitting apart
+const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="left-half">
+      <path d="M0,0 L47,0 L44,38 L50,50 L43,65 L48,100 L0,100 Z"/>
+    </clipPath>
+    <clipPath id="right-half">
+      <path d="M53,0 L100,0 L100,100 L52,100 L57,65 L50,50 L56,38 Z"/>
+    </clipPath>
+  </defs>
+  <!-- Left half, shifted slightly left and down -->
+  <circle cx="48" cy="52" r="42" fill="#1a0000" stroke="#FF4455" stroke-width="3" clip-path="url(#left-half)"/>
+  <!-- Right half, shifted slightly right and up -->
+  <circle cx="52" cy="48" r="42" fill="#1a0000" stroke="#FF4455" stroke-width="3" clip-path="url(#right-half)"/>
+  <!-- Crack lines — jagged fractures through the center -->
+  <polyline points="50,4 48,20 54,32 44,38 50,50 43,65 52,78 48,96" fill="none" stroke="#FF4455" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="18,22 30,30 44,38" fill="none" stroke="#FF4455" stroke-width="1.5" stroke-linecap="round"/>
+  <polyline points="82,72 68,66 57,65" fill="none" stroke="#FF4455" stroke-width="1.5" stroke-linecap="round"/>
+</svg>`)
+
 // Continent center positions — wide spread, core at CENTER
 const CONTINENT_CENTERS: Record<string, { x: number; y: number; label: string }> = {
   core:       { x: 0,     y: 0,     label: 'CORE INFRASTRUCTURE' },
@@ -238,9 +258,9 @@ export function GraphVisualization({
         }
       }))
 
-      // Position label nodes at continent centers
+      // Position label nodes ABOVE continent centers so they don't overlap campaign nodes
       for (const [key, val] of Object.entries(CONTINENT_CENTERS)) {
-        positions.set(`label-${key}`, { x: val.x, y: val.y })
+        positions.set(`label-${key}`, { x: val.x, y: val.y - 175 })
       }
 
       // Add positions to nodes
@@ -258,17 +278,17 @@ export function GraphVisualization({
         },
 
         style: [
-          // Continent watermark labels — very large, slightly brighter
+          // Continent watermark labels — rendered behind everything
           {
             selector: 'node[type="continent-label"]',
             style: {
               'background-opacity': 0,
               'label': 'data(label)',
-              'font-size': '48px',
+              'font-size': '56px',
               'font-weight': '700',
               'text-valign': 'center',
               'text-halign': 'center',
-              'color': 'rgba(0, 224, 160, 0.12)',
+              'color': 'rgba(0, 224, 160, 0.15)',
               'text-outline-width': 0,
               'width': 1,
               'height': 1,
@@ -276,9 +296,10 @@ export function GraphVisualization({
               'events': 'no',
               'border-width': 0,
               'text-transform': 'uppercase' as any,
+              'z-index': 0,
             }
           },
-          // Campaign nodes — green funded, cyan active, red failed (star shape)
+          // Campaign nodes — green funded, cyan active, red cracked-moon failed
           {
             selector: 'node[type="campaign"]',
             style: {
@@ -286,7 +307,7 @@ export function GraphVisualization({
                 const status = ele.data('metadata').status
                 if (status === 'success') return '#00FF88'
                 if (status === 'running') return '#00D4FF'
-                if (status === 'expired' || status === 'failed') return '#FF4455'
+                if (status === 'expired' || status === 'failed') return '#1a0000'
                 return '#556677'
               },
               'background-opacity': (ele: any) => {
@@ -299,37 +320,59 @@ export function GraphVisualization({
               'shape': (ele: any) => {
                 const status = ele.data('metadata').status
                 if (status === 'running') return 'rectangle'
-                if (status === 'expired' || status === 'failed') return 'star'
                 return 'ellipse'
               },
-              'label': '',  // Labels off by default
+              'background-image': (ele: any) => {
+                const status = ele.data('metadata').status
+                if (status === 'expired' || status === 'failed') return CRACKED_MOON_SVG
+                return 'none'
+              },
+              'background-fit': 'cover' as any,
+              'background-clip': 'none' as any,
+              'label': (ele: any) => {
+                const title = ele.data('label') || ''
+                return title.length > 20 ? title.slice(0, 20) + '…' : title
+              },
               'width': (ele: any) => Math.max(10, Math.log2((ele.data('value') || 0) + 1) * 9),
               'height': (ele: any) => Math.max(10, Math.log2((ele.data('value') || 0) + 1) * 9),
-              'font-size': '9px',
+              'font-size': (ele: any) => {
+                const size = Math.max(10, Math.log2((ele.data('value') || 0) + 1) * 9)
+                if (size >= 30) return '12px'
+                if (size >= 18) return '10px'
+                return '8px'
+              },
               'text-valign': 'bottom',
               'text-halign': 'center',
               'text-margin-y': 5,
-              'text-wrap': 'wrap',
+              'text-wrap': 'ellipsis' as any,
               'text-max-width': '80px',
-              'color': '#E0E4E8',
+              'color': (ele: any) => {
+                const status = ele.data('metadata').status
+                if (status === 'expired' || status === 'failed') return 'rgba(255, 68, 85, 0.7)'
+                if (status === 'running') return 'rgba(0, 224, 160, 0.8)'
+                return 'rgba(232, 236, 240, 0.8)'
+              },
               'text-outline-color': '#0B0E11',
               'text-outline-width': 1.5,
               'overlay-opacity': 0,
+              'z-index': 10,
               'border-width': (ele: any) => {
                 const status = ele.data('metadata').status
-                if (status === 'expired' || status === 'failed') return 3
+                if (status === 'expired' || status === 'failed') return 0
                 if (status === 'running') return 1.5
                 return 0
               },
               'border-color': (ele: any) => {
                 const status = ele.data('metadata').status
-                if (status === 'expired' || status === 'failed') return '#FF4455'
                 if (status === 'running') return 'rgba(0, 212, 255, 0.6)'
                 return 'transparent'
               },
               'border-opacity': 1,
-              // Full opacity for all campaigns including failed
-              'opacity': 1,
+              'opacity': (ele: any) => {
+                const status = ele.data('metadata').status
+                if (status === 'expired' || status === 'failed') return 0.7
+                return 1
+              },
               // Glow/shadow
               'shadow-blur': (ele: any) => {
                 const status = ele.data('metadata').status
@@ -528,7 +571,7 @@ export function GraphVisualization({
         }
       })
 
-      // Hover: show label
+      // Hover: show full label (untruncated for campaigns, label for others)
       cy.on('mouseover', 'node', (evt: any) => {
         const node = evt.target
         if (node.data('type') === 'continent-label') return
@@ -543,7 +586,12 @@ export function GraphVisualization({
       cy.on('mouseout', 'node', (evt: any) => {
         const node = evt.target
         if (node.data('type') === 'continent-label') return
-        node.style('label', '')
+        // Campaigns: restore truncated label; others: hide
+        if (node.data('type') === 'campaign') {
+          node.removeStyle('label')
+        } else {
+          node.style('label', '')
+        }
         if (node.data('type') === 'recipient') {
           node.removeStyle('opacity')
           node.removeStyle('width')
