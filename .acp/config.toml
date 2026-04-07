@@ -1,0 +1,16 @@
+# ACP configuration for BCH Atlas
+# Works with Claude Code, Codex, Pi, Gemini CLI, etc.
+
+[permissions]
+mode = "approve-all"  # Require approval for shell commands
+non_interactive = "deny"  # No silent auto-approvals
+
+[preferences]
+default_agent = "claude"  # Prefer Claude Code for now (can switch to "codex")
+
+[sandbox]
+# Future: enable workspace-only mode for Stage 3
+
+[context]
+# Always include these files in agent context (if they exist)
+# always_include = ["docs/architecture-notes.md"]
