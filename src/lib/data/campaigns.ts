@@ -86,13 +86,13 @@ export function getStats() {
 
   return {
     totalCampaigns: campaigns.length,
-    totalBCH: campaigns.reduce((sum, c) => sum + c.amount, 0),
+    totalBCH: successfulCampaigns.reduce((sum, c) => sum + c.amount, 0),
     successRate: campaigns.length > 0
       ? successfulCampaigns.length / campaigns.length
       : 0,
     totalEntities: entities.size,
-    avgCampaignSize: campaigns.length > 0
-      ? campaigns.reduce((sum, c) => sum + c.amount, 0) / campaigns.length
+    avgCampaignSize: successfulCampaigns.length > 0
+      ? successfulCampaigns.reduce((sum, c) => sum + c.amount, 0) / successfulCampaigns.length
       : 0,
     platformBreakdown: {
       flipstarter: campaigns.filter(c => c.platform === 'flipstarter').length,

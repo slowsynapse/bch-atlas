@@ -677,7 +677,7 @@ export function GraphVisualization({
       })
 
       // Draw faint orbit rings on the canvas underlay
-      const layer = cy.cyCanvas({ zIndex: -1 })
+      const layer = cy.cyCanvas({ zIndex: 1 })
       const canvas = layer.getCanvas()
       const ctx = canvas.getContext('2d')
 
@@ -686,9 +686,9 @@ export function GraphVisualization({
         layer.clear(ctx)
         layer.setTransform(ctx)
 
-        ctx.strokeStyle = 'rgba(0, 224, 160, 0.2)'
+        ctx.strokeStyle = 'rgba(255, 220, 50, 0.3)'
         ctx.lineWidth = 1.0
-        ctx.setLineDash([8, 12])
+        ctx.setLineDash([10, 8])
 
         for (const ring of orbitRings) {
           ctx.beginPath()

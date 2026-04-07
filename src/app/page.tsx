@@ -274,8 +274,8 @@ export default function AtlasPage() {
           filters={filters}
         />
 
-        {/* LIVE MISSIONS PANEL — top-right */}
-        {(() => {
+        {/* LIVE MISSIONS PANEL — top-right (hidden when detail sidebar is open) */}
+        {!selectedNode && (() => {
           const activeCampaigns = campaigns.filter(c => c.status === 'running')
           if (activeCampaigns.length === 0) return null
           return (
