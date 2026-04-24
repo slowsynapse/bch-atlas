@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getCampaigns } from '@/lib/data/campaigns'
+import { getCampaignsWithPricing } from '@/lib/data/campaigns-with-pricing'
 
 export async function GET(request: NextRequest) {
   try {
@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
     const minAmount = searchParams.get('minAmount')
     const maxAmount = searchParams.get('maxAmount')
 
-    let campaigns = getCampaigns()
+    let campaigns = await getCampaignsWithPricing()
 
     if (platform.length > 0) {
       campaigns = campaigns.filter(c => platform.includes(c.platform))

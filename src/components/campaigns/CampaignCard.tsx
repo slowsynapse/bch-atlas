@@ -118,6 +118,11 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
                 {campaign.amount.toFixed(2)}
                 <span className="text-[11px] text-[#6A8888] ml-1">BCH</span>
               </div>
+              {campaign.usdValueAtTime != null && (
+                <div className="font-mono text-xs text-[#8A9AAB]">
+                  ≈ ${campaign.usdValueAtTime.toLocaleString()}
+                </div>
+              )}
 
               <span className={`font-mono text-[10px] tracking-[0.15em] uppercase ${getStatusTextColor(campaign.status)}`}>
                 {getStatusLabel(campaign.status)}

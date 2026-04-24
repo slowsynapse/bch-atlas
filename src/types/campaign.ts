@@ -29,6 +29,11 @@ export interface Campaign {
   recipientAddresses?: string[]     // BCH addresses that received funds
   blockHeight?: number | string     // Block height of transaction
   transactionTimestamp?: string     // Unix timestamp
+
+  // Historical pricing
+  usdValueAtTime?: number           // Goal in USD at historical BCH price
+  priceSource?: 'hyperliquid' | 'coingecko' | 'estimated'
+  priceDate?: string                // ISO date used for price lookup
 }
 
 export interface Entity {

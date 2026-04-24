@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getCampaignById } from '@/lib/data/campaigns'
+import { getCampaignByIdWithPricing } from '@/lib/data/campaigns-with-pricing'
 import { ContributorsList } from '@/components/campaigns/ContributorsList'
 import { notFound } from 'next/navigation'
 
@@ -67,7 +67,7 @@ function getTimeSince(dateString?: string, timestamp?: number): string {
 
 export default async function CampaignDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const campaign = getCampaignById(id)
+  const campaign = await getCampaignByIdWithPricing(id)
 
   if (!campaign) {
     notFound()
@@ -136,6 +136,18 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
                 >
                   {goalAmount.toFixed(2)} <span className="text-sm text-[#7A8899]">BCH</span>
                 </div>
+                {campaign.usdValueAtTime != null && (
+                  <div className="mt-1">
+                    <span className="font-mono text-lg text-[#E0E4E8]" style={{ textShadow: '0 0 8px rgba(224,228,232,0.15)' }}>
+                      ≈ ${campaign.usdValueAtTime.toLocaleString()} USD
+                    </span>
+                    {campaign.priceDate && (
+                      <span className="text-xs text-[#7A8899] ml-2 font-mono">
+                        at BCH price on {new Date(campaign.priceDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                      </span>
+                    )}
+                  </div>
+                )}
                 <span className="ds-label">Goal</span>
               </div>
               {campaign.status === 'success' && (

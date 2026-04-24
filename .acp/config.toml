@@ -6,7 +6,7 @@ mode = "approve-all"  # Require approval for shell commands
 non_interactive = "deny"  # No silent auto-approvals
 
 [preferences]
-default_agent = "claude"  # Prefer Claude Code for now (can switch to "codex")
+default_agent = "codex"  # Switched from Claude Code (2026-04-07)
 
 [sandbox]
 # Future: enable workspace-only mode for Stage 3
