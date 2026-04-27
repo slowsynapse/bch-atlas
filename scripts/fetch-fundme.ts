@@ -54,9 +54,19 @@ function stripHtml(html: string): string {
 }
 
 function mapStatus(raw: FundMeRaw, raised: number, amount: number): Campaign['status'] {
+  // FundMe API status fields are unreliable for our purposes:
+  //   - isComplete: true means the creator formally claimed funds via FundMe's UI.
+  //     Many real successes have isComplete: false because the creator never
+  //     clicked "claim" but still received the pledged BCH on-chain.
+  //   - status: 'archived'/'stopped' can mean either "campaign succeeded and was
+  //     wrapped up" OR "campaign failed". The API does not distinguish.
+  //
+  // Heuristic: if there are any pledges, treat as success. This is consistent
+  // with our use of amount=raised (since FundMe exposes no goal). True failures
+  // appear as zero-pledge campaigns. False positives are rare in practice.
+  // Future work: cross-reference with the on-chain CashStarter contract to
+  // determine whether the funds were actually claimed by the recipient.
   if (raw.isComplete) return 'success'
-  // FundMe returns 'stopped' for both funded and failed campaigns.
-  // If the campaign raised its goal, it's funded — not expired.
   if (raised >= amount && amount > 0) return 'success'
   const status = (raw.status || '').toLowerCase()
   if (status === 'stopped' || status === 'canceled' || status === 'cancelled' || status === 'archived') return 'expired'
