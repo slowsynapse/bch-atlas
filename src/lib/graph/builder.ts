@@ -57,13 +57,16 @@ export function buildGraph(
   })
 
   // Project nodes ("space stations") — only projects with linked campaigns
+  // Small projects (1-2 campaigns) → ISS-style, Large (3+) → Starbase
   projects.forEach(project => {
+    const stationSize = project.campaigns.length >= 3 ? 'large' : 'small'
     nodes.push({
       data: {
         id: `proj-${project.slug}`,
         label: project.name,
         type: 'project',
         status: project.status, // Top-level for Cytoscape selectors
+        stationSize, // 'small' (ISS) | 'large' (Starbase)
         value: project.totalBCH,
         metadata: {
           slug: project.slug,

@@ -48,3 +48,7 @@ next-env.d.ts
 .claude/jobs/
 docs/work-logs/progress/
 docs/work-logs/test-reports/
+
+# Playwright MCP artifacts (browser snapshots, screenshots from agent sessions)
+/.playwright-mcp/
+/*.png

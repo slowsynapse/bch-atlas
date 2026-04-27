@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" width="96" height="64">
+  <!-- ISS-inspired modular station: long horizontal truss with solar panels -->
+  <!-- Main truss (horizontal beam) -->
+  <rect x="14" y="30" width="68" height="4" fill="#0a3d2c" stroke="#00E0A0" stroke-width="0.8"/>
+  <!-- Truss segment markers -->
+  <line x1="26" y1="30" x2="26" y2="34" stroke="#00E0A0" stroke-width="0.5"/>
+  <line x1="38" y1="30" x2="38" y2="34" stroke="#00E0A0" stroke-width="0.5"/>
+  <line x1="58" y1="30" x2="58" y2="34" stroke="#00E0A0" stroke-width="0.5"/>
+  <line x1="70" y1="30" x2="70" y2="34" stroke="#00E0A0" stroke-width="0.5"/>
+  <!-- Solar panels: 4 arrays, top and bottom of truss ends -->
+  <!-- Left top panel -->
+  <rect x="2" y="14" width="20" height="12" fill="#001a14" stroke="#00E0A0" stroke-width="0.7"/>
+  <line x1="2" y1="20" x2="22" y2="20" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="7" y1="14" x2="7" y2="26" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="12" y1="14" x2="12" y2="26" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="17" y1="14" x2="17" y2="26" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <!-- Left bottom panel -->
+  <rect x="2" y="38" width="20" height="12" fill="#001a14" stroke="#00E0A0" stroke-width="0.7"/>
+  <line x1="2" y1="44" x2="22" y2="44" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="7" y1="38" x2="7" y2="50" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="12" y1="38" x2="12" y2="50" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="17" y1="38" x2="17" y2="50" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <!-- Right top panel -->
+  <rect x="74" y="14" width="20" height="12" fill="#001a14" stroke="#00E0A0" stroke-width="0.7"/>
+  <line x1="74" y1="20" x2="94" y2="20" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="79" y1="14" x2="79" y2="26" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="84" y1="14" x2="84" y2="26" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="89" y1="14" x2="89" y2="26" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <!-- Right bottom panel -->
+  <rect x="74" y="38" width="20" height="12" fill="#001a14" stroke="#00E0A0" stroke-width="0.7"/>
+  <line x1="74" y1="44" x2="94" y2="44" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="79" y1="38" x2="79" y2="50" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="84" y1="38" x2="84" y2="50" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <line x1="89" y1="38" x2="89" y2="50" stroke="#00E0A0" stroke-width="0.4" opacity="0.7"/>
+  <!-- Pylons connecting panels to truss -->
+  <line x1="22" y1="20" x2="26" y2="32" stroke="#00E0A0" stroke-width="0.7"/>
+  <line x1="22" y1="44" x2="26" y2="32" stroke="#00E0A0" stroke-width="0.7"/>
+  <line x1="74" y1="20" x2="70" y2="32" stroke="#00E0A0" stroke-width="0.7"/>
+  <line x1="74" y1="44" x2="70" y2="32" stroke="#00E0A0" stroke-width="0.7"/>
+  <!-- Central modules (cylindrical habitat segments) -->
+  <ellipse cx="42" cy="32" rx="5" ry="6" fill="#003628" stroke="#00FF88" stroke-width="1"/>
+  <ellipse cx="48" cy="32" rx="3" ry="5" fill="#003628" stroke="#00FF88" stroke-width="0.8"/>
+  <ellipse cx="54" cy="32" rx="4" ry="5.5" fill="#003628" stroke="#00FF88" stroke-width="1"/>
+  <!-- Hub light -->
+  <circle cx="48" cy="32" r="1.5" fill="#00FF88"/>
+</svg>

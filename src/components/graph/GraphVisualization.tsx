@@ -10,6 +10,7 @@ export interface NodeFilters {
   showFailed: boolean
   showRunning: boolean
   showRecipients: boolean
+  showProjects: boolean
 }
 
 // Cracked moon SVG for failed/expired campaigns — a fractured planet splitting apart
@@ -190,6 +191,7 @@ function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): { posit
   // Group campaign nodes by continent
   const continentGroups = new Map<string, GraphNode[]>()
   const recipientNodes: GraphNode[] = []
+  const projectNodes: GraphNode[] = []
 
   for (const node of nodes) {
     if (node.data.type === 'campaign') {
@@ -198,6 +200,8 @@ function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): { posit
       continentGroups.get(continent)!.push(node)
     } else if (node.data.type === 'recipient') {
       recipientNodes.push(node)
+    } else if (node.data.type === 'project') {
+      projectNodes.push(node)
     }
   }
 
@@ -237,6 +241,36 @@ function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): { posit
     }
   }
 
+  // Position project stations: anchor at centroid of their member campaigns,
+  // offset above the cluster so the station "hovers" over its planets
+  for (const pNode of projectNodes) {
+    const memberEdges = edges.filter(e =>
+      e.data.type === 'project-member' && e.data.source === pNode.data.id
+    )
+    let sumX = 0, sumY = 0, count = 0
+    for (const edge of memberEdges) {
+      const pos = positions.get(edge.data.target)
+      if (pos) {
+        sumX += pos.x
+        sumY += pos.y
+        count++
+      }
+    }
+    if (count > 0) {
+      // Offset upward by 90px so the station sits above its planet cluster
+      const jitterX = (seededRandom(pNode.data.id, 0) - 0.5) * 60
+      positions.set(pNode.data.id, {
+        x: sumX / count + jitterX,
+        y: sumY / count - 90,
+      })
+    } else {
+      // Fallback: project's continent center
+      const continent = pNode.data.metadata?.continent || 'other'
+      const center = CONTINENT_CENTERS[continent] || CONTINENT_CENTERS.other
+      positions.set(pNode.data.id, { x: center.x, y: center.y })
+    }
+  }
+
   return { positions, orbitRings }
 }
 
@@ -251,7 +285,7 @@ export function GraphVisualization({
   nodes,
   edges,
   onNodeClick,
-  filters = { showSuccessful: true, showFailed: true, showRunning: true, showRecipients: true }
+  filters = { showSuccessful: true, showFailed: true, showRunning: true, showRecipients: true, showProjects: true }
 }: {
   nodes: GraphNode[]
   edges: GraphEdge[]
@@ -282,6 +316,7 @@ export function GraphVisualization({
         }
 
         if (type === 'recipient' && !filters.showRecipients) return false
+        if (type === 'project' && !filters.showProjects) return false
 
         return true
       })
@@ -499,23 +534,105 @@ export function GraphVisualization({
               'shadow-opacity': 0.8,
             }
           },
-          // Same-entity edges — bright green strands, 3px wide
+          // Project nodes — space stations
+          // Small (1-2 campaigns) = ISS-style; Large (3+) = Starbase
           {
-            selector: 'edge[type="same-entity"]',
+            selector: 'node[type="project"]',
             style: {
-              'width': 3,
-              'line-color': '#00FF88',
+              'background-color': 'rgba(0, 0, 0, 0)',
+              'background-opacity': 0,
+              'background-image': '/iss-station.svg',
+              'background-fit': 'contain',
+              'background-clip': 'none',
+              'label': 'data(label)',
+              'shape': 'rectangle',
+              'font-size': '12px',
+              'font-weight': 'bold',
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': 6,
+              'color': '#00FF88',
+              'text-outline-color': '#0A0A0C',
+              'text-outline-width': 2,
+              'border-width': 0,
+              'overlay-opacity': 0,
+              'shadow-blur': 18,
+              'shadow-color': '#00FF88',
+              'shadow-offset-x': 0,
+              'shadow-offset-y': 0,
+              'shadow-opacity': 0.6,
+            } as any
+          },
+          // Small (ISS) station: 1-2 campaigns
+          {
+            selector: 'node[type="project"][stationSize="small"]',
+            style: {
+              'background-image': '/iss-station.svg',
+              'width': 70,
+              'height': 46,
+            } as any
+          },
+          // Large (Starbase) station: 3+ campaigns
+          {
+            selector: 'node[type="project"][stationSize="large"]',
+            style: {
+              'background-image': '/starbase.svg',
+              'width': (ele: any) => {
+                const count = ele.data('metadata')?.campaignCount || 3
+                return Math.min(120, 64 + count * 4)
+              },
+              'height': (ele: any) => {
+                const count = ele.data('metadata')?.campaignCount || 3
+                return Math.min(120, 64 + count * 4)
+              },
+            } as any
+          },
+          // Dormant project stations — amber variant
+          {
+            selector: 'node[type="project"][stationSize="small"][status="dormant"], node[type="project"][stationSize="small"][status="unknown"]',
+            style: {
+              'background-image': '/iss-station-dormant.svg',
+              'color': '#E8A838',
+              'shadow-color': '#E8A838',
+              'shadow-opacity': 0.5,
+            } as any
+          },
+          {
+            selector: 'node[type="project"][stationSize="large"][status="dormant"], node[type="project"][stationSize="large"][status="unknown"]',
+            style: {
+              'background-image': '/starbase-dormant.svg',
+              'color': '#E8A838',
+              'shadow-color': '#E8A838',
+              'shadow-opacity': 0.5,
+            } as any
+          },
+          // Dead project stations — explosion / debris variant
+          {
+            selector: 'node[type="project"][stationSize="small"][status="dead"]',
+            style: {
+              'background-image': '/iss-station-dead.svg',
+              'color': '#FF4455',
+              'shadow-color': '#FF4455',
+              'shadow-opacity': 0.4,
+            } as any
+          },
+          {
+            selector: 'node[type="project"][stationSize="large"][status="dead"]',
+            style: {
+              'background-image': '/starbase-dead.svg',
+              'color': '#FF4455',
+              'shadow-color': '#FF4455',
+              'shadow-opacity': 0.4,
+            } as any
+          },
+          // Project-member edges — thin cyan strands from project to its campaigns
+          {
+            selector: 'edge[type="project-member"]',
+            style: {
+              'width': 1.5,
+              'line-color': 'rgba(0, 212, 255, 0.35)',
               'curve-style': 'bezier',
               'opacity': 0.6,
-            }
-          },
-          // Cross-continent same-entity edges — even more visible
-          {
-            selector: 'edge[type="same-entity"][crossContinent="yes"]',
-            style: {
-              'width': 4,
-              'line-color': '#00FF88',
-              'opacity': 0.8,
             }
           },
           // Shared-address edges — orange, 2px wide
@@ -590,7 +707,7 @@ export function GraphVisualization({
         wheelSensitivity: 0.5,
       })
 
-      // Click: select and highlight connections
+      // Click: select, highlight connections, smoothly zoom to node
       cy.on('tap', 'node', (evt: any) => {
         const node = evt.target
         if (node.data('type') === 'continent-label') return
@@ -600,18 +717,16 @@ export function GraphVisualization({
         cy.elements().forEach((ele: any) => {
           ele.style('opacity', 0.08)
         })
-        // Keep continent labels visible
         cy.nodes('[type="continent-label"]').forEach((ele: any) => {
           ele.style('opacity', 1)
         })
         node.style('opacity', 1)
         node.connectedEdges().forEach((edge: any) => {
-          // Brighten connected edges to full opacity
           edge.style('opacity', 1)
           const edgeType = edge.data('type')
-          if (edgeType === 'same-entity') {
-            edge.style('line-color', '#00FF88')
-            edge.style('width', 5)
+          if (edgeType === 'project-member') {
+            edge.style('line-color', '#00D4FF')
+            edge.style('width', 3)
           } else if (edgeType === 'shared-address') {
             edge.style('line-color', '#FF8C00')
             edge.style('width', 4)
@@ -620,6 +735,42 @@ export function GraphVisualization({
             edge.style('width', 3)
           }
           edge.connectedNodes().style('opacity', 1)
+        })
+
+        // Auto-zoom to focus the node and its neighborhood
+        const neighborhood = node.closedNeighborhood()
+        cy.animate({
+          fit: { eles: neighborhood, padding: 120 },
+          duration: 600,
+          easing: 'ease-out-cubic' as any,
+        })
+      })
+
+      // Click on edge: highlight + log relationship type
+      cy.on('tap', 'edge', (evt: any) => {
+        const edge = evt.target
+        const data = edge.data()
+        const sourceNode = cy.getElementById(data.source)
+        const targetNode = cy.getElementById(data.target)
+
+        const relationshipLabels: Record<string, string> = {
+          'project-member': 'Project membership',
+          'shared-address': 'Shared recipient address',
+          'received': 'Funds received',
+        }
+        const label = relationshipLabels[data.type] || data.type
+
+        onNodeClick?.('edge:' + data.id, {
+          type: 'edge',
+          label: label,
+          metadata: {
+            edgeType: data.type,
+            sourceLabel: sourceNode.data('label'),
+            sourceType: sourceNode.data('type'),
+            targetLabel: targetNode.data('label'),
+            targetType: targetNode.data('type'),
+            weight: data.weight,
+          }
         })
       })
 
@@ -700,6 +851,8 @@ export function GraphVisualization({
       })
 
       cyRef.current = cy
+      // Expose for debugging
+      if (typeof window !== 'undefined') (window as any)._cy = cy
     }
 
     initCytoscape()

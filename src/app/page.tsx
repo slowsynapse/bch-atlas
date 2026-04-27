@@ -38,8 +38,12 @@ export default function AtlasPage() {
     showSuccessful: true,
     showFailed: true,
     showRunning: true,
-    showRecipients: true
+    showRecipients: true,
+    showProjects: true,
   })
+
+  const projectCount = nodes.filter(n => n.data.type === 'project').length
+  const recipientCount = nodes.filter(n => n.data.type === 'recipient').length
 
   const toggleFilter = (key: keyof NodeFilters) => {
     setFilters(prev => ({ ...prev, [key]: !prev[key] }))
@@ -73,6 +77,33 @@ export default function AtlasPage() {
   const expiredCount = campaigns.filter(c => c.status === 'expired').length
   const runningCount = campaigns.filter(c => c.status === 'running').length
 
+  // BCH raised per year (only successful campaigns)
+  // Flipstarter has transactionTimestamp (unix), FundMe has time (ISO date)
+  const yearlyBCH: Record<number, number> = {}
+  for (const c of campaigns) {
+    if (c.status !== 'success') continue
+    let date: Date | null = null
+    const tts = (c as any).transactionTimestamp
+    if (tts) {
+      const ts = typeof tts === 'string' ? parseInt(tts, 10) : tts
+      if (!isNaN(ts)) date = new Date(ts * 1000)
+    }
+    if (!date && c.time) {
+      const d = new Date(c.time)
+      if (!isNaN(d.getTime())) date = d
+    }
+    if (!date) continue
+    const y = date.getFullYear()
+    if (isNaN(y) || y < 2018 || y > 2030) continue
+    yearlyBCH[y] = (yearlyBCH[y] || 0) + (c.amount || 0)
+  }
+  const years = Object.keys(yearlyBCH).map(Number).sort()
+  const yearMin = Math.min(2019, years[0] || 2019)
+  const yearMax = Math.max(2026, years[years.length - 1] || 2026)
+  const yearRange: number[] = []
+  for (let y = yearMin; y <= yearMax; y++) yearRange.push(y)
+  const maxYearly = Math.max(1, ...Object.values(yearlyBCH))
+
   return (
     <div className="h-screen flex overflow-hidden">
       {/* LEFT HUD PANEL — game-UI sidebar */}
@@ -95,8 +126,8 @@ export default function AtlasPage() {
           >
             BCH ATLAS
           </h1>
-          <p className="text-[9px] uppercase tracking-[0.2em] mt-1" style={{ color: '#3A6A5A' }}>
-            Archive & Tracking Ledger for Assurance Schemes
+          <p className="text-[10px] uppercase tracking-[0.25em] mt-1" style={{ color: '#5A8A7A' }}>
+            All Roads Lead to Bitcoin Cash
           </p>
         </div>
 
@@ -194,6 +225,43 @@ export default function AtlasPage() {
         {/* Divider */}
         <div style={{ height: '1px', background: 'linear-gradient(90deg, rgba(0,224,160,0.2), rgba(0,224,160,0.02))' }} />
 
+        {/* BCH per year heatmap */}
+        <div className="px-5 py-3">
+          <p className="text-[9px] uppercase tracking-[0.15em] mb-2" style={{ color: '#3A6A5A' }}>BCH Raised by Year</p>
+          <div className="grid grid-cols-4 gap-1.5">
+            {yearRange.map(y => {
+              const v = yearlyBCH[y] || 0
+              const intensity = v / maxYearly
+              return (
+                <div
+                  key={y}
+                  className="relative group flex flex-col items-center justify-center"
+                  style={{
+                    aspectRatio: '1',
+                    background: v > 0
+                      ? `rgba(0, 255, 136, ${0.1 + intensity * 0.55})`
+                      : 'rgba(0, 60, 40, 0.12)',
+                    border: '1px solid rgba(0, 224, 160, 0.18)',
+                    borderRadius: '1px',
+                    cursor: 'default',
+                  }}
+                  title={`${y}: ${v.toFixed(0)} BCH`}
+                >
+                  <span className="text-[8px] font-mono leading-none" style={{ color: v > 0 ? '#00FF88' : '#3A6A5A', textShadow: v > 0 ? '0 0 4px rgba(0,255,136,0.4)' : 'none' }}>
+                    {v >= 1000 ? `${(v / 1000).toFixed(1)}K` : v.toFixed(0)}
+                  </span>
+                  <span className="text-[7px] font-mono mt-0.5" style={{ color: v > 0 ? 'rgba(0,224,160,0.7)' : '#2A4A3A' }}>
+                    '{String(y).slice(2)}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div style={{ height: '1px', background: 'linear-gradient(90deg, rgba(0,224,160,0.2), rgba(0,224,160,0.02))' }} />
+
         {/* Filters */}
         <div className="px-5 py-3">
           <p className="text-[9px] uppercase tracking-[0.15em] mb-2" style={{ color: '#3A6A5A' }}>Filter Nodes</p>
@@ -220,7 +288,13 @@ export default function AtlasPage() {
               <input type="checkbox" checked={filters.showRecipients} onChange={() => toggleFilter('showRecipients')} className="w-3 h-3 accent-[#E8A838]" />
               <span className="w-2.5 h-2.5" style={{ background: '#E8A838', clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}></span>
               <span className="text-[#90A8A8] text-[11px] flex-1">Recipients</span>
-              <span className="font-mono text-[10px]" style={{ color: '#3A6A5A' }}>138</span>
+              <span className="font-mono text-[10px]" style={{ color: '#3A6A5A' }}>{recipientCount}</span>
+            </label>
+            <label className="flex items-center gap-2.5 cursor-pointer hover:bg-[rgba(0,224,160,0.04)] p-1 rounded transition-colors">
+              <input type="checkbox" checked={filters.showProjects} onChange={() => toggleFilter('showProjects')} className="w-3 h-3 accent-[#00D4FF]" />
+              <img src="/iss-station.svg" alt="" className="w-4 h-3" style={{ filter: 'drop-shadow(0 0 4px rgba(0,255,136,0.5))' }} />
+              <span className="text-[#90A8A8] text-[11px] flex-1">Projects</span>
+              <span className="font-mono text-[10px]" style={{ color: '#3A6A5A' }}>{projectCount}</span>
             </label>
           </div>
         </div>
@@ -291,7 +365,7 @@ export default function AtlasPage() {
             >
               <div className="px-3 py-2" style={{ borderBottom: '1px solid rgba(0, 224, 160, 0.1)' }}>
                 <span className="text-[9px] uppercase tracking-[0.2em] font-mono" style={{ color: '#4ECDC4' }}>
-                  Live Missions
+                  Active Campaigns
                 </span>
                 <span className="ml-2 text-[9px] font-mono" style={{ color: '#3A6A5A' }}>
                   {activeCampaigns.length}
@@ -359,6 +433,83 @@ export default function AtlasPage() {
           )
         })()}
 
+        {/* LEGEND — bottom-right (hidden when detail sidebar is open) */}
+        {!selectedNode && (
+          <div
+            className="absolute bottom-3 right-3 z-30 w-60"
+            style={{
+              background: 'rgba(7, 14, 12, 0.88)',
+              border: '1px solid rgba(0, 224, 160, 0.2)',
+              borderRadius: '2px',
+              backdropFilter: 'blur(12px)',
+              boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 180, 140, 0.03)',
+            }}
+          >
+            <div className="px-3 py-2" style={{ borderBottom: '1px solid rgba(0, 224, 160, 0.1)' }}>
+              <span className="text-[9px] uppercase tracking-[0.2em] font-mono" style={{ color: '#4ECDC4' }}>
+                Legend
+              </span>
+            </div>
+            <div className="px-3 py-2 space-y-2">
+              {/* Node types */}
+              <div>
+                <div className="text-[8px] uppercase tracking-[0.15em] mb-1.5" style={{ color: '#3A6A5A' }}>Nodes</div>
+                <div className="flex items-center gap-2">
+                  <img src="/iss-station.svg" alt="" className="w-6 h-4" />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Project (active)</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <img src="/starbase.svg" alt="" className="w-7 h-5" />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Major project (3+ rounds)</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <img src="/iss-station-dormant.svg" alt="" className="w-6 h-4" />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Abandoned / unknown</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <img src="/iss-station-dead.svg" alt="" className="w-6 h-4" />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Project (destroyed)</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1.5">
+                  <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#00FF88', boxShadow: '0 0 6px rgba(0,255,136,0.5)' }} />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded campaign</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#FF4455', boxShadow: '0 0 6px rgba(255,68,85,0.5)' }} />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Expired / failed</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#00E0A0', boxShadow: '0 0 6px rgba(0,224,160,0.5)' }} />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Active fundraise</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="w-3 h-3 inline-block" style={{ background: '#E8A838', clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Shared recipient</span>
+                </div>
+              </div>
+              {/* Edge types */}
+              <div className="pt-1.5" style={{ borderTop: '1px solid rgba(0, 224, 160, 0.08)' }}>
+                <div className="text-[8px] uppercase tracking-[0.15em] mb-1.5" style={{ color: '#3A6A5A' }}>Connections</div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-block" style={{ width: 16, height: 1.5, background: 'rgba(0, 212, 255, 0.6)' }} />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Project → campaign</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="inline-block" style={{ width: 16, height: 1.5, background: '#FF8C00' }} />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Shared address</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="inline-block" style={{ width: 16, height: 1, background: 'rgba(255, 140, 0, 0.4)' }} />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Campaign → recipient</span>
+                </div>
+              </div>
+              <div className="pt-1.5 text-[9px]" style={{ color: '#3A6A5A', borderTop: '1px solid rgba(0, 224, 160, 0.08)' }}>
+                Node size ∝ BCH amount
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Detail Sidebar — right side, appears on click */}
         {selectedNode && (
           <aside
@@ -382,10 +533,13 @@ export default function AtlasPage() {
               </div>
 
               <div className="space-y-4">
-                <div>
-                  <span className="ds-label">Type</span>
-                  <p className="text-[#E8ECF0] text-sm capitalize mt-0.5 font-mono">{selectedNode.type}</p>
-                </div>
+                {/* Generic Type label only for campaign / recipient / entity (project & edge have their own) */}
+                {selectedNode.type !== 'project' && selectedNode.type !== 'edge' && (
+                  <div>
+                    <span className="ds-label">Type</span>
+                    <p className="text-[#E8ECF0] text-sm capitalize mt-0.5 font-mono">{selectedNode.type}</p>
+                  </div>
+                )}
 
                 {selectedNode.type === 'campaign' && (
                   <>
@@ -468,6 +622,150 @@ export default function AtlasPage() {
                     </div>
                   </>
                 )}
+
+                {selectedNode.type === 'edge' && (() => {
+                  const m = selectedNode.metadata
+                  const edgeColor = m.edgeType === 'project-member' ? '#00D4FF' : m.edgeType === 'shared-address' ? '#FF8C00' : '#E8A838'
+                  return (
+                    <>
+                      <div>
+                        <span className="ds-label">Relationship</span>
+                        <p className="text-sm font-mono mt-0.5" style={{ color: edgeColor, textShadow: `0 0 8px ${edgeColor}80` }}>
+                          {selectedNode.label}
+                        </p>
+                      </div>
+                      <div>
+                        <span className="ds-label">From</span>
+                        <p className="text-[#E8ECF0] text-sm mt-0.5 leading-tight">{m.sourceLabel}</p>
+                        <p className="text-[10px] font-mono uppercase mt-0.5" style={{ color: '#5A8A7A' }}>{m.sourceType}</p>
+                      </div>
+                      <div>
+                        <span className="ds-label">To</span>
+                        <p className="text-[#E8ECF0] text-sm mt-0.5 leading-tight">{m.targetLabel}</p>
+                        <p className="text-[10px] font-mono uppercase mt-0.5" style={{ color: '#5A8A7A' }}>{m.targetType}</p>
+                      </div>
+                      <div className="pt-2 text-[10px] text-[#5A8A7A] leading-relaxed">
+                        {m.edgeType === 'project-member' && 'This campaign belongs to the project. Projects group multiple fundraising rounds for the same team or product.'}
+                        {m.edgeType === 'shared-address' && 'These campaigns share a recipient BCH address — strong signal they are run by the same team.'}
+                        {m.edgeType === 'received' && 'Campaign funds flow to this BCH address.'}
+                      </div>
+                    </>
+                  )
+                })()}
+
+                {selectedNode.type === 'project' && (() => {
+                  const m = selectedNode.metadata
+                  const statusColor = m.status === 'active' ? '#00FF88' : m.status === 'dormant' ? '#E8A838' : m.status === 'dead' ? '#FF4455' : '#5A8A7A'
+                  const statusGlow = `0 0 8px ${statusColor}80`
+                  // Find related campaigns
+                  const related = campaigns.filter(c => {
+                    const project = nodes.find(n => n.data.id === selectedNode.id)
+                    if (!project) return false
+                    return edges.some(e => e.data.type === 'project-member' && e.data.source === selectedNode.id && e.data.target === c.id)
+                  }).sort((a, b) => {
+                    const ta = a.time ? new Date(a.time).getTime() : 0
+                    const tb = b.time ? new Date(b.time).getTime() : 0
+                    return tb - ta
+                  })
+                  return (
+                    <>
+                      <div>
+                        <span className="ds-label">Type</span>
+                        <p className="text-[#E8ECF0] text-sm capitalize mt-0.5 font-mono">Project Station</p>
+                      </div>
+                      <div>
+                        <span className="ds-label">Status</span>
+                        <p className="text-sm uppercase mt-0.5 font-mono" style={{ color: statusColor, textShadow: statusGlow }}>
+                          {m.status}
+                        </p>
+                        {m.statusDetail && (
+                          <p className="text-[10px] text-[#5A8A7A] font-mono mt-1 leading-snug">{m.statusDetail}</p>
+                        )}
+                        {m.statusCheckedAt && (
+                          <p className="text-[9px] text-[#3A6A5A] font-mono mt-0.5">checked {getTimeSinceDate(m.statusCheckedAt)}</p>
+                        )}
+                      </div>
+                      <div>
+                        <span className="ds-label">Continent</span>
+                        <p className="text-[#E8ECF0] text-sm capitalize mt-0.5 font-mono">{m.continent}</p>
+                      </div>
+                      <div>
+                        <span className="ds-label">Total Raised</span>
+                        <p className="font-mono text-2xl mt-0.5" style={{ color: '#00FF88', textShadow: '0 0 15px rgba(0,255,136,0.3)' }}>
+                          {m.totalBCH.toFixed(1)} <span className="text-sm text-[#5A8A7A]">BCH</span>
+                        </p>
+                        <p className="text-[10px] text-[#5A8A7A] font-mono">{m.campaignCount} campaigns · {(m.successRate * 100).toFixed(0)}% success</p>
+                      </div>
+
+                      {/* External links */}
+                      {(m.github || m.website || m.x || m.telegram || m.reddit) && (
+                        <div>
+                          <span className="ds-label">Links</span>
+                          <div className="mt-1.5 space-y-1">
+                            {m.website && (
+                              <a href={m.website} target="_blank" rel="noopener noreferrer" className="block text-[11px] font-mono truncate" style={{ color: '#00E0A0' }}>
+                                ↗ {m.website.replace(/https?:\/\//, '')}
+                              </a>
+                            )}
+                            {m.github && (
+                              <a href={m.github} target="_blank" rel="noopener noreferrer" className="block text-[11px] font-mono truncate" style={{ color: '#00E0A0' }}>
+                                ⌥ {m.github.replace(/https?:\/\/(www\.)?/, '')}
+                              </a>
+                            )}
+                            {m.x && (
+                              <a href={m.x} target="_blank" rel="noopener noreferrer" className="block text-[11px] font-mono truncate" style={{ color: '#00E0A0' }}>
+                                𝕏 {m.x.replace(/https?:\/\/(www\.)?/, '')}
+                              </a>
+                            )}
+                            {m.telegram && (
+                              <a href={m.telegram} target="_blank" rel="noopener noreferrer" className="block text-[11px] font-mono truncate" style={{ color: '#00E0A0' }}>
+                                ✈ {m.telegram.replace(/https?:\/\/(www\.)?/, '')}
+                              </a>
+                            )}
+                            {m.reddit && (
+                              <a href={m.reddit} target="_blank" rel="noopener noreferrer" className="block text-[11px] font-mono truncate" style={{ color: '#00E0A0' }}>
+                                ◴ {m.reddit.replace(/https?:\/\/(www\.)?/, '')}
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      )}
+
+                      {m.lastGithubCommit && (
+                        <div>
+                          <span className="ds-label">Last Commit</span>
+                          <p className="font-mono text-[11px] text-[#C0D0D0] mt-0.5">{formatDate(m.lastGithubCommit)}</p>
+                          <p className="text-[10px] text-[#5A8A7A] font-mono">{getTimeSinceDate(m.lastGithubCommit)}</p>
+                        </div>
+                      )}
+
+                      {related.length > 0 && (
+                        <div>
+                          <span className="ds-label">Related Campaigns ({related.length})</span>
+                          <div className="mt-1.5 space-y-1 max-h-64 overflow-y-auto">
+                            {related.map(c => {
+                              const sColor = c.status === 'success' ? '#00FF88' : c.status === 'expired' ? '#FF4455' : '#00E0A0'
+                              return (
+                                <Link key={c.id} href={`/campaigns/${c.id}`} className="block py-1 px-2 transition-colors text-[10px] font-mono"
+                                  style={{ background: 'rgba(0, 224, 160, 0.04)', border: '1px solid rgba(0, 224, 160, 0.08)', borderRadius: '1px' }}
+                                >
+                                  <div className="flex items-center justify-between gap-2">
+                                    <span className="text-[#C0D0D0] truncate flex-1">{c.title}</span>
+                                    <span style={{ color: sColor }}>{c.amount.toFixed(0)}</span>
+                                  </div>
+                                  <div className="flex justify-between mt-0.5 text-[9px]" style={{ color: '#5A8A7A' }}>
+                                    <span>{c.platform}</span>
+                                    <span>{c.time ? formatDate(c.time) : '—'}</span>
+                                  </div>
+                                </Link>
+                              )
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  )
+                })()}
               </div>
             </div>
           </aside>
