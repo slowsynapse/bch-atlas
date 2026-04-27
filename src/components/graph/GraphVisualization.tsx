@@ -13,8 +13,10 @@ export interface NodeFilters {
   showProjects: boolean
 }
 
-// Cracked moon SVG for failed/expired campaigns — a fractured planet splitting apart
-const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+// Cracked moon SVG for failed/expired campaigns — a fractured planet splitting apart.
+// Uses preserveAspectRatio="xMidYMid meet" so it scales correctly inside Cytoscape's
+// background-fit:contain rectangle without clipping.
+const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
   <defs>
     <clipPath id="left-half">
       <path d="M0,0 L47,0 L44,38 L50,50 L43,65 L48,100 L0,100 Z"/>
@@ -406,12 +408,12 @@ export function GraphVisualization({
                 const status = ele.data('metadata').status
                 if (status === 'success') return '#00FF88'
                 if (status === 'running') return '#00D4FF'
-                if (status === 'expired' || status === 'failed') return '#1a0000'
+                if (status === 'expired' || status === 'failed') return 'rgba(0,0,0,0)'
                 return '#556677'
               },
               'background-opacity': (ele: any) => {
                 const status = ele.data('metadata').status
-                if (status === 'expired' || status === 'failed') return 1
+                if (status === 'expired' || status === 'failed') return 0
                 if (status === 'success') return 0.9
                 if (status === 'running') return 0.9
                 return 0.6
@@ -419,6 +421,7 @@ export function GraphVisualization({
               'shape': (ele: any) => {
                 const status = ele.data('metadata').status
                 if (status === 'running') return 'rectangle'
+                if (status === 'expired' || status === 'failed') return 'rectangle'
                 return 'ellipse'
               },
               'background-image': (ele: any) => {
@@ -426,7 +429,7 @@ export function GraphVisualization({
                 if (status === 'expired' || status === 'failed') return CRACKED_MOON_SVG
                 return 'none'
               },
-              'background-fit': 'cover' as any,
+              'background-fit': 'contain' as any,
               'background-clip': 'none' as any,
               'label': (ele: any) => {
                 const title = ele.data('label') || ''
@@ -737,13 +740,23 @@ export function GraphVisualization({
           edge.connectedNodes().style('opacity', 1)
         })
 
-        // Auto-zoom to focus the node and its neighborhood
-        const neighborhood = node.closedNeighborhood()
-        cy.animate({
-          fit: { eles: neighborhood, padding: 120 },
-          duration: 600,
-          easing: 'ease-out-cubic' as any,
-        })
+        // Auto-zoom: project nodes show their neighborhood; others zoom to fixed level
+        const nodeType = node.data('type')
+        if (nodeType === 'project') {
+          const neighborhood = node.closedNeighborhood()
+          cy.animate({
+            fit: { eles: neighborhood, padding: 80 },
+            duration: 600,
+            easing: 'ease-out-cubic' as any,
+          })
+        } else {
+          // Campaign / recipient: zoom to a comfortable level centered on the node
+          cy.animate({
+            zoom: { level: Math.max(1.2, cy.zoom() * 2.5), position: node.position() },
+            duration: 500,
+            easing: 'ease-out-cubic' as any,
+          })
+        }
       })
 
       // Click on edge: highlight + log relationship type
