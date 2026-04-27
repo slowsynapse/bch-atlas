@@ -95,6 +95,8 @@ export function getStats() {
       : 0,
     totalEntities: entities.size,
     totalProjects: projects.length,
+    activeProjects: projects.filter(p => p.status === 'active').length,
+    deadProjects: projects.filter(p => p.status === 'dead').length,
     avgCampaignSize: successfulCampaigns.length > 0
       ? successfulCampaigns.reduce((sum, c) => sum + c.amount, 0) / successfulCampaigns.length
       : 0,

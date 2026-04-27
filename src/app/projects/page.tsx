@@ -45,7 +45,8 @@ export default function ProjectsBrowsePage() {
 
   // Counts
   const totalActive = projects.filter(p => p.status === 'active').length
-  const totalDormant = projects.filter(p => p.status === 'dormant' || p.status === 'unknown').length
+  const totalDormant = projects.filter(p => p.status === 'dormant').length
+  const totalUnknown = projects.filter(p => p.status === 'unknown').length
   const totalDead = projects.filter(p => p.status === 'dead').length
   const totalLinked = projects.filter(p => p.campaigns.length > 0).length
   const totalBCHAcrossAll = projects.reduce((s, p) => s + p.totalBCH, 0)
@@ -82,6 +83,18 @@ export default function ProjectsBrowsePage() {
                 Back to Atlas
               </Link>
               <Link
+                href="/projects/github"
+                className="px-3 py-2 text-[11px] font-mono uppercase tracking-[0.12em] transition-all"
+                style={{
+                  background: 'rgba(0,180,140,0.06)',
+                  border: '1px solid rgba(0,224,160,0.2)',
+                  color: '#00E0A0',
+                  borderRadius: '2px',
+                }}
+              >
+                Browse GitHub
+              </Link>
+              <Link
                 href="/campaigns"
                 className="px-3 py-2 text-[11px] font-mono uppercase tracking-[0.12em] transition-all"
                 style={{
@@ -100,17 +113,19 @@ export default function ProjectsBrowsePage() {
 
       <main className="container mx-auto px-6 py-6">
         {/* Stats summary */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-          <StatTile label="projects" value={projects.length} color="#00D4FF" />
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-3 mb-6">
           <StatTile label="active" value={totalActive} color="#00FF88" />
+          <StatTile label="tracked" value={projects.length} color="#00D4FF" />
           <StatTile label="dormant" value={totalDormant} color="#E8A838" />
           <StatTile label="dead" value={totalDead} color="#FF4455" />
+          <StatTile label="unknown" value={totalUnknown} color="#5A8A7A" />
           <StatTile label="with github" value={totalGitHub} color="#90A8A8" />
         </div>
 
         <div className="text-[10px] font-mono uppercase tracking-[0.15em] mb-6" style={{ color: '#5A8A7A' }}>
-          {totalLinked} projects linked to {projects.reduce((s, p) => s + p.campaigns.length, 0)} campaigns ·{' '}
-          {totalBCHAcrossAll.toFixed(0)} BCH raised across all projects
+          {totalLinked} of {projects.length} have linked campaigns ·{' '}
+          {projects.reduce((s, p) => s + p.campaigns.length, 0)} campaigns total ·{' '}
+          {totalBCHAcrossAll.toFixed(0)} BCH raised
         </div>
 
         {/* Per-continent sections */}

@@ -215,9 +215,10 @@ export default function AtlasPage() {
             </div>
             <div className="p-2" style={{ background: 'rgba(0, 180, 140, 0.05)', border: '1px solid rgba(0, 224, 160, 0.08)', borderRadius: '2px' }}>
               <div className="font-mono text-base font-medium" style={{ color: '#00D4FF', textShadow: '0 0 10px rgba(0,212,255,0.3)' }}>
-                {(stats as any).totalProjects ?? projectCount}
+                <span style={{ color: '#00FF88' }}>{(stats as { activeProjects?: number }).activeProjects ?? 0}</span>
+                <span style={{ color: '#3A6A5A', fontSize: '0.7em' }}> / {(stats as { totalProjects?: number }).totalProjects ?? 0}</span>
               </div>
-              <div className="text-[8px] uppercase tracking-[0.15em]" style={{ color: '#3A6A5A' }}>projects</div>
+              <div className="text-[8px] uppercase tracking-[0.15em]" style={{ color: '#3A6A5A' }}>active / tracked</div>
             </div>
           </div>
         </div>
@@ -293,7 +294,7 @@ export default function AtlasPage() {
             <label className="flex items-center gap-2.5 cursor-pointer hover:bg-[rgba(0,224,160,0.04)] p-1 rounded transition-colors">
               <input type="checkbox" checked={filters.showProjects} onChange={() => toggleFilter('showProjects')} className="w-3 h-3 accent-[#00D4FF]" />
               <img src="/iss-station.svg" alt="" className="w-4 h-3" style={{ filter: 'drop-shadow(0 0 4px rgba(0,255,136,0.5))' }} />
-              <span className="text-[#90A8A8] text-[11px] flex-1">Projects</span>
+              <span className="text-[#90A8A8] text-[11px] flex-1" title="Projects with linked Flipstarter/FundMe campaigns. The full registry tracks more projects — see the Browse Projects page.">Linked Projects</span>
               <span className="font-mono text-[10px]" style={{ color: '#3A6A5A' }}>{projectCount}</span>
             </label>
           </div>
