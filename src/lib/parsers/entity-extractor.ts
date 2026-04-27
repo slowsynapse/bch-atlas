@@ -1,64 +1,60 @@
 import type { Campaign } from '@/types/campaign'
+import projectsData from '../../../data/projects.json'
+import type { Project } from '@/types/project'
 
-// Known entities in the BCH ecosystem (actual teams/contributors, NOT platforms)
-const KNOWN_ENTITIES: Record<string, string[]> = {
-  'BCHN': ['bchn', 'bitcoin cash node'],
-  'Electron Cash': ['electron cash', 'electroncash'],
-  'General Protocols': ['general protocols', 'generalprotocols'],
-  'Bitcoin Verde': ['verde', 'bitcoin verde'],
-  'Knuth': ['knuth'],
-  'BCHD': ['bchd'],
-  'Bitcoin ABC': ['abc', 'bitcoin abc'],
-  'Imaginary': ['imaginary', 'imaginary.cash'],
-  'Bitcoin Cash Podcast': ['bitcoin cash podcast', 'bch podcast'],
-  'read.cash': ['read.cash', 'readcash'],
-  'Cashual Wallet': ['cashual'],
-  'Neutrino': ['neutrino'],
+// Derive KNOWN_ENTITIES from projects.json (lazy-loaded, cached)
+let _knownEntities: Record<string, string[]> | null = null
+
+function getKnownEntities(): Record<string, string[]> {
+  if (_knownEntities) return _knownEntities
+
+  _knownEntities = {}
+  for (const project of projectsData as Project[]) {
+    _knownEntities[project.name] = project.campaignMatchers
+  }
+  return _knownEntities
 }
 
 /**
  * Extract entity names from campaign data
  * Examples:
- *   "BCHN 2020" → ["BCHN"]
+ *   "BCHN 2020" → ["Bitcoin Cash Node"]
  *   "Electron Cash Development" → ["Electron Cash"]
  *   "imaginary.cash - Development" → ["Imaginary"]
  */
 export function extractEntities(campaign: Partial<Campaign>): string[] {
   const entities: Set<string> = new Set()
-  const text = `${campaign.title || ''} ${campaign.description || ''} ${campaign.url || ''}`.toLowerCase()
+  // Match against title + short description only — URL has too many false positives
+  // (every flipstarter URL contains "flipstarter")
+  const text = `${campaign.title || ''} ${(campaign.description || '').slice(0, 300)}`.toLowerCase()
+  const knownEntities = getKnownEntities()
 
   // Check against known entities
-  Object.entries(KNOWN_ENTITIES).forEach(([canonical, aliases]) => {
-    const allNames = [canonical.toLowerCase(), ...aliases]
+  Object.entries(knownEntities).forEach(([canonical, matchers]) => {
+    const allNames = [canonical.toLowerCase(), ...matchers.map(m => m.toLowerCase())]
 
     if (allNames.some(name => text.includes(name))) {
       entities.add(canonical)
     }
   })
 
-  // Extract from URL subdomain ONLY if it matches KNOWN_ENTITIES
-  // Don't auto-create entities - we'll build them from blockchain addresses later
+  // Extract from URL subdomain ONLY if it matches known entities
   if (campaign.url) {
     const urlMatch = campaign.url.match(/([a-z0-9-]+)\.(flipstarter|fundme)/)
     if (urlMatch) {
       const subdomain = urlMatch[1]
 
-      // Skip platform names and generic subdomains
       const skipSubdomains = ['flipstarter', 'fundme', 'www', 'api', 'fund']
       if (skipSubdomains.includes(subdomain)) {
         return Array.from(entities)
       }
 
-      // ONLY add if it matches a KNOWN_ENTITY (no auto-creation!)
-      for (const [canonical, aliases] of Object.entries(KNOWN_ENTITIES)) {
-        if (aliases.includes(subdomain) || canonical.toLowerCase() === subdomain) {
+      for (const [canonical, matchers] of Object.entries(knownEntities)) {
+        if (matchers.includes(subdomain) || canonical.toLowerCase() === subdomain) {
           entities.add(canonical)
           break
         }
       }
-
-      // DO NOT create entities for unknown subdomains
-      // We'll build real contributor nodes from blockchain addresses instead
     }
   }
 
@@ -73,10 +69,7 @@ export function matchEntities(name1: string, name2: string): boolean {
   const n1 = name1.toLowerCase().trim()
   const n2 = name2.toLowerCase().trim()
 
-  // Exact match
   if (n1 === n2) return true
-
-  // Check if one is contained in the other
   if (n1.includes(n2) || n2.includes(n1)) return true
 
   // Acronym match (BCHN === Bitcoin Cash Node)
@@ -86,8 +79,9 @@ export function matchEntities(name1: string, name2: string): boolean {
   if (acronym1 === n2 || acronym2 === n1) return true
 
   // Check against known aliases
-  for (const [canonical, aliases] of Object.entries(KNOWN_ENTITIES)) {
-    const allNames = [canonical.toLowerCase(), ...aliases]
+  const knownEntities = getKnownEntities()
+  for (const [canonical, matchers] of Object.entries(knownEntities)) {
+    const allNames = [canonical.toLowerCase(), ...matchers.map(m => m.toLowerCase())]
     if (allNames.includes(n1) && allNames.includes(n2)) {
       return true
     }
@@ -101,9 +95,10 @@ export function matchEntities(name1: string, name2: string): boolean {
  */
 export function getCanonicalName(entityName: string): string {
   const lower = entityName.toLowerCase()
+  const knownEntities = getKnownEntities()
 
-  for (const [canonical, aliases] of Object.entries(KNOWN_ENTITIES)) {
-    if (canonical.toLowerCase() === lower || aliases.includes(lower)) {
+  for (const [canonical, matchers] of Object.entries(knownEntities)) {
+    if (canonical.toLowerCase() === lower || matchers.some(m => m.toLowerCase() === lower)) {
       return canonical
     }
   }

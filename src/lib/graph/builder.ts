@@ -1,5 +1,6 @@
 import type { Campaign, Entity, GraphNode, GraphEdge } from '@/types/campaign'
 import { buildRecipientMap } from './address-analyzer'
+import { getResolvedProjects } from '../data/project-resolver'
 
 export function buildGraph(
   campaigns: Campaign[],
@@ -7,14 +8,14 @@ export function buildGraph(
 ): { nodes: GraphNode[], edges: GraphEdge[] } {
   const nodes: GraphNode[] = []
   const edges: GraphEdge[] = []
-  const edgeSet = new Set<string>() // deduplicate edges
+  const edgeSet = new Set<string>()
 
-  // Build recipient map to find all recipients
   const allRecipients = buildRecipientMap(campaigns)
+  const projects = getResolvedProjects(campaigns).filter(p => p.campaigns.length > 0)
 
-  console.log(`Building graph with ${campaigns.length} campaigns and ${allRecipients.size} recipient addresses`)
+  console.log(`Building graph: ${campaigns.length} campaigns, ${allRecipients.size} recipients, ${projects.length} linked projects`)
 
-  // Create campaign nodes
+  // Campaign nodes
   campaigns.forEach(campaign => {
     nodes.push({
       data: {
@@ -35,7 +36,7 @@ export function buildGraph(
     })
   })
 
-  // Add recipient nodes (kept but made tiny in visualization)
+  // Recipient nodes
   allRecipients.forEach((recipient, address) => {
     nodes.push({
       data: {
@@ -55,7 +56,35 @@ export function buildGraph(
     })
   })
 
-  // Create edges connecting campaigns to recipients (dim fund-flow strands)
+  // Project nodes ("space stations") — only projects with linked campaigns
+  projects.forEach(project => {
+    nodes.push({
+      data: {
+        id: `proj-${project.slug}`,
+        label: project.name,
+        type: 'project',
+        status: project.status, // Top-level for Cytoscape selectors
+        value: project.totalBCH,
+        metadata: {
+          slug: project.slug,
+          continent: project.continent,
+          status: project.status,
+          github: project.github,
+          website: project.website,
+          x: project.x,
+          telegram: project.telegram,
+          reddit: project.reddit,
+          campaignCount: project.campaigns.length,
+          totalBCH: project.totalBCH,
+          successRate: project.successRate,
+          statusDetail: project.statusDetail,
+          lastGithubCommit: project.lastGithubCommit,
+        }
+      } as any
+    })
+  })
+
+  // Campaign → Recipient edges (fund flow strands)
   allRecipients.forEach((recipient, address) => {
     recipient.campaigns.forEach(campaignId => {
       edges.push({
@@ -70,42 +99,26 @@ export function buildGraph(
     })
   })
 
-  // --- SAME-ENTITY EDGES: direct campaign-to-campaign links ---
-  // Group campaigns by entity name
-  const entityCampaigns = new Map<string, string[]>()
-  campaigns.forEach(campaign => {
-    if (campaign.entities && campaign.entities.length > 0) {
-      campaign.entities.forEach(entityName => {
-        if (!entityCampaigns.has(entityName)) entityCampaigns.set(entityName, [])
-        entityCampaigns.get(entityName)!.push(campaign.id)
-      })
-    }
-  })
-
-  // Create direct edges between campaigns sharing an entity
-  entityCampaigns.forEach((campaignIds, entityName) => {
-    if (campaignIds.length < 2) return
-    for (let i = 0; i < campaignIds.length; i++) {
-      for (let j = i + 1; j < campaignIds.length; j++) {
-        const key = `entity-${campaignIds[i]}-${campaignIds[j]}`
-        if (!edgeSet.has(key)) {
-          edgeSet.add(key)
-          edges.push({
-            data: {
-              id: key,
-              source: campaignIds[i],
-              target: campaignIds[j],
-              type: 'same-entity',
-              weight: 2
-            }
-          })
-        }
+  // Project → Campaign edges (project membership)
+  projects.forEach(project => {
+    project.campaigns.forEach(campaignId => {
+      const key = `proj-${project.slug}-${campaignId}`
+      if (!edgeSet.has(key)) {
+        edgeSet.add(key)
+        edges.push({
+          data: {
+            id: key,
+            source: `proj-${project.slug}`,
+            target: campaignId,
+            type: 'project-member',
+            weight: 2
+          }
+        })
       }
-    }
+    })
   })
 
-  // --- SHARED-ADDRESS EDGES: direct campaign-to-campaign links ---
-  // For recipients appearing in multiple campaigns, link those campaigns directly
+  // Shared-address edges between campaigns (existing on-chain entity links)
   allRecipients.forEach((recipient) => {
     if (recipient.campaigns.length < 2) return
     for (let i = 0; i < recipient.campaigns.length; i++) {

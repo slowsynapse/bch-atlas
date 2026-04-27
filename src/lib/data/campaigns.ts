@@ -1,9 +1,11 @@
 import flipstartersWithAddresses from '../../../data/flipstarters-with-addresses.json'
 import fundmeData from '../../../data/fundme.json'
 import type { Campaign, FlipstarterRaw, Entity } from '@/types/campaign'
+import type { ResolvedProject } from '@/types/project'
 import { extractEntities } from '../parsers/entity-extractor'
 import { buildEntityMap } from './entity-resolver'
 import { mapToContinent } from './continent-mapper'
+import { getProjects, getResolvedProjects, getResolvedProjectBySlug, getProjectsForCampaign as _getProjectsForCampaign } from './project-resolver'
 import { createHash } from 'crypto'
 
 // Transform raw Flipstarter data to our schema
@@ -81,6 +83,7 @@ export function getCampaignsByEntity(entityName: string): Campaign[] {
 export function getStats() {
   const campaigns = getCampaigns()
   const entities = getEntities()
+  const projects = getProjects()
 
   const successfulCampaigns = campaigns.filter(c => c.status === 'success')
 
@@ -91,6 +94,7 @@ export function getStats() {
       ? successfulCampaigns.length / campaigns.length
       : 0,
     totalEntities: entities.size,
+    totalProjects: projects.length,
     avgCampaignSize: successfulCampaigns.length > 0
       ? successfulCampaigns.reduce((sum, c) => sum + c.amount, 0) / successfulCampaigns.length
       : 0,
@@ -99,4 +103,17 @@ export function getStats() {
       fundme: campaigns.filter(c => c.platform === 'fundme').length,
     }
   }
+}
+
+// Project-related exports
+export function getProjectsData(): ResolvedProject[] {
+  return getResolvedProjects(getCampaigns())
+}
+
+export function getProjectBySlug(slug: string): ResolvedProject | undefined {
+  return getResolvedProjectBySlug(slug, getCampaigns())
+}
+
+export function getProjectsForCampaign(campaignId: string): ResolvedProject[] {
+  return _getProjectsForCampaign(campaignId, getCampaigns())
 }

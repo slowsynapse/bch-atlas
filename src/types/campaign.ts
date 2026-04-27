@@ -32,7 +32,7 @@ export interface Campaign {
 
   // Historical pricing
   usdValueAtTime?: number           // Goal in USD at historical BCH price
-  priceSource?: 'hyperliquid' | 'coingecko' | 'estimated'
+  priceSource?: 'hyperliquid' | 'coingecko' | 'binance' | 'estimated'
   priceDate?: string                // ISO date used for price lookup
 }
 
@@ -48,7 +48,7 @@ export interface GraphNode {
   data: {
     id: string
     label: string
-    type: 'campaign' | 'entity' | 'recipient'
+    type: 'campaign' | 'entity' | 'recipient' | 'project'
     value: number           // For sizing
     metadata: any
   }
@@ -59,7 +59,7 @@ export interface GraphEdge {
     id: string
     source: string
     target: string
-    type: 'created' | 'related' | 'received' | 'same-entity' | 'shared-address'
+    type: 'created' | 'related' | 'received' | 'same-entity' | 'shared-address' | 'project-member'
     weight: number
   }
 }

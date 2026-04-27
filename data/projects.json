@@ -1,0 +1,3949 @@
+[
+  {
+    "slug": "bchn",
+    "name": "Bitcoin Cash Node",
+    "aliases": [
+      "bchn",
+      "bitcoin cash node"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://gitlab.com/bitcoin-cash-node/bitcoin-cash-node",
+    "website": "https://bitcoincashnode.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bchn",
+      "bitcoin cash node"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:18:25.179Z",
+    "statusDetail": "Last commit 5 days ago (2026-04-22). Website up",
+    "lastGithubCommit": "2026-04-22T18:23:23.000+00:00",
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoin-verde",
+    "name": "Bitcoin Verde",
+    "aliases": [
+      "bitcoin verde",
+      "bitcoin-verde"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/SoftwareVerde/bitcoin-verde",
+    "website": "https://bitcoinverde.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin verde",
+      "bitcoin-verde"
+    ],
+    "status": "dormant",
+    "statusCheckedAt": "2026-04-27T13:18:28.253Z",
+    "statusDetail": "Last commit 346 days ago (2025-05-16). Website down",
+    "lastGithubCommit": "2025-05-16T01:59:49Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "knuth",
+    "name": "Knuth",
+    "aliases": [
+      "knuth"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/k-nuth/kth",
+    "website": "https://kth.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "knuth"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:18:31.101Z",
+    "statusDetail": "Last commit 0 days ago (2026-04-27). Website up",
+    "lastGithubCommit": "2026-04-27T10:32:25Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "bchd",
+    "name": "BCHD",
+    "aliases": [
+      "bchd"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/gcash/bchd",
+    "website": "https://bchd.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bchd"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:18:34.258Z",
+    "statusDetail": "Last commit 0 days ago (2026-04-27). Website up",
+    "lastGithubCommit": "2026-04-27T01:29:18Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "flowee",
+    "name": "Flowee the Hub",
+    "aliases": [
+      "flowee",
+      "flowee the hub"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://codeberg.org/Flowee/thehub",
+    "website": "https://flowee.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "flowee",
+      "flowee the hub"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:18:38.969Z",
+    "statusDetail": "Last commit 5 days ago (2026-04-22). Website up",
+    "lastGithubCommit": "2026-04-22T17:01:26+02:00",
+    "websiteUp": true
+  },
+  {
+    "slug": "smartbch",
+    "name": "SmartBCH",
+    "aliases": [
+      "smartbch"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/smartbch/smartbch",
+    "website": "https://smartbch.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "smartbch"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:18:42.124Z",
+    "statusDetail": "Last commit 393 days ago (2025-03-30). Website up",
+    "lastGithubCommit": "2025-03-30T14:32:26Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "asicseer-pool",
+    "name": "ASICseer Pool",
+    "aliases": [
+      "asicseer pool",
+      "asicseer-pool"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/cculianu/asicseer-pool",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "asicseer pool",
+      "asicseer-pool"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:18:43.862Z",
+    "statusDetail": "Last commit 78 days ago (2026-02-08)",
+    "lastGithubCommit": "2026-02-08T04:53:10Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "ckpool-bch",
+    "name": "CKPool (BCH fork)",
+    "aliases": [
+      "ckpool bch",
+      "ckpool-bch",
+      "ckpool (bch fork)",
+      "ckpool bch fork"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/dagurval/bchpool",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "ckpool bch",
+      "ckpool-bch",
+      "ckpool (bch fork)",
+      "ckpool bch fork"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:18:45.439Z",
+    "statusDetail": "Last commit 1994 days ago (2020-11-10)",
+    "lastGithubCommit": "2020-11-10T14:18:04Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "bch-chips",
+    "name": "BCH Upgrade Specifications (CHIPs)",
+    "aliases": [
+      "bch chips",
+      "bch-chips",
+      "bch upgrade specifications (chips)",
+      "bch upgrade specifications chips"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/bitjson/bch-chips",
+    "website": "https://upgradespecs.bitcoincashnode.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch chips",
+      "bch-chips",
+      "bch upgrade specifications (chips)",
+      "bch upgrade specifications chips"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:18:49.450Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "cashtokens",
+    "name": "CashTokens",
+    "aliases": [
+      "cashtokens"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/bitjson/cashtokens",
+    "website": "https://cashtokens.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashtokens"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:18:52.597Z",
+    "statusDetail": "Last commit 1073 days ago (2023-05-20). Website up",
+    "lastGithubCommit": "2023-05-20T02:42:17Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "bcmr",
+    "name": "Bitcoin Cash Metadata Registries (BCMR)",
+    "aliases": [
+      "bcmr",
+      "bitcoin cash metadata registries (bcmr)",
+      "bitcoin cash metadata registries bcmr"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/bitjson/chip-bcmr",
+    "website": "https://cashtokens.org/docs/bcmr/chip/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bcmr",
+      "bitcoin cash metadata registries (bcmr)",
+      "bitcoin cash metadata registries bcmr"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:18:55.279Z",
+    "statusDetail": "Last commit 817 days ago (2024-01-31). Website up",
+    "lastGithubCommit": "2024-01-31T22:45:35Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "cashfusion",
+    "name": "CashFusion",
+    "aliases": [
+      "cashfusion"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/cashshuffle/spec",
+    "website": "https://cashfusion.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashfusion"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:00.993Z",
+    "statusDetail": "Last commit 2058 days ago (2020-09-07). Website up",
+    "lastGithubCommit": "2020-09-07T12:51:49Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "cashshuffle",
+    "name": "CashShuffle",
+    "aliases": [
+      "cashshuffle"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/cashshuffle",
+    "website": "https://cashshuffle.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashshuffle"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:19:03.552Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "slp",
+    "name": "Simple Ledger Protocol (SLP)",
+    "aliases": [
+      "slp",
+      "simple ledger protocol (slp)",
+      "simple ledger protocol slp"
+    ],
+    "description": null,
+    "continent": "core",
+    "github": "https://github.com/simpleledger",
+    "website": "https://slp.dev/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "slp",
+      "simple ledger protocol (slp)",
+      "simple ledger protocol slp"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:19:05.713Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "cashscript",
+    "name": "CashScript",
+    "aliases": [
+      "cashscript"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/CashScript/cashscript",
+    "website": "https://cashscript.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashscript"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:08.268Z",
+    "statusDetail": "Last commit 102 days ago (2026-01-15). Website up",
+    "lastGithubCommit": "2026-01-15T10:29:43Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "libauth",
+    "name": "Libauth",
+    "aliases": [
+      "libauth"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/bitauth/libauth",
+    "website": "https://libauth.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "libauth"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:10.888Z",
+    "statusDetail": "Last commit 530 days ago (2024-11-13). Website up",
+    "lastGithubCommit": "2024-11-13T15:35:56Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "mainnet-js",
+    "name": "Mainnet.js / mainnet.cash",
+    "aliases": [
+      "mainnet js",
+      "mainnet-js",
+      "mainnet.js / mainnet.cash"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/mainnet-cash/mainnet-js",
+    "website": "https://mainnet.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "mainnet js",
+      "mainnet-js",
+      "mainnet.js / mainnet.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:15.878Z",
+    "statusDetail": "Last commit 71 days ago (2026-02-15). Website up",
+    "lastGithubCommit": "2026-02-15T09:10:12Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "bitbox",
+    "name": "BITBOX SDK",
+    "aliases": [
+      "bitbox",
+      "bitbox sdk"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/Bitcoin-com/bitbox-sdk",
+    "website": "https://developer.bitcoin.com/bitbox/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitbox",
+      "bitbox sdk"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:19:20.130Z",
+    "statusDetail": "Last commit 2075 days ago (2020-08-21). Website down",
+    "lastGithubCommit": "2020-08-21T04:59:26Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "bch-js",
+    "name": "bch-js",
+    "aliases": [
+      "bch js",
+      "bch-js"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/Permissionless-Software-Foundation/bch-js",
+    "website": "https://bchjs.fullstack.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch js",
+      "bch-js"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:19:24.006Z",
+    "statusDetail": "Last commit 46 days ago (2026-03-12). Website down",
+    "lastGithubCommit": "2026-03-12T19:31:34Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "bch-api",
+    "name": "bch-api (FullStack.cash)",
+    "aliases": [
+      "bch api",
+      "bch-api",
+      "bch-api (fullstack.cash)",
+      "bch-api fullstack.cash"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/Permissionless-Software-Foundation/bch-api",
+    "website": "https://api.fullstack.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch api",
+      "bch-api",
+      "bch-api (fullstack.cash)",
+      "bch-api fullstack.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:27.161Z",
+    "statusDetail": "Last commit 179 days ago (2025-10-30). Website down",
+    "lastGithubCommit": "2025-10-30T22:51:50Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "bitcoincashjs",
+    "name": "BitcoinCash.js / bitcore-lib-cash",
+    "aliases": [
+      "bitcoincashjs",
+      "bitcoincash.js / bitcore-lib-cash"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/bitpay/bitcore",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoincashjs",
+      "bitcoincash.js / bitcore-lib-cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:28.697Z",
+    "statusDetail": "Last commit 5 days ago (2026-04-22)",
+    "lastGithubCommit": "2026-04-22T20:53:50Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "bitcash-python",
+    "name": "BitCash (Python)",
+    "aliases": [
+      "bitcash python",
+      "bitcash-python",
+      "bitcash (python)"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/pybitcash/bitcash",
+    "website": "https://bitcash.readthedocs.io/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcash python",
+      "bitcash-python",
+      "bitcash (python)"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:31.747Z",
+    "statusDetail": "Last commit 13 days ago (2026-04-14). Website down",
+    "lastGithubCommit": "2026-04-14T13:53:40Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "bitcoincashj",
+    "name": "bitcoincashj",
+    "aliases": [
+      "bitcoincashj"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/pokkst/bitcoincashj",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoincashj"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:19:33.419Z",
+    "statusDetail": "Last commit 1269 days ago (2022-11-06)",
+    "lastGithubCommit": "2022-11-06T01:04:53Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "electrum-cash",
+    "name": "electrum-cash",
+    "aliases": [
+      "electrum cash",
+      "electrum-cash"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://gitlab.com/GeneralProtocols/electrum-cash",
+    "website": "https://electrum-cash-protocol.readthedocs.io/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "electrum cash",
+      "electrum-cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:37.103Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "fulcrum",
+    "name": "Fulcrum",
+    "aliases": [
+      "fulcrum"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/cculianu/Fulcrum",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "fulcrum"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:38.939Z",
+    "statusDetail": "Last commit 3 days ago (2026-04-25)",
+    "lastGithubCommit": "2026-04-25T00:11:18Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "rostrum",
+    "name": "Rostrum",
+    "aliases": [
+      "rostrum"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/blockparty-sh/rostrum",
+    "website": "https://rostrum.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "rostrum"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:19:40.967Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "electrscash",
+    "name": "ElectrsCash",
+    "aliases": [
+      "electrscash"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/BitcoinUnlimited/ElectrsCash",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "electrscash"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:19:42.590Z",
+    "statusDetail": "Last commit 1414 days ago (2022-06-13)",
+    "lastGithubCommit": "2022-06-13T13:11:24Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "chaingraph",
+    "name": "Chaingraph",
+    "aliases": [
+      "chaingraph"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/bitauth/chaingraph",
+    "website": "https://chaingraph.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "chaingraph"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:44.840Z",
+    "statusDetail": "Last commit 162 days ago (2025-11-16). Website up",
+    "lastGithubCommit": "2025-11-16T01:52:25Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "blockbook-bch",
+    "name": "Blockbook (BCH)",
+    "aliases": [
+      "blockbook bch",
+      "blockbook-bch",
+      "blockbook (bch)"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/trezor/blockbook",
+    "website": "https://blockbook.pat.mn/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "blockbook bch",
+      "blockbook-bch",
+      "blockbook (bch)"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:55.169Z",
+    "statusDetail": "Last commit 0 days ago (2026-04-27). Website up",
+    "lastGithubCommit": "2026-04-27T03:25:02Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "watchtower-cash",
+    "name": "WatchTower.cash",
+    "aliases": [
+      "watchtower cash",
+      "watchtower-cash",
+      "watchtower.cash"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/paytaca/watchtower-cash",
+    "website": "https://watchtower.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "watchtower cash",
+      "watchtower-cash",
+      "watchtower.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:19:57.695Z",
+    "statusDetail": "Last commit 10 days ago (2026-04-17). Website up",
+    "lastGithubCommit": "2026-04-17T04:15:22Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "bcmr-indexer",
+    "name": "BCMR Indexer",
+    "aliases": [
+      "bcmr indexer",
+      "bcmr-indexer"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/paytaca/bcmr-indexer",
+    "website": "https://bcmr.paytaca.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bcmr indexer",
+      "bcmr-indexer"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:01.254Z",
+    "statusDetail": "Last commit 79 days ago (2026-02-07). Website up",
+    "lastGithubCommit": "2026-02-07T06:51:57Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "riftenlabs-indexer",
+    "name": "Riften Labs Indexer",
+    "aliases": [
+      "riftenlabs indexer",
+      "riftenlabs-indexer",
+      "riften labs indexer"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://gitlab.com/riftenlabs/riftenlabs-indexer",
+    "website": "https://docs.riftenlabs.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "riftenlabs indexer",
+      "riftenlabs-indexer",
+      "riften labs indexer"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:05.275Z",
+    "statusDetail": "Last commit 3 days ago (2026-04-24). Website up",
+    "lastGithubCommit": "2026-04-24T05:19:43.000+00:00",
+    "websiteUp": true
+  },
+  {
+    "slug": "tapswap-subsquid",
+    "name": "TapSwap Subsquid Indexer",
+    "aliases": [
+      "tapswap subsquid",
+      "tapswap-subsquid",
+      "tapswap subsquid indexer"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/mainnet-pat/tapswap-subsquid",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "tapswap subsquid",
+      "tapswap-subsquid",
+      "tapswap subsquid indexer"
+    ],
+    "status": "dormant",
+    "statusCheckedAt": "2026-04-27T13:20:07.033Z",
+    "statusDetail": "Last commit 476 days ago (2025-01-06)",
+    "lastGithubCommit": "2025-01-06T16:47:36Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "slpdb",
+    "name": "SLPDB",
+    "aliases": [
+      "slpdb"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/simpleledger/SLPDB",
+    "website": "https://slpdb.fountainhead.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "slpdb"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:20:19.086Z",
+    "statusDetail": "Last commit 1831 days ago (2021-04-22). Website down",
+    "lastGithubCommit": "2021-04-22T18:26:07Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "slp-indexer-bcom",
+    "name": "Bitcoin.com SLP Indexer",
+    "aliases": [
+      "slp indexer bcom",
+      "slp-indexer-bcom",
+      "bitcoin.com slp indexer"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/Bitcoin-com/slp-indexer",
+    "website": "https://developer.bitcoin.com/slp/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "slp indexer bcom",
+      "slp-indexer-bcom",
+      "bitcoin.com slp indexer"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:20:22.340Z",
+    "statusDetail": "Last commit 1984 days ago (2020-11-20). Website down",
+    "lastGithubCommit": "2020-11-20T01:30:08Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "bitdb",
+    "name": "BitDB / Fountainhead",
+    "aliases": [
+      "bitdb",
+      "bitdb / fountainhead"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/fountainhead-cash",
+    "website": "https://fountainhead.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitdb",
+      "bitdb / fountainhead"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:24.470Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitsocket",
+    "name": "BitSocket",
+    "aliases": [
+      "bitsocket"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/fountainhead-cash/bitsocket-debug-server",
+    "website": "https://bitsocket.network/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitsocket"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:27.652Z",
+    "statusDetail": "Last commit 2538 days ago (2019-05-16). Website up",
+    "lastGithubCommit": "2019-05-16T05:58:37Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "rest-bitcoin-com",
+    "name": "rest.bitcoin.com",
+    "aliases": [
+      "rest bitcoin com",
+      "rest-bitcoin-com",
+      "rest.bitcoin.com"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/Bitcoin-com/rest.bitcoin.com",
+    "website": "https://rest.bitcoin.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "rest bitcoin com",
+      "rest-bitcoin-com",
+      "rest.bitcoin.com"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:20:29.875Z",
+    "statusDetail": "Last commit 1812 days ago (2021-05-11). Website down",
+    "lastGithubCommit": "2021-05-11T01:34:08Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "bitauth-ide",
+    "name": "Bitauth IDE",
+    "aliases": [
+      "bitauth ide",
+      "bitauth-ide"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/bitauth/bitauth-ide",
+    "website": "https://ide.bitauth.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitauth ide",
+      "bitauth-ide"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:32.336Z",
+    "statusDetail": "Last commit 822 days ago (2024-01-26). Website up",
+    "lastGithubCommit": "2024-01-26T06:23:43Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "meep",
+    "name": "Meep",
+    "aliases": [
+      "meep"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/gcash/meep",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "meep"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:33.958Z",
+    "statusDetail": "Last commit 4 days ago (2026-04-24)",
+    "lastGithubCommit": "2026-04-24T00:58:56Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "cashscript-playground",
+    "name": "CashScript Playground",
+    "aliases": [
+      "cashscript playground",
+      "cashscript-playground"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/CashScript/cashscript-playground",
+    "website": "https://playground.cashscript.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashscript playground",
+      "cashscript-playground"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:36.869Z",
+    "statusDetail": "Last commit 133 days ago (2025-12-15). Website up",
+    "lastGithubCommit": "2025-12-15T16:21:38Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "vm-cash",
+    "name": "vm.cash",
+    "aliases": [
+      "vm cash",
+      "vm-cash",
+      "vm.cash"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": null,
+    "website": "https://vm.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "vm cash",
+      "vm-cash",
+      "vm.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:37.802Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "stack-wizard",
+    "name": "BCH Stack Wizard",
+    "aliases": [
+      "stack wizard",
+      "stack-wizard",
+      "bch stack wizard"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/bitauth/bch-stack-wizard",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "stack wizard",
+      "stack-wizard",
+      "bch stack wizard"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:20:39.264Z",
+    "statusDetail": "GitHub: no commits found or API error",
+    "lastGithubCommit": null,
+    "websiteUp": null
+  },
+  {
+    "slug": "wc2-bch-bcr",
+    "name": "WC2-BCH-BCR (WalletConnect v2 for BCH)",
+    "aliases": [
+      "wc2 bch bcr",
+      "wc2-bch-bcr",
+      "wc2-bch-bcr (walletconnect v2 for bch)",
+      "wc2-bch-bcr walletconnect v2 for bch"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/mainnet-pat/wc2-bch-bcr",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "wc2 bch bcr",
+      "wc2-bch-bcr",
+      "wc2-bch-bcr (walletconnect v2 for bch)",
+      "wc2-bch-bcr walletconnect v2 for bch"
+    ],
+    "status": "dormant",
+    "statusCheckedAt": "2026-04-27T13:20:40.825Z",
+    "statusDetail": "Last commit 287 days ago (2025-07-14)",
+    "lastGithubCommit": "2025-07-14T05:22:16Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "cashconnect-js",
+    "name": "CashConnect-JS",
+    "aliases": [
+      "cashconnect js",
+      "cashconnect-js"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://gitlab.com/cashconnect-js/cashconnect-js",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashconnect js",
+      "cashconnect-js"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:43.866Z",
+    "statusDetail": "Last commit 8 days ago (2026-04-19)",
+    "lastGithubCommit": "2026-04-19T23:48:36.000+00:00",
+    "websiteUp": null
+  },
+  {
+    "slug": "ec-walletconnect-plugin",
+    "name": "Electron Cash WalletConnect Plugin",
+    "aliases": [
+      "ec walletconnect plugin",
+      "ec-walletconnect-plugin",
+      "electron cash walletconnect plugin"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/OPReturnCode/Electron-Cash-Wallet-Connect",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "ec walletconnect plugin",
+      "ec-walletconnect-plugin",
+      "electron cash walletconnect plugin"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:45.520Z",
+    "statusDetail": "Last commit 154 days ago (2025-11-24)",
+    "lastGithubCommit": "2025-11-24T14:44:38Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "token-explorer-cash",
+    "name": "Token Explorer",
+    "aliases": [
+      "token explorer cash",
+      "token-explorer-cash",
+      "token explorer"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/mr-zwets/token-explorer",
+    "website": "https://tokenexplorer.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "token explorer cash",
+      "token-explorer-cash",
+      "token explorer"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:48.074Z",
+    "statusDetail": "Last commit 39 days ago (2026-03-19). Website up",
+    "lastGithubCommit": "2026-03-19T16:47:23Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "salemkode-explorer",
+    "name": "SalemKode Explorer",
+    "aliases": [
+      "salemkode explorer",
+      "salemkode-explorer"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/salemkode/explorer",
+    "website": "https://explorer.salemkode.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "salemkode explorer",
+      "salemkode-explorer"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:51.236Z",
+    "statusDetail": "Last commit 34 days ago (2026-03-24). Website up",
+    "lastGithubCommit": "2026-03-24T13:56:20Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "opentokenregistry",
+    "name": "OpenTokenRegistry",
+    "aliases": [
+      "opentokenregistry"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/bitjson/opentokenregistry",
+    "website": "https://otr.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "opentokenregistry"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:53.720Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "cashtokens-studio",
+    "name": "CashTokens Studio",
+    "aliases": [
+      "cashtokens studio",
+      "cashtokens-studio"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/mr-zwets/cashtokens-studio",
+    "website": "https://cashtokens.studio/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashtokens studio",
+      "cashtokens-studio"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:56.644Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "flipstarter",
+    "name": "Flipstarter",
+    "aliases": [
+      "flipstarter"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://gitlab.com/flipstarter",
+    "website": "https://flipstarter.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "flipstarter.cash",
+      "flipstarter platform"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:20:58.804Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "cashstarter",
+    "name": "CashStarter",
+    "aliases": [
+      "cashstarter"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/SayoshiNakamario/CashStarter",
+    "website": "https://cashstarter.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashstarter"
+    ],
+    "status": "dormant",
+    "statusCheckedAt": "2026-04-27T13:21:01.208Z",
+    "statusDetail": "Last commit 331 days ago (2025-05-31). Website down",
+    "lastGithubCommit": "2025-05-31T04:41:10Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "fundme-bch",
+    "name": "FundMe (BCH)",
+    "aliases": [
+      "fundme bch",
+      "fundme-bch",
+      "fundme (bch)"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/fundme-cash/fundme",
+    "website": "https://fundme.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "fundme.cash",
+      "fundme platform"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:21:04.041Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "cashscript-workshop",
+    "name": "CashScript Workshop",
+    "aliases": [
+      "cashscript workshop",
+      "cashscript-workshop"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/paytaca/cashscript-workshop",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashscript workshop",
+      "cashscript-workshop"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:21:05.623Z",
+    "statusDetail": "Last commit 82 days ago (2026-02-04)",
+    "lastGithubCommit": "2026-02-04T14:18:03Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "electron-cash",
+    "name": "Electron Cash",
+    "aliases": [
+      "electron cash",
+      "electron-cash"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/Electron-Cash/Electron-Cash",
+    "website": "https://electroncash.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "electron cash",
+      "electron-cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:21:08.675Z",
+    "statusDetail": "Last commit 12 days ago (2026-04-15). Website up",
+    "lastGithubCommit": "2026-04-15T02:26:25Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "cashonize",
+    "name": "Cashonize",
+    "aliases": [
+      "cashonize"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/cashonize/cashonize-wallet",
+    "website": "https://cashonize.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashonize"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:21:12.096Z",
+    "statusDetail": "Last commit 6 days ago (2026-04-21). Website up",
+    "lastGithubCommit": "2026-04-21T18:56:14Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "paytaca",
+    "name": "Paytaca",
+    "aliases": [
+      "paytaca"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/paytaca/paytaca-app",
+    "website": "https://www.paytaca.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "paytaca"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:21:14.859Z",
+    "statusDetail": "Last commit 0 days ago (2026-04-27). Website up",
+    "lastGithubCommit": "2026-04-27T09:02:46Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "selene-wallet",
+    "name": "Selene Wallet",
+    "aliases": [
+      "selene wallet",
+      "selene-wallet"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/SeleneWallet/selene",
+    "website": "https://selene.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "selene wallet",
+      "selene-wallet"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:21:17.873Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "flowee-pay",
+    "name": "Flowee Pay",
+    "aliases": [
+      "flowee pay",
+      "flowee-pay"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://codeberg.org/Flowee/pay",
+    "website": "https://flowee.org/products/pay/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "flowee pay",
+      "flowee-pay"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:21:24.842Z",
+    "statusDetail": "Last commit 5 days ago (2026-04-22). Website up",
+    "lastGithubCommit": "2026-04-22T17:51:31+02:00",
+    "websiteUp": true
+  },
+  {
+    "slug": "cashaddrjs",
+    "name": "cashaddrjs / bchaddrjs",
+    "aliases": [
+      "cashaddrjs",
+      "cashaddrjs / bchaddrjs"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/bitcoincashjs/cashaddrjs",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashaddrjs",
+      "cashaddrjs / bchaddrjs"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:21:26.942Z",
+    "statusDetail": "Last commit 883 days ago (2023-11-26)",
+    "lastGithubCommit": "2023-11-26T14:47:08Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "cashaccounts",
+    "name": "Cash Accounts",
+    "aliases": [
+      "cashaccounts",
+      "cash accounts"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/Bitcoin-com/cashaccounts",
+    "website": "https://www.cashaccount.info/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashaccounts",
+      "cash accounts"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:21:39.037Z",
+    "statusDetail": "Last commit 2474 days ago (2019-07-19). Website down",
+    "lastGithubCommit": "2019-07-19T05:55:22Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "cashid",
+    "name": "CashID",
+    "aliases": [
+      "cashid"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://gitlab.com/cashid",
+    "website": "https://cashid.info/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashid"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:21:40.817Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bch-devsuite",
+    "name": "bch-devsuite",
+    "aliases": [
+      "bch devsuite",
+      "bch-devsuite"
+    ],
+    "description": null,
+    "continent": "middleware",
+    "github": "https://github.com/ActorForth/bch-devsuite",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch devsuite",
+      "bch-devsuite"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:21:42.640Z",
+    "statusDetail": "Last commit 40 days ago (2026-03-18)",
+    "lastGithubCommit": "2026-03-18T14:39:52Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "memo-cash",
+    "name": "Memo.cash",
+    "aliases": [
+      "memo cash",
+      "memo-cash",
+      "memo.cash"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/memocash",
+    "website": "https://memo.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "memo cash",
+      "memo-cash",
+      "memo.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:36:45.235Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "read-cash",
+    "name": "read.cash",
+    "aliases": [
+      "read cash",
+      "read-cash",
+      "read.cash"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": null,
+    "website": "https://read.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "read cash",
+      "read-cash",
+      "read.cash"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:36:46.922Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "noise-app",
+    "name": "noise.app",
+    "aliases": [
+      "noise app",
+      "noise-app",
+      "noise.app"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": null,
+    "website": "https://noise.app/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "noise app",
+      "noise-app",
+      "noise.app"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:36:48.466Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "cauldron-dex",
+    "name": "Cauldron DEX",
+    "aliases": [
+      "cauldron dex",
+      "cauldron-dex"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://gitlab.com/riftenlabs/lib/rust-riftenlabs-defi",
+    "website": "https://cauldron.quest/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cauldron dex",
+      "cauldron-dex"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:36:51.210Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "tapswap",
+    "name": "TapSwap",
+    "aliases": [
+      "tapswap"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/mainnet-pat/tapswap-subsquid",
+    "website": "https://tapswap.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "tapswap"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:36:53.745Z",
+    "statusDetail": "Last commit 476 days ago (2025-01-06). Website up",
+    "lastGithubCommit": "2025-01-06T16:47:36Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "fex-cash",
+    "name": "Fex.cash",
+    "aliases": [
+      "fex cash",
+      "fex-cash",
+      "fex.cash"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/fex-cash/fex",
+    "website": "https://fex.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "fex cash",
+      "fex-cash",
+      "fex.cash"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:37:05.907Z",
+    "statusDetail": "Last commit 779 days ago (2024-03-09). Website down",
+    "lastGithubCommit": "2024-03-09T10:10:13Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "jedex",
+    "name": "Jedex",
+    "aliases": [
+      "jedex"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/bitjson/jedex",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "jedex"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:37:07.864Z",
+    "statusDetail": "Last commit 822 days ago (2024-01-26)",
+    "lastGithubCommit": "2024-01-26T02:41:27Z",
+    "websiteUp": null
+  },
+  {
+    "slug": "anyhedge",
+    "name": "AnyHedge",
+    "aliases": [
+      "anyhedge"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://gitlab.com/GeneralProtocols/anyhedge",
+    "website": "https://anyhedge.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "anyhedge"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:37:11.149Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bch-bull",
+    "name": "BCH Bull",
+    "aliases": [
+      "bch bull",
+      "bch-bull"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://gitlab.com/GeneralProtocols/bch-bull",
+    "website": "https://bchbull.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch bull",
+      "bch-bull"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:14.093Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "detoken",
+    "name": "Detoken",
+    "aliases": [
+      "detoken"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://gitlab.com/GeneralProtocols/anyhedge",
+    "website": "https://defi.detoken.io/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "detoken"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:37:16.237Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "moria",
+    "name": "Moria Protocol",
+    "aliases": [
+      "moria",
+      "moria protocol"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://gitlab.com/riftenlabs/lib/rust-riftenlabs-defi",
+    "website": "https://docs.riftenlabs.com/moria/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "moria",
+      "moria protocol"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:19.059Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "parryonusd",
+    "name": "ParryonUSD",
+    "aliases": [
+      "parryonusd"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/ParityUSD/contracts",
+    "website": "https://parityusd.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "parryonusd"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:22.254Z",
+    "statusDetail": "Last commit 3 days ago (2026-04-24). Website up",
+    "lastGithubCommit": "2026-04-24T17:57:49Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "sushibar",
+    "name": "SushiBar",
+    "aliases": [
+      "sushibar"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/mainnet-pat/SushiBar",
+    "website": "https://sushibar.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "sushibar"
+    ],
+    "status": "dormant",
+    "statusCheckedAt": "2026-04-27T13:37:24.408Z",
+    "statusDetail": "Last commit 265 days ago (2025-08-05). Website down",
+    "lastGithubCommit": "2025-08-05T18:26:02Z",
+    "websiteUp": false
+  },
+  {
+    "slug": "badgercoin",
+    "name": "BadgerCoin",
+    "aliases": [
+      "badgercoin"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/Aenima4six2/badgers",
+    "website": "https://badgers.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "badgercoin"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:27.213Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bch-pump",
+    "name": "BCH Pump",
+    "aliases": [
+      "bch pump",
+      "bch-pump"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/bch-pump/bch-pump",
+    "website": "https://bchpump.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch pump",
+      "bch-pump"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:29.744Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bch-guru",
+    "name": "BCH Guru",
+    "aliases": [
+      "bch guru",
+      "bch-guru"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/bchguru",
+    "website": "https://bch.guru/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch guru",
+      "bch-guru"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:32.315Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "unspent-phi",
+    "name": "Unspent Phi",
+    "aliases": [
+      "unspent phi",
+      "unspent-phi"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/2qx/unspent",
+    "website": "https://unspent.app/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "unspent phi",
+      "unspent-phi"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:34.726Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "future-bitcoin-cash",
+    "name": "Future Bitcoin Cash",
+    "aliases": [
+      "future bitcoin cash",
+      "future-bitcoin-cash"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/2qx/future-bitcoin-cash",
+    "website": "https://futurebitcoin.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "future bitcoin cash",
+      "future-bitcoin-cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:37.002Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "opencashdao",
+    "name": "OpenCashDAO",
+    "aliases": [
+      "opencashdao"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/OpenCashDAO/opencashdao-contracts",
+    "website": "https://opencashdao.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "opencashdao"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:37:38.802Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "oracles-cash",
+    "name": "Oracles.cash",
+    "aliases": [
+      "oracles cash",
+      "oracles-cash",
+      "oracles.cash"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/Bitcoin-com/oracles.cash",
+    "website": "https://oracles.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "oracles cash",
+      "oracles-cash",
+      "oracles.cash"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:37:41.066Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "general-protocols",
+    "name": "General Protocols",
+    "aliases": [
+      "general protocols",
+      "general-protocols"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": "https://gitlab.com/GeneralProtocols",
+    "website": "https://generalprotocols.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "general protocols",
+      "general-protocols"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:43.837Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "benswap",
+    "name": "BenSwap",
+    "aliases": [
+      "benswap"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/BenSwap",
+    "website": "https://benswap.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "benswap"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:37:45.979Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "mistswap",
+    "name": "MistSwap",
+    "aliases": [
+      "mistswap"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/mistswapdex",
+    "website": "https://mistswap.fi/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "mistswap"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:37:48.721Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "muesliswap-bch",
+    "name": "MuesliSwap (SmartBCH)",
+    "aliases": [
+      "muesliswap bch",
+      "muesliswap-bch",
+      "muesliswap (smartbch)",
+      "muesliswap smartbch"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/MuesliSwapTeam",
+    "website": "https://muesliswap.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "muesliswap bch",
+      "muesliswap-bch",
+      "muesliswap (smartbch)",
+      "muesliswap smartbch"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:37:51.126Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "tangoswap",
+    "name": "TangoSwap",
+    "aliases": [
+      "tangoswap"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/tangoswap-cash",
+    "website": "https://tangoswap.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "tangoswap"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:37:53.139Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "tropical-finance",
+    "name": "Tropical Finance",
+    "aliases": [
+      "tropical finance",
+      "tropical-finance"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/tropicalfi",
+    "website": "https://tropical.finance/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "tropical finance",
+      "tropical-finance"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:37:54.911Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "lawnydao",
+    "name": "LawnyDAO / LAW",
+    "aliases": [
+      "lawnydao",
+      "lawnydao / law"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/lawnydao",
+    "website": "https://lawnydao.org/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "lawnydao",
+      "lawnydao / law"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:37:56.662Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "marbleverse",
+    "name": "MarbleVerse",
+    "aliases": [
+      "marbleverse"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": null,
+    "website": "https://marbleverse.io/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "marbleverse"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:37:57.562Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "celery",
+    "name": "Celery",
+    "aliases": [
+      "celery"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/celerycash",
+    "website": "https://celery.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "celery"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:37:59.314Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "cashcats",
+    "name": "CashCats",
+    "aliases": [
+      "cashcats"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/cashcats",
+    "website": "https://cashcats.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashcats"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:38:01.068Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "flexusd",
+    "name": "flexUSD",
+    "aliases": [
+      "flexusd"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/coinflex-exchange/flexAssets",
+    "website": "https://coinflex.com/flexusd/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "flexusd"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:38:03.159Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "coinflex-bridge",
+    "name": "CoinFLEX Bridge",
+    "aliases": [
+      "coinflex bridge",
+      "coinflex-bridge"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/coinflex-exchange",
+    "website": "https://coinflex.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "coinflex bridge",
+      "coinflex-bridge"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:38:04.866Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "hop-cash",
+    "name": "Hop.cash",
+    "aliases": [
+      "hop cash",
+      "hop-cash",
+      "hop.cash"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/hop-cash",
+    "website": "https://hop.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "hop cash",
+      "hop-cash",
+      "hop.cash"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:38:08.009Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "tokenbridge-cash",
+    "name": "TokenBridge.cash",
+    "aliases": [
+      "tokenbridge cash",
+      "tokenbridge-cash",
+      "tokenbridge.cash"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/tokenbridge-cash",
+    "website": "https://tokenbridge.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "tokenbridge cash",
+      "tokenbridge-cash",
+      "tokenbridge.cash"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:38:09.827Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "prompt-cash-bridge",
+    "name": "prompt.cash bridge",
+    "aliases": [
+      "prompt cash bridge",
+      "prompt-cash-bridge",
+      "prompt.cash bridge"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": null,
+    "website": "https://prompt.cash/bridge",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "prompt cash bridge",
+      "prompt-cash-bridge",
+      "prompt.cash bridge"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:38:11.076Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "wagon-cash",
+    "name": "Wagon.cash",
+    "aliases": [
+      "wagon cash",
+      "wagon-cash",
+      "wagon.cash"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": null,
+    "website": "https://wagon.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "wagon cash",
+      "wagon-cash",
+      "wagon.cash"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:38:12.430Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "sha-gate",
+    "name": "SHA-Gate",
+    "aliases": [
+      "sha gate",
+      "sha-gate"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/smartbch/sha-gate-contract",
+    "website": "https://smartbch.org/sha-gate/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "sha gate",
+      "sha-gate"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T13:38:14.764Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "emerald-dao",
+    "name": "Emerald DAO",
+    "aliases": [
+      "emerald dao",
+      "emerald-dao"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/emerald-dao",
+    "website": "https://emeralddao.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "emerald dao",
+      "emerald-dao"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:53:22.018Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bitcats-heroes",
+    "name": "BitCats Heroes",
+    "aliases": [
+      "bitcats heroes",
+      "bitcats-heroes"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": null,
+    "website": "https://bitcatsheroes.com/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcats heroes",
+      "bitcats-heroes"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:53:22.579Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "p2p-exchange-paytaca",
+    "name": "Paytaca P2P Exchange",
+    "aliases": [
+      "p2p exchange paytaca",
+      "p2p-exchange-paytaca",
+      "paytaca p2p exchange"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://github.com/paytaca/p2p-exchange-contracts",
+    "website": "https://www.paytaca.com/applications/exchange",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "p2p exchange paytaca",
+      "p2p-exchange-paytaca",
+      "paytaca p2p exchange"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:53:25.141Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "stablehedge",
+    "name": "StableHedge",
+    "aliases": [
+      "stablehedge"
+    ],
+    "description": null,
+    "continent": "defi",
+    "github": "https://gitlab.com/GeneralProtocols/anyhedge",
+    "website": "https://stablehedge.cash/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "stablehedge"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:53:27.305Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "zapit",
+    "name": "Zapit",
+    "aliases": [
+      "zapit"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/zapit-io",
+    "website": "https://zapit.io",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "zapit"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:53:30.338Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "cashual-wallet",
+    "name": "Cashual Wallet",
+    "aliases": [
+      "cashual wallet",
+      "cashual-wallet"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": null,
+    "website": "https://cashual.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashual wallet",
+      "cashual-wallet"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T13:53:30.898Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "badger-wallet",
+    "name": "Badger Wallet",
+    "aliases": [
+      "badger wallet",
+      "badger-wallet"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/Bitcoin-com/badger-extension",
+    "website": "https://badger.bitcoin.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "badger wallet",
+      "badger-wallet"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:53:33.551Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "stack-wallet",
+    "name": "Stack Wallet",
+    "aliases": [
+      "stack wallet",
+      "stack-wallet"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/cypherstack/stack_wallet",
+    "website": "https://stackwallet.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "stack wallet",
+      "stack-wallet"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T13:53:36.132Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "cake-wallet",
+    "name": "Cake Wallet",
+    "aliases": [
+      "cake wallet",
+      "cake-wallet"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/cake-tech/cake_wallet",
+    "website": "https://cakewallet.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cake wallet",
+      "cake-wallet"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:08:41.881Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "coin-wallet",
+    "name": "Coin Wallet",
+    "aliases": [
+      "coin wallet",
+      "coin-wallet"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/CoinSpace/CoinSpace",
+    "website": "https://coin.space",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "coin wallet",
+      "coin-wallet"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:08:49.939Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "crescent-cash",
+    "name": "Crescent Cash",
+    "aliases": [
+      "crescent cash",
+      "crescent-cash"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": null,
+    "website": "https://crescent.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "crescent cash",
+      "crescent-cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:08:53.058Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "ifwallet",
+    "name": "ifwallet",
+    "aliases": [
+      "ifwallet"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": null,
+    "website": "https://www.ifwallet.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "ifwallet"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:08:53.879Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "psf-wallet",
+    "name": "PSF Wallet",
+    "aliases": [
+      "psf wallet",
+      "psf-wallet"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/Permissionless-Software-Foundation",
+    "website": "https://wallet.fullstack.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "psf wallet",
+      "psf-wallet"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:08:57.855Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bitpay-wallet",
+    "name": "BitPay Wallet",
+    "aliases": [
+      "bitpay wallet",
+      "bitpay-wallet"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/bitpay/wallet",
+    "website": "https://bitpay.com/wallet",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitpay wallet",
+      "bitpay-wallet"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:09:01.563Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitpay-merchant",
+    "name": "BitPay (Merchant)",
+    "aliases": [
+      "bitpay merchant",
+      "bitpay-merchant",
+      "bitpay (merchant)"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/bitpay",
+    "website": "https://bitpay.com/retail",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitpay merchant",
+      "bitpay-merchant",
+      "bitpay (merchant)"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:09:05.529Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "gocrypto",
+    "name": "GoCrypto",
+    "aliases": [
+      "gocrypto"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": null,
+    "website": "https://gocrypto.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "gocrypto"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:09:07.152Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "anypay",
+    "name": "Anypay",
+    "aliases": [
+      "anypay"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/anypay",
+    "website": "https://anypayx.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "anypay"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:09:10.490Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bch-merchant-pos",
+    "name": "BCH Merchant PoS",
+    "aliases": [
+      "bch merchant pos",
+      "bch-merchant-pos"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/SoftwareVerde",
+    "website": "https://merchant.bitcoinverde.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch merchant pos",
+      "bch-merchant-pos"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:24:37.905Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "marco-coino",
+    "name": "Marco Coino / Bitcoin.com Maps",
+    "aliases": [
+      "marco coino",
+      "marco-coino",
+      "marco coino / bitcoin.com maps"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": null,
+    "website": "https://map.bitcoin.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "marco coino",
+      "marco-coino",
+      "marco coino / bitcoin.com maps"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:24:39.057Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoinmap-cash",
+    "name": "BitcoinMap.cash",
+    "aliases": [
+      "bitcoinmap cash",
+      "bitcoinmap-cash",
+      "bitcoinmap.cash"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": "https://github.com/BitcoinCashMap",
+    "website": "https://bitcoinmap.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoinmap cash",
+      "bitcoinmap-cash",
+      "bitcoinmap.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:24:41.970Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "cashrain",
+    "name": "Cashrain",
+    "aliases": [
+      "cashrain"
+    ],
+    "description": null,
+    "continent": "apps",
+    "github": null,
+    "website": "https://cashrain.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cashrain"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:24:42.868Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "member-cash",
+    "name": "member.cash",
+    "aliases": [
+      "member cash",
+      "member-cash",
+      "member.cash"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": "https://github.com/memberapp",
+    "website": "https://member.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "member cash",
+      "member-cash",
+      "member.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:24:49.543Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoin-cash-podcast",
+    "name": "The Bitcoin Cash Podcast",
+    "aliases": [
+      "bitcoin cash podcast",
+      "bitcoin-cash-podcast",
+      "the bitcoin cash podcast"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://bitcoincashpodcast.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin cash podcast",
+      "bitcoin-cash-podcast",
+      "the bitcoin cash podcast"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:24:50.253Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoin-out-loud",
+    "name": "Bitcoin Out Loud",
+    "aliases": [
+      "bitcoin out loud",
+      "bitcoin-out-loud"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://bitcoinoutloud.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin out loud",
+      "bitcoin-out-loud"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:24:57.098Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "news-bitcoin-com",
+    "name": "Bitcoin.com News",
+    "aliases": [
+      "news bitcoin com",
+      "news-bitcoin-com",
+      "bitcoin.com news"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://news.bitcoin.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "news bitcoin com",
+      "news-bitcoin-com",
+      "bitcoin.com news"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:24:58.458Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bch-bullet",
+    "name": "The BCH Bullet",
+    "aliases": [
+      "bch bullet",
+      "bch-bullet",
+      "the bch bullet"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://thebchbullet.substack.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch bullet",
+      "bch-bullet",
+      "the bch bullet"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:25:00.332Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoin-cash-tv",
+    "name": "Bitcoin Cash TV",
+    "aliases": [
+      "bitcoin cash tv",
+      "bitcoin-cash-tv"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://www.youtube.com/@BitcoinCashTV",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin cash tv",
+      "bitcoin-cash-tv"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:25:02.481Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "satoshis-angels",
+    "name": "Satoshi's Angels",
+    "aliases": [
+      "satoshis angels",
+      "satoshis-angels",
+      "satoshi's angels"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://www.satoshisangels.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "satoshis angels",
+      "satoshis-angels",
+      "satoshi's angels"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:25:04.454Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "big-boys-big-blocks",
+    "name": "Big Boys Big Blocks",
+    "aliases": [
+      "big boys big blocks",
+      "big-boys-big-blocks"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://www.satoshisangels.com/blog",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "big boys big blocks",
+      "big-boys-big-blocks"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:25:05.826Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "minisatoshi-cash",
+    "name": "Minisatoshi.cash",
+    "aliases": [
+      "minisatoshi cash",
+      "minisatoshi-cash",
+      "minisatoshi.cash"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": "https://github.com/minisat0shi/minisatoshi.cash",
+    "website": "https://minisatoshi.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "minisatoshi cash",
+      "minisatoshi-cash",
+      "minisatoshi.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:25:09.878Z",
+    "statusDetail": "Last commit 29 days ago (2026-03-29). Website up",
+    "lastGithubCommit": "2026-03-29T02:26:02Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "helpme-cash",
+    "name": "HelpMe.cash",
+    "aliases": [
+      "helpme cash",
+      "helpme-cash",
+      "helpme.cash"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://helpme.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "helpme cash",
+      "helpme-cash",
+      "helpme.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:25:12.099Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "awesome-bitcoin-cash",
+    "name": "Awesome Bitcoin Cash",
+    "aliases": [
+      "awesome bitcoin cash",
+      "awesome-bitcoin-cash"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": "https://github.com/2qx/awesome-bitcoin-cash",
+    "website": "https://awesomebitcoin.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "awesome bitcoin cash",
+      "awesome-bitcoin-cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:25:16.288Z",
+    "statusDetail": "Last commit 26 days ago (2026-04-01). Website up",
+    "lastGithubCommit": "2026-04-01T14:02:11Z",
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoin-cash-site",
+    "name": "Bitcoin Cash Site",
+    "aliases": [
+      "bitcoin cash site",
+      "bitcoin-cash-site"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://bitcoincashsite.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin cash site",
+      "bitcoin-cash-site"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:36:07.434Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "keep-bitcoin-free",
+    "name": "Keep Bitcoin Free",
+    "aliases": [
+      "keep bitcoin free",
+      "keep-bitcoin-free"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://keepbitcoinfree.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "keep bitcoin free",
+      "keep-bitcoin-free"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:08.897Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bch-info",
+    "name": "BCH.info",
+    "aliases": [
+      "bch info",
+      "bch-info",
+      "bch.info"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": "https://github.com/bitjson/bch.info",
+    "website": "https://bch.info",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch info",
+      "bch-info",
+      "bch.info"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:12.137Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoincash-org",
+    "name": "BitcoinCash.org",
+    "aliases": [
+      "bitcoincash org",
+      "bitcoincash-org",
+      "bitcoincash.org"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": "https://github.com/Bitcoin-com/bitcoincash.org",
+    "website": "https://bitcoincash.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoincash org",
+      "bitcoincash-org",
+      "bitcoincash.org"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:15.083Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bch-podcast-bitcoin-com",
+    "name": "Bitcoin.com Podcast",
+    "aliases": [
+      "bch podcast bitcoin com",
+      "bch-podcast-bitcoin-com",
+      "bitcoin.com podcast"
+    ],
+    "description": null,
+    "continent": "media",
+    "github": null,
+    "website": "https://podcast.bitcoin.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch podcast bitcoin com",
+      "bch-podcast-bitcoin-com",
+      "bitcoin.com podcast"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:15.812Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "eatbch",
+    "name": "EatBCH",
+    "aliases": [
+      "eatbch"
+    ],
+    "description": null,
+    "continent": "charity",
+    "github": null,
+    "website": "https://eatbch.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "eatbch"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:17.033Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "eatbch-ss",
+    "name": "EatBCH South Sudan",
+    "aliases": [
+      "eatbch ss",
+      "eatbch-ss",
+      "eatbch south sudan"
+    ],
+    "description": null,
+    "continent": "charity",
+    "github": null,
+    "website": "https://eatbch.org/south-sudan/",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "eatbch ss",
+      "eatbch-ss",
+      "eatbch south sudan"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:18.766Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bch-please",
+    "name": "BCH Please",
+    "aliases": [
+      "bch please",
+      "bch-please"
+    ],
+    "description": null,
+    "continent": "charity",
+    "github": null,
+    "website": "https://bchplease.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch please",
+      "bch-please"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:19.895Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoin-cash-house",
+    "name": "Bitcoin Cash House",
+    "aliases": [
+      "bitcoin cash house",
+      "bitcoin-cash-house"
+    ],
+    "description": null,
+    "continent": "charity",
+    "github": null,
+    "website": "https://bitcoincashhouse.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin cash house",
+      "bitcoin-cash-house"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:36:20.466Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bch-latam",
+    "name": "BCH Latam",
+    "aliases": [
+      "bch latam",
+      "bch-latam"
+    ],
+    "description": null,
+    "continent": "charity",
+    "github": "https://github.com/Panmoni",
+    "website": "https://panmoni.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch latam",
+      "bch-latam"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:22.378Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoin-cash-foundation",
+    "name": "Bitcoin Cash Foundation",
+    "aliases": [
+      "bitcoin cash foundation",
+      "bitcoin-cash-foundation"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": "https://github.com/bitcoincashfoundation",
+    "website": "https://bitcoincashfoundation.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin cash foundation",
+      "bitcoin-cash-foundation"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:25.310Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bliss-conference",
+    "name": "BCH Bliss Conference",
+    "aliases": [
+      "bliss conference",
+      "bliss-conference",
+      "bch bliss conference"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": null,
+    "website": "https://bliss.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bliss conference",
+      "bliss-conference",
+      "bch bliss conference"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:36:26.822Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bch-argentina",
+    "name": "BCH Argentina",
+    "aliases": [
+      "bch argentina",
+      "bch-argentina"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": null,
+    "website": "https://bcharg.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch argentina",
+      "bch-argentina"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:28.954Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bch-brazil",
+    "name": "BCH Brazil",
+    "aliases": [
+      "bch brazil",
+      "bch-brazil"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": null,
+    "website": "https://bchbrasil.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch brazil",
+      "bch-brazil"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:36:29.595Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bitcoin-cash-city-townsville",
+    "name": "Bitcoin Cash City (Townsville)",
+    "aliases": [
+      "bitcoin cash city townsville",
+      "bitcoin-cash-city-townsville",
+      "bitcoin cash city (townsville)"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": null,
+    "website": "https://bitcoincashcity.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin cash city townsville",
+      "bitcoin-cash-city-townsville",
+      "bitcoin cash city (townsville)"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:36:30.267Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bch-1-hackcelerator",
+    "name": "BCH-1 Hackcelerator",
+    "aliases": [
+      "bch 1 hackcelerator",
+      "bch-1-hackcelerator",
+      "bch-1 hackcelerator"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": null,
+    "website": "https://bch-1.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch 1 hackcelerator",
+      "bch-1-hackcelerator",
+      "bch-1 hackcelerator"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:34.449Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bch-blaze",
+    "name": "BCH Blaze",
+    "aliases": [
+      "bch blaze",
+      "bch-blaze"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": null,
+    "website": "https://dorahacks.io/hackathon/bchblaze2025/detail",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch blaze",
+      "bch-blaze"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:36:35.252Z",
+    "statusDetail": "Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "bitcoin-cash-research",
+    "name": "Bitcoin Cash Research",
+    "aliases": [
+      "bitcoin cash research",
+      "bitcoin-cash-research"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": null,
+    "website": "https://bitcoincashresearch.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin cash research",
+      "bitcoin-cash-research"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:38.345Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "riften-labs",
+    "name": "Riften Labs",
+    "aliases": [
+      "riften labs",
+      "riften-labs"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": "https://github.com/RiftenLabs",
+    "website": "https://riftenlabs.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "riften labs",
+      "riften-labs"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:40.497Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "slp-foundation",
+    "name": "SLP Foundation",
+    "aliases": [
+      "slp foundation",
+      "slp-foundation"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": "https://github.com/simpleledger",
+    "website": "https://simpleledger.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "slp foundation",
+      "slp-foundation"
+    ],
+    "status": "dead",
+    "statusCheckedAt": "2026-04-27T14:36:43.540Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "permissionless-software-foundation",
+    "name": "Permissionless Software Foundation",
+    "aliases": [
+      "permissionless software foundation",
+      "permissionless-software-foundation"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": "https://github.com/Permissionless-Software-Foundation",
+    "website": "https://psfoundation.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "permissionless software foundation",
+      "permissionless-software-foundation"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:48.210Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "software-verde",
+    "name": "Software Verde",
+    "aliases": [
+      "software verde",
+      "software-verde"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": "https://github.com/SoftwareVerde",
+    "website": "https://softwareverde.com",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "software verde",
+      "software-verde"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": "2026-04-27T14:36:50.658Z",
+    "statusDetail": "GitHub: no commits found or API error. Website down",
+    "lastGithubCommit": null,
+    "websiteUp": false
+  },
+  {
+    "slug": "developers-cash",
+    "name": "Developers.cash",
+    "aliases": [
+      "developers cash",
+      "developers-cash",
+      "developers.cash"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": "https://github.com/developers-cash",
+    "website": "https://developers.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "developers cash",
+      "developers-cash",
+      "developers.cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:54.229Z",
+    "statusDetail": "GitHub: no commits found or API error. Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bch-subreddit",
+    "name": "r/btc",
+    "aliases": [
+      "bch subreddit",
+      "bch-subreddit",
+      "r/btc"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": null,
+    "website": "https://reddit.com/r/btc",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch subreddit",
+      "bch-subreddit",
+      "r/btc"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:55.482Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  },
+  {
+    "slug": "bitcoincash-subreddit",
+    "name": "r/Bitcoincash",
+    "aliases": [
+      "bitcoincash subreddit",
+      "bitcoincash-subreddit",
+      "r/bitcoincash"
+    ],
+    "description": null,
+    "continent": "ecosystem",
+    "github": null,
+    "website": "https://reddit.com/r/Bitcoincash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoincash subreddit",
+      "bitcoincash-subreddit",
+      "r/bitcoincash"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-27T14:36:56.164Z",
+    "statusDetail": "Website up",
+    "lastGithubCommit": null,
+    "websiteUp": true
+  }
+]
