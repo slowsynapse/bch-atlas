@@ -20,6 +20,8 @@ export interface Project {
   statusDetail: string | null
   lastGithubCommit: string | null
   websiteUp: boolean | null
+  lastContentChange: string | null
+  waybackCheckedAt: string | null
 }
 
 export interface ResolvedProject extends Project {
