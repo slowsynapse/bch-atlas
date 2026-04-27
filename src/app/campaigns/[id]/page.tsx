@@ -128,46 +128,60 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
 
           {/* Funding */}
           <div className="mb-6">
-            <div className="flex justify-between items-end mb-3">
-              <div>
-                <div
-                  className="font-mono text-3xl"
-                  style={{ color: '#00FF88', textShadow: '0 0 20px rgba(0,255,136,0.3)' }}
-                >
-                  {goalAmount.toFixed(2)} <span className="text-sm text-[#7A8899]">BCH</span>
-                </div>
-                {campaign.usdValueAtTime != null && (
-                  <div className="mt-1">
-                    <span className="font-mono text-lg text-[#E0E4E8]" style={{ textShadow: '0 0 8px rgba(224,228,232,0.15)' }}>
-                      ≈ ${campaign.usdValueAtTime.toLocaleString()} USD
-                    </span>
-                    {campaign.priceDate && (
-                      <span className="text-xs text-[#7A8899] ml-2 font-mono">
-                        at BCH price on {new Date(campaign.priceDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-                      </span>
+            {goalAmount > 0 ? (
+              <>
+                <div className="flex justify-between items-end mb-3">
+                  <div>
+                    <div
+                      className="font-mono text-3xl"
+                      style={{ color: '#00FF88', textShadow: '0 0 20px rgba(0,255,136,0.3)' }}
+                    >
+                      {goalAmount.toFixed(2)} <span className="text-sm text-[#7A8899]">BCH</span>
+                    </div>
+                    {campaign.usdValueAtTime != null && (
+                      <div className="mt-1">
+                        <span className="font-mono text-lg text-[#E0E4E8]" style={{ textShadow: '0 0 8px rgba(224,228,232,0.15)' }}>
+                          ≈ ${campaign.usdValueAtTime.toLocaleString()} USD
+                        </span>
+                        {campaign.priceDate && (
+                          <span className="text-xs text-[#7A8899] ml-2 font-mono">
+                            at BCH price on {new Date(campaign.priceDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                          </span>
+                        )}
+                      </div>
                     )}
+                    <span className="ds-label">{campaign.platform === 'fundme' ? 'Raised' : 'Goal'}</span>
+                  </div>
+                  {campaign.status === 'success' && (
+                    <div className="text-right">
+                      <div className="font-mono text-lg text-[#E0E4E8]">{progressPercent.toFixed(0)}%</div>
+                      <span className="ds-label">Funded</span>
+                    </div>
+                  )}
+                </div>
+
+                {campaign.status === 'success' && (
+                  <div className="w-full h-1.5 bg-[rgba(0,224,160,0.08)] overflow-hidden rounded-full">
+                    <div
+                      className="h-full rounded-full transition-all"
+                      style={{
+                        width: `${Math.min(progressPercent, 100)}%`,
+                        background: 'linear-gradient(90deg, #00E0A0, #00FF88)',
+                        boxShadow: '0 0 12px rgba(0,255,136,0.4)',
+                      }}
+                    />
                   </div>
                 )}
-                <span className="ds-label">Goal</span>
-              </div>
-              {campaign.status === 'success' && (
-                <div className="text-right">
-                  <div className="font-mono text-lg text-[#E0E4E8]">{progressPercent.toFixed(0)}%</div>
-                  <span className="ds-label">Funded</span>
+              </>
+            ) : (
+              <div className="py-3 px-4" style={{ background: 'rgba(255, 68, 85, 0.06)', border: '1px solid rgba(255, 68, 85, 0.2)', borderRadius: '2px' }}>
+                <div className="font-mono text-base" style={{ color: '#FF8899' }}>
+                  No pledges recorded
                 </div>
-              )}
-            </div>
-
-            {campaign.status === 'success' && (
-              <div className="w-full h-1.5 bg-[rgba(0,224,160,0.08)] overflow-hidden rounded-full">
-                <div
-                  className="h-full rounded-full transition-all"
-                  style={{
-                    width: `${Math.min(progressPercent, 100)}%`,
-                    background: 'linear-gradient(90deg, #00E0A0, #00FF88)',
-                    boxShadow: '0 0 12px rgba(0,255,136,0.4)',
-                  }}
-                />
+                <p className="text-[11px] text-[#7A8899] mt-1 leading-relaxed">
+                  This campaign was {campaign.platform === 'fundme' ? 'archived on FundMe.cash' : 'expired'} without receiving pledges through the platform.
+                  {campaign.platform === 'fundme' && ' The campaign page existed but no backers committed BCH via the CashStarter contract.'}
+                </p>
               </div>
             )}
           </div>
