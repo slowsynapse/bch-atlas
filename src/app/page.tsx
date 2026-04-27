@@ -214,10 +214,10 @@ export default function AtlasPage() {
               <div className="text-[8px] uppercase tracking-[0.15em]" style={{ color: '#3A6A5A' }}>funded</div>
             </div>
             <div className="p-2" style={{ background: 'rgba(0, 180, 140, 0.05)', border: '1px solid rgba(0, 224, 160, 0.08)', borderRadius: '2px' }}>
-              <div className="font-mono text-base font-medium" style={{ color: '#E8A838', textShadow: '0 0 10px rgba(232,168,56,0.3)' }}>
-                {stats.totalEntities}
+              <div className="font-mono text-base font-medium" style={{ color: '#00D4FF', textShadow: '0 0 10px rgba(0,212,255,0.3)' }}>
+                {(stats as any).totalProjects ?? projectCount}
               </div>
-              <div className="text-[8px] uppercase tracking-[0.15em]" style={{ color: '#3A6A5A' }}>entities</div>
+              <div className="text-[8px] uppercase tracking-[0.15em]" style={{ color: '#3A6A5A' }}>projects</div>
             </div>
           </div>
         </div>
@@ -303,7 +303,7 @@ export default function AtlasPage() {
         <div style={{ height: '1px', background: 'linear-gradient(90deg, rgba(0,224,160,0.2), rgba(0,224,160,0.02))' }} />
 
         {/* Nav */}
-        <div className="px-5 py-3">
+        <div className="px-5 py-3 space-y-1.5">
           <Link
             href="/campaigns"
             className="block w-full px-3 py-2 text-center text-[11px] font-mono uppercase tracking-[0.12em] transition-all"
@@ -322,7 +322,27 @@ export default function AtlasPage() {
               e.currentTarget.style.boxShadow = 'none'
             }}
           >
-            Browse All Campaigns
+            Browse Campaigns
+          </Link>
+          <Link
+            href="/projects"
+            className="block w-full px-3 py-2 text-center text-[11px] font-mono uppercase tracking-[0.12em] transition-all"
+            style={{
+              background: 'rgba(0, 140, 200, 0.06)',
+              border: '1px solid rgba(0, 212, 255, 0.2)',
+              color: '#00D4FF',
+              borderRadius: '2px',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(0, 140, 200, 0.12)'
+              e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.1)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(0, 140, 200, 0.06)'
+              e.currentTarget.style.boxShadow = 'none'
+            }}
+          >
+            Browse Projects
           </Link>
         </div>
 
