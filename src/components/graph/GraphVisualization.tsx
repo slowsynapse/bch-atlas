@@ -575,18 +575,18 @@ export function GraphVisualization({
               'height': 46,
             } as any
           },
-          // Large (Starbase) station: 3+ campaigns
+          // Large (Side Colony) station: 3+ campaigns — 160:100 aspect (Gundam side colony)
           {
             selector: 'node[type="project"][stationSize="large"]',
             style: {
               'background-image': '/starbase.svg',
               'width': (ele: any) => {
                 const count = ele.data('metadata')?.campaignCount || 3
-                return Math.min(120, 64 + count * 4)
+                return Math.min(180, 100 + count * 6)
               },
               'height': (ele: any) => {
                 const count = ele.data('metadata')?.campaignCount || 3
-                return Math.min(120, 64 + count * 4)
+                return Math.min(112, 64 + count * 3.5)
               },
             } as any
           },

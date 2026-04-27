@@ -1321,11 +1321,10 @@
     "x": null,
     "telegram": null,
     "reddit": null,
-    "campaignIds": [],
-    "campaignMatchers": [
-      "fundme.cash",
-      "fundme platform"
+    "campaignIds": [
+      "a5cc94eb4f9000be"
     ],
+    "campaignMatchers": [],
     "status": "active",
     "statusCheckedAt": "2026-04-27T13:21:04.041Z",
     "statusDetail": "GitHub: no commits found or API error. Website up",

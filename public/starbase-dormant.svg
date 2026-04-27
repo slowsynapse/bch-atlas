@@ -1,38 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" width="160" height="100">
   <defs>
-    <linearGradient id="cyl-body-d" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="cyl-side-d" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0d0a00"/>
-      <stop offset="50%" stop-color="#1a1300"/>
+      <stop offset="20%" stop-color="#1a1300"/>
+      <stop offset="50%" stop-color="#2a1f00"/>
+      <stop offset="80%" stop-color="#1a1300"/>
       <stop offset="100%" stop-color="#0d0a00"/>
     </linearGradient>
-    <linearGradient id="cyl-window-d" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="cap-grad-d" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1300"/>
+      <stop offset="100%" stop-color="#0d0a00"/>
+    </linearGradient>
+    <linearGradient id="panel-grad-d" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0700"/>
+      <stop offset="50%" stop-color="#1f1500"/>
+      <stop offset="100%" stop-color="#0a0700"/>
+    </linearGradient>
+    <linearGradient id="window-stripe-d" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="rgba(232,168,56,0)"/>
-      <stop offset="50%" stop-color="rgba(232,168,56,0.5)"/>
+      <stop offset="50%" stop-color="rgba(232,168,56,0.6)"/>
       <stop offset="100%" stop-color="rgba(232,168,56,0)"/>
     </linearGradient>
   </defs>
-  <line x1="10" y1="40" x2="110" y2="40" stroke="#E8A838" stroke-width="0.4" opacity="0.3" stroke-dasharray="2 2"/>
-  <rect x="20" y="28" width="80" height="24" fill="url(#cyl-body-d)" stroke="#E8A838" stroke-width="1"/>
-  <ellipse cx="20" cy="40" rx="5" ry="12" fill="#0d0a00" stroke="#E8A838" stroke-width="1"/>
-  <ellipse cx="100" cy="40" rx="5" ry="12" fill="#0d0a00" stroke="#E8A838" stroke-width="1"/>
-  <line x1="22" y1="33" x2="98" y2="33" stroke="url(#cyl-window-d)" stroke-width="1.2"/>
-  <line x1="22" y1="40" x2="98" y2="40" stroke="url(#cyl-window-d)" stroke-width="1.2"/>
-  <line x1="22" y1="47" x2="98" y2="47" stroke="url(#cyl-window-d)" stroke-width="1.2"/>
-  <line x1="35" y1="28" x2="35" y2="52" stroke="#E8A838" stroke-width="0.5" opacity="0.5"/>
-  <line x1="50" y1="28" x2="50" y2="52" stroke="#E8A838" stroke-width="0.5" opacity="0.5"/>
-  <line x1="60" y1="28" x2="60" y2="52" stroke="#E8A838" stroke-width="0.5" opacity="0.6"/>
-  <line x1="70" y1="28" x2="70" y2="52" stroke="#E8A838" stroke-width="0.5" opacity="0.5"/>
-  <line x1="85" y1="28" x2="85" y2="52" stroke="#E8A838" stroke-width="0.5" opacity="0.5"/>
-  <rect x="32" y="14" width="56" height="10" fill="#0d0a00" stroke="#E8A838" stroke-width="0.7" opacity="0.7"/>
-  <ellipse cx="32" cy="19" rx="3" ry="5" fill="#0d0a00" stroke="#E8A838" stroke-width="0.7" opacity="0.7"/>
-  <ellipse cx="88" cy="19" rx="3" ry="5" fill="#0d0a00" stroke="#E8A838" stroke-width="0.7" opacity="0.7"/>
-  <line x1="34" y1="19" x2="86" y2="19" stroke="rgba(232,168,56,0.3)" stroke-width="0.6"/>
-  <line x1="40" y1="24" x2="40" y2="28" stroke="#E8A838" stroke-width="0.7"/>
-  <line x1="60" y1="24" x2="60" y2="28" stroke="#E8A838" stroke-width="0.8"/>
-  <line x1="80" y1="24" x2="80" y2="28" stroke="#E8A838" stroke-width="0.7"/>
-  <line x1="15" y1="40" x2="6" y2="40" stroke="#E8A838" stroke-width="0.8"/>
-  <circle cx="5" cy="40" r="1.5" fill="#1a1300" stroke="#E8A838" stroke-width="0.6"/>
-  <line x1="105" y1="40" x2="114" y2="40" stroke="#E8A838" stroke-width="0.8"/>
-  <circle cx="115" cy="40" r="1.5" fill="#1a1300" stroke="#E8A838" stroke-width="0.6"/>
-  <circle cx="60" cy="40" r="1.4" fill="#E8A838" opacity="0.7"/>
+  <g transform="translate(20 30) skewY(-10)">
+    <polygon points="0,0 24,4 24,30 0,26" fill="url(#panel-grad-d)" stroke="#E8A838" stroke-width="0.7" opacity="0.85"/>
+    <line x1="0" y1="9" x2="24" y2="13" stroke="#E8A838" stroke-width="0.4" opacity="0.5"/>
+    <line x1="0" y1="17" x2="24" y2="21" stroke="#E8A838" stroke-width="0.4" opacity="0.5"/>
+    <line x1="6" y1="1.5" x2="6" y2="27" stroke="#E8A838" stroke-width="0.4" opacity="0.4"/>
+    <line x1="12" y1="2" x2="12" y2="27.5" stroke="#E8A838" stroke-width="0.4" opacity="0.4"/>
+    <line x1="18" y1="3" x2="18" y2="29" stroke="#E8A838" stroke-width="0.4" opacity="0.4"/>
+  </g>
+  <line x1="44" y1="35" x2="48" y2="38" stroke="#E8A838" stroke-width="1"/>
+  <line x1="44" y1="58" x2="48" y2="55" stroke="#E8A838" stroke-width="1"/>
+  <g transform="translate(116 30) skewY(10)">
+    <polygon points="0,4 24,0 24,26 0,30" fill="url(#panel-grad-d)" stroke="#E8A838" stroke-width="0.7" opacity="0.85"/>
+    <line x1="0" y1="13" x2="24" y2="9" stroke="#E8A838" stroke-width="0.4" opacity="0.5"/>
+    <line x1="0" y1="21" x2="24" y2="17" stroke="#E8A838" stroke-width="0.4" opacity="0.5"/>
+    <line x1="6" y1="6" x2="6" y2="29" stroke="#E8A838" stroke-width="0.4" opacity="0.4"/>
+    <line x1="12" y1="5" x2="12" y2="28.5" stroke="#E8A838" stroke-width="0.4" opacity="0.4"/>
+    <line x1="18" y1="4" x2="18" y2="28" stroke="#E8A838" stroke-width="0.4" opacity="0.4"/>
+  </g>
+  <line x1="116" y1="35" x2="112" y2="38" stroke="#E8A838" stroke-width="1"/>
+  <line x1="116" y1="58" x2="112" y2="55" stroke="#E8A838" stroke-width="1"/>
+  <ellipse cx="48" cy="46" rx="6" ry="14" fill="url(#cap-grad-d)" stroke="#E8A838" stroke-width="1.2"/>
+  <ellipse cx="112" cy="46" rx="7" ry="16" fill="url(#cap-grad-d)" stroke="#E8A838" stroke-width="1.2"/>
+  <line x1="48" y1="32" x2="112" y2="30" stroke="#E8A838" stroke-width="1.2"/>
+  <line x1="48" y1="60" x2="112" y2="62" stroke="#E8A838" stroke-width="1.2"/>
+  <path d="M 48 32 L 112 30 L 112 62 L 48 60 Z" fill="url(#cyl-side-d)" opacity="0.9"/>
+  <line x1="50" y1="38" x2="110" y2="36.5" stroke="url(#window-stripe-d)" stroke-width="1.4"/>
+  <line x1="50" y1="46" x2="110" y2="46" stroke="url(#window-stripe-d)" stroke-width="1.6"/>
+  <line x1="50" y1="54" x2="110" y2="55.5" stroke="url(#window-stripe-d)" stroke-width="1.4"/>
+  <line x1="56" y1="32.7" x2="56" y2="60.3" stroke="#E8A838" stroke-width="0.5" opacity="0.5"/>
+  <line x1="64" y1="32.4" x2="64" y2="60.6" stroke="#E8A838" stroke-width="0.5" opacity="0.5"/>
+  <line x1="74" y1="32" x2="74" y2="61" stroke="#E8A838" stroke-width="0.5" opacity="0.6"/>
+  <line x1="84" y1="31.6" x2="84" y2="61.4" stroke="#E8A838" stroke-width="0.5" opacity="0.6"/>
+  <line x1="96" y1="31.2" x2="96" y2="61.8" stroke="#E8A838" stroke-width="0.5" opacity="0.5"/>
+  <line x1="105" y1="30.7" x2="105" y2="62.3" stroke="#E8A838" stroke-width="0.5" opacity="0.5"/>
+  <ellipse cx="112" cy="46" rx="4.5" ry="11" fill="none" stroke="#E8A838" stroke-width="0.5" opacity="0.6"/>
+  <ellipse cx="112" cy="46" rx="2.5" ry="6" fill="none" stroke="#E8A838" stroke-width="0.5" opacity="0.5"/>
+  <circle cx="112" cy="46" r="1.5" fill="#E8A838" opacity="0.7"/>
+  <ellipse cx="48" cy="46" rx="3.5" ry="9" fill="none" stroke="#E8A838" stroke-width="0.4" opacity="0.4"/>
+  <circle cx="48" cy="46" r="1" fill="#E8A838" opacity="0.6"/>
+  <line x1="119" y1="46" x2="135" y2="46" stroke="#E8A838" stroke-width="0.9"/>
+  <circle cx="137" cy="46" r="2" fill="#1a1300" stroke="#E8A838" stroke-width="0.7"/>
+  <line x1="135" y1="42" x2="135" y2="50" stroke="#E8A838" stroke-width="0.6"/>
 </svg>

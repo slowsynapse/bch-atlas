@@ -1,52 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80">
-  <!-- O'Neill cylinder: rotating habitat with end caps, central spine, connected via spokes -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" width="160" height="100">
+  <!-- Gundam-style side colony: O'Neill cylinder shown in 3/4 perspective with extending solar panel mirrors -->
   <defs>
-    <linearGradient id="cyl-body" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="cyl-side" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#001f17"/>
-      <stop offset="50%" stop-color="#003628"/>
+      <stop offset="20%" stop-color="#003628"/>
+      <stop offset="50%" stop-color="#005a3f"/>
+      <stop offset="80%" stop-color="#003628"/>
       <stop offset="100%" stop-color="#001f17"/>
     </linearGradient>
-    <linearGradient id="cyl-window" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="cap-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#003628"/>
+      <stop offset="100%" stop-color="#001f17"/>
+    </linearGradient>
+    <linearGradient id="panel-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#001a14"/>
+      <stop offset="50%" stop-color="#00342a"/>
+      <stop offset="100%" stop-color="#001a14"/>
+    </linearGradient>
+    <linearGradient id="window-stripe" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="rgba(0,255,136,0)"/>
-      <stop offset="50%" stop-color="rgba(0,255,136,0.7)"/>
+      <stop offset="20%" stop-color="rgba(0,255,136,0.85)"/>
+      <stop offset="50%" stop-color="rgba(0,255,136,0.95)"/>
+      <stop offset="80%" stop-color="rgba(0,255,136,0.85)"/>
       <stop offset="100%" stop-color="rgba(0,255,136,0)"/>
     </linearGradient>
   </defs>
-  <!-- Central axis line (rotation axis) -->
-  <line x1="10" y1="40" x2="110" y2="40" stroke="#00E0A0" stroke-width="0.4" opacity="0.4" stroke-dasharray="2 2"/>
-  <!-- Main cylinder body -->
-  <rect x="20" y="28" width="80" height="24" fill="url(#cyl-body)" stroke="#00FF88" stroke-width="1"/>
-  <!-- End caps (curved) -->
-  <ellipse cx="20" cy="40" rx="5" ry="12" fill="#001f17" stroke="#00FF88" stroke-width="1"/>
-  <ellipse cx="100" cy="40" rx="5" ry="12" fill="#001f17" stroke="#00FF88" stroke-width="1"/>
-  <!-- Window strips along the cylinder (3 stripes — habitat sections visible through "valleys") -->
-  <line x1="22" y1="33" x2="98" y2="33" stroke="url(#cyl-window)" stroke-width="1.2"/>
-  <line x1="22" y1="40" x2="98" y2="40" stroke="url(#cyl-window)" stroke-width="1.2"/>
-  <line x1="22" y1="47" x2="98" y2="47" stroke="url(#cyl-window)" stroke-width="1.2"/>
-  <!-- Vertical ribs (structural rings on the cylinder) -->
-  <line x1="35" y1="28" x2="35" y2="52" stroke="#00E0A0" stroke-width="0.5" opacity="0.6"/>
-  <line x1="50" y1="28" x2="50" y2="52" stroke="#00E0A0" stroke-width="0.5" opacity="0.6"/>
-  <line x1="60" y1="28" x2="60" y2="52" stroke="#00E0A0" stroke-width="0.5" opacity="0.7"/>
-  <line x1="70" y1="28" x2="70" y2="52" stroke="#00E0A0" stroke-width="0.5" opacity="0.6"/>
-  <line x1="85" y1="28" x2="85" y2="52" stroke="#00E0A0" stroke-width="0.5" opacity="0.6"/>
-  <!-- Counter-rotating cylinder (smaller, behind/above) -->
-  <rect x="32" y="14" width="56" height="10" fill="#001f17" stroke="#00FF88" stroke-width="0.7" opacity="0.85"/>
-  <ellipse cx="32" cy="19" rx="3" ry="5" fill="#001f17" stroke="#00FF88" stroke-width="0.7" opacity="0.85"/>
-  <ellipse cx="88" cy="19" rx="3" ry="5" fill="#001f17" stroke="#00FF88" stroke-width="0.7" opacity="0.85"/>
-  <line x1="34" y1="19" x2="86" y2="19" stroke="rgba(0,255,136,0.4)" stroke-width="0.6"/>
-  <!-- Connecting spokes between cylinders -->
-  <line x1="40" y1="24" x2="40" y2="28" stroke="#00E0A0" stroke-width="0.7"/>
-  <line x1="60" y1="24" x2="60" y2="28" stroke="#00E0A0" stroke-width="0.8"/>
-  <line x1="80" y1="24" x2="80" y2="28" stroke="#00E0A0" stroke-width="0.7"/>
-  <!-- Docking spire at left cap -->
-  <line x1="15" y1="40" x2="6" y2="40" stroke="#00FF88" stroke-width="0.8"/>
-  <circle cx="5" cy="40" r="1.5" fill="#003628" stroke="#00FF88" stroke-width="0.6"/>
-  <!-- Docking spire at right cap -->
-  <line x1="105" y1="40" x2="114" y2="40" stroke="#00FF88" stroke-width="0.8"/>
-  <circle cx="115" cy="40" r="1.5" fill="#003628" stroke="#00FF88" stroke-width="0.6"/>
-  <!-- Solar reflector arrays at far right (suggesting the open-end mirror) -->
-  <line x1="100" y1="60" x2="108" y2="68" stroke="#00E0A0" stroke-width="0.6" opacity="0.7"/>
-  <line x1="20" y1="60" x2="12" y2="68" stroke="#00E0A0" stroke-width="0.6" opacity="0.7"/>
-  <!-- Active hub light -->
-  <circle cx="60" cy="40" r="1.6" fill="#00FF88"/>
+
+  <!-- Solar mirror panel — back-left (perspective: tilted away) -->
+  <g transform="translate(20 30) skewY(-10)">
+    <polygon points="0,0 24,4 24,30 0,26" fill="url(#panel-grad)" stroke="#00E0A0" stroke-width="0.7"/>
+    <line x1="0" y1="9" x2="24" y2="13" stroke="#00E0A0" stroke-width="0.4" opacity="0.6"/>
+    <line x1="0" y1="17" x2="24" y2="21" stroke="#00E0A0" stroke-width="0.4" opacity="0.6"/>
+    <line x1="6" y1="1.5" x2="6" y2="27" stroke="#00E0A0" stroke-width="0.4" opacity="0.5"/>
+    <line x1="12" y1="2" x2="12" y2="27.5" stroke="#00E0A0" stroke-width="0.4" opacity="0.5"/>
+    <line x1="18" y1="3" x2="18" y2="29" stroke="#00E0A0" stroke-width="0.4" opacity="0.5"/>
+  </g>
+  <!-- Mirror strut from panel to cylinder back-cap -->
+  <line x1="44" y1="35" x2="48" y2="38" stroke="#00E0A0" stroke-width="1"/>
+  <line x1="44" y1="58" x2="48" y2="55" stroke="#00E0A0" stroke-width="1"/>
+
+  <!-- Solar mirror panel — back-right (perspective) -->
+  <g transform="translate(116 30) skewY(10)">
+    <polygon points="0,4 24,0 24,26 0,30" fill="url(#panel-grad)" stroke="#00E0A0" stroke-width="0.7"/>
+    <line x1="0" y1="13" x2="24" y2="9" stroke="#00E0A0" stroke-width="0.4" opacity="0.6"/>
+    <line x1="0" y1="21" x2="24" y2="17" stroke="#00E0A0" stroke-width="0.4" opacity="0.6"/>
+    <line x1="6" y1="6" x2="6" y2="29" stroke="#00E0A0" stroke-width="0.4" opacity="0.5"/>
+    <line x1="12" y1="5" x2="12" y2="28.5" stroke="#00E0A0" stroke-width="0.4" opacity="0.5"/>
+    <line x1="18" y1="4" x2="18" y2="28" stroke="#00E0A0" stroke-width="0.4" opacity="0.5"/>
+  </g>
+  <line x1="116" y1="35" x2="112" y2="38" stroke="#00E0A0" stroke-width="1"/>
+  <line x1="116" y1="58" x2="112" y2="55" stroke="#00E0A0" stroke-width="1"/>
+
+  <!-- Cylinder body — main colony hull (3/4 perspective: an angled rectangle) -->
+  <!-- Back end-cap (slightly larger ellipse — closer to viewer on right side) -->
+  <ellipse cx="48" cy="46" rx="6" ry="14" fill="url(#cap-grad)" stroke="#00FF88" stroke-width="1.2"/>
+  <!-- Front end-cap (right side, slightly larger feel) -->
+  <ellipse cx="112" cy="46" rx="7" ry="16" fill="url(#cap-grad)" stroke="#00FF88" stroke-width="1.2"/>
+  <!-- Cylinder top edge (perspective line from back-cap top to front-cap top) -->
+  <line x1="48" y1="32" x2="112" y2="30" stroke="#00FF88" stroke-width="1.2"/>
+  <!-- Cylinder bottom edge -->
+  <line x1="48" y1="60" x2="112" y2="62" stroke="#00FF88" stroke-width="1.2"/>
+  <!-- Cylinder body fill -->
+  <path d="M 48 32 L 112 30 L 112 62 L 48 60 Z" fill="url(#cyl-side)" opacity="0.95"/>
+
+  <!-- Three valley window stripes (visible through the open gaps between land strips) -->
+  <line x1="50" y1="38" x2="110" y2="36.5" stroke="url(#window-stripe)" stroke-width="1.4"/>
+  <line x1="50" y1="46" x2="110" y2="46" stroke="url(#window-stripe)" stroke-width="1.6"/>
+  <line x1="50" y1="54" x2="110" y2="55.5" stroke="url(#window-stripe)" stroke-width="1.4"/>
+
+  <!-- Structural ribs along the cylinder length (perspective spacing — closer together at far end) -->
+  <line x1="56" y1="32.7" x2="56" y2="60.3" stroke="#00E0A0" stroke-width="0.5" opacity="0.6"/>
+  <line x1="64" y1="32.4" x2="64" y2="60.6" stroke="#00E0A0" stroke-width="0.5" opacity="0.6"/>
+  <line x1="74" y1="32" x2="74" y2="61" stroke="#00E0A0" stroke-width="0.5" opacity="0.7"/>
+  <line x1="84" y1="31.6" x2="84" y2="61.4" stroke="#00E0A0" stroke-width="0.5" opacity="0.7"/>
+  <line x1="96" y1="31.2" x2="96" y2="61.8" stroke="#00E0A0" stroke-width="0.5" opacity="0.6"/>
+  <line x1="105" y1="30.7" x2="105" y2="62.3" stroke="#00E0A0" stroke-width="0.5" opacity="0.6"/>
+
+  <!-- Front cap detail — concentric rings showing it's a closed disc seen at angle -->
+  <ellipse cx="112" cy="46" rx="4.5" ry="11" fill="none" stroke="#00FF88" stroke-width="0.5" opacity="0.7"/>
+  <ellipse cx="112" cy="46" rx="2.5" ry="6" fill="none" stroke="#00FF88" stroke-width="0.5" opacity="0.6"/>
+  <circle cx="112" cy="46" r="1.5" fill="#00FF88"/>
+
+  <!-- Back cap detail (less visible because further away) -->
+  <ellipse cx="48" cy="46" rx="3.5" ry="9" fill="none" stroke="#00FF88" stroke-width="0.4" opacity="0.5"/>
+  <circle cx="48" cy="46" r="1" fill="#00FF88" opacity="0.7"/>
+
+  <!-- Docking spire extending from front cap -->
+  <line x1="119" y1="46" x2="135" y2="46" stroke="#00FF88" stroke-width="0.9"/>
+  <circle cx="137" cy="46" r="2" fill="#003628" stroke="#00FF88" stroke-width="0.7"/>
+  <line x1="135" y1="42" x2="135" y2="50" stroke="#00FF88" stroke-width="0.6"/>
+
+  <!-- Subtle agricultural mirror reflection lines (suggesting the rotational induced gravity habitat) -->
+  <line x1="50" y1="33" x2="62" y2="36" stroke="rgba(255,255,200,0.15)" stroke-width="0.4"/>
+  <line x1="64" y1="33" x2="76" y2="36" stroke="rgba(255,255,200,0.15)" stroke-width="0.4"/>
+  <line x1="78" y1="33" x2="90" y2="36" stroke="rgba(255,255,200,0.15)" stroke-width="0.4"/>
 </svg>
