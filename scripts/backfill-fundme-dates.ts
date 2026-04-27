@@ -30,6 +30,12 @@ interface FundMeCampaign {
 
 const FUNDME_PATH = resolve(__dirname, '..', 'data', 'fundme.json')
 
+// FundMe.cash didn't exist before this date. Recipient addresses that show
+// activity earlier are reused addresses; their first-tx is not the campaign
+// creation. We floor results at this date and search for the earliest tx
+// AT OR AFTER this point.
+const FUNDME_LAUNCH_TS = Math.floor(new Date('2024-05-01T00:00:00Z').getTime() / 1000)
+
 /**
  * Convert a BCH cashaddr to its P2PKH locking bytecode hex.
  * P2PKH: OP_DUP OP_HASH160 <20 bytes> OP_EQUALVERIFY OP_CHECKSIG = 76 a9 14 <hash> 88 ac
@@ -54,11 +60,23 @@ function addressToLockingBytecode(addr: string): string | null {
   }
 }
 
+// FundMe launch as a Postgres bigint timestamp (seconds)
+const LAUNCH_TS_LITERAL = String(Math.floor(new Date('2024-05-01T00:00:00Z').getTime() / 1000))
+
+// Filter outputs to those whose first block-inclusion is at/after FundMe launch.
+// This avoids returning thousands of pre-launch outputs for reused addresses.
 const FIRST_TX_QUERY = `
   query FirstTxForBytecode($bytecode: _text!) {
     search_output(
       args: { locking_bytecode_hex: $bytecode },
-      limit: 50
+      where: {
+        transaction: {
+          block_inclusions: {
+            block: { timestamp: { _gte: "${LAUNCH_TS_LITERAL}" } }
+          }
+        }
+      },
+      limit: 500
     ) {
       transaction {
         hash
@@ -85,9 +103,9 @@ interface SearchOutputResult {
 }
 
 /**
- * Find the earliest block timestamp among all outputs to this address.
- * Chaingraph's search_output doesn't sort by block height directly, so
- * we fetch up to 50 outputs and pick the minimum.
+ * Find the earliest block timestamp at or after FundMe's launch date.
+ * Pre-launch outputs are skipped because the address was reused from
+ * earlier activity unrelated to a FundMe campaign.
  */
 async function getEarliestTxTimestamp(addr: string): Promise<{ timestamp: number; height: number } | null> {
   const bytecode = addressToLockingBytecode(addr)
@@ -107,6 +125,7 @@ async function getEarliestTxTimestamp(addr: string): Promise<{ timestamp: number
       const ts = parseInt(inc.block.timestamp, 10)
       const h = parseInt(inc.block.height, 10)
       if (isNaN(ts) || isNaN(h)) continue
+      if (ts < FUNDME_LAUNCH_TS) continue // skip pre-launch reused-address activity
       if (minTs === null || h < minHeight!) {
         minTs = ts
         minHeight = h
