@@ -15,7 +15,9 @@
       "bitcoincash:qp5pvq9cqxdr80xdnkf0t264duqzhtuef5tl58pxt5"
     ],
     "transactionTimestamp": "1719710386",
-    "blockHeight": 852417
+    "blockHeight": 852417,
+    "goal": 100,
+    "goalSource": "description"
   },
   {
     "id": "6bbe6a6d7c7fa96a",
@@ -51,7 +53,9 @@
       "bitcoincash:qpgl0jvdydhygv2awc6dj5ln926e74c9aytesg6hty"
     ],
     "transactionTimestamp": "1714580776",
-    "blockHeight": 843917
+    "blockHeight": 843917,
+    "goal": 0.4,
+    "goalSource": "description"
   },
   {
     "id": "74a71ba0328dd284",
@@ -87,7 +91,9 @@
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
     ],
     "transactionTimestamp": "1715679921",
-    "blockHeight": 845734
+    "blockHeight": 845734,
+    "goal": 35,
+    "goalSource": "description"
   },
   {
     "id": "4d73db384c01b5f9",
@@ -105,7 +111,9 @@
       "bitcoincash:qzlxuln88xtdkdsrryepsjy26tmgc5k5avt8yex9wj"
     ],
     "transactionTimestamp": "1716562476",
-    "blockHeight": 847228
+    "blockHeight": 847228,
+    "goal": 25,
+    "goalSource": "description"
   },
   {
     "id": "8d170f9ca3f68e23",
@@ -176,7 +184,9 @@
       "bitcoincash:qrm2anvwnvwl3wf2qymjaa4h0ez64d9pps90gnxxuk"
     ],
     "transactionTimestamp": "1740335932",
-    "blockHeight": 241656
+    "blockHeight": 241656,
+    "goal": 30,
+    "goalSource": "description"
   },
   {
     "id": "78f5e76d31a8f6e5",
@@ -230,7 +240,9 @@
       "bitcoincash:qr4lflhnz7fewp2hslm9j2s2d0lerglvtc38797uww"
     ],
     "transactionTimestamp": "1715305919",
-    "blockHeight": 845121
+    "blockHeight": 845121,
+    "goal": 18,
+    "goalSource": "description"
   },
   {
     "id": "a941a2ce79aa9a6b",
@@ -284,7 +296,9 @@
       "bitcoincash:qqfurlkunvjrjrd4ymr6mld6qe93wl53zslya2anxt"
     ],
     "transactionTimestamp": "1716018556",
-    "blockHeight": 846316
+    "blockHeight": 846316,
+    "goal": 1,
+    "goalSource": "description"
   },
   {
     "id": "930586c26b9f0aab",
@@ -355,7 +369,9 @@
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
     ],
     "transactionTimestamp": "1715679921",
-    "blockHeight": 845734
+    "blockHeight": 845734,
+    "goal": 45,
+    "goalSource": "description"
   },
   {
     "id": "1c26ef19c7a4bc95",
@@ -391,7 +407,9 @@
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
     ],
     "transactionTimestamp": "1733070480",
-    "blockHeight": 874708
+    "blockHeight": 874708,
+    "goal": 50,
+    "goalSource": "description"
   },
   {
     "id": "d9ca96fe13e2dbed",
@@ -463,7 +481,9 @@
       "bitcoincash:qz2rd2hdflztj8ert6adyg6utm4v4hz3254ghhlkha"
     ],
     "transactionTimestamp": "1721424570",
-    "blockHeight": 855244
+    "blockHeight": 855244,
+    "goal": 424,
+    "goalSource": "description"
   },
   {
     "id": "20d52a6a504fd586",
@@ -589,7 +609,9 @@
       "bitcoincash:qzv2vh4p54kqhdmzztjxgy9fztx64ctr2y5xxntfwa"
     ],
     "transactionTimestamp": "1747927814",
-    "blockHeight": 899408
+    "blockHeight": 899408,
+    "goal": 76,
+    "goalSource": "description"
   },
   {
     "id": "f1201ef15b22d611",
@@ -625,7 +647,9 @@
       "bitcoincash:qrm3z7qajr2de4p4te2zguq8gjr5ly9nh58sakut04"
     ],
     "transactionTimestamp": "1748892416",
-    "blockHeight": 901031
+    "blockHeight": 901031,
+    "goal": 1.89,
+    "goalSource": "description"
   },
   {
     "id": "977c6b68a33f04d7",
@@ -642,7 +666,9 @@
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
     ],
     "transactionTimestamp": "1733070480",
-    "blockHeight": 874708
+    "blockHeight": 874708,
+    "goal": 25,
+    "goalSource": "description"
   },
   {
     "id": "2ff802f7a802dd8d",
@@ -677,7 +703,9 @@
       "bitcoincash:qrm3z7qajr2de4p4te2zguq8gjr5ly9nh58sakut04"
     ],
     "transactionTimestamp": "1748892416",
-    "blockHeight": 901031
+    "blockHeight": 901031,
+    "goal": 3.47,
+    "goalSource": "description"
   },
   {
     "id": "5f05779af16d5603",
@@ -712,7 +740,9 @@
       "bitcoincash:qrm3z7qajr2de4p4te2zguq8gjr5ly9nh58sakut04"
     ],
     "transactionTimestamp": "1748892416",
-    "blockHeight": 901031
+    "blockHeight": 901031,
+    "goal": 4.65,
+    "goalSource": "description"
   },
   {
     "id": "ba56ab55a1109c34",
@@ -766,7 +796,9 @@
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
     ],
     "transactionTimestamp": "1733070480",
-    "blockHeight": 874708
+    "blockHeight": 874708,
+    "goal": 4,
+    "goalSource": "description"
   },
   {
     "id": "7f0d35b231ff63c9",
@@ -784,7 +816,9 @@
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
     ],
     "transactionTimestamp": "1715679921",
-    "blockHeight": 845734
+    "blockHeight": 845734,
+    "goal": 17,
+    "goalSource": "description"
   },
   {
     "id": "3ce602f5aefd396e",
@@ -874,7 +908,9 @@
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
     ],
     "transactionTimestamp": "1733070480",
-    "blockHeight": 874708
+    "blockHeight": 874708,
+    "goal": 5,
+    "goalSource": "description"
   },
   {
     "id": "32263e146bf091f8",
@@ -910,7 +946,9 @@
       "bitcoincash:qrrcsmq420m9nec8zlzgy9ktlcp2faetec7tas6yz7"
     ],
     "transactionTimestamp": "1755886968",
-    "blockHeight": 912804
+    "blockHeight": 912804,
+    "goal": 9,
+    "goalSource": "description"
   },
   {
     "id": "f5e418424205a9ab",
@@ -1034,7 +1072,9 @@
       "bitcoincash:qzt8nsmjwmy8h5e43qc7dxkw3yefg2dx5y7t4v0cpz"
     ],
     "transactionTimestamp": "1760431066",
-    "blockHeight": 920414
+    "blockHeight": 920414,
+    "goal": 500,
+    "goalSource": "description"
   },
   {
     "id": "81bee49f8febb9fa",
@@ -1069,7 +1109,9 @@
       "bitcoincash:qp2rddn36cyegu8lrvy9fle3n6x8e07h5uxuqvjwg2"
     ],
     "transactionTimestamp": "1758576205",
-    "blockHeight": 917331
+    "blockHeight": 917331,
+    "goal": 5,
+    "goalSource": "description"
   },
   {
     "id": "af712678a205d501",
@@ -1087,7 +1129,9 @@
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
     ],
     "transactionTimestamp": "1715679921",
-    "blockHeight": 845734
+    "blockHeight": 845734,
+    "goal": 29,
+    "goalSource": "description"
   },
   {
     "id": "e7359fce9c77416c",
@@ -1141,7 +1185,9 @@
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
     ],
     "transactionTimestamp": "1733070480",
-    "blockHeight": 874708
+    "blockHeight": 874708,
+    "goal": 5,
+    "goalSource": "description"
   },
   {
     "id": "3a564ec0bf161b4d",
@@ -1177,7 +1223,9 @@
       "bitcoincash:qrqtktg9as7e3et7zwvqlrtsand693pclvazpw09s5"
     ],
     "transactionTimestamp": "1763245941",
-    "blockHeight": 925151
+    "blockHeight": 925151,
+    "goal": 17.5,
+    "goalSource": "description"
   },
   {
     "id": "f2c780a897dc941e",
@@ -1230,7 +1278,9 @@
       "bitcoincash:qzcd589qtcpf2582twdgdczw79curgjqcgcmueuqsa"
     ],
     "transactionTimestamp": "1715305919",
-    "blockHeight": 845121
+    "blockHeight": 845121,
+    "goal": 9,
+    "goalSource": "description"
   },
   {
     "id": "d23015a7a280112d",
@@ -1330,7 +1380,9 @@
       "bitcoincash:qq5vkyvpjuqnwlfkzxda75zfasap3lpeluangtnuuq"
     ],
     "transactionTimestamp": "1767525172",
-    "blockHeight": 932395
+    "blockHeight": 932395,
+    "goal": 2,
+    "goalSource": "description"
   },
   {
     "id": "1afe01a371065e6f",
@@ -1366,7 +1418,9 @@
       "bitcoincash:qze9yjzvy4z0muusezzfxrnh7gd2hphq7cj268a3p5"
     ],
     "transactionTimestamp": "1767908665",
-    "blockHeight": 933027
+    "blockHeight": 933027,
+    "goal": 20,
+    "goalSource": "description"
   },
   {
     "id": "39aab85b5fea0f4d",
@@ -1435,7 +1489,9 @@
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
     ],
     "transactionTimestamp": "1715679921",
-    "blockHeight": 845734
+    "blockHeight": 845734,
+    "goal": 28.5,
+    "goalSource": "description"
   },
   {
     "id": "c01bc8ed8ce173d5",
@@ -1453,7 +1509,9 @@
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
     ],
     "transactionTimestamp": "1715679921",
-    "blockHeight": 845734
+    "blockHeight": 845734,
+    "goal": 28.5,
+    "goalSource": "description"
   },
   {
     "id": "ccc5f7e837f17edc",
@@ -1489,7 +1547,9 @@
       "bitcoincash:qzg07r53fg50t9j76gqy762a95svydw7tct6wuatzc"
     ],
     "transactionTimestamp": "1772219742",
-    "blockHeight": 940221
+    "blockHeight": 940221,
+    "goal": 2.57,
+    "goalSource": "description"
   },
   {
     "id": "9f942fe82488eb2f",
@@ -1595,7 +1655,9 @@
       "bitcoincash:qp8cdgradfyf4j8e5gdlgcvm2l5nm6883uvyjqrjx3"
     ],
     "transactionTimestamp": "1773128845",
-    "blockHeight": 941687
+    "blockHeight": 941687,
+    "goal": 37,
+    "goalSource": "description"
   },
   {
     "id": "674d1d7a26334a7d",
@@ -1612,7 +1674,9 @@
       "bitcoincash:qp8cdgradfyf4j8e5gdlgcvm2l5nm6883uvyjqrjx3"
     ],
     "transactionTimestamp": "1773128845",
-    "blockHeight": 941687
+    "blockHeight": 941687,
+    "goal": 37,
+    "goalSource": "description"
   },
   {
     "id": "f77647977243edd3",
@@ -1630,7 +1694,9 @@
       "bitcoincash:qzlj2406cdspzu3hp0pk9mk2effxpkp9dg9xtp6ky3"
     ],
     "transactionTimestamp": "1773164829",
-    "blockHeight": 941758
+    "blockHeight": 941758,
+    "goal": 350,
+    "goalSource": "description"
   },
   {
     "id": "2c879c984d56a94f",
@@ -1666,7 +1732,9 @@
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
     ],
     "transactionTimestamp": "1733070480",
-    "blockHeight": 874708
+    "blockHeight": 874708,
+    "goal": 2,
+    "goalSource": "description"
   },
   {
     "id": "c58b17dd55c8d435",
@@ -1702,7 +1770,9 @@
       "bitcoincash:qzr69qlat3ja3r5e29anqsqa9ucc0wh0ug6acf9cpq"
     ],
     "transactionTimestamp": "1773867862",
-    "blockHeight": 942916
+    "blockHeight": 942916,
+    "goal": 14.5,
+    "goalSource": "description"
   },
   {
     "id": "f5f8ccdc4d52caff",
@@ -1720,7 +1790,9 @@
       "bitcoincash:qr4dsy2ry0pk930crjh85qqxq2wyu43ukswrw5ke4l"
     ],
     "transactionTimestamp": "1774124858",
-    "blockHeight": 943335
+    "blockHeight": 943335,
+    "goal": 1.4,
+    "goalSource": "description"
   },
   {
     "id": "a8f9738a7870d5ca",
@@ -1737,7 +1809,9 @@
       "bitcoincash:qpjv3j9z7d5gc2wx54jgrgep6xq4f8g5tuxx7cr76y"
     ],
     "transactionTimestamp": "1775161519",
-    "blockHeight": 945062
+    "blockHeight": 945062,
+    "goal": 2.5,
+    "goalSource": "description"
   },
   {
     "id": "0ef487aedab84f5e",
@@ -1826,7 +1900,9 @@
       "bitcoincash:qzyyezx2ha3fvtryetpmglq9mj98gwrnns5mflaxgg"
     ],
     "transactionTimestamp": "1747872103",
-    "blockHeight": 899303
+    "blockHeight": 899303,
+    "goal": 375.5,
+    "goalSource": "description"
   },
   {
     "id": "cd570ab87e7fa5b7",
@@ -1844,7 +1920,9 @@
       "bitcoincash:qp2rddn36cyegu8lrvy9fle3n6x8e07h5uxuqvjwg2"
     ],
     "transactionTimestamp": "1758576205",
-    "blockHeight": 917331
+    "blockHeight": 917331,
+    "goal": 1.6,
+    "goalSource": "description"
   },
   {
     "id": "18fb4f62ef40eb5b",

@@ -9,8 +9,10 @@ export interface Campaign {
   continent?: string            // Mapped category group: core, middleware, apps, media, defi, charity, ecosystem, other
 
   // Financial
-  amount: number                // Goal in BCH
+  amount: number                // Goal in BCH (or raised, for FundMe where goal is unknown)
+  goal?: number                 // Explicit goal when known separately from amount
   raised?: number               // Actual raised (if available)
+  goalSource?: 'api' | 'description' | 'contract'  // How the goal was determined
   status: 'success' | 'expired' | 'running' | 'unknown'
 
   // Timeline

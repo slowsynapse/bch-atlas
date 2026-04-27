@@ -74,9 +74,14 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
   }
 
   const contributors = (campaign.recipientAddresses || []).map(address => ({ address }))
-  const goalAmount = campaign.amount
-  const raisedAmount = campaign.raised || campaign.amount
-  const progressPercent = (raisedAmount / goalAmount) * 100
+  // Distinguish goal (target) from raised (actual). For Flipstarter, amount IS the goal.
+  // For FundMe, amount is the raised total (no goal in API). If we extracted a goal
+  // from the description, prefer that as the displayed target.
+  const explicitGoal = (campaign as any).goal as number | undefined
+  const goalAmount = explicitGoal ?? campaign.amount
+  const raisedAmount = campaign.raised ?? (campaign.platform === 'fundme' ? campaign.amount : (campaign.status === 'success' ? campaign.amount : 0))
+  const progressPercent = goalAmount > 0 ? (raisedAmount / goalAmount) * 100 : 0
+  const hasContent = goalAmount > 0 || raisedAmount > 0
 
   return (
     <div className="min-h-screen ds-fade-in">
@@ -128,16 +133,23 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
 
           {/* Funding */}
           <div className="mb-6">
-            {goalAmount > 0 ? (
+            {hasContent ? (
               <>
                 <div className="flex justify-between items-end mb-3">
                   <div>
-                    <div
-                      className="font-mono text-3xl"
-                      style={{ color: '#00FF88', textShadow: '0 0 20px rgba(0,255,136,0.3)' }}
-                    >
-                      {goalAmount.toFixed(2)} <span className="text-sm text-[#7A8899]">BCH</span>
-                    </div>
+                    {/* Show "raised / goal" when we have both */}
+                    {explicitGoal && raisedAmount !== goalAmount ? (
+                      <div className="font-mono text-3xl" style={{ color: '#00FF88', textShadow: '0 0 20px rgba(0,255,136,0.3)' }}>
+                        {raisedAmount.toFixed(2)}
+                        <span className="text-xl text-[#7A8899] mx-2">/</span>
+                        <span className="text-2xl text-[#E0E4E8]">{goalAmount.toFixed(2)}</span>
+                        <span className="text-sm text-[#7A8899] ml-2">BCH</span>
+                      </div>
+                    ) : (
+                      <div className="font-mono text-3xl" style={{ color: '#00FF88', textShadow: '0 0 20px rgba(0,255,136,0.3)' }}>
+                        {goalAmount.toFixed(2)} <span className="text-sm text-[#7A8899]">BCH</span>
+                      </div>
+                    )}
                     {campaign.usdValueAtTime != null && (
                       <div className="mt-1">
                         <span className="font-mono text-lg text-[#E0E4E8]" style={{ textShadow: '0 0 8px rgba(224,228,232,0.15)' }}>
@@ -150,9 +162,14 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
                         )}
                       </div>
                     )}
-                    <span className="ds-label">{campaign.platform === 'fundme' ? 'Raised' : 'Goal'}</span>
+                    <span className="ds-label">
+                      {explicitGoal && raisedAmount !== goalAmount ? 'Raised / Goal' : campaign.platform === 'fundme' ? 'Raised' : 'Goal'}
+                    </span>
+                    {(campaign as any).goalSource === 'description' && (
+                      <span className="ml-2 text-[9px] font-mono text-[#5A8A7A]" title="Goal extracted from description text">(from description)</span>
+                    )}
                   </div>
-                  {campaign.status === 'success' && (
+                  {goalAmount > 0 && (raisedAmount > 0 || campaign.status === 'success') && (
                     <div className="text-right">
                       <div className="font-mono text-lg text-[#E0E4E8]">{progressPercent.toFixed(0)}%</div>
                       <span className="ds-label">Funded</span>
@@ -160,14 +177,16 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
                   )}
                 </div>
 
-                {campaign.status === 'success' && (
+                {goalAmount > 0 && (
                   <div className="w-full h-1.5 bg-[rgba(0,224,160,0.08)] overflow-hidden rounded-full">
                     <div
                       className="h-full rounded-full transition-all"
                       style={{
                         width: `${Math.min(progressPercent, 100)}%`,
-                        background: 'linear-gradient(90deg, #00E0A0, #00FF88)',
-                        boxShadow: '0 0 12px rgba(0,255,136,0.4)',
+                        background: progressPercent >= 100
+                          ? 'linear-gradient(90deg, #00E0A0, #00FF88)'
+                          : 'linear-gradient(90deg, #007F5A, #00B07A)',
+                        boxShadow: progressPercent >= 100 ? '0 0 12px rgba(0,255,136,0.4)' : 'none',
                       }}
                     />
                   </div>
