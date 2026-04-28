@@ -13,10 +13,22 @@ export function buildGraph(
   const allRecipients = buildRecipientMap(campaigns)
   const projects = getResolvedProjects(campaigns).filter(p => p.campaigns.length > 0)
 
+  // Build campaign → project status lookup so we can inherit liveness on
+  // funded campaigns. A funded campaign whose project is dead/dormant should
+  // visually decay (red/orange planet) — the project's current state is the
+  // best proxy for "did this delivery hold up".
+  const campaignProjectStatus = new Map<string, { status: string; slug: string; name: string }>()
+  for (const p of projects) {
+    for (const cId of p.campaigns) {
+      campaignProjectStatus.set(cId, { status: p.status, slug: p.slug, name: p.name })
+    }
+  }
+
   console.log(`Building graph: ${campaigns.length} campaigns, ${allRecipients.size} recipients, ${projects.length} linked projects`)
 
   // Campaign nodes
   campaigns.forEach(campaign => {
+    const projectInfo = campaignProjectStatus.get(campaign.id)
     nodes.push({
       data: {
         id: campaign.id,
@@ -29,8 +41,11 @@ export function buildGraph(
           continent: campaign.continent || 'other',
           url: campaign.url,
           time: campaign.time,
-          transactionTimestamp: (campaign as any).transactionTimestamp,
-          hasAddresses: !!campaign.recipientAddresses && campaign.recipientAddresses.length > 0
+          transactionTimestamp: (campaign as { transactionTimestamp?: string }).transactionTimestamp,
+          hasAddresses: !!campaign.recipientAddresses && campaign.recipientAddresses.length > 0,
+          projectStatus: projectInfo?.status ?? null,
+          projectSlug: projectInfo?.slug ?? null,
+          projectName: projectInfo?.name ?? null,
         }
       }
     })

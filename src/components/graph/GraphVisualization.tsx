@@ -400,13 +400,23 @@ export function GraphVisualization({
               'z-index': 0,
             }
           },
-          // Campaign nodes — green funded, cyan active, red cracked-moon failed
+          // Campaign nodes:
+          //   funded + project active (or unlinked) → green planet
+          //   funded + project dormant → amber planet
+          //   funded + project dead → red planet (intact, decayed by time)
+          //   running → cyan
+          //   expired/failed (campaign itself) → cracked-moon SVG (reserved for failure)
           {
             selector: 'node[type="campaign"]',
             style: {
               'background-color': (ele: any) => {
                 const status = ele.data('metadata').status
-                if (status === 'success') return '#00FF88'
+                const projectStatus = ele.data('metadata').projectStatus
+                if (status === 'success') {
+                  if (projectStatus === 'dead') return '#FF4455'
+                  if (projectStatus === 'dormant') return '#E8A838'
+                  return '#00FF88'
+                }
                 if (status === 'running') return '#00D4FF'
                 if (status === 'expired' || status === 'failed') return 'rgba(0,0,0,0)'
                 return '#556677'
@@ -485,7 +495,12 @@ export function GraphVisualization({
               },
               'shadow-color': (ele: any) => {
                 const status = ele.data('metadata').status
-                if (status === 'success') return 'rgba(0, 255, 136, 0.5)'
+                const projectStatus = ele.data('metadata').projectStatus
+                if (status === 'success') {
+                  if (projectStatus === 'dead') return 'rgba(255, 68, 85, 0.5)'
+                  if (projectStatus === 'dormant') return 'rgba(232, 168, 56, 0.5)'
+                  return 'rgba(0, 255, 136, 0.5)'
+                }
                 if (status === 'running') return 'rgba(0, 212, 255, 0.6)'
                 if (status === 'expired' || status === 'failed') return 'rgba(255, 68, 85, 0.6)'
                 return 'rgba(85, 102, 119, 0.2)'

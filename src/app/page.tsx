@@ -493,11 +493,23 @@ export default function AtlasPage() {
                 </div>
                 <div className="flex items-center gap-2 mt-1.5">
                   <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#00FF88', boxShadow: '0 0 6px rgba(0,255,136,0.5)' }} />
-                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded campaign</span>
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded · project alive</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#E8A838', boxShadow: '0 0 6px rgba(232,168,56,0.5)' }} />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded · project dormant</span>
                 </div>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#FF4455', boxShadow: '0 0 6px rgba(255,68,85,0.5)' }} />
-                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Expired / failed</span>
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded · project dead</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <svg className="w-3 h-3" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="6" stroke="#FF4455" strokeWidth="1.5" fill="rgba(255,68,85,0.1)" />
+                    <path d="M5 4 L9 8 L6 11" stroke="#FF4455" strokeWidth="1" fill="none" />
+                    <path d="M11 5 L13 9" stroke="#FF4455" strokeWidth="1" />
+                  </svg>
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Campaign expired / failed</span>
                 </div>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#00E0A0', boxShadow: '0 0 6px rgba(0,224,160,0.5)' }} />
@@ -587,6 +599,31 @@ export default function AtlasPage() {
                         <span className="ds-label">Date</span>
                         <p className="text-[#E8ECF0] text-sm font-mono mt-0.5">{formatDate(selectedNode.metadata.time)}</p>
                         <p className="text-[#00A878] text-xs font-mono">{getTimeSinceDate(selectedNode.metadata.time)}</p>
+                      </div>
+                    )}
+                    {selectedNode.metadata.projectSlug && (
+                      <div>
+                        <span className="ds-label">Project</span>
+                        <Link
+                          href={`/projects/${selectedNode.metadata.projectSlug}`}
+                          className="block text-[#E8ECF0] text-sm font-mono mt-0.5 hover:text-[#00FF88] transition-colors"
+                        >
+                          {selectedNode.metadata.projectName}
+                          <span
+                            className="ml-2 text-[9px] uppercase tracking-wider px-1.5 py-px"
+                            style={{
+                              color:
+                                selectedNode.metadata.projectStatus === 'active' ? '#00FF88' :
+                                selectedNode.metadata.projectStatus === 'dormant' ? '#E8A838' :
+                                selectedNode.metadata.projectStatus === 'dead' ? '#FF4455' :
+                                '#5A8A7A',
+                              border: '1px solid currentColor',
+                              borderRadius: '1px',
+                            }}
+                          >
+                            {selectedNode.metadata.projectStatus}
+                          </span>
+                        </Link>
                       </div>
                     )}
                     <div style={{ height: '1px', background: 'linear-gradient(90deg, rgba(0,224,160,0.15), transparent)' }} />
