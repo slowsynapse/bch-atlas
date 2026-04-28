@@ -258,7 +258,7 @@ export default function AtlasPage() {
 
         {/* BCH per year heatmap */}
         <div className="px-5 py-3">
-          <p className="text-[9px] uppercase tracking-[0.15em] mb-2" style={{ color: '#3A6A5A' }}>BCH Raised by Year</p>
+          <p className="text-[10px] uppercase tracking-[0.15em] mb-2" style={{ color: '#3A6A5A' }}>BCH Raised by Year</p>
           <div className="grid grid-cols-4 gap-1.5">
             {yearRange.map(y => {
               const v = yearlyBCH[y] || 0
@@ -278,10 +278,10 @@ export default function AtlasPage() {
                   }}
                   title={`${y}: ${v.toFixed(0)} BCH`}
                 >
-                  <span className="text-[8px] font-mono leading-none" style={{ color: v > 0 ? '#00FF88' : '#3A6A5A', textShadow: v > 0 ? '0 0 4px rgba(0,255,136,0.4)' : 'none' }}>
+                  <span className="text-[12px] font-mono leading-none" style={{ color: v > 0 ? '#00FF88' : '#3A6A5A', textShadow: v > 0 ? '0 0 4px rgba(0,255,136,0.4)' : 'none' }}>
                     {v >= 1000 ? `${(v / 1000).toFixed(1)}K` : v.toFixed(0)}
                   </span>
-                  <span className="text-[7px] font-mono mt-0.5" style={{ color: v > 0 ? 'rgba(0,224,160,0.7)' : '#2A4A3A' }}>
+                  <span className="text-[10px] font-mono mt-1" style={{ color: v > 0 ? 'rgba(0,224,160,0.7)' : '#2A4A3A' }}>
                     '{String(y).slice(2)}
                   </span>
                 </div>
@@ -374,6 +374,26 @@ export default function AtlasPage() {
             }}
           >
             Browse Projects
+          </Link>
+          <Link
+            href="/projects/github"
+            className="block w-full px-3 py-2 text-center text-[11px] font-mono uppercase tracking-[0.12em] transition-all"
+            style={{
+              background: 'rgba(150, 100, 200, 0.06)',
+              border: '1px solid rgba(180, 130, 255, 0.2)',
+              color: '#B782FF',
+              borderRadius: '2px',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(150, 100, 200, 0.12)'
+              e.currentTarget.style.boxShadow = '0 0 20px rgba(180, 130, 255, 0.1)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(150, 100, 200, 0.06)'
+              e.currentTarget.style.boxShadow = 'none'
+            }}
+          >
+            Browse GitHub
           </Link>
         </div>
 
