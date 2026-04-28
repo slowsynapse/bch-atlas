@@ -113,16 +113,37 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
         <div className="ds-panel p-8 mb-6" style={{ borderTop: '1px solid rgba(0,224,160,0.2)', boxShadow: '0 -1px 8px rgba(0,224,160,0.1)' }}>
           <div className="flex justify-between items-start gap-4 mb-6">
             <h1 className="text-xl md:text-2xl font-light text-[#E0E4E8]">{campaign.title}</h1>
-            <span
-              className={`ds-label text-xs flex-shrink-0 font-mono tracking-[0.15em] ${getStatusColor(campaign.status)}`}
-              style={{ textShadow: getStatusGlow(campaign.status) }}
-            >
-              {getStatusLabel(campaign.status)}
-            </span>
+            <div className="flex flex-col items-end gap-2 flex-shrink-0">
+              <span
+                className={`ds-label text-xs font-mono tracking-[0.15em] ${getStatusColor(campaign.status)}`}
+                style={{ textShadow: getStatusGlow(campaign.status) }}
+              >
+                {getStatusLabel(campaign.status)}
+              </span>
+              {campaign.delivered === 'no' && (
+                <span
+                  className="ds-label text-xs font-mono tracking-[0.15em]"
+                  style={{
+                    color: '#FF4455',
+                    textShadow: '0 0 8px rgba(255,68,85,0.5)',
+                    border: '1px solid rgba(255,68,85,0.5)',
+                    padding: '2px 8px',
+                  }}
+                  title={campaign.overrideNote || 'Funded but did not deliver'}
+                >
+                  💥 NOT DELIVERED
+                </span>
+              )}
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-4 text-xs text-[#7A8899] mb-6">
             <span className="font-mono capitalize tracking-wider uppercase">{campaign.platform}</span>
+            {campaign.continent && (
+              <span className="font-mono uppercase tracking-wider" style={{ color: '#00E0A0' }}>
+                {campaign.continent}
+              </span>
+            )}
             {campaign.time && (
               <span className="font-mono">{formatDate(campaign.time)}</span>
             )}
@@ -130,6 +151,21 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
               <span className="text-[#00E0A0] font-mono tracking-wider">Verified</span>
             )}
           </div>
+
+          {campaign.delivered === 'no' && campaign.overrideNote && (
+            <div
+              className="text-xs font-mono mb-6 px-3 py-2"
+              style={{
+                color: '#FFB0B8',
+                background: 'rgba(255,68,85,0.06)',
+                border: '1px solid rgba(255,68,85,0.25)',
+                borderRadius: '2px',
+              }}
+            >
+              <span className="uppercase tracking-[0.15em] mr-2" style={{ color: '#FF4455' }}>delivery:</span>
+              {campaign.overrideNote}
+            </div>
+          )}
 
           {/* Funding */}
           <div className="mb-6">
