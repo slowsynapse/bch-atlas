@@ -110,7 +110,7 @@ export function getCampaigns(): Campaign[] {
     }
   }
 
-  return withOverrides.map(c => {
+  const linked = withOverrides.map(c => {
     const link = byCampaign.get(c.id)
     if (!link) return { ...c, projectSlug: null, projectName: null, projectStatus: null }
     return {
@@ -120,6 +120,47 @@ export function getCampaigns(): Campaign[] {
       projectName: link.name,
       projectStatus: link.status as Campaign['projectStatus'],
     }
+  })
+
+  // Phase 3: implicit-project continent inheritance for unlinked campaigns.
+  // When two or more uncurated (no projectSlug) campaigns share a recipient
+  // address, that's a strong signal they're the same team — even if no
+  // registry entry exists yet. Without a project to inherit from, their
+  // keyword-derived continents can scatter (e.g. BCH Tattoo NFT rounds
+  // landing in `ecosystem` + 3× `other`). Pull each cluster onto the
+  // continent that holds the most BCH within the cluster, so they ring
+  // their shared recipient instead of stretching across the canvas.
+  const byAddress = new Map<string, Campaign[]>()
+  for (const c of linked) {
+    if (c.projectSlug) continue
+    for (const addr of c.recipientAddresses || []) {
+      if (!byAddress.has(addr)) byAddress.set(addr, [])
+      byAddress.get(addr)!.push(c)
+    }
+  }
+
+  const implicitContinent = new Map<string, string>()
+  for (const [, group] of byAddress) {
+    if (group.length < 2) continue
+    const tally = new Map<string, number>()
+    for (const c of group) {
+      const w = c.amount > 0 ? c.amount : 1
+      tally.set(c.continent || 'other', (tally.get(c.continent || 'other') || 0) + w)
+    }
+    const dominant = [...tally.entries()].sort((a, b) => b[1] - a[1])[0][0]
+    for (const c of group) {
+      const existing = implicitContinent.get(c.id)
+      // If a campaign sits in two shared-address clusters with different
+      // dominants, keep the first one written (deterministic by iteration
+      // order). The campaign would only be in two clusters if it has two
+      // recipient addresses that each anchor distinct teams — rare.
+      if (!existing) implicitContinent.set(c.id, dominant)
+    }
+  }
+
+  return linked.map(c => {
+    const implicit = implicitContinent.get(c.id)
+    return implicit ? { ...c, continent: implicit } : c
   })
 }
 
