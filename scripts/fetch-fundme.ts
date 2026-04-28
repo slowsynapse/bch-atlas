@@ -33,7 +33,9 @@ interface Campaign {
 }
 
 function generateId(url: string, title: string, tx?: string, time?: string): string {
-  const unique = tx || time || Date.now().toString()
+  // Must match the deterministic logic in src/lib/data/campaigns.ts.
+  // No Date.now() — fall back to empty string so the id stays stable.
+  const unique = tx || time || ''
   return createHash('sha256')
     .update(`${url}-${title}-${unique}`)
     .digest('hex')

@@ -40,7 +40,7 @@ function transformFlipstarterCampaign(raw: any): Campaign {
 
   const full = {
     ...campaign,
-    id: generateId(campaign.url!, campaign.title!, campaign.tx, campaign.time),
+    id: generateId(campaign.url!, campaign.title!, campaign.tx, campaign.time, campaign.amount),
     entities: extractEntities(campaign),
   } as Campaign
 
@@ -56,9 +56,14 @@ function mapStatus(status: string): Campaign['status'] {
   return 'unknown'
 }
 
-function generateId(url: string, title: string, tx?: string, time?: string): string {
-  // Include tx and time to handle duplicate campaigns with same URL/title
-  const unique = tx || time || Date.now().toString()
+function generateId(url: string, title: string, tx?: string, time?: string, amount?: number): string {
+  // Stable, deterministic ID for a campaign. Inputs are tried in order of
+  // strength: tx (unique on-chain commitment), time (set once when campaign
+  // is dated), amount (last-resort disambiguator for the rare duplicate
+  // url+title pair). The previous implementation used Date.now() as the
+  // final fallback, which made ~80 dateless Flipstarter IDs change on
+  // every server restart and broke any URL/override that referenced them.
+  const unique = tx || time || (amount != null ? String(amount) : '')
   return createHash('sha256')
     .update(`${url}-${title}-${unique}`)
     .digest('hex')
