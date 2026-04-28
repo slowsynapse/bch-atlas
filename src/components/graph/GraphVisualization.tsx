@@ -18,7 +18,7 @@ export interface NodeFilters {
 // background-fit:contain rectangle without clipping. Padded viewBox (-15 to 115)
 // keeps stroke ends and crack lines from being clipped by the node's bounds at
 // large sizes.
-const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 112 112" preserveAspectRatio="xMidYMid meet">
+const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 112 112" width="112" height="112" preserveAspectRatio="xMidYMid meet">
   <defs>
     <clipPath id="left-half">
       <path d="M0,0 L47,0 L44,38 L50,50 L43,65 L48,100 L0,100 Z"/>
@@ -40,40 +40,44 @@ const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg x
 // Exploding planet SVG for funded-but-didn't-deliver campaigns — three large
 // fragments flying outward from a bright explosion core. Distinct from the
 // cracked-moon (campaign-failed) and solid red planet (project-died-later)
-// to make "took the BCH and never shipped" visually obvious. Padded viewBox
-// (-14 to 110) prevents debris and motion streaks from being clipped at the
-// node's bounds at large sizes.
-const EXPLODING_PLANET_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 108 108" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <radialGradient id="explosionCore" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#FFE066" stop-opacity="0.95"/>
-      <stop offset="35%" stop-color="#FF7A4C" stop-opacity="0.7"/>
-      <stop offset="70%" stop-color="#FF4455" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#FF4455" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="planetBody" cx="40%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#FF6677"/>
-      <stop offset="100%" stop-color="#992233"/>
-    </radialGradient>
-  </defs>
-  <circle cx="48" cy="48" r="42" fill="url(#explosionCore)"/>
-  <path d="M 30 22 L 44 26 L 40 38 L 32 36 L 22 30 Z" fill="url(#planetBody)" stroke="#FF8899" stroke-width="0.7" opacity="0.92" transform="translate(-6 -6)"/>
-  <path d="M 56 24 L 70 30 L 66 42 L 54 38 L 50 30 Z" fill="url(#planetBody)" stroke="#FF8899" stroke-width="0.7" opacity="0.92" transform="translate(7 -5)"/>
-  <path d="M 36 56 L 56 54 L 62 66 L 56 76 L 38 74 L 32 64 Z" fill="url(#planetBody)" stroke="#FF8899" stroke-width="0.7" opacity="0.92" transform="translate(0 8)"/>
+// to make "took the BCH and never shipped" visually obvious.
+//
+// IMPORTANT: avoid intra-SVG `url(#id)` references (gradients, clipPaths
+// with id refs). When this SVG is loaded as a data URI inside Cytoscape's
+// canvas renderer, those references resolve to the *page* DOM context, not
+// the SVG's own document, and the gradients fail silently — leaving the
+// node invisible. Flat fills work reliably; that's why the cracked-moon
+// SVG (which uses no gradients) renders fine.
+const EXPLODING_PLANET_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 108 108" width="108" height="108" preserveAspectRatio="xMidYMid meet">
+  <!-- Explosion glow — overlapping translucent circles approximate a radial gradient -->
+  <circle cx="48" cy="48" r="42" fill="#FF4455" opacity="0.18"/>
+  <circle cx="48" cy="48" r="32" fill="#FF7A4C" opacity="0.30"/>
+  <circle cx="48" cy="48" r="22" fill="#FFE066" opacity="0.40"/>
+
+  <!-- Three large planet-body fragments flying outward, flat fills -->
+  <path d="M 24 16 L 38 20 L 34 32 L 26 30 L 16 24 Z" fill="#CC3344" stroke="#FF8899" stroke-width="0.7" opacity="0.92"/>
+  <path d="M 63 19 L 77 25 L 73 37 L 61 33 L 57 25 Z" fill="#CC3344" stroke="#FF8899" stroke-width="0.7" opacity="0.92"/>
+  <path d="M 36 64 L 56 62 L 62 74 L 56 84 L 38 82 L 32 72 Z" fill="#CC3344" stroke="#FF8899" stroke-width="0.7" opacity="0.92"/>
+
+  <!-- Small debris chunks scattered outward -->
   <circle cx="14" cy="18" r="2.2" fill="#FF8899" opacity="0.85"/>
   <circle cx="82" cy="22" r="2.6" fill="#FF6677" opacity="0.85"/>
   <circle cx="86" cy="60" r="1.8" fill="#FF8899" opacity="0.7"/>
   <circle cx="10" cy="70" r="2.3" fill="#FF4455" opacity="0.8"/>
   <circle cx="20" cy="86" r="1.6" fill="#FF8899" opacity="0.7"/>
   <circle cx="78" cy="84" r="2" fill="#FF6677" opacity="0.75"/>
+
+  <!-- Outward motion streaks from explosion center -->
   <path d="M 48 48 L 14 18" stroke="#FFD060" stroke-width="0.7" opacity="0.45" stroke-linecap="round"/>
   <path d="M 48 48 L 82 22" stroke="#FFD060" stroke-width="0.7" opacity="0.45" stroke-linecap="round"/>
   <path d="M 48 48 L 86 60" stroke="#FFD060" stroke-width="0.5" opacity="0.4" stroke-linecap="round"/>
   <path d="M 48 48 L 10 70" stroke="#FFD060" stroke-width="0.6" opacity="0.45" stroke-linecap="round"/>
   <path d="M 48 48 L 20 86" stroke="#FFD060" stroke-width="0.5" opacity="0.4" stroke-linecap="round"/>
   <path d="M 48 48 L 78 84" stroke="#FFD060" stroke-width="0.6" opacity="0.45" stroke-linecap="round"/>
+
+  <!-- Bright explosion center -->
   <circle cx="48" cy="48" r="9" fill="#FFE066" opacity="0.9"/>
-  <circle cx="48" cy="48" r="4" fill="#FFFFFF" opacity="0.85"/>
+  <circle cx="48" cy="48" r="4" fill="#FFFFFF" opacity="0.95"/>
 </svg>`)
 
 // Simple seeded random from string — deterministic per node ID
