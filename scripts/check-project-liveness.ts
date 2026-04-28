@@ -137,7 +137,7 @@ async function resolveOrgLatestRepo(repo: ParsedRepo, headers: Record<string, st
   return null
 }
 
-async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; error?: string; rateLimited?: boolean }> {
+async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; error?: string; rateLimited?: boolean; orgFallback?: { repo: string } }> {
   const repo = parseRepoUrl(url)
   if (!repo) return { lastCommit: null, error: 'Could not parse repo URL' }
 
@@ -151,12 +151,14 @@ async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; e
     }
 
     // Org/user-only URL: list the org's most-recently-pushed repo and report
-    // its commit date. Useful as a "is anyone in this org still building?"
-    // signal when the project's github URL points at the org root.
+    // its commit date. This is a *weaker* signal than a curated repo URL —
+    // the most-recent repo in the org may be a peripheral utility unrelated
+    // to the BCH project the org once shipped. Surfaced via `orgFallback`
+    // so the rule engine can downgrade the inferred status accordingly.
     if (!repo.repo) {
       const top = await resolveOrgLatestRepo(repo, headers)
       if (!top) return { lastCommit: null, error: 'Org URL: no public repos' }
-      return { lastCommit: top.pushed_at }
+      return { lastCommit: top.pushed_at, orgFallback: { repo: top.name } }
     }
 
     let apiUrl: string
@@ -370,6 +372,7 @@ function determineStatus(
   hasGithub: boolean,
   hasWebsite: boolean,
   prevStatus: string,
+  orgFallback?: { repo: string },
 ): { status: string; detail: string } {
   const now = Date.now()
   const details: string[] = []
@@ -378,7 +381,11 @@ function determineStatus(
   if (lastCommit) {
     commitAge = now - new Date(lastCommit).getTime()
     const daysAgo = Math.round(commitAge / DAY_MS)
-    details.push(`Last commit ${daysAgo}d ago`)
+    if (orgFallback) {
+      details.push(`Org-only URL — most-recent repo "${orgFallback.repo}" pushed ${daysAgo}d ago`)
+    } else {
+      details.push(`Last commit ${daysAgo}d ago`)
+    }
   } else if (hasGithub) {
     details.push('GitHub: no commits found')
   }
@@ -389,8 +396,13 @@ function determineStatus(
   else if (waybackVerdict === 'error') details.push('Wayback check failed')
   else if (waybackVerdict === 'inconclusive' && hasWebsite) details.push('Wayback inconclusive')
 
-  const recentCommit = commitAge !== null && commitAge < SIX_MONTHS_MS
-  const oldCommit = commitAge !== null && commitAge >= SIX_MONTHS_MS && commitAge < TWO_YEARS_MS
+  // Org-fallback commits are a *weak* signal — the discovered repo may be
+  // unrelated to the project the org once shipped. Treat the commit as if
+  // it were missing for "alive" rules; still record it so reviewers see
+  // the date in the detail string. It can still confirm "ancient" status.
+  const trustCommitForActive = commitAge !== null && !orgFallback
+  const recentCommit = trustCommitForActive && commitAge < SIX_MONTHS_MS
+  const oldCommit = trustCommitForActive && commitAge >= SIX_MONTHS_MS && commitAge < TWO_YEARS_MS
   const ancientCommit = commitAge !== null && commitAge >= TWO_YEARS_MS
 
   // When Wayback gave us "inconclusive" (too few recent captures), the
@@ -468,12 +480,14 @@ async function main() {
     let gitError: string | undefined
     let webError: string | undefined
     let wayError: string | undefined
+    let orgFallback: { repo: string } | undefined
 
     let gitRateLimited = false
     if (project.github) {
       const result = await checkGitRepo(project.github)
       lastCommit = result.lastCommit
       gitError = result.error
+      orgFallback = result.orgFallback
       gitRateLimited = result.rateLimited === true
       // On rate-limit, fall back to prior known commit so we don't lose info
       if (gitRateLimited && project.lastGithubCommit) {
@@ -515,6 +529,7 @@ async function main() {
       !!project.github,
       !!project.website,
       project.status,
+      orgFallback,
     )
 
     const oldStatus = project.status
