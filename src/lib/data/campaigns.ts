@@ -94,12 +94,19 @@ export function getCampaigns(): Campaign[] {
 
   // Phase 2: resolve project linkage. The resolver returns the project tree
   // with each project's matched campaign IDs, so we invert that into a
-  // campaign → project lookup and stamp it onto the campaign object.
+  // campaign → project lookup and stamp slug/name/status/continent onto
+  // the campaign object.
+  //
+  // Continent inheritance: when a campaign belongs to a project, the
+  // project's curated continent wins over the keyword-derived continent
+  // from `mapToContinent()`. This keeps a project and its campaigns
+  // clustered in the same atlas region instead of scattering across the
+  // canvas because of fragile keyword matches in titles/descriptions.
   const projects = getResolvedProjects(withOverrides)
-  const byCampaign = new Map<string, { slug: string; name: string; status: string }>()
+  const byCampaign = new Map<string, { slug: string; name: string; status: string; continent: string }>()
   for (const p of projects) {
     for (const cId of p.campaigns) {
-      byCampaign.set(cId, { slug: p.slug, name: p.name, status: p.status })
+      byCampaign.set(cId, { slug: p.slug, name: p.name, status: p.status, continent: p.continent })
     }
   }
 
@@ -108,6 +115,7 @@ export function getCampaigns(): Campaign[] {
     if (!link) return { ...c, projectSlug: null, projectName: null, projectStatus: null }
     return {
       ...c,
+      continent: link.continent || c.continent,
       projectSlug: link.slug,
       projectName: link.name,
       projectStatus: link.status as Campaign['projectStatus'],
