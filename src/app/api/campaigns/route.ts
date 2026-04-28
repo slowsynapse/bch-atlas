@@ -14,7 +14,6 @@ export async function GET(request: NextRequest) {
     const maxAmount = searchParams.get('maxAmount')
     const startDate = searchParams.get('startDate')
     const endDate = searchParams.get('endDate')
-    const delivered = searchParams.get('delivered') // 'yes' | 'no' | null
 
     let campaigns = await getCampaignsWithPricing()
 
@@ -37,13 +36,6 @@ export async function GET(request: NextRequest) {
 
     if (continent.length > 0) {
       campaigns = campaigns.filter(c => c.continent && continent.includes(c.continent))
-    }
-
-    if (delivered === 'no') {
-      campaigns = campaigns.filter(c => c.delivered === 'no')
-    } else if (delivered === 'yes') {
-      // Delivered = funded campaigns that aren't explicitly flagged not-delivered
-      campaigns = campaigns.filter(c => c.status === 'success' && c.delivered !== 'no')
     }
 
     if (search) {

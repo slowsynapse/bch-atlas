@@ -21,7 +21,6 @@ async function fetchCampaigns(filters: FilterState): Promise<Campaign[]> {
   if (filters.amountRange.max) params.set('maxAmount', filters.amountRange.max)
   if (filters.dateRange.start) params.set('startDate', filters.dateRange.start)
   if (filters.dateRange.end) params.set('endDate', filters.dateRange.end)
-  if (filters.delivered !== 'all') params.set('delivered', filters.delivered)
 
   const response = await fetch(`/api/campaigns?${params.toString()}`)
   if (!response.ok) throw new Error('Failed to fetch campaigns')
@@ -36,7 +35,6 @@ const EMPTY_FILTERS: FilterState = {
   platform: new Set(),
   projectStatus: new Set(),
   continent: new Set(),
-  delivered: 'all',
 }
 
 export default function CampaignsPage() {
@@ -55,7 +53,6 @@ export default function CampaignsPage() {
     filters.amountRange.max,
     filters.dateRange.start,
     filters.dateRange.end,
-    filters.delivered,
   ]
 
   const { data: allCampaigns = [], isLoading } = useQuery({
@@ -71,14 +68,12 @@ export default function CampaignsPage() {
   const stats = useMemo(() => {
     const continentCounts: Record<string, number> = {}
     let projectActive = 0, projectDormant = 0, projectDead = 0, projectUnknown = 0, projectUnlinked = 0
-    let success = 0, failed = 0, running = 0, notDelivered = 0
+    let success = 0, failed = 0, running = 0
 
     for (const c of allCampaignsUnfiltered) {
       if (c.status === 'success') success++
       else if (c.status === 'expired') failed++
       else if (c.status === 'running') running++
-
-      if (c.delivered === 'no') notDelivered++
 
       if (c.continent) {
         continentCounts[c.continent] = (continentCounts[c.continent] || 0) + 1
@@ -97,7 +92,6 @@ export default function CampaignsPage() {
       success, failed, running,
       projectActive, projectDormant, projectDead, projectUnknown, projectUnlinked,
       continentCounts,
-      notDelivered,
     }
   }, [allCampaignsUnfiltered])
 

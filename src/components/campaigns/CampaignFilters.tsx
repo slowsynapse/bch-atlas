@@ -14,7 +14,6 @@ export interface FilterState {
   platform: Set<string>
   projectStatus: Set<string>      // 'active' | 'dormant' | 'dead' | 'unknown' | 'unlinked'
   continent: Set<string>          // 'core' | 'middleware' | 'apps' | 'defi' | 'media' | 'charity' | 'ecosystem' | 'other'
-  delivered: 'all' | 'yes' | 'no' // delivery override flag
 }
 
 interface FilterStats {
@@ -30,8 +29,6 @@ interface FilterStats {
   projectUnlinked: number
   // by continent
   continentCounts: Record<string, number>
-  // by delivery
-  notDelivered: number
 }
 
 interface CampaignFiltersProps {
@@ -107,7 +104,6 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
       platform: new Set(),
       projectStatus: new Set(),
       continent: new Set(),
-      delivered: 'all',
     })
   }
 
@@ -120,8 +116,7 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
     filters.amountRange.max ||
     filters.platform.size > 0 ||
     filters.projectStatus.size > 0 ||
-    filters.continent.size > 0 ||
-    filters.delivered !== 'all'
+    filters.continent.size > 0
 
   return (
     <div className="ds-holographic p-5 mb-6">
@@ -223,26 +218,6 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
               <input type="checkbox" checked={filters.platform.has('fundme')} onChange={() => togglePlatform('fundme')} className="w-3.5 h-3.5 accent-[#4ECDC4]" />
               <span>FundMe.cash</span>
             </label>
-          </div>
-          <label className="ds-label block mb-2 mt-4">Delivery</label>
-          <div className="space-y-1.5">
-            {([
-              ['all', 'All'],
-              ['yes', 'Delivered'],
-              ['no', `Not delivered (${stats.notDelivered})`],
-            ] as const).map(([key, label]) => (
-              <label key={key} className="flex items-center gap-2 cursor-pointer text-xs text-[#8A9AAB] hover:text-[#E0E4E8] transition-colors">
-                <input
-                  type="radio"
-                  name="delivered"
-                  checked={filters.delivered === key}
-                  onChange={() => updateFilter('delivered', key)}
-                  className="w-3.5 h-3.5"
-                  style={{ accentColor: key === 'no' ? '#FF4455' : '#4ECDC4' }}
-                />
-                <span>{label}</span>
-              </label>
-            ))}
           </div>
         </div>
 
