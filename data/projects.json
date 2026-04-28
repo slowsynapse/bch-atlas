@@ -134,9 +134,11 @@
     "slug": "smartbch",
     "name": "SmartBCH",
     "aliases": [
-      "smartbch"
+      "smartbch",
+      "smart bitcoin cash",
+      "smart bch"
     ],
-    "description": null,
+    "description": "EVM-compatible sidechain for Bitcoin Cash. Originally pitched and funded as 'Smart Bitcoin Cash' (the 1000 BCH 2021 Flipstarter), launched as the SmartBCH chain in late 2021. Network and ecosystem went dormant by 2024.",
     "continent": "core",
     "github": "https://github.com/smartbch/smartbch",
     "website": "https://smartbch.org/",
@@ -145,7 +147,9 @@
     "reddit": null,
     "campaignIds": [],
     "campaignMatchers": [
-      "smartbch"
+      "smartbch",
+      "smart bitcoin cash",
+      "smart bch"
     ],
     "status": "dead",
     "statusCheckedAt": "2026-04-27T18:17:59.316Z",
