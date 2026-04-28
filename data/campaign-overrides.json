@@ -11,5 +11,12 @@
       "abc12345-def6": { "projectSlug": "selene-wallet", "note": "title doesn't mention Selene but the recipient address matches" }
     }
   },
-  "overrides": {}
+  "overrides": {
+    "ac566c75e59abc74": { "projectSlug": "mainnet-js", "note": "mainnet.cash is the same project as mainnet-js" },
+    "52fb481bc473d44d": { "projectSlug": "satoshis-angels", "note": "Satoshi's Angels Flipstarter Year 2022 — text matcher missed it" },
+    "84eed4e438825033": { "projectSlug": "satoshis-angels", "note": "Satoshi's Angels Flipstarter Campaign — text matcher missed it" },
+    "fc353ccb0c26a44f": { "delivered": "no", "note": "Smart Bitcoin Cash — funded but did not deliver" },
+    "8fa3a68c041d0cbb": { "delivered": "no", "note": "2022 International BCH Marketing & Content — funded but did not deliver" },
+    "7ae8d215a9c0857b": { "delivered": "no", "note": "500k YouTube Channel BCH Series — funded but did not deliver" }
+  }
 }
