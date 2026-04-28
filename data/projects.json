@@ -4307,5 +4307,139 @@
     "websiteUp": null,
     "lastContentChange": null,
     "waybackCheckedAt": null
+  },
+  {
+    "slug": "bch-mesh-network",
+    "name": "Bitcoin Cash Mesh Network",
+    "aliases": [
+      "bch mesh",
+      "bitcoin cash mesh",
+      "bch mesh network"
+    ],
+    "description": "Series of community meetups and adoption events with Cuba focus. 6 campaigns across the program.",
+    "continent": "charity",
+    "github": null,
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoin cash mesh network",
+      "bch mesh network"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "manually added — multi-round adoption initiative",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
+  },
+  {
+    "slug": "la-economia-p2p",
+    "name": "La Economía P2P",
+    "aliases": [
+      "la economia p2p",
+      "la economía p2p"
+    ],
+    "description": "Spanish-language podcast/content series. Multiple FundMe rounds covering episode batches.",
+    "continent": "media",
+    "github": null,
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "la economía p2p",
+      "la economia p2p"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "manually added — 3 FundMe campaigns funding episode batches",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
+  },
+  {
+    "slug": "bch-tattoo-sprinter-van",
+    "name": "BCH Tattoo Sprinter Van",
+    "aliases": [
+      "bch tattoo sprinter van",
+      "bch tattoo"
+    ],
+    "description": "Mobile BCH adoption van offering tattoos as engagement, including cultural integration trips.",
+    "continent": "charity",
+    "github": null,
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch tattoo sprinter",
+      "tattoo sprinter van"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "manually added — multi-round Sprinter Van adoption tour",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
+  },
+  {
+    "slug": "one-surgery",
+    "name": "One.Surgery",
+    "aliases": [
+      "one surgery",
+      "one.surgery"
+    ],
+    "description": "Medical research project funded via Flipstarter; 2 campaigns over the years.",
+    "continent": "charity",
+    "github": null,
+    "website": "https://one.surgery",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "one.surgery",
+      "one surgery"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "manually added — 2 Flipstarter rounds",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
+  },
+  {
+    "slug": "cryptowoo",
+    "name": "CryptoWoo",
+    "aliases": [
+      "cryptowoo"
+    ],
+    "description": "Self-hosted, non-custodial WooCommerce payment gateway supporting BCH. Multiple campaign rounds.",
+    "continent": "apps",
+    "github": null,
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "cryptowoo"
+    ],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "manually added — WooCommerce payment plugin, multiple campaigns",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
   }
 ]
