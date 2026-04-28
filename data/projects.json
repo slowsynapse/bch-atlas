@@ -4494,5 +4494,114 @@
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
+  },
+  {
+    "slug": "mark-lundeberg",
+    "name": "Mark Lundeberg",
+    "aliases": [
+      "mark lundeberg",
+      "lundeberg"
+    ],
+    "description": "Independent cryptographer and BCH researcher. Designer of CashFusion (the privacy/CoinJoin protocol used by Electron Cash), co-author of the SLP token spec, and contributor to Schnorr signature work on BCH. The campaign funded a defined work period; treated as a one-time engagement.",
+    "continent": "core",
+    "github": null,
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "mark lundeberg",
+      "lundeberg"
+    ],
+    "status": "dead",
+    "statusCheckedAt": null,
+    "statusDetail": "manually flagged dead — one-time funded engagement; deliverables (CashFusion, SLP) shipped and remain in use, but the personal funding relationship ended",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
+  },
+  {
+    "slug": "jtoomim",
+    "name": "Jonathan Toomim (jtoomim)",
+    "aliases": [
+      "jtoomim",
+      "jonathan toomim",
+      "toomim"
+    ],
+    "description": "Independent BCH researcher known for the Gigablock Testnet Initiative (multi-MB block stress tests, 2017–2018) and Xthinner (compact block propagation protocol). Stepped back from active BCH work around 2021–2022. The campaign funded a defined work period; treated as a one-time engagement.",
+    "continent": "core",
+    "github": null,
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "jtoomim",
+      "jonathan toomim",
+      "toomim"
+    ],
+    "status": "dead",
+    "statusCheckedAt": null,
+    "statusDetail": "manually flagged dead — one-time funded engagement; deliverables (Xthinner research, Gigablock data) shipped, contributor no longer active in BCH",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
+  },
+  {
+    "slug": "its-just-money-bro",
+    "name": "It's Just Money Bro",
+    "aliases": [
+      "it's just money bro",
+      "its just money bro",
+      "just money bro"
+    ],
+    "description": "30-second Bitcoin Cash commercial. One-shot creative production — delivered.",
+    "continent": "media",
+    "github": null,
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "just money bro"
+    ],
+    "status": "dead",
+    "statusCheckedAt": null,
+    "statusDetail": "manually flagged dead — one-shot commercial production, delivered, no ongoing project",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
+  },
+  {
+    "slug": "konk",
+    "name": "Konk",
+    "aliases": [
+      "konk",
+      "konk marketplace"
+    ],
+    "description": "Peer-to-peer marketplace built on Bitcoin Cash — buy and sell with BCH, no banks, no KYC. Solo-built by @NeonDaThal, recently funded via FundMe and active.",
+    "continent": "apps",
+    "github": null,
+    "website": "https://konk.market",
+    "x": "https://x.com/NeonDaThal",
+    "telegram": "https://t.me/NeonDaThal",
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "konk"
+    ],
+    "status": "active",
+    "statusCheckedAt": null,
+    "statusDetail": "manually flagged active — recently funded, web app live at konk.market per user",
+    "lastGithubCommit": null,
+    "websiteUp": true,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
   }
 ]
