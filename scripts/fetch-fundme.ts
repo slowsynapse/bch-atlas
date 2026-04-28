@@ -213,7 +213,7 @@ async function main() {
 
   console.log(`\nFetched ${campaigns.length} campaigns (${added} new, ${statusChanges} status changes, ${failed} failed)`)
 
-  fs.writeFileSync('data/fundme.json', JSON.stringify(campaigns, null, 2))
+  fs.writeFileSync('data/fundme.json', JSON.stringify(campaigns, null, 2) + '\n')
   console.log('Saved to data/fundme.json')
 }
 
