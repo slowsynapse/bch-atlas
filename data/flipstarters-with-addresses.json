@@ -19,8 +19,9 @@
     "recipientAddresses": [
       "bitcoincash:qz7tywh9j0n77ed63232en9vnxq5jr40gulr5m9p0m"
     ],
-    "blockHeight": "674065",
-    "transactionTimestamp": "1612927497"
+    "blockHeight": 674065,
+    "transactionTimestamp": "1612927497",
+    "time": "2021-02-10"
   },
   {
     "amount": 48,
@@ -45,8 +46,9 @@
     "recipientAddresses": [
       "bitcoincash:qpfxhrvqpxqcg58khv6gx857t2xrsk3x8u3qh5qzvw"
     ],
-    "blockHeight": "673876",
-    "transactionTimestamp": "1612798609"
+    "blockHeight": 673876,
+    "transactionTimestamp": "1612798609",
+    "time": "2021-02-08"
   },
   {
     "amount": 31.68,
@@ -64,8 +66,9 @@
     "recipientAddresses": [
       "bitcoincash:qqqkau3r3ken5wqwsj3dc23pmnk0aeu7hquzhkg48z"
     ],
-    "blockHeight": "643773",
-    "transactionTimestamp": "1594676168"
+    "blockHeight": 643773,
+    "transactionTimestamp": "1594676168",
+    "time": "2020-07-13"
   },
   {
     "amount": 241,
@@ -86,8 +89,9 @@
     "recipientAddresses": [
       "bitcoincash:qqzkk06w4k3ye05q7fly566tan2chfkerq3zw7g0vd"
     ],
-    "blockHeight": "632696",
-    "transactionTimestamp": "1588022966"
+    "blockHeight": 632696,
+    "transactionTimestamp": "1588022966",
+    "time": "2020-04-27"
   },
   {
     "amount": 65,
@@ -107,8 +111,9 @@
     "recipientAddresses": [
       "bitcoincash:qzx37ruqx6cwmvry89nhhg6ah4rtczwdrg4q35064f"
     ],
-    "blockHeight": "647810",
-    "transactionTimestamp": "1597110553"
+    "blockHeight": 647810,
+    "transactionTimestamp": "1597110553",
+    "time": "2020-08-11"
   },
   {
     "amount": 650,
@@ -126,7 +131,8 @@
       "http://archive.is/Lg6B9",
       "https://archive.is/4P4Q7",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-marketing_expired_2021-04-13T103438.7462450000.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 30,
@@ -148,8 +154,9 @@
     "recipientAddresses": [
       "bitcoincash:pr508v7nem4z67u82rh5qqtpcctzkw6gfv5ptgsnaq"
     ],
-    "blockHeight": "648265",
-    "transactionTimestamp": "1597382915"
+    "blockHeight": 648265,
+    "transactionTimestamp": "1597382915",
+    "time": "2020-08-14"
   },
   {
     "amount": 360,
@@ -170,8 +177,9 @@
     "recipientAddresses": [
       "bitcoincash:qp0sg3l642sy0gxs6hcm4thlcxq6ff6t6ggr4z2469"
     ],
-    "blockHeight": "634228",
-    "transactionTimestamp": "1588944758"
+    "blockHeight": 634228,
+    "transactionTimestamp": "1588944758",
+    "time": "2020-05-08"
   },
   {
     "amount": 978,
@@ -192,8 +200,9 @@
     "recipientAddresses": [
       "bitcoincash:prnc2exht3zxlrqqcat690tc85cvfuypngyzkk4xer"
     ],
-    "blockHeight": "632516",
-    "transactionTimestamp": "1587903639"
+    "blockHeight": 632516,
+    "transactionTimestamp": "1587903639",
+    "time": "2020-04-26"
   },
   {
     "amount": 8,
@@ -214,8 +223,9 @@
     "recipientAddresses": [
       "bitcoincash:qrf2fs445me708jw3c90zmffvkscrgu0hgqpajwncq"
     ],
-    "blockHeight": "648232",
-    "transactionTimestamp": "1597360665"
+    "blockHeight": 648232,
+    "transactionTimestamp": "1597360665",
+    "time": "2020-08-13"
   },
   {
     "amount": 200,
@@ -255,8 +265,9 @@
     "recipientAddresses": [
       "bitcoincash:qqy9myvyt7qffgye5a2mn2vn8ry95qm6ascqgu0q7x"
     ],
-    "blockHeight": "648706",
-    "transactionTimestamp": "1597647112"
+    "blockHeight": 648706,
+    "transactionTimestamp": "1597647112",
+    "time": "2020-08-17"
   },
   {
     "amount": 300,
@@ -281,8 +292,9 @@
     "recipientAddresses": [
       "bitcoincash:qrzjv05u6du07gpnzd0mrud2v2w85qultclpydll07"
     ],
-    "blockHeight": "648817",
-    "transactionTimestamp": "1597699462"
+    "blockHeight": 648817,
+    "transactionTimestamp": "1597699462",
+    "time": "2020-08-17"
   },
   {
     "amount": 300,
@@ -321,7 +333,8 @@
     "archive": [
       "http://archive.is/RUzc3",
       "http://flipbackend.bitcoincash.network/media/screenshots/mitra-labs-smart-contract-system-for-bitcoin-cash_expired_2021-04-13T103556._0fVbECS.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 1000,
@@ -338,7 +351,8 @@
     "archive": [
       "http://archive.is/OA6n3",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-abc_expired_2021-04-13T103608.2178620000.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 65,
@@ -380,8 +394,9 @@
     "recipientAddresses": [
       "bitcoincash:qpfxhrvqpxqcg58khv6gx857t2xrsk3x8u3qh5qzvw"
     ],
-    "blockHeight": "650396",
-    "transactionTimestamp": "1598658592"
+    "blockHeight": 650396,
+    "transactionTimestamp": "1598658592",
+    "time": "2020-08-28"
   },
   {
     "amount": 102,
@@ -403,8 +418,9 @@
     "recipientAddresses": [
       "bitcoincash:qrr62nk9jvnjja2355d6ln03nkj6e334syqrdy5dc9"
     ],
-    "blockHeight": "649795",
-    "transactionTimestamp": "1598296583"
+    "blockHeight": 649795,
+    "transactionTimestamp": "1598296583",
+    "time": "2020-08-24"
   },
   {
     "amount": 30,
@@ -429,8 +445,9 @@
     "recipientAddresses": [
       "bitcoincash:qqnqh9ku0gjkqcj0jfwn2jf9var277xlk5kzlakr95"
     ],
-    "blockHeight": "649480",
-    "transactionTimestamp": "1598113563"
+    "blockHeight": 649480,
+    "transactionTimestamp": "1598113563",
+    "time": "2020-08-22"
   },
   {
     "amount": 117.4,
@@ -454,8 +471,9 @@
       "bitcoincash:ppwk8u8cg8cthr3jg0czzays6hsnysykes5ptgsnaq",
       "bitcoincash:qrsrvtc95gg8rrag7dge3jlnfs4j9pe0ughp4hn5dc"
     ],
-    "blockHeight": "651518",
-    "transactionTimestamp": "1599335702"
+    "blockHeight": 651518,
+    "transactionTimestamp": "1599335702",
+    "time": "2020-09-05"
   },
   {
     "amount": 65.38,
@@ -478,8 +496,9 @@
     "recipientAddresses": [
       "bitcoincash:qq547dp7lke69ju5kkc076g4hamfhau8rswq8hramk"
     ],
-    "blockHeight": "658590",
-    "transactionTimestamp": "1603584052"
+    "blockHeight": 658590,
+    "transactionTimestamp": "1603584052",
+    "time": "2020-10-25"
   },
   {
     "amount": 360,
@@ -498,7 +517,8 @@
     "archive": [
       "https://archive.is/VtA9L",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-marketing_expired_2021-04-13T103723.4826260000.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 150,
@@ -523,8 +543,9 @@
     "recipientAddresses": [
       "bitcoincash:qz6r05awt57h7cw50kwtv0lzxr2em2tjrvdqegq6tw"
     ],
-    "blockHeight": "651127",
-    "transactionTimestamp": "1599095725"
+    "blockHeight": 651127,
+    "transactionTimestamp": "1599095725",
+    "time": "2020-09-03"
   },
   {
     "amount": 110,
@@ -548,8 +569,9 @@
     "recipientAddresses": [
       "bitcoincash:qz0vmcpa0kulwqhh9x8yja6ewyls7mu3jckqxh7w9h"
     ],
-    "blockHeight": "653226",
-    "transactionTimestamp": "1600361742"
+    "blockHeight": 653226,
+    "transactionTimestamp": "1600361742",
+    "time": "2020-09-17"
   },
   {
     "amount": 20,
@@ -570,8 +592,9 @@
       "bitcoincash:ppwk8u8cg8cthr3jg0czzays6hsnysykes5ptgsnaq",
       "bitcoincash:qrsrvtc95gg8rrag7dge3jlnfs4j9pe0ughp4hn5dc"
     ],
-    "blockHeight": "626544",
-    "transactionTimestamp": "1584268308"
+    "blockHeight": 626544,
+    "transactionTimestamp": "1584268308",
+    "time": "2020-03-15"
   },
   {
     "amount": 30,
@@ -594,8 +617,9 @@
     "recipientAddresses": [
       "bitcoincash:qzdztu5tv89tv82z5htedza39cswftt7kuuzhkg48z"
     ],
-    "blockHeight": "652267",
-    "transactionTimestamp": "1599789120"
+    "blockHeight": 652267,
+    "transactionTimestamp": "1599789120",
+    "time": "2020-09-11"
   },
   {
     "amount": 107,
@@ -619,8 +643,9 @@
     "recipientAddresses": [
       "bitcoincash:qqlx98vrupdm9gmnenwpcgy2yv4hfzktwv0rdax2n6"
     ],
-    "blockHeight": "652245",
-    "transactionTimestamp": "1599772596"
+    "blockHeight": 652245,
+    "transactionTimestamp": "1599772596",
+    "time": "2020-09-10"
   },
   {
     "amount": 227.08,
@@ -645,8 +670,9 @@
     "recipientAddresses": [
       "bitcoincash:qz3pxmwda8gd42wa8k9yfxcwhcaapeuhygszqvtxur"
     ],
-    "blockHeight": "652267",
-    "transactionTimestamp": "1599789120"
+    "blockHeight": 652267,
+    "transactionTimestamp": "1599789120",
+    "time": "2020-09-11"
   },
   {
     "amount": 19,
@@ -669,8 +695,9 @@
     "recipientAddresses": [
       "bitcoincash:qz8027fxnkad33tvyp0c874m3dwy37e02glzq4ephu"
     ],
-    "blockHeight": "653107",
-    "transactionTimestamp": "1600293261"
+    "blockHeight": 653107,
+    "transactionTimestamp": "1600293261",
+    "time": "2020-09-16"
   },
   {
     "amount": 1,
@@ -693,8 +720,9 @@
     "recipientAddresses": [
       "bitcoincash:qpt8ecx6d9mpug0kp0s7ruzmplmwqs33gqmpzds8ke"
     ],
-    "blockHeight": "652245",
-    "transactionTimestamp": "1599772596"
+    "blockHeight": 652245,
+    "transactionTimestamp": "1599772596",
+    "time": "2020-09-10"
   },
   {
     "amount": 0.69,
@@ -717,8 +745,9 @@
     "recipientAddresses": [
       "bitcoincash:qqyy3mss5vmthgnu0m5sm39pcfq8z799kuwz7atsm4"
     ],
-    "blockHeight": "653200",
-    "transactionTimestamp": "1600343492"
+    "blockHeight": 653200,
+    "transactionTimestamp": "1600343492",
+    "time": "2020-09-17"
   },
   {
     "amount": 299.5,
@@ -741,8 +770,9 @@
     "recipientAddresses": [
       "bitcoincash:qrj58lylhasgga6er76es46xwvwlyr7mnc3p2xw350"
     ],
-    "blockHeight": "653641",
-    "transactionTimestamp": "1600605623"
+    "blockHeight": 653641,
+    "transactionTimestamp": "1600605623",
+    "time": "2020-09-20"
   },
   {
     "amount": 50,
@@ -782,8 +812,9 @@
     "recipientAddresses": [
       "bitcoincash:qzlleks7qlhd57p6ca8mk89tf4z0x5fwjs2z3pkmz5"
     ],
-    "blockHeight": "653641",
-    "transactionTimestamp": "1600605623"
+    "blockHeight": 653641,
+    "transactionTimestamp": "1600605623",
+    "time": "2020-09-20"
   },
   {
     "amount": 50,
@@ -806,8 +837,9 @@
     "recipientAddresses": [
       "bitcoincash:qppsparvdt8vvhg5xfp80rzma7tvt6znvylpydll07"
     ],
-    "blockHeight": "654563",
-    "transactionTimestamp": "1601158361"
+    "blockHeight": 654563,
+    "transactionTimestamp": "1601158361",
+    "time": "2020-09-26"
   },
   {
     "amount": 330,
@@ -861,7 +893,8 @@
     "announcement": [
       "https://old.reddit.com/r/btc/comments/iye0z9/new_slp_rewards_tooling_may_be_on_its_way/"
     ],
-    "archive": []
+    "archive": [],
+    "time": "2020-11-02"
   },
   {
     "amount": 750,
@@ -882,8 +915,9 @@
     "recipientAddresses": [
       "bitcoincash:qqgae2xl2rx7zwg4nuwv645u9pfkydrp45jqftr9uk"
     ],
-    "blockHeight": "647584",
-    "transactionTimestamp": "1596958982"
+    "blockHeight": 647584,
+    "transactionTimestamp": "1596958982",
+    "time": "2020-08-09"
   },
   {
     "amount": 30,
@@ -907,8 +941,9 @@
     "recipientAddresses": [
       "bitcoincash:qzn9jr9cjv6ytt2rm32yjtv5yht7nvc6p55z0skd9z"
     ],
-    "blockHeight": "655665",
-    "transactionTimestamp": "1601824504"
+    "blockHeight": 655665,
+    "transactionTimestamp": "1601824504",
+    "time": "2020-10-04"
   },
   {
     "amount": 175,
@@ -927,7 +962,8 @@
     "archive": [
       "https://archive.is/ZdFPW",
       "http://flipbackend.bitcoincash.network/media/screenshots/help-found-buildcash_expired_2021-04-19T163505.6265790000.png"
-    ]
+    ],
+    "time": "2021-04-19"
   },
   {
     "amount": 7,
@@ -944,7 +980,8 @@
     ],
     "archive": [
       "https://archive.is/UPMw9"
-    ]
+    ],
+    "time": "2021-11-27"
   },
   {
     "amount": 331,
@@ -967,8 +1004,9 @@
     "recipientAddresses": [
       "bitcoincash:pq3ptaz2m656y7fa807m533wdyzmq7xta5xrj4fgpj"
     ],
-    "blockHeight": "657819",
-    "transactionTimestamp": "1603103463"
+    "blockHeight": 657819,
+    "transactionTimestamp": "1603103463",
+    "time": "2020-10-19"
   },
   {
     "amount": 245,
@@ -993,8 +1031,9 @@
     "recipientAddresses": [
       "bitcoincash:qrmm7edwuj4jf7tnvygjyztyy0a0qxvl7qxrmfmmp5"
     ],
-    "blockHeight": "657737",
-    "transactionTimestamp": "1603050702"
+    "blockHeight": 657737,
+    "transactionTimestamp": "1603050702",
+    "time": "2020-10-18"
   },
   {
     "amount": 22,
@@ -1036,8 +1075,9 @@
     "recipientAddresses": [
       "bitcoincash:qqhzuux29fjk4unw8pgrw0a560kp07smwscrvyf7xy"
     ],
-    "blockHeight": "657992",
-    "transactionTimestamp": "1603230636"
+    "blockHeight": 657992,
+    "transactionTimestamp": "1603230636",
+    "time": "2020-10-20"
   },
   {
     "amount": 65,
@@ -1060,8 +1100,9 @@
     "recipientAddresses": [
       "bitcoincash:qzqlsr7rwhkw8gvaaw03zv0pgjsz9lrssq0qqej8t7"
     ],
-    "blockHeight": "661162",
-    "transactionTimestamp": "1605157971"
+    "blockHeight": 661162,
+    "transactionTimestamp": "1605157971",
+    "time": "2020-11-12"
   },
   {
     "amount": 140,
@@ -1083,7 +1124,8 @@
     "archive": [
       "https://archive.is/4LvPI",
       "http://flipbackend.bitcoincash.network/media/screenshots/stackk-self-governed-online-communities-flipstarter-campaign_expired_2021-04_pSIbt9s.png"
-    ]
+    ],
+    "time": "2020-11-02"
   },
   {
     "amount": 330,
@@ -1102,7 +1144,8 @@
     "archive": [
       "https://archive.is/cCbxX",
       "http://flipbackend.bitcoincash.network/media/screenshots/cashlink-network-phase-1-cashsql-server_expired_2021-04-13T104122.0857400000.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 25,
@@ -1126,8 +1169,9 @@
     "recipientAddresses": [
       "bitcoincash:qrqymz7hd4h5k2mrjh2l38lwkct54tctwg5ptgsnaq"
     ],
-    "blockHeight": "662175",
-    "transactionTimestamp": "1605777012"
+    "blockHeight": 662175,
+    "transactionTimestamp": "1605777012",
+    "time": "2020-11-19"
   },
   {
     "amount": 200,
@@ -1146,7 +1190,8 @@
     ],
     "archive": [
       "https://archive.is/W2174"
-    ]
+    ],
+    "time": "2020-09-11"
   },
   {
     "amount": 45,
@@ -1169,8 +1214,9 @@
     "recipientAddresses": [
       "bitcoincash:qpc6jk3c3wquz7wmu84kz957x7ysv25mrv7p2lukls"
     ],
-    "blockHeight": "665884",
-    "transactionTimestamp": "1607968471"
+    "blockHeight": 665884,
+    "transactionTimestamp": "1607968471",
+    "time": "2020-12-14"
   },
   {
     "amount": 52,
@@ -1193,8 +1239,9 @@
     "recipientAddresses": [
       "bitcoincash:qqaedvcch9mlc0h4ha5jl90r3s2twk5h6cvr67h7ry"
     ],
-    "blockHeight": "663207",
-    "transactionTimestamp": "1606328972"
+    "blockHeight": 663207,
+    "transactionTimestamp": "1606328972",
+    "time": "2020-11-25"
   },
   {
     "amount": 350,
@@ -1213,7 +1260,8 @@
     "archive": [
       "https://archive.is/nIkah",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-adoption-promotional-videos_expired_2021-04-13T104207.0202460000.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 2,
@@ -1239,8 +1287,9 @@
     "recipientAddresses": [
       "bitcoincash:qpc6jk3c3wquz7wmu84kz957x7ysv25mrv7p2lukls"
     ],
-    "blockHeight": "663926",
-    "transactionTimestamp": "1606763410"
+    "blockHeight": 663926,
+    "transactionTimestamp": "1606763410",
+    "time": "2020-11-30"
   },
   {
     "amount": 222,
@@ -1259,7 +1308,8 @@
     "archive": [
       "https://archive.is/eewD0",
       "http://flipbackend.bitcoincash.network/media/screenshots/spice-token-projects-growth-and-expansion_expired_2021-04-13T104231.9915950000.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 21,
@@ -1299,8 +1349,9 @@
     "recipientAddresses": [
       "bitcoincash:qzylepvy3wzmz959xq7yxnv7m3dwx3qlqcazeytuhv"
     ],
-    "blockHeight": "664894",
-    "transactionTimestamp": "1607360503"
+    "blockHeight": 664894,
+    "transactionTimestamp": "1607360503",
+    "time": "2020-12-07"
   },
   {
     "amount": 9,
@@ -1322,8 +1373,9 @@
     "recipientAddresses": [
       "bitcoincash:pp5t7leuvwvr5hl579djhuv88km7zfhdncjpa9l9y3"
     ],
-    "blockHeight": "664375",
-    "transactionTimestamp": "1607053541"
+    "blockHeight": 664375,
+    "transactionTimestamp": "1607053541",
+    "time": "2020-12-04"
   },
   {
     "amount": 43,
@@ -1347,8 +1399,9 @@
     "recipientAddresses": [
       "bitcoincash:qzquhh3avrqt6cgtk8dnsegz03sj7npwdyzzf8grq5"
     ],
-    "blockHeight": "666312",
-    "transactionTimestamp": "1608239981"
+    "blockHeight": 666312,
+    "transactionTimestamp": "1608239981",
+    "time": "2020-12-17"
   },
   {
     "amount": 57,
@@ -1373,8 +1426,9 @@
     "recipientAddresses": [
       "bitcoincash:qrghh2l8mw42kw5lymurzxgd0v4cpqv7wcxptlp9p3"
     ],
-    "blockHeight": "665592",
-    "transactionTimestamp": "1607783406"
+    "blockHeight": 665592,
+    "transactionTimestamp": "1607783406",
+    "time": "2020-12-12"
   },
   {
     "amount": 3,
@@ -1397,8 +1451,9 @@
     "recipientAddresses": [
       "bitcoincash:qrdsfjjafrhldw4958vcdla4m3fa5wxgccepjqsfk0"
     ],
-    "blockHeight": "665593",
-    "transactionTimestamp": "1607784076"
+    "blockHeight": 665593,
+    "transactionTimestamp": "1607784076",
+    "time": "2020-12-12"
   },
   {
     "amount": 27,
@@ -1422,8 +1477,9 @@
     "recipientAddresses": [
       "bitcoincash:qqh2zhcfyqs6nshcfng29nspftvcpe46acezlyyywt"
     ],
-    "blockHeight": "667796",
-    "transactionTimestamp": "1609142819"
+    "blockHeight": 667796,
+    "transactionTimestamp": "1609142819",
+    "time": "2020-12-28"
   },
   {
     "amount": 1,
@@ -1445,8 +1501,9 @@
     "recipientAddresses": [
       "bitcoincash:qplxekqgxhs8p6lkrw2e8v2c5zdgpcx90czqe3jaq3"
     ],
-    "blockHeight": "666330",
-    "transactionTimestamp": "1608250764"
+    "blockHeight": 666330,
+    "transactionTimestamp": "1608250764",
+    "time": "2020-12-18"
   },
   {
     "amount": 21,
@@ -1461,7 +1518,8 @@
     ],
     "archive": [
       "https://archive.is/seFCB"
-    ]
+    ],
+    "time": "2020-12-16"
   },
   {
     "amount": 15,
@@ -1484,8 +1542,9 @@
     "recipientAddresses": [
       "bitcoincash:qpy95ug9aa9shtpklhmfvtw0urut3uhkasrr689egm"
     ],
-    "blockHeight": "673266",
-    "transactionTimestamp": "1612439647"
+    "blockHeight": 673266,
+    "transactionTimestamp": "1612439647",
+    "time": "2021-02-04"
   },
   {
     "amount": 16,
@@ -1508,8 +1567,9 @@
     "recipientAddresses": [
       "bitcoincash:qpcuknk6wj7nmw5qsjsfqjj46a5vxcvadc0p5hw8ne"
     ],
-    "blockHeight": "670758",
-    "transactionTimestamp": "1610885284"
+    "blockHeight": 670758,
+    "transactionTimestamp": "1610885284",
+    "time": "2021-01-17"
   },
   {
     "amount": 42,
@@ -1529,8 +1589,9 @@
     "recipientAddresses": [
       "bitcoincash:qptrsmtw8886zxpk5rgqsuwj43hk6grkt58ru82p3u"
     ],
-    "blockHeight": "672210",
-    "transactionTimestamp": "1611777633"
+    "blockHeight": 672210,
+    "transactionTimestamp": "1611777633",
+    "time": "2021-01-27"
   },
   {
     "amount": 480,
@@ -1554,8 +1615,9 @@
     "recipientAddresses": [
       "bitcoincash:qqverdefl9xtryyx8y52m6va5j8s2s4eq5kqxh7w9h"
     ],
-    "blockHeight": "673618",
-    "transactionTimestamp": "1612628611"
+    "blockHeight": 673618,
+    "transactionTimestamp": "1612628611",
+    "time": "2021-02-06"
   },
   {
     "amount": 20,
@@ -1577,8 +1639,9 @@
     "recipientAddresses": [
       "bitcoincash:qqjettkgjzhxmwjxm6kduxej7w26p5gr4gapaudz0w"
     ],
-    "blockHeight": "672468",
-    "transactionTimestamp": "1611962226"
+    "blockHeight": 672468,
+    "transactionTimestamp": "1611962226",
+    "time": "2021-01-29"
   },
   {
     "amount": 35.65999999,
@@ -1602,8 +1665,9 @@
     "recipientAddresses": [
       "bitcoincash:qzl7dxaglztlup6lddjgw02s99zdz3qv658q3r7vfc"
     ],
-    "blockHeight": "672485",
-    "transactionTimestamp": "1611972039"
+    "blockHeight": 672485,
+    "transactionTimestamp": "1611972039",
+    "time": "2021-01-30"
   },
   {
     "amount": 57.51,
@@ -1627,8 +1691,9 @@
     "recipientAddresses": [
       "bitcoincash:qq93g33jvzvzquslsxqj8nykv2dz7e7vqy6zg84s74"
     ],
-    "blockHeight": "673309",
-    "transactionTimestamp": "1612473740"
+    "blockHeight": 673309,
+    "transactionTimestamp": "1612473740",
+    "time": "2021-02-04"
   },
   {
     "amount": 10,
@@ -1644,7 +1709,8 @@
     "archive": [
       "https://archive.is/j4tVC",
       "http://flipbackend.bitcoincash.network/media/screenshots/its-a-flipstarter-party_expired_2021-04-13T104508.9545660000.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 5,
@@ -1663,7 +1729,8 @@
     "archive": [
       "https://archive.is/Bl9lB",
       "http://flipbackend.bitcoincash.network/media/screenshots/promotional-video-on-how-to-offer-bitcoin-cash-as-a-financial-incentive-with_EnpsZ4K.png"
-    ]
+    ],
+    "time": "2021-01-29"
   },
   {
     "amount": 60,
@@ -1684,8 +1751,9 @@
     "recipientAddresses": [
       "bitcoincash:qryktydcarpdfmn4zlnul08fmcgzxfsvh5fqk5a3j0"
     ],
-    "blockHeight": "673854",
-    "transactionTimestamp": "1612777429"
+    "blockHeight": 673854,
+    "transactionTimestamp": "1612777429",
+    "time": "2021-02-08"
   },
   {
     "amount": 30,
@@ -1702,7 +1770,8 @@
     ],
     "archive": [
       "https://archive.is/DW5tw"
-    ]
+    ],
+    "time": "2021-02-01"
   },
   {
     "amount": 85.5,
@@ -1725,8 +1794,9 @@
     "recipientAddresses": [
       "bitcoincash:qpgcfgtddnfn9t685lce4huhz2qvfvn4mcapaudz0w"
     ],
-    "blockHeight": "675790",
-    "transactionTimestamp": "1613923156"
+    "blockHeight": 675790,
+    "transactionTimestamp": "1613923156",
+    "time": "2021-02-21"
   },
   {
     "amount": 6.31,
@@ -1748,8 +1818,9 @@
     "recipientAddresses": [
       "bitcoincash:qqsymwsnqr456hrlpn2m82g98l7ee6f6dgwr2nhsrj"
     ],
-    "blockHeight": "674309",
-    "transactionTimestamp": "1613085882"
+    "blockHeight": 674309,
+    "transactionTimestamp": "1613085882",
+    "time": "2021-02-11"
   },
   {
     "amount": 15,
@@ -1768,7 +1839,8 @@
     "archive": [
       "https://archive.is/wip/OdAII",
       "https://archive.is/zaZh2"
-    ]
+    ],
+    "time": "2021-02-20"
   },
   {
     "amount": 37,
@@ -1810,8 +1882,9 @@
     "recipientAddresses": [
       "bitcoincash:qpvt7cyw3v5sylef5637xl5653gl2l3tey2qphv9z3"
     ],
-    "blockHeight": "679220",
-    "transactionTimestamp": "1616057909"
+    "blockHeight": 679220,
+    "transactionTimestamp": "1616057909",
+    "time": "2021-03-18"
   },
   {
     "amount": 20,
@@ -1833,8 +1906,9 @@
     "recipientAddresses": [
       "bitcoincash:qrvm06rnqnldu3vl0p8r8zgna0mtde93qylzfftjh6"
     ],
-    "blockHeight": "677716",
-    "transactionTimestamp": "1615116678"
+    "blockHeight": 677716,
+    "transactionTimestamp": "1615116678",
+    "time": "2021-03-07"
   },
   {
     "amount": 50,
@@ -1854,7 +1928,8 @@
     "archive": [
       "https://archive.is/VFpB9",
       "http://flipbackend.bitcoincash.network/media/screenshots/honklerhangouts-liberland-merit-sale_expired_2021-04-13T105431.5621700000.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 300,
@@ -1875,8 +1950,9 @@
     "recipientAddresses": [
       "bitcoincash:qzwfargjq0skell5dngsundyrchkgn3xjgyq0uateq"
     ],
-    "blockHeight": "678368",
-    "transactionTimestamp": "1615526226"
+    "blockHeight": 678368,
+    "transactionTimestamp": "1615526226",
+    "time": "2021-03-12"
   },
   {
     "amount": 75,
@@ -1891,7 +1967,8 @@
     "announcement": [],
     "archive": [
       "https://archive.is/16Kr8"
-    ]
+    ],
+    "time": "2021-03-09"
   },
   {
     "amount": 6,
@@ -1912,8 +1989,9 @@
     "recipientAddresses": [
       "bitcoincash:qzx4jhskfw4hc6n7aredqncdvqk4w89q8y6q3daa7k"
     ],
-    "blockHeight": "683119",
-    "transactionTimestamp": "1618316159"
+    "blockHeight": 683119,
+    "transactionTimestamp": "1618316159",
+    "time": "2021-04-13"
   },
   {
     "amount": 1000,
@@ -1934,8 +2012,9 @@
     "recipientAddresses": [
       "bitcoincash:qq78jef23ewmz5jju9ddttsqy7w67akemsgq36vtz8"
     ],
-    "blockHeight": "679358",
-    "transactionTimestamp": "1616135171"
+    "blockHeight": 679358,
+    "transactionTimestamp": "1616135171",
+    "time": "2021-03-19"
   },
   {
     "amount": 390,
@@ -1956,8 +2035,9 @@
     "recipientAddresses": [
       "bitcoincash:qp76l5qeztrmjxpas35wgznn3zxdj7e89qlzq4ephu"
     ],
-    "blockHeight": "683263",
-    "transactionTimestamp": "1618388323"
+    "blockHeight": 683263,
+    "transactionTimestamp": "1618388323",
+    "time": "2021-04-14"
   },
   {
     "amount": 101,
@@ -1982,8 +2062,9 @@
     "recipientAddresses": [
       "bitcoincash:qphd6s5hwa9wx8ptyd3vnes5rg7lw97nlghz304246"
     ],
-    "blockHeight": "660673",
-    "transactionTimestamp": "1604858357"
+    "blockHeight": 660673,
+    "transactionTimestamp": "1604858357",
+    "time": "2020-11-08"
   },
   {
     "amount": 460,
@@ -2004,8 +2085,9 @@
     "recipientAddresses": [
       "bitcoincash:qqzkk06w4k3ye05q7fly566tan2chfkerq3zw7g0vd"
     ],
-    "blockHeight": "632696",
-    "transactionTimestamp": "1588022966"
+    "blockHeight": 632696,
+    "transactionTimestamp": "1588022966",
+    "time": "2020-04-27"
   },
   {
     "amount": 20,
@@ -2026,7 +2108,8 @@
     "archive": [
       "https://archive.is/Qv6NE",
       "http://flipbackend.bitcoincash.network/media/screenshots/blockhack-2021_running_2021-04-13T100026.5640270000.png"
-    ]
+    ],
+    "time": "2021-04-13"
   },
   {
     "amount": 0.01,
@@ -2050,8 +2133,9 @@
     "recipientAddresses": [
       "bitcoincash:qzynp8r6fw3hu9k2l8hy0h2dxp0vrvuezuyzl284e9"
     ],
-    "blockHeight": "682663",
-    "transactionTimestamp": "1618052752"
+    "blockHeight": 682663,
+    "transactionTimestamp": "1618052752",
+    "time": "2021-04-10"
   },
   {
     "amount": 400,
@@ -2072,7 +2156,8 @@
       "https://archive.is/wip/m6uG2",
       "http://flipbackend.bitcoincash.network/media/screenshots/flipstart-onlycoins_running_2021-04-19T163711.9599040000.png",
       "http://flipbackend.bitcoincash.network/media/screenshots/flipstart-onlycoins_expired_2021-04-21T080212.4440020000.png"
-    ]
+    ],
+    "time": "2021-04-19"
   },
   {
     "amount": 31,
@@ -2093,7 +2178,8 @@
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/senti-pay-south-africa-and-global-cryptocurrency-payments-and-rewards-progra_Ve3IlLP.png",
       "http://flipbackend.bitcoincash.network/media/screenshots/senti-pay-south-africa-and-global-cryptocurrency-payments-and-rewards-progra_FSplAiS.png"
-    ]
+    ],
+    "time": "2021-05-08"
   },
   {
     "amount": 100,
@@ -2111,7 +2197,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/gazecash_running_2021-04-19T163738.2927690000.png"
-    ]
+    ],
+    "time": "2021-04-19"
   },
   {
     "amount": 1,
@@ -2135,8 +2222,9 @@
     "recipientAddresses": [
       "bitcoincash:qql8q64raut6h6umdfv0h0lda6kq7syr4yczc2477r"
     ],
-    "blockHeight": "683996",
-    "transactionTimestamp": "1618779787"
+    "blockHeight": 683996,
+    "transactionTimestamp": "1618779787",
+    "time": "2021-04-18"
   },
   {
     "amount": 100,
@@ -2153,7 +2241,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/the-crypto-6-legal-defense-fundraiser_expired_2021-04-21T080232.7401070000.png"
-    ]
+    ],
+    "time": "2021-04-21"
   },
   {
     "amount": 30,
@@ -2177,8 +2266,9 @@
     "recipientAddresses": [
       "bitcoincash:qzmxlfmu07c4nus74l0uctmajxfmsadnyvazeytuhv"
     ],
-    "blockHeight": "688219",
-    "transactionTimestamp": "1621156109"
+    "blockHeight": 688219,
+    "transactionTimestamp": "1621156109",
+    "time": "2021-05-16"
   },
   {
     "amount": 30,
@@ -2201,8 +2291,9 @@
     "recipientAddresses": [
       "bitcoincash:qzfmdcqcx6gd5qktmpz44reenn57jjl3sqqqqqqqqp"
     ],
-    "blockHeight": "685007",
-    "transactionTimestamp": "1619374132"
+    "blockHeight": 685007,
+    "transactionTimestamp": "1619374132",
+    "time": "2021-04-25"
   },
   {
     "amount": 335,
@@ -2220,7 +2311,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-sponsorship-at-thailand-health-and-fitness-expo_running_2021-04_5CnXol2.png"
-    ]
+    ],
+    "time": "2021-04-21"
   },
   {
     "amount": 100,
@@ -2240,7 +2332,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/lingosy-decentralize-language-learning-using-bitcoin-cash_running_2021-04-27_mYJjfH0.png"
-    ]
+    ],
+    "time": "2021-04-27"
   },
   {
     "amount": 64,
@@ -2264,8 +2357,9 @@
     "recipientAddresses": [
       "bitcoincash:qpfxhrvqpxqcg58khv6gx857t2xrsk3x8u3qh5qzvw"
     ],
-    "blockHeight": "686880",
-    "transactionTimestamp": "1620418270"
+    "blockHeight": 686880,
+    "transactionTimestamp": "1620418270",
+    "time": "2021-05-07"
   },
   {
     "amount": 75,
@@ -2306,8 +2400,9 @@
     "recipientAddresses": [
       "bitcoincash:qpm0dt47w975zf0lwtcm5x5kyggp74s6sgppnqd6gw"
     ],
-    "blockHeight": "688638",
-    "transactionTimestamp": "1621467909"
+    "blockHeight": 688638,
+    "transactionTimestamp": "1621467909",
+    "time": "2021-05-19"
   },
   {
     "amount": 130,
@@ -2325,7 +2420,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/juungle-20-accelerate-nft-adoption-on-bitcoin-cash_running_2021-05-10T190238_0db4MQc.png"
-    ]
+    ],
+    "time": "2021-05-10"
   },
   {
     "amount": 52,
@@ -2349,8 +2445,9 @@
     "recipientAddresses": [
       "bitcoincash:qz6yv8v9va5u2ppx5gsszefe9klm2gn9f5fqk5a3j0"
     ],
-    "blockHeight": "688093",
-    "transactionTimestamp": "1621084559"
+    "blockHeight": 688093,
+    "transactionTimestamp": "1621084559",
+    "time": "2021-05-15"
   },
   {
     "amount": 10,
@@ -2367,7 +2464,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/imoldingscom-flipstarter-proposal_running_2021-05-19T122143.0440330000.png"
-    ]
+    ],
+    "time": "2021-05-19"
   },
   {
     "amount": 15,
@@ -2389,8 +2487,9 @@
     "recipientAddresses": [
       "bitcoincash:qqyz9qve8gmyttnjp525j94gjp50g45v4uur2yxxlr"
     ],
-    "blockHeight": "692890",
-    "transactionTimestamp": "1624127481"
+    "blockHeight": 692890,
+    "transactionTimestamp": "1624127481",
+    "time": "2021-06-19"
   },
   {
     "amount": 0.7,
@@ -2413,8 +2512,9 @@
     "recipientAddresses": [
       "bitcoincash:qpvtvrvk9lgkgra5gclvk6ucmsmcpqnklugqcx7czp"
     ],
-    "blockHeight": "689749",
-    "transactionTimestamp": "1622151382"
+    "blockHeight": 689749,
+    "transactionTimestamp": "1622151382",
+    "time": "2021-05-27"
   },
   {
     "amount": 67,
@@ -2439,8 +2539,9 @@
     "recipientAddresses": [
       "bitcoincash:qqwrhasu8r7ucvqzc3tfurdv58hgcjqr4seqxwvfwg"
     ],
-    "blockHeight": "695499",
-    "transactionTimestamp": "1625784925"
+    "blockHeight": 695499,
+    "transactionTimestamp": "1625784925",
+    "time": "2021-07-08"
   },
   {
     "amount": 57,
@@ -2466,8 +2567,9 @@
     "recipientAddresses": [
       "bitcoincash:qqsfvu8qftfmlj7q7qjmxr95yzawgqz6rygzgsyxzy"
     ],
-    "blockHeight": "694808",
-    "transactionTimestamp": "1625349202"
+    "blockHeight": 694808,
+    "transactionTimestamp": "1625349202",
+    "time": "2021-07-03"
   },
   {
     "amount": 75,
@@ -2517,7 +2619,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/bitworkersscash-the-biggest-bitcoin-bch-services-marketplace_running_2021-07_m596T0q.png"
-    ]
+    ],
+    "time": "2021-07-05"
   },
   {
     "amount": 250,
@@ -2543,8 +2646,9 @@
     "recipientAddresses": [
       "bitcoincash:qpygzmjn363nfvzhr4ujfwlwursppunkt5tq090vjl"
     ],
-    "blockHeight": "699899",
-    "transactionTimestamp": "1628450944"
+    "blockHeight": 699899,
+    "transactionTimestamp": "1628450944",
+    "time": "2021-08-08"
   },
   {
     "amount": 84,
@@ -2566,8 +2670,9 @@
     "recipientAddresses": [
       "bitcoincash:qq8pc6zsgjyhv7eal4jshnzftfjpw3rwfuwz7atsm4"
     ],
-    "blockHeight": "701934",
-    "transactionTimestamp": "1629638409"
+    "blockHeight": 701934,
+    "transactionTimestamp": "1629638409",
+    "time": "2021-08-22"
   },
   {
     "amount": 175,
@@ -2585,7 +2690,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/cryptowoo-a-simple-self-hosted-and-non-custodial-payment-gateway-for-woocomm_q86BR01.png"
-    ]
+    ],
+    "time": "2021-08-10"
   },
   {
     "amount": 33,
@@ -2608,8 +2714,9 @@
     "recipientAddresses": [
       "bitcoincash:qzegm6ff6rav6vn728klqul5ua5ctlvtyusqs63cux"
     ],
-    "blockHeight": "703109",
-    "transactionTimestamp": "1630323870"
+    "blockHeight": 703109,
+    "transactionTimestamp": "1630323870",
+    "time": "2021-08-30"
   },
   {
     "amount": 1,
@@ -2632,8 +2739,9 @@
     "recipientAddresses": [
       "bitcoincash:qr2z2k2df8r0ryfgjx5zm2p7uf0e3jjttvmqkrv8w7"
     ],
-    "blockHeight": "701529",
-    "transactionTimestamp": "1629389802"
+    "blockHeight": 701529,
+    "transactionTimestamp": "1629389802",
+    "time": "2021-08-19"
   },
   {
     "amount": 18,
@@ -2655,8 +2763,9 @@
     "recipientAddresses": [
       "bitcoincash:qpe5ww0fr6vzpa80qcx7nerwm66nzrjh3g5qk67q9p"
     ],
-    "blockHeight": "701676",
-    "transactionTimestamp": "1629483482"
+    "blockHeight": 701676,
+    "transactionTimestamp": "1629483482",
+    "time": "2021-08-20"
   },
   {
     "amount": 93,
@@ -2684,8 +2793,9 @@
     "recipientAddresses": [
       "bitcoincash:qz7rrcgycn9rsn0knkn25sh4qv4sgj4g3y6r44mrx5"
     ],
-    "blockHeight": "704119",
-    "transactionTimestamp": "1630908256"
+    "blockHeight": 704119,
+    "transactionTimestamp": "1630908256",
+    "time": "2021-09-06"
   },
   {
     "amount": 1.57,
@@ -2709,8 +2819,9 @@
     "recipientAddresses": [
       "bitcoincash:qqpsa66plpz7rk5jjplx47tepl8kg24l0yazeytuhv"
     ],
-    "blockHeight": "705409",
-    "transactionTimestamp": "1631688596"
+    "blockHeight": 705409,
+    "transactionTimestamp": "1631688596",
+    "time": "2021-09-15"
   },
   {
     "amount": 20,
@@ -2732,8 +2843,9 @@
     "recipientAddresses": [
       "bitcoincash:qzeywu5ld5zktzkvknp2wndt4x323a2yh5dqs5jftg"
     ],
-    "blockHeight": "705911",
-    "transactionTimestamp": "1632004837"
+    "blockHeight": 705911,
+    "transactionTimestamp": "1632004837",
+    "time": "2021-09-18"
   },
   {
     "amount": 5.34,
@@ -2755,8 +2867,9 @@
     "recipientAddresses": [
       "bitcoincash:qpy3lrhe5z79asktlf5pafpxu7d6z2l94qxrj4fgpj"
     ],
-    "blockHeight": "712785",
-    "transactionTimestamp": "1636163139"
+    "blockHeight": 712785,
+    "transactionTimestamp": "1636163139",
+    "time": "2021-11-06"
   },
   {
     "amount": 35,
@@ -2784,8 +2897,9 @@
     "recipientAddresses": [
       "bitcoincash:qzquhh3avrqt6cgtk8dnsegz03sj7npwdyzzf8grq5"
     ],
-    "blockHeight": "713421",
-    "transactionTimestamp": "1636524570"
+    "blockHeight": 713421,
+    "transactionTimestamp": "1636524570",
+    "time": "2021-11-10"
   },
   {
     "amount": 13.37,
@@ -2802,7 +2916,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/resurrecting-open-blockchain-meetup-trondheim-powered-by-flipstarterbitcoin-_1uWehPP.png"
-    ]
+    ],
+    "time": "2021-10-19"
   },
   {
     "amount": 29,
@@ -2830,8 +2945,9 @@
     "recipientAddresses": [
       "bitcoincash:qzve6ms9hvnhexku8z23rxy66vpty9cnhcpr229hgd"
     ],
-    "blockHeight": "712145",
-    "transactionTimestamp": "1635782842"
+    "blockHeight": 712145,
+    "transactionTimestamp": "1635782842",
+    "time": "2021-11-01"
   },
   {
     "amount": 498.5385,
@@ -2856,8 +2972,9 @@
     "recipientAddresses": [
       "bitcoincash:pp9au95vthmp54yrl2xv5skk29lex9a03ghqpe054l"
     ],
-    "blockHeight": "715520",
-    "transactionTimestamp": "1637773061"
+    "blockHeight": 715520,
+    "transactionTimestamp": "1637773061",
+    "time": "2021-11-24"
   },
   {
     "amount": 117.4,
@@ -2882,8 +2999,9 @@
       "bitcoincash:ppwk8u8cg8cthr3jg0czzays6hsnysykes5ptgsnaq",
       "bitcoincash:qrsrvtc95gg8rrag7dge3jlnfs4j9pe0ughp4hn5dc"
     ],
-    "blockHeight": "718712",
-    "transactionTimestamp": "1639696645"
+    "blockHeight": 718712,
+    "transactionTimestamp": "1639696645",
+    "time": "2021-12-16"
   },
   {
     "amount": 200,
@@ -2902,7 +3020,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/hacksmart-where-the-smart-money-is-a-smartbch-hackathon_running_2022-01-07T1_LhRmzPI.png"
-    ]
+    ],
+    "time": "2022-01-07"
   },
   {
     "amount": 228.13,
@@ -2923,8 +3042,9 @@
     "recipientAddresses": [
       "bitcoincash:qq20x4g0a2junu9mpk6jh6e8tkupvr0sdv9zcyk0fd"
     ],
-    "blockHeight": "725397",
-    "transactionTimestamp": "1643737785"
+    "blockHeight": 725397,
+    "transactionTimestamp": "1643737785",
+    "time": "2022-02-01"
   },
   {
     "amount": 25,
@@ -2946,8 +3066,9 @@
     "recipientAddresses": [
       "bitcoincash:qrqukpnd07v603xr407xj6tuu8402r3d2qfrjvm02d"
     ],
-    "blockHeight": "726304",
-    "transactionTimestamp": "1644267455"
+    "blockHeight": 726304,
+    "transactionTimestamp": "1644267455",
+    "time": "2022-02-07"
   },
   {
     "amount": 11.5,
@@ -2971,8 +3092,9 @@
     "recipientAddresses": [
       "bitcoincash:qqjngl96quygn7h87gyhgq3vf6v7xea4xvxzxm4ge4"
     ],
-    "blockHeight": "725682",
-    "transactionTimestamp": "1643908183"
+    "blockHeight": 725682,
+    "transactionTimestamp": "1643908183",
+    "time": "2022-02-03"
   },
   {
     "amount": 823,
@@ -2994,8 +3116,9 @@
     "recipientAddresses": [
       "bitcoincash:qrfdt722ppy97zerexv5y09gspehepd7ecjqftr9uk"
     ],
-    "blockHeight": "727158",
-    "transactionTimestamp": "1644776896"
+    "blockHeight": 727158,
+    "transactionTimestamp": "1644776896",
+    "time": "2022-02-13"
   },
   {
     "amount": 100,
@@ -3016,8 +3139,9 @@
     "recipientAddresses": [
       "bitcoincash:qz2zrkq2uzevpyxjqekfwedy3umzvzczq50zen62ta"
     ],
-    "blockHeight": "726556",
-    "transactionTimestamp": "1644421883"
+    "blockHeight": 726556,
+    "transactionTimestamp": "1644421883",
+    "time": "2022-02-09"
   },
   {
     "amount": 15.88,
@@ -3044,8 +3168,9 @@
     "recipientAddresses": [
       "bitcoincash:qqs4x99knqvxhxf59avgkw27v4z9zx9uqc7zw86g8j"
     ],
-    "blockHeight": "726935",
-    "transactionTimestamp": "1644650740"
+    "blockHeight": 726935,
+    "transactionTimestamp": "1644650740",
+    "time": "2022-02-12"
   },
   {
     "amount": 248,
@@ -3068,8 +3193,9 @@
     "recipientAddresses": [
       "bitcoincash:qpttp4dvetaww9mqdhnm56vdjvw5wxzqdvczc2477r"
     ],
-    "blockHeight": "731035",
-    "transactionTimestamp": "1647108743"
+    "blockHeight": 731035,
+    "transactionTimestamp": "1647108743",
+    "time": "2022-03-12"
   },
   {
     "amount": 120,
@@ -3090,8 +3216,9 @@
     "recipientAddresses": [
       "bitcoincash:qqflp5r0tr8l29y6h5vknpvhuf6hnyy4uuxrmfmmp5"
     ],
-    "blockHeight": "728366",
-    "transactionTimestamp": "1645496334"
+    "blockHeight": 728366,
+    "transactionTimestamp": "1645496334",
+    "time": "2022-02-22"
   },
   {
     "amount": 2,
@@ -3113,8 +3240,9 @@
     "recipientAddresses": [
       "bitcoincash:qzzc2ctp82wcu7tfmaqy8dfmd3g02ncxwqkrz0csa4"
     ],
-    "blockHeight": "729231",
-    "transactionTimestamp": "1646002472"
+    "blockHeight": 729231,
+    "transactionTimestamp": "1646002472",
+    "time": "2022-02-27"
   },
   {
     "amount": 170,
@@ -3134,7 +3262,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/ryver-venezuela-bitcoin-cash-courier-business-and-education-2022_running_202_pRCMigO.png"
-    ]
+    ],
+    "time": "2022-02-24"
   },
   {
     "amount": 5.5,
@@ -3173,8 +3302,9 @@
     "recipientAddresses": [
       "bitcoincash:qzuhvsf4g0z4wafj9yw3w400y5ukzrz39s8qclvlf7"
     ],
-    "blockHeight": "734608",
-    "transactionTimestamp": "1649226386"
+    "blockHeight": 734608,
+    "transactionTimestamp": "1649226386",
+    "time": "2022-04-06"
   },
   {
     "amount": 75,
@@ -3195,8 +3325,9 @@
     "recipientAddresses": [
       "bitcoincash:qqsrlts5kcz067y8fg8dys4mu57382n09yspy5dcyp"
     ],
-    "blockHeight": "733084",
-    "transactionTimestamp": "1648316318"
+    "blockHeight": 733084,
+    "transactionTimestamp": "1648316318",
+    "time": "2022-03-26"
   },
   {
     "amount": 35,
@@ -3219,7 +3350,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/pumpparrots-an-open-nft-gaming-project-on-smartbch_running_2022-03-29T102501_VXuuEgK.png"
-    ]
+    ],
+    "time": "2022-03-29"
   },
   {
     "amount": 10,
@@ -3241,8 +3373,9 @@
     "recipientAddresses": [
       "bitcoincash:qqhng6m80qnn5lfqgfhly35rxvqqy4gvkgqpajwncq"
     ],
-    "blockHeight": "736925",
-    "transactionTimestamp": "1650620685"
+    "blockHeight": 736925,
+    "transactionTimestamp": "1650620685",
+    "time": "2022-04-22"
   },
   {
     "amount": 37,
@@ -3263,7 +3396,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoincash-powered-startup-ekasuwan-gwari_running_2022-03-29T103842.2221590000.png"
-    ]
+    ],
+    "time": "2022-03-29"
   },
   {
     "amount": 215,
@@ -3285,8 +3419,9 @@
     "recipientAddresses": [
       "bitcoincash:qqflp5r0tr8l29y6h5vknpvhuf6hnyy4uuxrmfmmp5"
     ],
-    "blockHeight": "728366",
-    "transactionTimestamp": "1645496334"
+    "blockHeight": 728366,
+    "transactionTimestamp": "1645496334",
+    "time": "2022-02-22"
   },
   {
     "amount": 3,
@@ -3324,8 +3459,9 @@
     "recipientAddresses": [
       "bitcoincash:pp4wrumk436x6x2uzw8q7anr3jnnfftx4udr5v5hn2"
     ],
-    "blockHeight": "750056",
-    "transactionTimestamp": "1658595917"
+    "blockHeight": 750056,
+    "transactionTimestamp": "1658595917",
+    "time": "2022-07-23"
   },
   {
     "amount": 475,
@@ -3347,8 +3483,9 @@
     "recipientAddresses": [
       "bitcoincash:qzpj9gerxnnakdj2t3jkfprer0mdwfh08q6q3daa7k"
     ],
-    "blockHeight": "741475",
-    "transactionTimestamp": "1653370981"
+    "blockHeight": 741475,
+    "transactionTimestamp": "1653370981",
+    "time": "2022-05-24"
   },
   {
     "amount": 1,
@@ -3369,8 +3506,9 @@
     "recipientAddresses": [
       "bitcoincash:qp23kn6tshlnfq6lqku66ww5qadwph44hgwzhpermn"
     ],
-    "blockHeight": "752723",
-    "transactionTimestamp": "1660171341"
+    "blockHeight": 752723,
+    "transactionTimestamp": "1660171341",
+    "time": "2022-08-10"
   },
   {
     "amount": 728.3,
@@ -3387,7 +3525,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-latam-crossing-borders_success_2022-08-16T090650.9801080000.png"
-    ]
+    ],
+    "time": "2022-08-02"
   },
   {
     "amount": 29,
@@ -3412,8 +3551,9 @@
     "recipientAddresses": [
       "bitcoincash:qp7pysn2ppaaygsp3pmdktz7r78uv4kccywqwt3wms"
     ],
-    "blockHeight": "762696",
-    "transactionTimestamp": "1666115177"
+    "blockHeight": 762696,
+    "transactionTimestamp": "1666115177",
+    "time": "2022-10-18"
   },
   {
     "amount": 422.97261832,
@@ -3433,7 +3573,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/electron-cash-desktop-wallet-user-interface-redesign_running_2022-10-04T1446_9frjt2b.png"
-    ]
+    ],
+    "time": "2022-10-04"
   },
   {
     "amount": 221,
@@ -3469,7 +3610,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/la-eterna-vigilancia-liberty-minded-and-bch-content_running_2022-10-13T16043_btJNqLa.png"
-    ]
+    ],
+    "time": "2022-10-13"
   },
   {
     "amount": 2083,
@@ -3491,7 +3633,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/bringing-the-adult-community-to-web-30-and-bitcoin-cash_running_2022-11-06T1_Mz66xc5.png"
-    ]
+    ],
+    "time": "2022-11-06"
   },
   {
     "amount": 113,
@@ -3512,8 +3655,9 @@
     "recipientAddresses": [
       "bitcoincash:qzn38hdersz0cntkzug9nrtdxf56xwcypccpujnqxp"
     ],
-    "blockHeight": "768522",
-    "transactionTimestamp": "1669551057"
+    "blockHeight": 768522,
+    "transactionTimestamp": "1669551057",
+    "time": "2022-11-27"
   },
   {
     "amount": 118.83488205,
@@ -3532,7 +3676,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/flipstarter-hall-of-famestatics_running_2022-12-14T074652.0097180000.png"
-    ]
+    ],
+    "time": "2022-12-14"
   },
   {
     "amount": 45,
@@ -3556,8 +3701,9 @@
     "recipientAddresses": [
       "bitcoincash:qp35e7qs62xu4hfkz6xz5629sudaplthtg7z8mgm85"
     ],
-    "blockHeight": "770930",
-    "transactionTimestamp": "1671047007"
+    "blockHeight": 770930,
+    "transactionTimestamp": "1671047007",
+    "time": "2022-12-14"
   },
   {
     "amount": 10,
@@ -3600,8 +3746,9 @@
     "recipientAddresses": [
       "bitcoincash:qrjhgc4sy9qds283q7pcvuwyeauxm3tfuqard2hu0t"
     ],
-    "blockHeight": "786028",
-    "transactionTimestamp": "1680108671"
+    "blockHeight": 786028,
+    "transactionTimestamp": "1680108671",
+    "time": "2023-03-29"
   },
   {
     "amount": 26,
@@ -3616,7 +3763,8 @@
     "announcement": [
       "https://twitter.com/HamphernyR/status/1653908697377124357?t=Fk1tADbN2Af-AU1NQeJcKg&s=19"
     ],
-    "archive": []
+    "archive": [],
+    "time": "2023-05-05"
   },
   {
     "amount": 200,
@@ -3641,8 +3789,9 @@
     "recipientAddresses": [
       "bitcoincash:qrwcej0wlw3xk5cn5gjvt3cucthjdy59nuuz726x8y"
     ],
-    "blockHeight": "801283",
-    "transactionTimestamp": "1689064332"
+    "blockHeight": 801283,
+    "transactionTimestamp": "1689064332",
+    "time": "2023-07-11"
   },
   {
     "amount": 75,
@@ -3659,7 +3808,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/panxcafe-building-a-circular-economy-with-bitcoin-cash_running_2023-12-24T07_TT6h4qV.png"
-    ]
+    ],
+    "time": "2023-12-24"
   },
   {
     "amount": 313,
@@ -3700,8 +3850,9 @@
     "recipientAddresses": [
       "bitcoincash:qpj082qycmz8g72zejr7pp7d37rzp908wy7zw86g8j"
     ],
-    "blockHeight": "812848",
-    "transactionTimestamp": "1695974808"
+    "blockHeight": 812848,
+    "transactionTimestamp": "1695974808",
+    "time": "2023-09-29"
   },
   {
     "amount": 126.45523886,
@@ -3718,8 +3869,9 @@
     "recipientAddresses": [
       "bitcoincash:qqf0tfc0hmfgf3kfgq2cmcnvul67mghkmcvq7x3qmx"
     ],
-    "blockHeight": "804333",
-    "transactionTimestamp": "1690903578"
+    "blockHeight": 804333,
+    "transactionTimestamp": "1690903578",
+    "time": "2023-08-01"
   },
   {
     "amount": 75,
@@ -3741,8 +3893,9 @@
     "recipientAddresses": [
       "bitcoincash:qrafnahhm7h9ge9avw9wwyz6m0u86l359uhputp8d7"
     ],
-    "blockHeight": "819681",
-    "transactionTimestamp": "1700154213"
+    "blockHeight": 819681,
+    "transactionTimestamp": "1700154213",
+    "time": "2023-11-16"
   },
   {
     "amount": 80,
@@ -3766,8 +3919,9 @@
     "recipientAddresses": [
       "bitcoincash:qrl2shvypt4wu8vf7md23d5s8jymdhs6lsypmjptp8"
     ],
-    "blockHeight": "821316",
-    "transactionTimestamp": "1701122521"
+    "blockHeight": 821316,
+    "transactionTimestamp": "1701122521",
+    "time": "2023-11-27"
   },
   {
     "amount": 25,
@@ -3790,7 +3944,8 @@
     "archive": [
       "https://archive.is/bxiS9",
       "http://flipbackend.bitcoincash.network/media/screenshots/cryptobakery-the-simple-bch-ecosystem-for-everyone_running_2023-12-22T143442_FG9eF73.png"
-    ]
+    ],
+    "time": "2023-12-22"
   },
   {
     "amount": 22,
@@ -3814,8 +3969,9 @@
     "recipientAddresses": [
       "bitcoincash:qrxtz52z4qmgfgsg77zpcv5y22ycf5rtcvmpt3z5kl"
     ],
-    "blockHeight": "826685",
-    "transactionTimestamp": "1704361679"
+    "blockHeight": 826685,
+    "transactionTimestamp": "1704361679",
+    "time": "2024-01-04"
   },
   {
     "amount": 90,
@@ -3836,8 +3992,9 @@
     "recipientAddresses": [
       "bitcoincash:qpfxhrvqpxqcg58khv6gx857t2xrsk3x8u3qh5qzvw"
     ],
-    "blockHeight": "824228",
-    "transactionTimestamp": "1702936075"
+    "blockHeight": 824228,
+    "transactionTimestamp": "1702936075",
+    "time": "2023-12-18"
   },
   {
     "amount": 418.07,
@@ -3863,8 +4020,9 @@
     "recipientAddresses": [
       "bitcoincash:prv5lrxve8vajh959fydq523d8x9crxkhg0qf9q5tc"
     ],
-    "blockHeight": "827287",
-    "transactionTimestamp": "1704721265"
+    "blockHeight": 827287,
+    "transactionTimestamp": "1704721265",
+    "time": "2024-01-08"
   },
   {
     "amount": 17,
@@ -3889,8 +4047,9 @@
     "recipientAddresses": [
       "bitcoincash:qrm0ejdwgx8kudkwz6jn2s3f6dh6793rzsepmuz6kf"
     ],
-    "blockHeight": "827024",
-    "transactionTimestamp": "1704557101"
+    "blockHeight": 827024,
+    "transactionTimestamp": "1704557101",
+    "time": "2024-01-06"
   },
   {
     "amount": 175,
@@ -3912,8 +4071,9 @@
     "recipientAddresses": [
       "bitcoincash:qzy6u5c466k8s5c8hh72knwnj4p40t9s8c2rvncg64"
     ],
-    "blockHeight": "828168",
-    "transactionTimestamp": "1705255393"
+    "blockHeight": 828168,
+    "transactionTimestamp": "1705255393",
+    "time": "2024-01-14"
   },
   {
     "amount": 50,
@@ -3971,8 +4131,9 @@
     "recipientAddresses": [
       "bitcoincash:qr48rnye0u50pmrp77ks8839qu2jy6ztsyyrzcfxpy"
     ],
-    "blockHeight": "836246",
-    "transactionTimestamp": "1710019398"
+    "blockHeight": 836246,
+    "transactionTimestamp": "1710019398",
+    "time": "2024-03-09"
   },
   {
     "amount": 30,
@@ -3994,8 +4155,9 @@
     "recipientAddresses": [
       "bitcoincash:qplw0d304x9fshz420lkvys2jxup38m9sydpy6wfn0"
     ],
-    "blockHeight": "833904",
-    "transactionTimestamp": "1708656992"
+    "blockHeight": 833904,
+    "transactionTimestamp": "1708656992",
+    "time": "2024-02-23"
   },
   {
     "amount": 60,
@@ -4020,8 +4182,9 @@
     "recipientAddresses": [
       "bitcoincash:qqad5sy4jml3f6vcp246dulsex04xp48wqap5ql30g"
     ],
-    "blockHeight": "839072",
-    "transactionTimestamp": "1711640720"
+    "blockHeight": 839072,
+    "transactionTimestamp": "1711640720",
+    "time": "2024-03-28"
   },
   {
     "amount": 77,
@@ -4061,8 +4224,9 @@
     "recipientAddresses": [
       "bitcoincash:qzh7h99ra77600kv5prz7lyruauf0ryk8c4r4vfydt"
     ],
-    "blockHeight": "836402",
-    "transactionTimestamp": "1710122467"
+    "blockHeight": 836402,
+    "transactionTimestamp": "1710122467",
+    "time": "2024-03-11"
   },
   {
     "amount": 5,
@@ -4086,8 +4250,9 @@
     "recipientAddresses": [
       "bitcoincash:qrkynfe9q420auhfe5g9wxjnlt0keknkq56zg84s74"
     ],
-    "blockHeight": "837375",
-    "transactionTimestamp": "1710696865"
+    "blockHeight": 837375,
+    "transactionTimestamp": "1710696865",
+    "time": "2024-03-17"
   },
   {
     "amount": 12,
@@ -4131,8 +4296,9 @@
       "bitcoincash:qq3gkpasqjhyx9na8p05rrnytll0yj5eaglr5m9p0m",
       "bitcoincash:qqc6337wythp45cxrnzu5r9jm7vj2s8f658pv3sl3e"
     ],
-    "blockHeight": "841658",
-    "transactionTimestamp": "1713375296"
+    "blockHeight": 841658,
+    "transactionTimestamp": "1713375296",
+    "time": "2024-04-17"
   },
   {
     "amount": 38,
@@ -4153,8 +4319,9 @@
     "recipientAddresses": [
       "bitcoincash:qqqymxeqs257rttjgu5uksu7ynvmw09mh5xrmfmmp5"
     ],
-    "blockHeight": "840079",
-    "transactionTimestamp": "1712322421"
+    "blockHeight": 840079,
+    "transactionTimestamp": "1712322421",
+    "time": "2024-04-05"
   },
   {
     "amount": 6,
@@ -4214,8 +4381,9 @@
     "recipientAddresses": [
       "bitcoincash:qzauqey8aw0522de037ww3xxuj7ylvgvgquzhkg48z"
     ],
-    "blockHeight": "841505",
-    "transactionTimestamp": "1713282551"
+    "blockHeight": 841505,
+    "transactionTimestamp": "1713282551",
+    "time": "2024-04-16"
   },
   {
     "amount": 0.9,
@@ -4276,8 +4444,9 @@
     "recipientAddresses": [
       "bitcoincash:qzaxcxwd8n59we5d4267uwgw5284fycvv5gzgsyxzy"
     ],
-    "blockHeight": "843826",
-    "transactionTimestamp": "1714522466"
+    "blockHeight": 843826,
+    "transactionTimestamp": "1714522466",
+    "time": "2024-05-01"
   },
   {
     "amount": 77,
@@ -4317,7 +4486,8 @@
     "archive": [
       "https://archive.is/H5Oyz",
       "http://flipbackend.bitcoincash.network/media/screenshots/enhance-mobazha-user-experience-robust-and-reliability-also-engage-marketing_v4xf9lM.png"
-    ]
+    ],
+    "time": "2024-07-10"
   },
   {
     "amount": 244,
@@ -4337,8 +4507,9 @@
     "recipientAddresses": [
       "bitcoincash:qq2yrk26c6c7cs0a59uhz0fkh4q5tvf0mqpp6ulfgg"
     ],
-    "blockHeight": "845181",
-    "transactionTimestamp": "1715343177"
+    "blockHeight": 845181,
+    "transactionTimestamp": "1715343177",
+    "time": "2024-05-10"
   },
   {
     "amount": 1.98,
@@ -4381,8 +4552,9 @@
     "recipientAddresses": [
       "bitcoincash:qrm66gx59y8c2cnjnts6fkqf7kly8j3dj59qpw7zfw"
     ],
-    "blockHeight": "849007",
-    "transactionTimestamp": "1717664587"
+    "blockHeight": 849007,
+    "transactionTimestamp": "1717664587",
+    "time": "2024-06-06"
   },
   {
     "amount": 32.4,
@@ -4399,7 +4571,8 @@
     ],
     "archive": [
       "https://archive.is/aqvI4"
-    ]
+    ],
+    "time": "2024-05-04"
   },
   {
     "amount": 74.47,
@@ -4421,7 +4594,8 @@
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-faq-building-domain-authority-with-quality-seo-bch-centric-cont_FbzDydA.png",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-faq-building-domain-authority-with-quality-seo-bch-centric-cont_fTT79YC.png",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-faq-building-domain-authority-with-quality-seo-bch-centric-cont_7oQsCNp.png"
-    ]
+    ],
+    "time": "2024-06-21"
   },
   {
     "amount": 18,
@@ -4442,8 +4616,9 @@
     "recipientAddresses": [
       "bitcoincash:qpuyldp92xqg70qvde0t59g7zthe9d9cuvnp6twl5e"
     ],
-    "blockHeight": "852775",
-    "transactionTimestamp": "1719930581"
+    "blockHeight": 852775,
+    "transactionTimestamp": "1719930581",
+    "time": "2024-07-02"
   },
   {
     "amount": 10,
@@ -4462,7 +4637,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-meetups-education-for-economic-prosperity_running_2024-07-03T08_FQtJWAK.png"
-    ]
+    ],
+    "time": "2024-07-03"
   },
   {
     "amount": 3.8,
@@ -4507,8 +4683,9 @@
     "recipientAddresses": [
       "bitcoincash:qrj5c9lncpnpk4mxej2wh7mkwfzvhtukuvhr9pf2da"
     ],
-    "blockHeight": "854401",
-    "transactionTimestamp": "1720906856"
+    "blockHeight": 854401,
+    "transactionTimestamp": "1720906856",
+    "time": "2024-07-13"
   },
   {
     "amount": 10,
@@ -4534,8 +4711,9 @@
     "recipientAddresses": [
       "bitcoincash:prg9r9v8xggzhp0w446ssrcxm2trvflx2clpydll07"
     ],
-    "blockHeight": "857481",
-    "transactionTimestamp": "1722726692"
+    "blockHeight": 857481,
+    "transactionTimestamp": "1722726692",
+    "time": "2024-08-03"
   },
   {
     "amount": 25,
@@ -4553,7 +4731,8 @@
     "archive": [
       "https://archive.is/0vLUt",
       "http://flipbackend.bitcoincash.network/media/screenshots/flipstarter-continuing-to-create-bitcoin-cash-educational-videos-in-hausa-fo_HHvPRIk.png"
-    ]
+    ],
+    "time": "2024-05-06"
   },
   {
     "amount": 1.99,
@@ -4578,8 +4757,9 @@
     "recipientAddresses": [
       "bitcoincash:qzjgga97x7v4tcyv9gy5c5p8ysrm6xf5eyjpa9l9y3"
     ],
-    "blockHeight": "859836",
-    "transactionTimestamp": "1724174095"
+    "blockHeight": 859836,
+    "transactionTimestamp": "1724174095",
+    "time": "2024-08-20"
   },
   {
     "amount": 1.5,
@@ -4601,8 +4781,9 @@
     "recipientAddresses": [
       "bitcoincash:qqyhuv7z66t072f8ulncefcvsp49jgjuqqfz074ujv"
     ],
-    "blockHeight": "860712",
-    "transactionTimestamp": "1724704955"
+    "blockHeight": 860712,
+    "transactionTimestamp": "1724704955",
+    "time": "2024-08-26"
   },
   {
     "amount": 0.0000024,
@@ -4644,8 +4825,9 @@
     "recipientAddresses": [
       "bitcoincash:prvphrxn47jtjwzw4zradz9q7smf9hl74qmz0fy2wa"
     ],
-    "blockHeight": "869718",
-    "transactionTimestamp": "1730101699"
+    "blockHeight": 869718,
+    "transactionTimestamp": "1730101699",
+    "time": "2024-10-28"
   },
   {
     "amount": 0.95,
@@ -4668,8 +4850,9 @@
     "recipientAddresses": [
       "bitcoincash:qrwdj8rycp7ms6fmv6ncd75vdgh7pja0ag7q73qk8h"
     ],
-    "blockHeight": "864743",
-    "transactionTimestamp": "1727115233"
+    "blockHeight": 864743,
+    "transactionTimestamp": "1727115233",
+    "time": "2024-09-23"
   },
   {
     "amount": 140,
@@ -4692,8 +4875,9 @@
     "recipientAddresses": [
       "bitcoincash:qz6uftqp7dyc4ca9e94d7wsle06u0z2ccc3rnvxu5v"
     ],
-    "blockHeight": "867133",
-    "transactionTimestamp": "1728558193"
+    "blockHeight": 867133,
+    "transactionTimestamp": "1728558193",
+    "time": "2024-10-10"
   },
   {
     "amount": 140,
@@ -4716,8 +4900,9 @@
     "recipientAddresses": [
       "bitcoincash:qqrkedd3f2rgefk7k5h82q0wk5ryepaq8sapaudz0w"
     ],
-    "blockHeight": "868742",
-    "transactionTimestamp": "1729516299"
+    "blockHeight": 868742,
+    "transactionTimestamp": "1729516299",
+    "time": "2024-10-21"
   },
   {
     "amount": 58.7920613,
@@ -4740,8 +4925,9 @@
     "recipientAddresses": [
       "bitcoincash:qp6pkkwpq6esz5fszmnk95uee0zyqjz7tsyqxq0cex"
     ],
-    "blockHeight": "870281",
-    "transactionTimestamp": "1730444603"
+    "blockHeight": 870281,
+    "transactionTimestamp": "1730444603",
+    "time": "2024-11-01"
   },
   {
     "amount": 2.25,
@@ -4763,8 +4949,9 @@
     "recipientAddresses": [
       "bitcoincash:qpxzfkgqalfn7yewp85m3w8n9376nz7t4gzraf5rcn"
     ],
-    "blockHeight": "872830",
-    "transactionTimestamp": "1731967518"
+    "blockHeight": 872830,
+    "transactionTimestamp": "1731967518",
+    "time": "2024-11-18"
   },
   {
     "amount": 30,
@@ -4783,7 +4970,8 @@
     "archive": [
       "https://archive.is/BoP1w",
       "http://flipbackend.bitcoincash.network/media/screenshots/an-electron-cash-plugin-for-future-bitcoin-cash-fbch_expired_2024-12-24T1127_vKg8N8x.png"
-    ]
+    ],
+    "time": "2024-12-24"
   },
   {
     "amount": 11.28,
@@ -4808,8 +4996,9 @@
     "recipientAddresses": [
       "bitcoincash:qpd2yduu7fl8qdvelzd3mnz3lxy7nlwzqy3q7gj3vg"
     ],
-    "blockHeight": "877437",
-    "transactionTimestamp": "1734734234"
+    "blockHeight": 877437,
+    "transactionTimestamp": "1734734234",
+    "time": "2024-12-20"
   },
   {
     "amount": 19.3,
@@ -4831,7 +5020,8 @@
       "http://flipbackend.bitcoincash.network/media/screenshots/criptocatia-podcast_running_2025-01-14T043802.6189940000.png",
       "http://flipbackend.bitcoincash.network/media/screenshots/criptocatia-podcast_expired_2025-01-29T042138.4028380000.png",
       "http://flipbackend.bitcoincash.network/media/screenshots/criptocatia-podcast_expired_2025-01-29T042243.0140980000.png"
-    ]
+    ],
+    "time": "2025-01-14"
   },
   {
     "amount": 2.51,
@@ -4851,8 +5041,9 @@
     "recipientAddresses": [
       "bitcoincash:qrfv8g2a0pugdpg6se8280wtz4smgx43n5xrmfmmp5"
     ],
-    "blockHeight": "879035",
-    "transactionTimestamp": "1735683878"
+    "blockHeight": 879035,
+    "transactionTimestamp": "1735683878",
+    "time": "2024-12-31"
   },
   {
     "amount": 0.85,
@@ -4873,8 +5064,9 @@
     "recipientAddresses": [
       "bitcoincash:qr50507u02q4ace5zvpgh7sezsmr4zr8tyzraf5rcn"
     ],
-    "blockHeight": "881351",
-    "transactionTimestamp": "1737069379"
+    "blockHeight": 881351,
+    "transactionTimestamp": "1737069379",
+    "time": "2025-01-16"
   },
   {
     "amount": 6.5,
@@ -4894,8 +5086,9 @@
     "recipientAddresses": [
       "bitcoincash:qqpgddz08259natqwwvk6h8z0qhmnz6x0u2zcaygzj"
     ],
-    "blockHeight": "886796",
-    "transactionTimestamp": "1740427464"
+    "blockHeight": 886796,
+    "transactionTimestamp": "1740427464",
+    "time": "2025-02-24"
   },
   {
     "amount": 6.55,
@@ -4916,8 +5109,9 @@
     "recipientAddresses": [
       "bitcoincash:qz60wnmsgnev7jt5383vm5453lexkul6kuxrmfmmp5"
     ],
-    "blockHeight": "890999",
-    "transactionTimestamp": "1742904147"
+    "blockHeight": 890999,
+    "transactionTimestamp": "1742904147",
+    "time": "2025-03-25"
   },
   {
     "amount": 1.58,
@@ -4940,8 +5134,9 @@
     "recipientAddresses": [
       "bitcoincash:qq9gv69gxdca32xlevr23maw4vazfp38n5ezlyyywt"
     ],
-    "blockHeight": "894157",
-    "transactionTimestamp": "1744777284"
+    "blockHeight": 894157,
+    "transactionTimestamp": "1744777284",
+    "time": "2025-04-16"
   },
   {
     "amount": 30,
@@ -4959,7 +5154,8 @@
     "archive": [
       "https://archive.is/WLxlK",
       "http://flipbackend.bitcoincash.network/media/screenshots/electroncashde-flipstarter_running_2025-05-16T073646.6155610000.png"
-    ]
+    ],
+    "time": "2025-05-16"
   },
   {
     "amount": 4.66,
@@ -4978,6 +5174,7 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/cross-linking-project-for-bch-websiteswebring_success_2025-09-10T060522.9984700000.png"
-    ]
+    ],
+    "time": "2026-01-06"
   }
 ]
