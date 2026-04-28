@@ -25,15 +25,21 @@ export default function OrphanTriagePage() {
   const linkedIds = new Set<string>()
   for (const p of projects) for (const id of p.campaigns) linkedIds.add(id)
 
-  // Orphan funded campaigns — funded but unlinked
+  // Orphan funded campaigns — funded but unlinked. Includes campaigns marked
+  // `delivered: 'no'` since they have no project linkage; show them with a
+  // badge so they're not re-curated. Excludes campaigns with `projectSlug`
+  // overrides (those are linked via the resolver and aren't orphans).
   const orphanFunded = campaigns
     .filter(c => c.status === 'success' && !linkedIds.has(c.id))
     .sort((a, b) => b.amount - a.amount)
 
-  // Top funded unlinked: most likely to need a registry entry
-  const topOrphans = orphanFunded.slice(0, 50)
+  const orphanUncurated = orphanFunded.filter(c => c.delivered == null)
+  const orphanCurated = orphanFunded.filter(c => c.delivered != null)
 
-  // Funded campaigns already explicitly overridden — already-curated set
+  // Top funded uncurated orphans: most likely to need a registry entry
+  const topOrphans = orphanUncurated.slice(0, 50)
+
+  // All overrides (linked + delivered) — already-curated set, shown at bottom
   const overridden = campaigns.filter(c => c.delivered != null || c.overrideProjectSlug != null)
 
   // Per-platform breakdown
@@ -41,7 +47,7 @@ export default function OrphanTriagePage() {
     flipstarter: orphanFunded.filter(c => c.platform === 'flipstarter').length,
     fundme: orphanFunded.filter(c => c.platform === 'fundme').length,
   }
-  const totalBchOrphan = orphanFunded.reduce((s, c) => s + c.amount, 0)
+  const totalBchOrphan = orphanUncurated.reduce((s, c) => s + c.amount, 0)
 
   return (
     <div className="min-h-screen ds-fade-in">
@@ -73,15 +79,16 @@ export default function OrphanTriagePage() {
 
       <main className="container mx-auto px-6 py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-          <StatTile label="orphan funded" value={orphanFunded.length} color="#00FF88" />
-          <StatTile label="orphan flipstarter" value={byPlatform.flipstarter} color="#00D4FF" />
-          <StatTile label="orphan fundme" value={byPlatform.fundme} color="#E8A838" />
-          <StatTile label="overrides set" value={overridden.length} color="#90A8A8" />
+          <StatTile label="uncurated" value={orphanUncurated.length} color="#FF8C00" />
+          <StatTile label="curated (delivered:no)" value={orphanCurated.length} color="#FF4455" />
+          <StatTile label="overrides total" value={overridden.length} color="#00E0A0" />
+          <StatTile label="uncurated bch" value={Math.round(totalBchOrphan)} color="#00FF88" />
         </div>
 
         <div className="text-[10px] font-mono uppercase tracking-[0.15em] mb-6" style={{ color: '#5A8A7A' }}>
-          {orphanFunded.length} funded campaigns ({totalBchOrphan.toFixed(0)} BCH) are not linked to any project.
-          Showing top {topOrphans.length} by amount.
+          {orphanUncurated.length} uncurated funded campaigns ({totalBchOrphan.toFixed(0)} BCH) need attention.
+          {orphanCurated.length > 0 && ` ${orphanCurated.length} already flagged delivered:no (hidden from this list).`}
+          {' '}Showing top {topOrphans.length} by amount.
         </div>
 
         <p className="text-[11px] mb-4" style={{ color: '#90A8A8' }}>
@@ -128,20 +135,34 @@ export default function OrphanTriagePage() {
             <h2 className="text-sm font-mono uppercase tracking-[0.2em] text-[#00E0A0] mb-3" style={{ textShadow: '0 0 10px rgba(0,224,160,0.3)' }}>
               Active Overrides ({overridden.length})
             </h2>
+            <div className="text-[10px] font-mono uppercase tracking-[0.15em] mb-3" style={{ color: '#5A8A7A' }}>
+              Already-curated campaigns from data/campaign-overrides.json. Skip these when triaging.
+            </div>
             <div className="space-y-1.5">
-              {overridden.map(c => (
-                <div key={c.id} className="grid items-center gap-3 px-3 py-2" style={{ gridTemplateColumns: '8rem 2fr 1fr 1fr', background: 'rgba(0,180,140,0.03)', border: '1px solid rgba(232,168,56,0.2)', borderRadius: '2px' }}>
-                  <code className="text-[10px] font-mono" style={{ color: '#00E0A0' }}>{c.id}</code>
-                  <Link href={`/campaigns/${c.id}`} className="text-[12px] text-[#E8ECF0] hover:text-[#00FF88] truncate">
-                    {c.title}
-                  </Link>
-                  <span className="text-[10px] font-mono" style={{ color: c.delivered === 'no' ? '#FF4455' : c.delivered === 'yes' ? '#00FF88' : '#90A8A8' }}>
-                    {c.delivered != null ? `delivered: ${c.delivered}` : ''}
-                    {c.overrideProjectSlug ? `→ ${c.overrideProjectSlug}` : ''}
-                  </span>
-                  <span className="text-[10px]" style={{ color: '#90A8A8' }}>{c.overrideNote || ''}</span>
-                </div>
-              ))}
+              {overridden.map(c => {
+                const isFailed = c.delivered === 'no'
+                const accentColor = isFailed ? '#FF4455' : '#00FF88'
+                const tag = isFailed ? 'NOT DELIVERED' : `→ ${c.overrideProjectSlug}`
+                return (
+                  <div key={c.id} className="grid items-center gap-3 px-3 py-2" style={{
+                    gridTemplateColumns: '8rem 2fr 9rem 5rem 5rem 1fr',
+                    background: isFailed ? 'rgba(255,68,85,0.04)' : 'rgba(0,255,136,0.04)',
+                    border: `1px solid ${isFailed ? 'rgba(255,68,85,0.25)' : 'rgba(0,255,136,0.2)'}`,
+                    borderRadius: '2px',
+                  }}>
+                    <code className="text-[10px] font-mono" style={{ color: '#00E0A0' }}>{c.id}</code>
+                    <Link href={`/campaigns/${c.id}`} className="text-[12px] text-[#E8ECF0] hover:text-[#00FF88] truncate">
+                      {c.title}
+                    </Link>
+                    <span className="text-[10px] font-mono uppercase tracking-[0.1em]" style={{ color: accentColor }}>
+                      {tag}
+                    </span>
+                    <span className="text-[10px] font-mono" style={{ color: '#90A8A8' }}>{formatDate(c.time)}</span>
+                    <span className="font-mono text-[11px]" style={{ color: accentColor }}>{c.amount.toFixed(1)} BCH</span>
+                    <span className="text-[10px] truncate" style={{ color: '#90A8A8' }}>{c.overrideNote || ''}</span>
+                  </div>
+                )
+              })}
             </div>
           </>
         )}
