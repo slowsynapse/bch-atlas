@@ -18,7 +18,7 @@ export interface NodeFilters {
 // background-fit:contain rectangle without clipping. Padded viewBox (-15 to 115)
 // keeps stroke ends and crack lines from being clipped by the node's bounds at
 // large sizes.
-const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -15 130 130" preserveAspectRatio="xMidYMid meet">
+const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 112 112" preserveAspectRatio="xMidYMid meet">
   <defs>
     <clipPath id="left-half">
       <path d="M0,0 L47,0 L44,38 L50,50 L43,65 L48,100 L0,100 Z"/>
@@ -43,7 +43,7 @@ const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg x
 // to make "took the BCH and never shipped" visually obvious. Padded viewBox
 // (-14 to 110) prevents debris and motion streaks from being clipped at the
 // node's bounds at large sizes.
-const EXPLODING_PLANET_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -14 124 124" preserveAspectRatio="xMidYMid meet">
+const EXPLODING_PLANET_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 108 108" preserveAspectRatio="xMidYMid meet">
   <defs>
     <radialGradient id="explosionCore" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#FFE066" stop-opacity="0.95"/>
