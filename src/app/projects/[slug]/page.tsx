@@ -6,7 +6,7 @@ import { getResolvedProjectBySlug, getProjects } from '@/lib/data/project-resolv
 const STATUS_META: Record<string, { color: string; label: string; bg: string; icon: string }> = {
   active: { color: '#00FF88', label: 'Active', bg: 'rgba(0,255,136,0.08)', icon: '/iss-station.svg' },
   dormant: { color: '#E8A838', label: 'Dormant', bg: 'rgba(232,168,56,0.08)', icon: '/iss-station-dormant.svg' },
-  unknown: { color: '#E8A838', label: 'Unknown', bg: 'rgba(232,168,56,0.08)', icon: '/iss-station-dormant.svg' },
+  unknown: { color: '#5A8A7A', label: 'Unknown', bg: 'rgba(90,138,122,0.08)', icon: '/iss-station-dormant.svg' },
   dead: { color: '#FF4455', label: 'Dead', bg: 'rgba(255,68,85,0.08)', icon: '/iss-station-dead.svg' },
 }
 

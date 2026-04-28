@@ -6,7 +6,7 @@ import type { Continent } from '@/types/project'
 const STATUS_META: Record<string, { color: string; label: string; icon: string }> = {
   active: { color: '#00FF88', label: 'Active', icon: '/iss-station.svg' },
   dormant: { color: '#E8A838', label: 'Dormant', icon: '/iss-station-dormant.svg' },
-  unknown: { color: '#E8A838', label: 'Unknown', icon: '/iss-station-dormant.svg' },
+  unknown: { color: '#5A8A7A', label: 'Unknown', icon: '/iss-station-dormant.svg' },
   dead: { color: '#FF4455', label: 'Dead', icon: '/iss-station-dead.svg' },
 }
 
