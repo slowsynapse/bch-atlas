@@ -36,6 +36,11 @@ export interface Campaign {
   usdValueAtTime?: number           // Goal in USD at historical BCH price
   priceSource?: 'hyperliquid' | 'coingecko' | 'binance' | 'estimated'
   priceDate?: string                // ISO date used for price lookup
+
+  // Manual overrides (data/campaign-overrides.json)
+  delivered?: 'yes' | 'no' | null   // null/undefined = inherit from project status
+  overrideProjectSlug?: string | null
+  overrideNote?: string | null
 }
 
 export interface Entity {

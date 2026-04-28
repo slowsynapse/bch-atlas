@@ -95,6 +95,18 @@ export default function ProjectsBrowsePage() {
                 Browse GitHub
               </Link>
               <Link
+                href="/projects/orphans"
+                className="px-3 py-2 text-[11px] font-mono uppercase tracking-[0.12em] transition-all"
+                style={{
+                  background: 'rgba(0,180,140,0.06)',
+                  border: '1px solid rgba(232,168,56,0.3)',
+                  color: '#E8A838',
+                  borderRadius: '2px',
+                }}
+              >
+                Triage
+              </Link>
+              <Link
                 href="/campaigns"
                 className="px-3 py-2 text-[11px] font-mono uppercase tracking-[0.12em] transition-all"
                 style={{

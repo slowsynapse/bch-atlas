@@ -1,0 +1,15 @@
+{
+  "_schema": {
+    "purpose": "Manual overrides for campaign-level data that can't be derived. Add entries by campaign ID.",
+    "fields": {
+      "delivered": "'yes' | 'no' | null — did the campaign actually ship what it promised? null defaults to inheriting project status.",
+      "projectSlug": "string | null — manually link this campaign to a project when text matchers can't find it. Overrides the resolver.",
+      "note": "string — short reason. Shows up in tooltips."
+    },
+    "examples": {
+      "deadbeef-cafe-1234": { "delivered": "no", "note": "took the BCH, never shipped" },
+      "abc12345-def6": { "projectSlug": "selene-wallet", "note": "title doesn't mention Selene but the recipient address matches" }
+    }
+  },
+  "overrides": {}
+}

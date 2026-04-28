@@ -1,5 +1,6 @@
 import flipstartersWithAddresses from '../../../data/flipstarters-with-addresses.json'
 import fundmeData from '../../../data/fundme.json'
+import campaignOverridesData from '../../../data/campaign-overrides.json'
 import type { Campaign, FlipstarterRaw, Entity } from '@/types/campaign'
 import type { ResolvedProject } from '@/types/project'
 import { extractEntities } from '../parsers/entity-extractor'
@@ -7,6 +8,15 @@ import { buildEntityMap } from './entity-resolver'
 import { mapToContinent } from './continent-mapper'
 import { getProjects, getResolvedProjects, getResolvedProjectBySlug, getProjectsForCampaign as _getProjectsForCampaign } from './project-resolver'
 import { createHash } from 'crypto'
+
+interface CampaignOverride {
+  delivered?: 'yes' | 'no' | null
+  projectSlug?: string | null
+  note?: string | null
+}
+
+const overrides: Record<string, CampaignOverride> =
+  (campaignOverridesData as { overrides?: Record<string, CampaignOverride> }).overrides || {}
 
 // Transform raw Flipstarter data to our schema
 function transformFlipstarterCampaign(raw: any): Campaign {
@@ -63,7 +73,17 @@ export function getCampaigns(): Campaign[] {
     continent: c.continent || mapToContinent(c),
   }))
 
-  return [...flipstarters, ...fundme]
+  const all = [...flipstarters, ...fundme]
+  return all.map(c => {
+    const o = overrides[c.id]
+    if (!o) return c
+    return {
+      ...c,
+      delivered: o.delivered ?? c.delivered ?? null,
+      overrideProjectSlug: o.projectSlug ?? c.overrideProjectSlug ?? null,
+      overrideNote: o.note ?? c.overrideNote ?? null,
+    }
+  })
 }
 
 export function getCampaignById(id: string): Campaign | undefined {

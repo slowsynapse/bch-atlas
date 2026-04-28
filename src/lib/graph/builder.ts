@@ -29,6 +29,12 @@ export function buildGraph(
   // Campaign nodes
   campaigns.forEach(campaign => {
     const projectInfo = campaignProjectStatus.get(campaign.id)
+    // Effective status drives the visual: explicit delivered:'no' override
+    // beats project-status inheritance, which beats default.
+    let effectiveStatus = projectInfo?.status ?? null
+    if (campaign.delivered === 'no') effectiveStatus = 'dead'
+    else if (campaign.delivered === 'yes') effectiveStatus = 'active'
+
     nodes.push({
       data: {
         id: campaign.id,
@@ -43,9 +49,11 @@ export function buildGraph(
           time: campaign.time,
           transactionTimestamp: (campaign as { transactionTimestamp?: string }).transactionTimestamp,
           hasAddresses: !!campaign.recipientAddresses && campaign.recipientAddresses.length > 0,
-          projectStatus: projectInfo?.status ?? null,
+          projectStatus: effectiveStatus,
           projectSlug: projectInfo?.slug ?? null,
           projectName: projectInfo?.name ?? null,
+          delivered: campaign.delivered ?? null,
+          overrideNote: campaign.overrideNote ?? null,
         }
       }
     })

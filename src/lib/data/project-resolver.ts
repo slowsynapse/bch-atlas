@@ -41,10 +41,20 @@ function resolveProject(project: Project, campaigns: Campaign[]): ResolvedProjec
     matchedIds.add(id)
   }
 
+  // Manual overrides — campaign-overrides.json lets the user pin a campaign
+  // to a project when text matching can't find it.
+  for (const campaign of campaigns) {
+    if (campaign.overrideProjectSlug === project.slug) {
+      matchedIds.add(campaign.id)
+    }
+  }
+
   // Text matching via campaignMatchers — match against title + short description
   // Excludes URL (every flipstarter has "flipstarter" in URL → false positives)
   for (const campaign of campaigns) {
     if (matchedIds.has(campaign.id)) continue
+    // If the campaign was explicitly linked to a different project, skip
+    if (campaign.overrideProjectSlug && campaign.overrideProjectSlug !== project.slug) continue
 
     const text = `${campaign.title || ''} ${(campaign.description || '').slice(0, 300)}`.toLowerCase()
 
