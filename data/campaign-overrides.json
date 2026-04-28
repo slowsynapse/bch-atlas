@@ -18,6 +18,8 @@
     "fc353ccb0c26a44f": { "delivered": "no", "note": "Smart Bitcoin Cash — funded but did not deliver" },
     "8fa3a68c041d0cbb": { "delivered": "no", "note": "2022 International BCH Marketing & Content — funded but did not deliver" },
     "7ae8d215a9c0857b": { "delivered": "no", "note": "500k YouTube Channel BCH Series — funded but did not deliver" },
-    "50263de63f29d465": { "delivered": "no", "note": "Breaking Bitcoin — funded 299.5 BCH but did not deliver" }
+    "50263de63f29d465": { "delivered": "no", "note": "Breaking Bitcoin — funded 299.5 BCH but did not deliver" },
+    "39aab85b5fea0f4d": { "projectSlug": "bch-1-hackcelerator", "note": "BCH‑1 Phase 2 Booster Plan — non-breaking hyphen in title broke matcher" },
+    "d23015a7a280112d": { "projectSlug": "bch-1-hackcelerator", "note": "BCH‑1 Phase 2 Booster Plan (expired round) — non-breaking hyphen in title broke matcher" }
   }
 }

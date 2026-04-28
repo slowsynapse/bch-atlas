@@ -4441,5 +4441,58 @@
     "websiteUp": null,
     "lastContentChange": null,
     "waybackCheckedAt": null
+  },
+  {
+    "slug": "issues-cash",
+    "name": "issues.cash",
+    "aliases": [
+      "issues.cash",
+      "issues cash"
+    ],
+    "description": "Bounty platform for BCH-related GitHub issues. Active and recently funded.",
+    "continent": "middleware",
+    "github": null,
+    "website": "https://issues.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "issues.cash",
+      "issues cash"
+    ],
+    "status": "active",
+    "statusCheckedAt": null,
+    "statusDetail": "manually flagged active — recently funded and live per user",
+    "lastGithubCommit": null,
+    "websiteUp": true,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
+  },
+  {
+    "slug": "satochip",
+    "name": "Satochip",
+    "aliases": [
+      "satochip",
+      "satochip.io"
+    ],
+    "description": "Hardware wallet that once supported BCH. Site is still online for other coins, but the BCH integration is no longer maintained.",
+    "continent": "apps",
+    "github": null,
+    "website": "https://satochip.io",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "satochip"
+    ],
+    "status": "dead",
+    "statusCheckedAt": null,
+    "statusDetail": "manually flagged dead — campaign delivered but BCH support no longer active",
+    "lastGithubCommit": null,
+    "websiteUp": true,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
   }
 ]
