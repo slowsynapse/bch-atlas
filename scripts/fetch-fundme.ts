@@ -53,24 +53,27 @@ function stripHtml(html: string): string {
     .trim()
 }
 
-function mapStatus(raw: FundMeRaw, raised: number, amount: number): Campaign['status'] {
-  // FundMe API status fields are unreliable for our purposes:
-  //   - isComplete: true means the creator formally claimed funds via FundMe's UI.
-  //     Many real successes have isComplete: false because the creator never
-  //     clicked "claim" but still received the pledged BCH on-chain.
-  //   - status: 'archived'/'stopped' can mean either "campaign succeeded and was
-  //     wrapped up" OR "campaign failed". The API does not distinguish.
-  //
-  // Heuristic: if there are any pledges, treat as success. This is consistent
-  // with our use of amount=raised (since FundMe exposes no goal). True failures
-  // appear as zero-pledge campaigns. False positives are rare in practice.
-  // Future work: cross-reference with the on-chain CashStarter contract to
-  // determine whether the funds were actually claimed by the recipient.
+function mapStatus(raw: FundMeRaw, raised: number): Campaign['status'] {
+  // The API's `status` is authoritative for live state — check it FIRST.
+  // A campaign with status='active' is still accepting pledges, even if it
+  // already has pledges on it. Previously this function checked raised>=amount
+  // before status, but our `amount = raised` heuristic meant any pledged
+  // campaign auto-flipped to 'success', erasing 'running' state on refresh.
+  const apiStatus = (raw.status || '').toLowerCase()
+  if (apiStatus === 'active' || apiStatus === 'running' || apiStatus === 'open') return 'running'
+
+  // isComplete = creator formally claimed funds via FundMe UI. Reliable success.
   if (raw.isComplete) return 'success'
-  if (raised >= amount && amount > 0) return 'success'
-  const status = (raw.status || '').toLowerCase()
-  if (status === 'stopped' || status === 'canceled' || status === 'cancelled' || status === 'archived') return 'expired'
-  if (status === 'active' || status === 'running' || status === 'open') return 'running'
+
+  // Stopped/archived without isComplete: distinguish success from failure by
+  // whether anyone pledged. Pledged-and-stopped almost always means the
+  // creator wrapped up after receiving funds on-chain.
+  if (apiStatus === 'stopped' || apiStatus === 'canceled' || apiStatus === 'cancelled' || apiStatus === 'archived') {
+    return raised > 0 ? 'success' : 'expired'
+  }
+
+  // Fallback for campaigns with no API status: treat any pledges as success.
+  if (raised > 0) return 'success'
   return 'unknown'
 }
 
@@ -85,7 +88,7 @@ function transformCampaign(raw: FundMeRaw, apiId: string): Campaign {
   const time = new Date().toISOString().split('T')[0]
   const raised = sumPledges(raw.pledges)
   const amount = raised > 0 ? raised : 0
-  const status = mapStatus(raw, raised, amount)
+  const status = mapStatus(raw, raised)
 
   const strippedDesc = raw.description ? stripHtml(raw.description) : undefined
   const campaign: Campaign = {
@@ -134,32 +137,81 @@ async function fetchCampaign(id: string): Promise<FundMeRaw | null> {
 }
 
 async function main() {
+  // Load existing campaigns so we can preserve immutable fields (id, time,
+  // transactionTimestamp, blockHeight, goal/goalSource) on re-runs. The id is
+  // derived from url+title+time, so any drift in `time` would change the id
+  // and break campaign URLs and the manual overrides in
+  // data/campaign-overrides.json.
+  let existing: Record<string, Campaign & Record<string, unknown>> = {}
+  try {
+    const raw = JSON.parse(fs.readFileSync('data/fundme.json', 'utf-8')) as (Campaign & Record<string, unknown>)[]
+    existing = Object.fromEntries(raw.map(c => [c.url, c]))
+    console.log(`Loaded ${raw.length} existing campaigns from data/fundme.json`)
+  } catch {
+    console.log('No existing data/fundme.json — starting fresh')
+  }
+
   const ids = await fetchCampaignList()
 
   const campaigns: Campaign[] = []
   let failed = 0
+  let added = 0
+  let statusChanges = 0
 
   for (let i = 0; i < ids.length; i++) {
     const id = ids[i]
     console.log(`Fetching campaign ${i + 1}/${ids.length}: ${id}`)
 
     const raw = await fetchCampaign(id)
-    if (raw) {
-      // Strip base64 image data
-      delete raw.logo
-      delete raw.banner
-      campaigns.push(transformCampaign(raw, id))
-    } else {
+    if (!raw) {
       failed++
+      // Preserve existing entry on transient fetch failures
+      const url = `https://fundme.cash/?id=${id}`
+      const prior = existing[url]
+      if (prior) {
+        campaigns.push(prior)
+        console.log(`  ! fetch failed, kept existing entry`)
+      }
+      if (i < ids.length - 1) await delay(500)
+      continue
     }
 
-    // Be polite — 500ms delay between requests
-    if (i < ids.length - 1) {
-      await delay(500)
+    delete raw.logo
+    delete raw.banner
+
+    const fresh = transformCampaign(raw, id)
+    const url = fresh.url
+    const prior = existing[url]
+
+    if (prior) {
+      // Preserve identity-defining and historical fields. Only overlay mutable
+      // fields (status, raised, amount, description) from the fresh fetch.
+      const merged: Campaign & Record<string, unknown> = {
+        ...prior,
+        title: fresh.title,
+        description: fresh.description,
+        continent: fresh.continent,
+        amount: fresh.amount,
+        raised: fresh.raised,
+        status: fresh.status,
+        recipientAddresses: fresh.recipientAddresses,
+        // id, time, transactionTimestamp, blockHeight, goal, goalSource preserved
+      }
+      if (prior.status !== fresh.status) {
+        console.log(`  status: ${prior.status} → ${fresh.status}`)
+        statusChanges++
+      }
+      campaigns.push(merged)
+    } else {
+      console.log(`  + new campaign`)
+      campaigns.push(fresh)
+      added++
     }
+
+    if (i < ids.length - 1) await delay(500)
   }
 
-  console.log(`\nFetched ${campaigns.length} campaigns (${failed} failed)`)
+  console.log(`\nFetched ${campaigns.length} campaigns (${added} new, ${statusChanges} status changes, ${failed} failed)`)
 
   fs.writeFileSync('data/fundme.json', JSON.stringify(campaigns, null, 2))
   console.log('Saved to data/fundme.json')
