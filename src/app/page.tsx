@@ -496,12 +496,20 @@ export default function AtlasPage() {
                   <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded · project alive</span>
                 </div>
                 <div className="flex items-center gap-2 mt-1">
+                  <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#FF8C00', boxShadow: '0 0 6px rgba(255,140,0,0.5)' }} />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded · unlinked (default)</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
                   <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#E8A838', boxShadow: '0 0 6px rgba(232,168,56,0.5)' }} />
                   <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded · project dormant</span>
                 </div>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="w-3 h-3 rounded-full inline-block" style={{ background: '#FF4455', boxShadow: '0 0 6px rgba(255,68,85,0.5)' }} />
-                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded · project dead</span>
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded · project died over time</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <img src="/planet-exploding.svg" alt="" className="w-4 h-4" />
+                  <span className="text-[10px]" style={{ color: '#C0D0D0' }}>Funded · never delivered</span>
                 </div>
                 <div className="flex items-center gap-2 mt-1">
                   <svg className="w-3 h-3" viewBox="0 0 16 16" fill="none">

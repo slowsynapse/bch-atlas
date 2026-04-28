@@ -3446,9 +3446,9 @@
       "satoshis-angels",
       "satoshi's angels"
     ],
-    "status": "dormant",
+    "status": "dead",
     "statusCheckedAt": null,
-    "statusDetail": "manually marked dormant — campaigns delivered but project went quiet",
+    "statusDetail": "manually marked dead — campaigns delivered but project ultimately died",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2026-03-13T23:02:10Z",

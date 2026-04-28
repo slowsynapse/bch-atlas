@@ -35,6 +35,43 @@ const CRACKED_MOON_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg x
   <polyline points="82,72 68,66 57,65" fill="none" stroke="#FF4455" stroke-width="1.5" stroke-linecap="round"/>
 </svg>`)
 
+// Exploding planet SVG for funded-but-didn't-deliver campaigns — three large
+// fragments flying outward from a bright explosion core. Distinct from the
+// cracked-moon (campaign-failed) and solid red planet (project-died-later)
+// to make "took the BCH and never shipped" visually obvious.
+const EXPLODING_PLANET_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="explosionCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE066" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#FF7A4C" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#FF4455" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FF4455" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="planetBody" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FF6677"/>
+      <stop offset="100%" stop-color="#992233"/>
+    </radialGradient>
+  </defs>
+  <circle cx="48" cy="48" r="42" fill="url(#explosionCore)"/>
+  <path d="M 30 22 L 44 26 L 40 38 L 32 36 L 22 30 Z" fill="url(#planetBody)" stroke="#FF8899" stroke-width="0.7" opacity="0.92" transform="translate(-6 -6)"/>
+  <path d="M 56 24 L 70 30 L 66 42 L 54 38 L 50 30 Z" fill="url(#planetBody)" stroke="#FF8899" stroke-width="0.7" opacity="0.92" transform="translate(7 -5)"/>
+  <path d="M 36 56 L 56 54 L 62 66 L 56 76 L 38 74 L 32 64 Z" fill="url(#planetBody)" stroke="#FF8899" stroke-width="0.7" opacity="0.92" transform="translate(0 8)"/>
+  <circle cx="14" cy="18" r="2.2" fill="#FF8899" opacity="0.85"/>
+  <circle cx="82" cy="22" r="2.6" fill="#FF6677" opacity="0.85"/>
+  <circle cx="86" cy="60" r="1.8" fill="#FF8899" opacity="0.7"/>
+  <circle cx="10" cy="70" r="2.3" fill="#FF4455" opacity="0.8"/>
+  <circle cx="20" cy="86" r="1.6" fill="#FF8899" opacity="0.7"/>
+  <circle cx="78" cy="84" r="2" fill="#FF6677" opacity="0.75"/>
+  <path d="M 48 48 L 14 18" stroke="#FFD060" stroke-width="0.7" opacity="0.45" stroke-linecap="round"/>
+  <path d="M 48 48 L 82 22" stroke="#FFD060" stroke-width="0.7" opacity="0.45" stroke-linecap="round"/>
+  <path d="M 48 48 L 86 60" stroke="#FFD060" stroke-width="0.5" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 48 48 L 10 70" stroke="#FFD060" stroke-width="0.6" opacity="0.45" stroke-linecap="round"/>
+  <path d="M 48 48 L 20 86" stroke="#FFD060" stroke-width="0.5" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 48 48 L 78 84" stroke="#FFD060" stroke-width="0.6" opacity="0.45" stroke-linecap="round"/>
+  <circle cx="48" cy="48" r="9" fill="#FFE066" opacity="0.9"/>
+  <circle cx="48" cy="48" r="4" fill="#FFFFFF" opacity="0.85"/>
+</svg>`)
+
 // Simple seeded random from string — deterministic per node ID
 function seededRandom(seed: string, index: number): number {
   let h = 0
@@ -401,42 +438,52 @@ export function GraphVisualization({
             }
           },
           // Campaign nodes:
-          //   funded + project active (or unlinked) → green planet
+          //   funded + delivered:'no' → exploding planet (took the BCH, never shipped)
+          //   funded + project active → green planet (working as intended)
+          //   funded + project dead → solid red planet (delivered, project later died)
           //   funded + project dormant → amber planet
-          //   funded + project dead → red planet (intact, decayed by time)
-          //   running → cyan
-          //   expired/failed (campaign itself) → cracked-moon SVG (reserved for failure)
+          //   funded + no project link → orange planet (default — investigate)
+          //   running → cyan rectangle
+          //   expired/failed (campaign itself) → cracked-moon SVG (reserved for goal-not-reached)
           {
             selector: 'node[type="campaign"]',
             style: {
               'background-color': (ele: any) => {
-                const status = ele.data('metadata').status
-                const projectStatus = ele.data('metadata').projectStatus
+                const md = ele.data('metadata')
+                const status = md.status
                 if (status === 'success') {
-                  if (projectStatus === 'dead') return '#FF4455'
-                  if (projectStatus === 'dormant') return '#E8A838'
-                  return '#00FF88'
+                  if (md.delivered === 'no') return 'rgba(0,0,0,0)' // SVG handles visuals
+                  if (md.projectStatus === 'active') return '#00FF88'
+                  if (md.projectStatus === 'dead') return '#FF4455'
+                  if (md.projectStatus === 'dormant') return '#E8A838'
+                  return '#FF8C00' // orange default for unlinked funded
                 }
                 if (status === 'running') return '#00D4FF'
                 if (status === 'expired' || status === 'failed') return 'rgba(0,0,0,0)'
                 return '#556677'
               },
               'background-opacity': (ele: any) => {
-                const status = ele.data('metadata').status
+                const md = ele.data('metadata')
+                const status = md.status
                 if (status === 'expired' || status === 'failed') return 0
+                if (status === 'success' && md.delivered === 'no') return 0
                 if (status === 'success') return 0.9
                 if (status === 'running') return 0.9
                 return 0.6
               },
               'shape': (ele: any) => {
-                const status = ele.data('metadata').status
+                const md = ele.data('metadata')
+                const status = md.status
                 if (status === 'running') return 'rectangle'
                 if (status === 'expired' || status === 'failed') return 'rectangle'
+                if (status === 'success' && md.delivered === 'no') return 'rectangle'
                 return 'ellipse'
               },
               'background-image': (ele: any) => {
-                const status = ele.data('metadata').status
+                const md = ele.data('metadata')
+                const status = md.status
                 if (status === 'expired' || status === 'failed') return CRACKED_MOON_SVG
+                if (status === 'success' && md.delivered === 'no') return EXPLODING_PLANET_SVG
                 return 'none'
               },
               'background-fit': 'contain' as any,
@@ -494,12 +541,14 @@ export function GraphVisualization({
                 return 5
               },
               'shadow-color': (ele: any) => {
-                const status = ele.data('metadata').status
-                const projectStatus = ele.data('metadata').projectStatus
+                const md = ele.data('metadata')
+                const status = md.status
                 if (status === 'success') {
-                  if (projectStatus === 'dead') return 'rgba(255, 68, 85, 0.5)'
-                  if (projectStatus === 'dormant') return 'rgba(232, 168, 56, 0.5)'
-                  return 'rgba(0, 255, 136, 0.5)'
+                  if (md.delivered === 'no') return 'rgba(255, 122, 76, 0.7)' // explosion warm
+                  if (md.projectStatus === 'active') return 'rgba(0, 255, 136, 0.5)'
+                  if (md.projectStatus === 'dead') return 'rgba(255, 68, 85, 0.5)'
+                  if (md.projectStatus === 'dormant') return 'rgba(232, 168, 56, 0.5)'
+                  return 'rgba(255, 140, 0, 0.5)' // orange default
                 }
                 if (status === 'running') return 'rgba(0, 212, 255, 0.6)'
                 if (status === 'expired' || status === 'failed') return 'rgba(255, 68, 85, 0.6)'
