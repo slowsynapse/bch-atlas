@@ -13,38 +13,49 @@ async function fetchCampaigns(filters: FilterState): Promise<Campaign[]> {
   const params = new URLSearchParams()
 
   if (filters.search) params.set('search', filters.search)
-  if (filters.status.size > 0) {
-    filters.status.forEach(s => params.append('status', s))
-  }
-  if (filters.platform.size > 0) {
-    filters.platform.forEach(p => params.append('platform', p))
-  }
+  filters.status.forEach(s => params.append('status', s))
+  filters.platform.forEach(p => params.append('platform', p))
+  filters.projectStatus.forEach(p => params.append('projectStatus', p))
+  filters.continent.forEach(c => params.append('continent', c))
   if (filters.amountRange.min) params.set('minAmount', filters.amountRange.min)
   if (filters.amountRange.max) params.set('maxAmount', filters.amountRange.max)
+  if (filters.dateRange.start) params.set('startDate', filters.dateRange.start)
+  if (filters.dateRange.end) params.set('endDate', filters.dateRange.end)
+  if (filters.delivered !== 'all') params.set('delivered', filters.delivered)
 
   const response = await fetch(`/api/campaigns?${params.toString()}`)
   if (!response.ok) throw new Error('Failed to fetch campaigns')
   return response.json()
 }
 
+const EMPTY_FILTERS: FilterState = {
+  search: '',
+  status: new Set(),
+  dateRange: { start: '', end: '' },
+  amountRange: { min: '', max: '' },
+  platform: new Set(),
+  projectStatus: new Set(),
+  continent: new Set(),
+  delivered: 'all',
+}
+
 export default function CampaignsPage() {
-  const [filters, setFilters] = useState<FilterState>({
-    search: '',
-    status: new Set(),
-    dateRange: { start: '', end: '' },
-    amountRange: { min: '', max: '' },
-    platform: new Set()
-  })
+  const [filters, setFilters] = useState<FilterState>(EMPTY_FILTERS)
 
   const [sortBy, setSortBy] = useState<SortOption>('date-desc')
 
   const queryKey = [
     'campaigns',
     filters.search,
-    Array.from(filters.status),
-    Array.from(filters.platform),
+    Array.from(filters.status).sort(),
+    Array.from(filters.platform).sort(),
+    Array.from(filters.projectStatus).sort(),
+    Array.from(filters.continent).sort(),
     filters.amountRange.min,
     filters.amountRange.max,
+    filters.dateRange.start,
+    filters.dateRange.end,
+    filters.delivered,
   ]
 
   const { data: allCampaigns = [], isLoading } = useQuery({
@@ -54,21 +65,40 @@ export default function CampaignsPage() {
 
   const { data: allCampaignsUnfiltered = [] } = useQuery({
     queryKey: ['campaigns-stats'],
-    queryFn: () => fetchCampaigns({
-      search: '',
-      status: new Set(),
-      dateRange: { start: '', end: '' },
-      amountRange: { min: '', max: '' },
-      platform: new Set()
-    }),
+    queryFn: () => fetchCampaigns(EMPTY_FILTERS),
   })
 
   const stats = useMemo(() => {
-    const total = allCampaignsUnfiltered.length
-    const success = allCampaignsUnfiltered.filter(c => c.status === 'success').length
-    const failed = allCampaignsUnfiltered.filter(c => c.status === 'expired').length
-    const running = allCampaignsUnfiltered.filter(c => c.status === 'running').length
-    return { total, success, failed, running }
+    const continentCounts: Record<string, number> = {}
+    let projectActive = 0, projectDormant = 0, projectDead = 0, projectUnknown = 0, projectUnlinked = 0
+    let success = 0, failed = 0, running = 0, notDelivered = 0
+
+    for (const c of allCampaignsUnfiltered) {
+      if (c.status === 'success') success++
+      else if (c.status === 'expired') failed++
+      else if (c.status === 'running') running++
+
+      if (c.delivered === 'no') notDelivered++
+
+      if (c.continent) {
+        continentCounts[c.continent] = (continentCounts[c.continent] || 0) + 1
+      }
+
+      if (!c.projectSlug) {
+        projectUnlinked++
+      } else if (c.projectStatus === 'active') projectActive++
+      else if (c.projectStatus === 'dormant') projectDormant++
+      else if (c.projectStatus === 'dead') projectDead++
+      else projectUnknown++
+    }
+
+    return {
+      total: allCampaignsUnfiltered.length,
+      success, failed, running,
+      projectActive, projectDormant, projectDead, projectUnknown, projectUnlinked,
+      continentCounts,
+      notDelivered,
+    }
   }, [allCampaignsUnfiltered])
 
   const sortedCampaigns = useMemo(() => {
@@ -161,15 +191,7 @@ export default function CampaignsPage() {
           <div className="text-center py-16">
             <p className="text-ds-text-secondary text-sm">No campaigns match filters.</p>
             <button
-              onClick={() =>
-                setFilters({
-                  search: '',
-                  status: new Set(),
-                  dateRange: { start: '', end: '' },
-                  amountRange: { min: '', max: '' },
-                  platform: new Set()
-                })
-              }
+              onClick={() => setFilters(EMPTY_FILTERS)}
               className="mt-4 px-6 py-2 border border-ds-cyan text-ds-cyan text-xs tracking-[0.08em] uppercase hover:bg-ds-cyan/10 transition-all"
             >
               Clear Filters

@@ -7,9 +7,14 @@ export async function GET(request: NextRequest) {
 
     const platform = searchParams.getAll('platform')
     const status = searchParams.getAll('status')
+    const projectStatus = searchParams.getAll('projectStatus')
+    const continent = searchParams.getAll('continent')
     const search = searchParams.get('search')
     const minAmount = searchParams.get('minAmount')
     const maxAmount = searchParams.get('maxAmount')
+    const startDate = searchParams.get('startDate')
+    const endDate = searchParams.get('endDate')
+    const delivered = searchParams.get('delivered') // 'yes' | 'no' | null
 
     let campaigns = await getCampaignsWithPricing()
 
@@ -19,6 +24,26 @@ export async function GET(request: NextRequest) {
 
     if (status.length > 0) {
       campaigns = campaigns.filter(c => status.includes(c.status))
+    }
+
+    if (projectStatus.length > 0) {
+      // 'unlinked' = funded campaign with no project linkage; otherwise match
+      // the campaign's inherited projectStatus
+      campaigns = campaigns.filter(c => {
+        if (!c.projectSlug) return projectStatus.includes('unlinked')
+        return c.projectStatus ? projectStatus.includes(c.projectStatus) : false
+      })
+    }
+
+    if (continent.length > 0) {
+      campaigns = campaigns.filter(c => c.continent && continent.includes(c.continent))
+    }
+
+    if (delivered === 'no') {
+      campaigns = campaigns.filter(c => c.delivered === 'no')
+    } else if (delivered === 'yes') {
+      // Delivered = funded campaigns that aren't explicitly flagged not-delivered
+      campaigns = campaigns.filter(c => c.status === 'success' && c.delivered !== 'no')
     }
 
     if (search) {
@@ -39,7 +64,15 @@ export async function GET(request: NextRequest) {
       campaigns = campaigns.filter(c => c.amount <= max)
     }
 
-    // Sort by date descending (newest first)
+    if (startDate) {
+      campaigns = campaigns.filter(c => c.time && c.time >= startDate)
+    }
+
+    if (endDate) {
+      campaigns = campaigns.filter(c => c.time && c.time <= endDate)
+    }
+
+    // Sort by date descending (newest first), undated last
     campaigns.sort((a, b) => {
       if (!a.time && !b.time) return 0
       if (!a.time) return 1

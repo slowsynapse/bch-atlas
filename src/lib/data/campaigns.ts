@@ -79,7 +79,9 @@ export function getCampaigns(): Campaign[] {
   }))
 
   const all = [...flipstarters, ...fundme]
-  return all.map(c => {
+
+  // Phase 1: apply overrides
+  const withOverrides = all.map(c => {
     const o = overrides[c.id]
     if (!o) return c
     return {
@@ -87,6 +89,28 @@ export function getCampaigns(): Campaign[] {
       delivered: o.delivered ?? c.delivered ?? null,
       overrideProjectSlug: o.projectSlug ?? c.overrideProjectSlug ?? null,
       overrideNote: o.note ?? c.overrideNote ?? null,
+    }
+  })
+
+  // Phase 2: resolve project linkage. The resolver returns the project tree
+  // with each project's matched campaign IDs, so we invert that into a
+  // campaign → project lookup and stamp it onto the campaign object.
+  const projects = getResolvedProjects(withOverrides)
+  const byCampaign = new Map<string, { slug: string; name: string; status: string }>()
+  for (const p of projects) {
+    for (const cId of p.campaigns) {
+      byCampaign.set(cId, { slug: p.slug, name: p.name, status: p.status })
+    }
+  }
+
+  return withOverrides.map(c => {
+    const link = byCampaign.get(c.id)
+    if (!link) return { ...c, projectSlug: null, projectName: null, projectStatus: null }
+    return {
+      ...c,
+      projectSlug: link.slug,
+      projectName: link.name,
+      projectStatus: link.status as Campaign['projectStatus'],
     }
   })
 }

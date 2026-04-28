@@ -12,17 +12,51 @@ export interface FilterState {
     max: string
   }
   platform: Set<string>
+  projectStatus: Set<string>      // 'active' | 'dormant' | 'dead' | 'unknown' | 'unlinked'
+  continent: Set<string>          // 'core' | 'middleware' | 'apps' | 'defi' | 'media' | 'charity' | 'ecosystem' | 'other'
+  delivered: 'all' | 'yes' | 'no' // delivery override flag
+}
+
+interface FilterStats {
+  total: number
+  success: number
+  failed: number
+  running: number
+  // by project status
+  projectActive: number
+  projectDormant: number
+  projectDead: number
+  projectUnknown: number
+  projectUnlinked: number
+  // by continent
+  continentCounts: Record<string, number>
+  // by delivery
+  notDelivered: number
 }
 
 interface CampaignFiltersProps {
   filters: FilterState
   onFilterChange: (filters: FilterState) => void
-  stats: {
-    total: number
-    success: number
-    failed: number
-    running: number
-  }
+  stats: FilterStats
+}
+
+const CONTINENT_LABELS: Record<string, string> = {
+  core: 'Core',
+  middleware: 'Middleware',
+  apps: 'Apps & Wallets',
+  defi: 'DeFi',
+  media: 'Media',
+  charity: 'Charity',
+  ecosystem: 'Ecosystem',
+  other: 'Other',
+}
+
+const PROJECT_STATUS_COLORS: Record<string, string> = {
+  active: '#00FF88',
+  dormant: '#E8A838',
+  dead: '#FF4455',
+  unknown: '#90A8A8',
+  unlinked: '#FF8C00',
 }
 
 export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFiltersProps) {
@@ -50,13 +84,30 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
     updateFilter('platform', newPlatform)
   }
 
+  const toggleProjectStatus = (s: string) => {
+    const next = new Set(filters.projectStatus)
+    if (next.has(s)) next.delete(s)
+    else next.add(s)
+    updateFilter('projectStatus', next)
+  }
+
+  const toggleContinent = (c: string) => {
+    const next = new Set(filters.continent)
+    if (next.has(c)) next.delete(c)
+    else next.add(c)
+    updateFilter('continent', next)
+  }
+
   const clearFilters = () => {
     onFilterChange({
       search: '',
       status: new Set(),
       dateRange: { start: '', end: '' },
       amountRange: { min: '', max: '' },
-      platform: new Set()
+      platform: new Set(),
+      projectStatus: new Set(),
+      continent: new Set(),
+      delivered: 'all',
     })
   }
 
@@ -67,7 +118,10 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
     filters.dateRange.end ||
     filters.amountRange.min ||
     filters.amountRange.max ||
-    filters.platform.size > 0
+    filters.platform.size > 0 ||
+    filters.projectStatus.size > 0 ||
+    filters.continent.size > 0 ||
+    filters.delivered !== 'all'
 
   return (
     <div className="ds-holographic p-5 mb-6">
@@ -94,30 +148,73 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Status */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {/* Campaign status */}
         <div>
-          <label className="ds-label block mb-2">Status</label>
-          <div className="space-y-2">
+          <label className="ds-label block mb-2">Campaign</label>
+          <div className="space-y-1.5">
             <label className="flex items-center gap-2 cursor-pointer text-xs text-[#8A9AAB] hover:text-[#E0E4E8] transition-colors">
               <input type="checkbox" checked={filters.status.has('success')} onChange={() => toggleStatus('success')} className="w-3.5 h-3.5 accent-[#56E89C]" />
-              <span>Success ({stats.success})</span>
+              <span>Funded <span className="text-[#5A8A7A]">({stats.success})</span></span>
             </label>
             <label className="flex items-center gap-2 cursor-pointer text-xs text-[#8A9AAB] hover:text-[#E0E4E8] transition-colors">
               <input type="checkbox" checked={filters.status.has('expired')} onChange={() => toggleStatus('expired')} className="w-3.5 h-3.5 accent-[#E85454]" />
-              <span>Failed ({stats.failed})</span>
+              <span>Expired <span className="text-[#5A8A7A]">({stats.failed})</span></span>
             </label>
             <label className="flex items-center gap-2 cursor-pointer text-xs text-[#8A9AAB] hover:text-[#E0E4E8] transition-colors">
               <input type="checkbox" checked={filters.status.has('running')} onChange={() => toggleStatus('running')} className="w-3.5 h-3.5 accent-[#4ECDC4]" />
-              <span>Running ({stats.running})</span>
+              <span>Active <span className="text-[#5A8A7A]">({stats.running})</span></span>
             </label>
+          </div>
+        </div>
+
+        {/* Project status (the new project layer) */}
+        <div>
+          <label className="ds-label block mb-2">Project</label>
+          <div className="space-y-1.5">
+            {([
+              ['active', 'Alive', stats.projectActive],
+              ['dormant', 'Dormant', stats.projectDormant],
+              ['dead', 'Dead', stats.projectDead],
+              ['unknown', 'Unknown', stats.projectUnknown],
+              ['unlinked', 'Unlinked', stats.projectUnlinked],
+            ] as const).map(([key, label, count]) => (
+              <label key={key} className="flex items-center gap-2 cursor-pointer text-xs text-[#8A9AAB] hover:text-[#E0E4E8] transition-colors">
+                <input
+                  type="checkbox"
+                  checked={filters.projectStatus.has(key)}
+                  onChange={() => toggleProjectStatus(key)}
+                  className="w-3.5 h-3.5"
+                  style={{ accentColor: PROJECT_STATUS_COLORS[key] }}
+                />
+                <span>{label} <span className="text-[#5A8A7A]">({count})</span></span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Continent */}
+        <div>
+          <label className="ds-label block mb-2">Continent</label>
+          <div className="space-y-1.5 max-h-32 overflow-y-auto pr-1">
+            {Object.keys(CONTINENT_LABELS).map(c => (
+              <label key={c} className="flex items-center gap-2 cursor-pointer text-xs text-[#8A9AAB] hover:text-[#E0E4E8] transition-colors">
+                <input
+                  type="checkbox"
+                  checked={filters.continent.has(c)}
+                  onChange={() => toggleContinent(c)}
+                  className="w-3.5 h-3.5 accent-[#4ECDC4]"
+                />
+                <span>{CONTINENT_LABELS[c]} <span className="text-[#5A8A7A]">({stats.continentCounts[c] || 0})</span></span>
+              </label>
+            ))}
           </div>
         </div>
 
         {/* Platform */}
         <div>
           <label className="ds-label block mb-2">Platform</label>
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <label className="flex items-center gap-2 cursor-pointer text-xs text-[#8A9AAB] hover:text-[#E0E4E8] transition-colors">
               <input type="checkbox" checked={filters.platform.has('flipstarter')} onChange={() => togglePlatform('flipstarter')} className="w-3.5 h-3.5 accent-[#4ECDC4]" />
               <span>Flipstarter</span>
@@ -126,6 +223,26 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
               <input type="checkbox" checked={filters.platform.has('fundme')} onChange={() => togglePlatform('fundme')} className="w-3.5 h-3.5 accent-[#4ECDC4]" />
               <span>FundMe.cash</span>
             </label>
+          </div>
+          <label className="ds-label block mb-2 mt-4">Delivery</label>
+          <div className="space-y-1.5">
+            {([
+              ['all', 'All'],
+              ['yes', 'Delivered'],
+              ['no', `Not delivered (${stats.notDelivered})`],
+            ] as const).map(([key, label]) => (
+              <label key={key} className="flex items-center gap-2 cursor-pointer text-xs text-[#8A9AAB] hover:text-[#E0E4E8] transition-colors">
+                <input
+                  type="radio"
+                  name="delivered"
+                  checked={filters.delivered === key}
+                  onChange={() => updateFilter('delivered', key)}
+                  className="w-3.5 h-3.5"
+                  style={{ accentColor: key === 'no' ? '#FF4455' : '#4ECDC4' }}
+                />
+                <span>{label}</span>
+              </label>
+            ))}
           </div>
         </div>
 
@@ -137,13 +254,13 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
               type="date"
               value={filters.dateRange.start}
               onChange={(e) => updateFilter('dateRange', { ...filters.dateRange, start: e.target.value })}
-              className="w-full px-3 py-1.5 bg-[rgba(11,14,17,0.6)] border border-[rgba(78,205,196,0.1)] text-[#E0E4E8] text-xs focus:border-[rgba(78,205,196,0.3)] focus:outline-none transition-colors"
+              className="w-full px-2 py-1.5 bg-[rgba(11,14,17,0.6)] border border-[rgba(78,205,196,0.1)] text-[#E0E4E8] text-xs focus:border-[rgba(78,205,196,0.3)] focus:outline-none transition-colors"
             />
             <input
               type="date"
               value={filters.dateRange.end}
               onChange={(e) => updateFilter('dateRange', { ...filters.dateRange, end: e.target.value })}
-              className="w-full px-3 py-1.5 bg-[rgba(11,14,17,0.6)] border border-[rgba(78,205,196,0.1)] text-[#E0E4E8] text-xs focus:border-[rgba(78,205,196,0.3)] focus:outline-none transition-colors"
+              className="w-full px-2 py-1.5 bg-[rgba(11,14,17,0.6)] border border-[rgba(78,205,196,0.1)] text-[#E0E4E8] text-xs focus:border-[rgba(78,205,196,0.3)] focus:outline-none transition-colors"
             />
           </div>
         </div>
@@ -156,7 +273,7 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
               type="number"
               value={filters.amountRange.min}
               onChange={(e) => updateFilter('amountRange', { ...filters.amountRange, min: e.target.value })}
-              className="w-full px-3 py-1.5 bg-[rgba(11,14,17,0.6)] border border-[rgba(78,205,196,0.1)] text-[#E0E4E8] text-xs font-mono focus:border-[rgba(78,205,196,0.3)] focus:outline-none transition-colors"
+              className="w-full px-2 py-1.5 bg-[rgba(11,14,17,0.6)] border border-[rgba(78,205,196,0.1)] text-[#E0E4E8] text-xs font-mono focus:border-[rgba(78,205,196,0.3)] focus:outline-none transition-colors"
               placeholder="Min"
               min="0"
               step="0.01"
@@ -165,7 +282,7 @@ export function CampaignFilters({ filters, onFilterChange, stats }: CampaignFilt
               type="number"
               value={filters.amountRange.max}
               onChange={(e) => updateFilter('amountRange', { ...filters.amountRange, max: e.target.value })}
-              className="w-full px-3 py-1.5 bg-[rgba(11,14,17,0.6)] border border-[rgba(78,205,196,0.1)] text-[#E0E4E8] text-xs font-mono focus:border-[rgba(78,205,196,0.3)] focus:outline-none transition-colors"
+              className="w-full px-2 py-1.5 bg-[rgba(11,14,17,0.6)] border border-[rgba(78,205,196,0.1)] text-[#E0E4E8] text-xs font-mono focus:border-[rgba(78,205,196,0.3)] focus:outline-none transition-colors"
               placeholder="Max"
               min="0"
               step="0.01"

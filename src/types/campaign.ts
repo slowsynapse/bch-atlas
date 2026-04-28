@@ -41,6 +41,11 @@ export interface Campaign {
   delivered?: 'yes' | 'no' | null   // null/undefined = inherit from project status
   overrideProjectSlug?: string | null
   overrideNote?: string | null
+
+  // Project linkage (resolved at load time from data/projects.json + matchers + overrides)
+  projectSlug?: string | null
+  projectName?: string | null
+  projectStatus?: 'active' | 'dormant' | 'dead' | 'unknown' | null
 }
 
 export interface Entity {

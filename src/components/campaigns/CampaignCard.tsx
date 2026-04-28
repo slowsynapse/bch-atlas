@@ -45,6 +45,15 @@ function getStatusTint(status: string): string {
   }
 }
 
+function getProjectStatusColor(status: string | null | undefined): string {
+  switch (status) {
+    case 'active': return '#00FF88'
+    case 'dormant': return '#E8A838'
+    case 'dead': return '#FF4455'
+    default: return '#90A8A8'
+  }
+}
+
 function formatDate(dateString?: string): string {
   if (!dateString) return '—'
   try {
@@ -106,9 +115,24 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
 
               <div className="flex flex-wrap gap-3 text-[11px] text-[#6A8888] font-mono">
                 <span className="uppercase tracking-wider">{campaign.platform}</span>
+                {campaign.continent && (
+                  <span className="uppercase tracking-wider" style={{ color: '#5A8A8A' }}>{campaign.continent}</span>
+                )}
                 <span>{formatDate(campaign.time)}</span>
                 {campaign.recipientAddresses && campaign.recipientAddresses.length > 0 && (
                   <span>{campaign.recipientAddresses.length} addr</span>
+                )}
+                {campaign.projectName && (
+                  <span className="flex items-center gap-1.5">
+                    <span
+                      className="inline-block w-1.5 h-1.5 rounded-full"
+                      style={{
+                        background: getProjectStatusColor(campaign.projectStatus),
+                        boxShadow: `0 0 6px ${getProjectStatusColor(campaign.projectStatus)}`,
+                      }}
+                    />
+                    <span style={{ color: '#90A8A8' }}>{campaign.projectName}</span>
+                  </span>
                 )}
               </div>
             </div>
@@ -127,6 +151,20 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
               <span className={`font-mono text-[10px] tracking-[0.15em] uppercase ${getStatusTextColor(campaign.status)}`}>
                 {getStatusLabel(campaign.status)}
               </span>
+
+              {campaign.delivered === 'no' && (
+                <span
+                  className="font-mono text-[10px] tracking-[0.15em] uppercase px-1.5 py-0.5"
+                  style={{
+                    color: '#FF4455',
+                    border: '1px solid rgba(255,68,85,0.4)',
+                    textShadow: '0 0 6px rgba(255,68,85,0.4)',
+                  }}
+                  title={campaign.overrideNote || 'Funded but did not deliver'}
+                >
+                  💥 Not delivered
+                </span>
+              )}
 
               {campaign.tx && (
                 <span className="text-[10px] font-mono tracking-wider uppercase" style={{ color: '#00A878' }}>
