@@ -393,7 +393,7 @@ export default function AtlasPage() {
               e.currentTarget.style.boxShadow = 'none'
             }}
           >
-            Browse GitHub
+            Browse Git Repos
           </Link>
         </div>
 

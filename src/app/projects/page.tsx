@@ -92,7 +92,7 @@ export default function ProjectsBrowsePage() {
                   borderRadius: '2px',
                 }}
               >
-                Browse GitHub
+                Browse Git Repos
               </Link>
               <Link
                 href="/projects/orphans"

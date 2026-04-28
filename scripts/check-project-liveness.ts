@@ -52,15 +52,89 @@ function sleep(ms: number): Promise<void> {
   return new Promise(r => setTimeout(r, ms))
 }
 
-function parseRepoUrl(url: string): { host: string; owner: string; repo: string } | null {
+interface ParsedRepo {
+  host: string
+  owner: string
+  repo: string | null  // null when the URL points at an org/user, not a repo
+  fullPath: string | null  // owner/repo with subgroups preserved (GitLab supports nested groups)
+}
+
+function parseRepoUrl(url: string): ParsedRepo | null {
   try {
     const parsed = new URL(url)
     const parts = parsed.pathname.split('/').filter(Boolean)
-    if (parts.length < 2) return null
-    return { host: parsed.hostname, owner: parts[0], repo: parts[1] }
+    if (parts.length < 1) return null
+    const repo = parts.length >= 2 ? parts[parts.length - 1] : null
+    const fullPath = parts.length >= 2 ? parts.join('/') : null
+    return {
+      host: parsed.hostname,
+      owner: parts[0],
+      repo,
+      fullPath,
+    }
   } catch {
     return null
   }
+}
+
+/**
+ * Resolve an org/user URL to its most recently-pushed repo. Used when the
+ * project's `github` field points at a GitHub org root rather than a single
+ * repo (e.g. `https://github.com/cashshuffle`). Returns null if no repo can
+ * be discovered or the host doesn't support org listing.
+ */
+async function fetchOrgListing(url: string, headers: Record<string, string>): Promise<{ name: string; pushed_at: string } | null> {
+  try {
+    const res = await fetch(url, { headers, signal: AbortSignal.timeout(15000) })
+    if (!res.ok) return null
+    const data = await res.json() as Array<{ name?: string; path?: string; pushed_at?: string; last_activity_at?: string; updated_at?: string }>
+    if (!Array.isArray(data) || data.length === 0) return null
+    const top = data[0]
+    const name = top.name || top.path || null
+    const pushed = top.pushed_at || top.last_activity_at || top.updated_at || null
+    if (!name || !pushed) return null
+    return { name, pushed_at: pushed }
+  } catch {
+    return null
+  }
+}
+
+async function resolveOrgLatestRepo(repo: ParsedRepo, headers: Record<string, string>): Promise<{ name: string; pushed_at: string } | null> {
+  if (repo.host === 'github.com') {
+    return fetchOrgListing(
+      `https://api.github.com/users/${repo.owner}/repos?sort=pushed&direction=desc&per_page=1`,
+      headers,
+    )
+  }
+
+  if (repo.host === 'gitlab.com') {
+    // /users/X works for personal namespaces; /groups/X for org/group
+    // namespaces. Try user first, fall back to group.
+    const user = await fetchOrgListing(
+      `https://gitlab.com/api/v4/users/${encodeURIComponent(repo.owner)}/projects?order_by=last_activity_at&sort=desc&per_page=1`,
+      headers,
+    )
+    if (user) return user
+    return fetchOrgListing(
+      `https://gitlab.com/api/v4/groups/${encodeURIComponent(repo.owner)}/projects?order_by=last_activity_at&sort=desc&per_page=1`,
+      headers,
+    )
+  }
+
+  if (repo.host === 'codeberg.org' || repo.host.startsWith('git.')) {
+    // Forgejo/Gitea: /users/X/repos for users, /orgs/X/repos for orgs
+    const user = await fetchOrgListing(
+      `https://${repo.host}/api/v1/users/${repo.owner}/repos?limit=1&sort=updated`,
+      headers,
+    )
+    if (user) return user
+    return fetchOrgListing(
+      `https://${repo.host}/api/v1/orgs/${repo.owner}/repos?limit=1&sort=updated`,
+      headers,
+    )
+  }
+
+  return null
 }
 
 async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; error?: string; rateLimited?: boolean }> {
@@ -68,19 +142,35 @@ async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; e
   if (!repo) return { lastCommit: null, error: 'Could not parse repo URL' }
 
   try {
-    let apiUrl: string
     const headers: Record<string, string> = {
       'Accept': 'application/json',
       'User-Agent': 'bch-atlas-liveness-checker',
     }
+    if (repo.host === 'github.com' && GITHUB_TOKEN) {
+      headers['Authorization'] = `Bearer ${GITHUB_TOKEN}`
+    }
 
+    // Org/user-only URL: list the org's most-recently-pushed repo and report
+    // its commit date. Useful as a "is anyone in this org still building?"
+    // signal when the project's github URL points at the org root.
+    if (!repo.repo) {
+      const top = await resolveOrgLatestRepo(repo, headers)
+      if (!top) return { lastCommit: null, error: 'Org URL: no public repos' }
+      return { lastCommit: top.pushed_at }
+    }
+
+    let apiUrl: string
     if (repo.host === 'github.com') {
       apiUrl = `https://api.github.com/repos/${repo.owner}/${repo.repo}/commits?per_page=1`
-      if (GITHUB_TOKEN) headers['Authorization'] = `Bearer ${GITHUB_TOKEN}`
     } else if (repo.host === 'gitlab.com') {
-      apiUrl = `https://gitlab.com/api/v4/projects/${encodeURIComponent(`${repo.owner}/${repo.repo}`)}/repository/commits?per_page=1`
-    } else if (repo.host === 'codeberg.org') {
-      apiUrl = `https://codeberg.org/api/v1/repos/${repo.owner}/${repo.repo}/commits?limit=1`
+      // GitLab supports nested subgroups (e.g. group/lib/repo). Use the full
+      // URL path, percent-encoded as a single project identifier.
+      const projectPath = repo.fullPath || `${repo.owner}/${repo.repo}`
+      apiUrl = `https://gitlab.com/api/v4/projects/${encodeURIComponent(projectPath)}/repository/commits?per_page=1`
+    } else if (repo.host === 'codeberg.org' || repo.host.startsWith('git.')) {
+      // Forgejo/Gitea API. Codeberg is the public instance; self-hosted
+      // Forgejo/Gitea instances (typically at git.<domain>) use the same path.
+      apiUrl = `https://${repo.host}/api/v1/repos/${repo.owner}/${repo.repo}/commits?limit=1`
     } else {
       return { lastCommit: null, error: `Unsupported git host: ${repo.host}` }
     }
@@ -100,10 +190,11 @@ async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; e
     if (!data || data.length === 0) return { lastCommit: null, error: 'No commits found' }
 
     let dateStr: string | null = null
-    if (repo.host === 'github.com' || repo.host === 'codeberg.org') {
-      dateStr = data[0]?.commit?.committer?.date || data[0]?.commit?.author?.date || null
-    } else if (repo.host === 'gitlab.com') {
+    if (repo.host === 'gitlab.com') {
       dateStr = data[0]?.committed_date || data[0]?.authored_date || null
+    } else {
+      // GitHub + Forgejo/Gitea (Codeberg + self-hosted) share the same shape.
+      dateStr = data[0]?.commit?.committer?.date || data[0]?.commit?.author?.date || null
     }
 
     return { lastCommit: dateStr }
