@@ -1,10 +1,12 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useMemo } from 'react'
 import { GraphVisualization, type NodeFilters } from '@/components/graph/GraphVisualization'
 import { getCampaigns, getEntities, getStats } from '@/lib/data/campaigns'
 import { buildGraph } from '@/lib/graph/builder'
 import Link from 'next/link'
+
+interface CampaignPricing { usd: number; date: string }
 
 function getTimeSinceDate(dateString?: string, timestamp?: number): string {
   if (!dateString && !timestamp) return 'Unknown'
@@ -34,6 +36,34 @@ export default function AtlasPage() {
   const [selectedNode, setSelectedNode] = useState<any>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState<any[]>([])
+  const [pricing, setPricing] = useState<Map<string, CampaignPricing>>(new Map())
+
+  // Fetch historical USD pricing for all campaigns once on mount. The
+  // pricing pipeline is server-side only (Hyperliquid + Binance candles
+  // cached at request time), so we go through the /api/campaigns route
+  // which already enriches each record with usdValueAtTime + priceDate.
+  useEffect(() => {
+    let cancelled = false
+    fetch('/api/campaigns')
+      .then(r => r.ok ? r.json() : null)
+      .then((rows: Array<{ id: string; usdValueAtTime?: number; priceDate?: string }> | null) => {
+        if (cancelled || !rows) return
+        const m = new Map<string, CampaignPricing>()
+        for (const r of rows) {
+          if (r.usdValueAtTime != null && r.priceDate) {
+            m.set(r.id, { usd: r.usdValueAtTime, date: r.priceDate })
+          }
+        }
+        setPricing(m)
+      })
+      .catch(() => { /* pricing is best-effort */ })
+    return () => { cancelled = true }
+  }, [])
+
+  const selectedPricing = useMemo(() => {
+    if (!selectedNode || selectedNode.type !== 'campaign') return null
+    return pricing.get(selectedNode.id) ?? null
+  }, [selectedNode, pricing])
   const [filters, setFilters] = useState<NodeFilters>({
     showSuccessful: true,
     showFailed: true,
@@ -597,6 +627,12 @@ export default function AtlasPage() {
                       <p className="font-mono text-2xl mt-0.5" style={{ color: '#00FF88', textShadow: '0 0 15px rgba(0,255,136,0.3)' }}>
                         {selectedNode.value} <span className="text-sm text-[#5A8A7A]">BCH</span>
                       </p>
+                      {selectedPricing && (
+                        <p className="font-mono text-sm mt-1 text-[#E8ECF0]" title={`Historical price on ${selectedPricing.date}`}>
+                          ≈ ${selectedPricing.usd.toLocaleString()}
+                          <span className="text-[10px] text-[#5A8A7A] ml-1">USD at the time</span>
+                        </p>
+                      )}
                     </div>
                     <div>
                       <span className="ds-label">Platform</span>
