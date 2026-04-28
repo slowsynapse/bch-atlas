@@ -4503,7 +4503,7 @@
       "lundeberg"
     ],
     "description": "Independent cryptographer and BCH researcher. Designer of CashFusion (the privacy/CoinJoin protocol used by Electron Cash), co-author of the SLP token spec, and contributor to Schnorr signature work on BCH. The campaign funded a defined work period; treated as a one-time engagement.",
-    "continent": "core",
+    "continent": "other",
     "github": null,
     "website": null,
     "x": null,
@@ -4531,7 +4531,7 @@
       "toomim"
     ],
     "description": "Independent BCH researcher known for the Gigablock Testnet Initiative (multi-MB block stress tests, 2017–2018) and Xthinner (compact block propagation protocol). Stepped back from active BCH work around 2021–2022. The campaign funded a defined work period; treated as a one-time engagement.",
-    "continent": "core",
+    "continent": "other",
     "github": null,
     "website": null,
     "x": null,
