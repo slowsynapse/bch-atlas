@@ -89,9 +89,12 @@ async function fetchTxDate(txHex: string): Promise<{ date: string; height: numbe
 // ────────────────────── Source 2: archive URL date ──────────────────────
 
 // flipbackend.bitcoincash.network/media/screenshots/<slug>_<status>_<YYYY-MM-DD>T<HHMMSS>...png
-// Status tokens we've seen: running, expired, active, completed, ended, stopped.
-// Captures the YYYY-MM-DD; the optional T-separated time portion is ignored.
-const ARCHIVE_DATE_RE = /flipbackend\.bitcoincash\.network\/[^"\s]*?_(?:running|expired|active|completed|ended|stopped)_(\d{4}-\d{2}-\d{2})/i
+// We only trust dates from screenshots taken while the campaign was still
+// running/active. A `_expired_`/`_stopped_`/`_ended_`/`_completed_` screenshot
+// reveals only the scrape date (some unknown time after the campaign ended),
+// which produced a 2021-04-13 sweep of 11 unrelated campaigns when used
+// indiscriminately.
+const ARCHIVE_DATE_RE = /flipbackend\.bitcoincash\.network\/[^"\s]*?_(?:running|active)_(\d{4}-\d{2}-\d{2})/i
 
 function dateFromArchive(archive: string[] | undefined): string | null {
   if (!archive) return null
