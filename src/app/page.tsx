@@ -482,7 +482,7 @@ export default function AtlasPage() {
                           >
                             {c.platform}
                           </span>
-                          {c.raised !== undefined && (
+                          {typeof c.raised === 'number' && (
                             <span className="text-[9px] font-mono" style={{ color: '#3A6A5A' }}>
                               {c.raised.toFixed(2)} BCH
                             </span>
