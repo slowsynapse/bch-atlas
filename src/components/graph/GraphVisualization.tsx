@@ -832,7 +832,7 @@ export function GraphVisualization({
           })
         } else {
           cy.animate({
-            zoom: 2,
+            zoom: 1.2,
             center: { eles: node },
             duration: 500,
             easing: 'ease-out-cubic' as any,

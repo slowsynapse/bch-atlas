@@ -39,6 +39,11 @@ interface Project {
 const PROJECTS_PATH = resolve(__dirname, '..', 'data', 'projects.json')
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || null
 const SKIP_WAYBACK = process.argv.includes('--skip-wayback')
+const SLUG_FILTER: string[] = (() => {
+  const idx = process.argv.indexOf('--slug')
+  if (idx === -1 || !process.argv[idx + 1]) return []
+  return process.argv[idx + 1].split(',').map(s => s.trim()).filter(Boolean)
+})()
 
 const DAY_MS = 24 * 60 * 60 * 1000
 const SIX_MONTHS_MS = 182 * DAY_MS
@@ -467,6 +472,7 @@ async function main() {
   let statusChanges = 0
 
   for (const project of projects) {
+    if (SLUG_FILTER.length && !SLUG_FILTER.includes(project.slug as string)) continue
     const wasManuallyDead = project.status === 'dead' && project.statusCheckedAt === null
 
     checked++

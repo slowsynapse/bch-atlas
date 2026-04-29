@@ -1,0 +1,40 @@
+name: Check Project Liveness
+
+on:
+  schedule:
+    - cron: '0 4 * * 1' # Mondays 04:00 UTC
+  workflow_dispatch:
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Run liveness sweep
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx tsx scripts/check-project-liveness.ts
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet data/projects.json || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "BCH Atlas Bot"
+          git config user.email "bot@bch-atlas.org"
+          git add data/projects.json
+          git commit -m "chore: weekly project liveness sweep"
+          git push

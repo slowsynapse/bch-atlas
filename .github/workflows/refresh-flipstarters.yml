@@ -1,0 +1,45 @@
+name: Refresh Flipstarter Data
+
+on:
+  # Schedule disabled until pipeline is verified end-to-end.
+  # The scraper writes data/flipstarters-scraped.json but the enricher reads
+  # data/flipstarters.json — these need to be reconciled before this can run
+  # automatically. Trigger manually via the Actions tab in the meantime.
+  # schedule:
+  #   - cron: '0 2 * * 1' # Mondays 02:00 UTC
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Scrape Flipstarter directory
+        run: npx tsx scripts/scrape-flipstarters.ts
+
+      - name: Enrich with on-chain data
+        run: npx tsx scripts/extract-addresses.ts
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet data/flipstarters-with-addresses.json || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "BCH Atlas Bot"
+          git config user.email "bot@bch-atlas.org"
+          git add data/flipstarters-with-addresses.json data/flipstarters-scraped.json
+          git commit -m "chore: refresh Flipstarter campaign data"
+          git push

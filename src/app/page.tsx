@@ -610,7 +610,7 @@ export default function AtlasPage() {
           <aside
             className="absolute top-0 right-0 bottom-0 w-80 z-20 overflow-y-auto ds-slide-in"
             style={{
-              background: 'linear-gradient(180deg, rgba(0, 180, 140, 0.08) 0%, rgba(7, 10, 13, 0.95) 100%)',
+              background: 'linear-gradient(180deg, rgba(0, 30, 22, 0.78) 0%, rgba(7, 10, 13, 0.92) 100%)',
               borderLeft: '1px solid rgba(0, 224, 160, 0.15)',
               boxShadow: '-1px 0 30px rgba(0, 0, 0, 0.5)',
             }}
@@ -889,6 +889,20 @@ export default function AtlasPage() {
                           </div>
                         </div>
                       )}
+
+                      <div style={{ height: '1px', background: 'linear-gradient(90deg, rgba(0,224,160,0.15), transparent)' }} />
+                      <Link
+                        href={`/projects/${selectedNode.id}`}
+                        className="block w-full px-4 py-2 text-center text-[11px] font-mono uppercase tracking-[0.1em] transition-all"
+                        style={{
+                          background: 'rgba(0, 180, 140, 0.06)',
+                          border: '1px solid rgba(0, 224, 160, 0.25)',
+                          color: '#00E0A0',
+                          borderRadius: '2px',
+                        }}
+                      >
+                        View Full Details →
+                      </Link>
                     </>
                   )
                 })()}

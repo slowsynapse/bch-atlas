@@ -4607,5 +4607,141 @@
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
+  },
+  {
+    "slug": "bchmap",
+    "name": "BCH Map",
+    "aliases": [
+      "bchmap",
+      "bch map",
+      "map bitcoin cash"
+    ],
+    "description": "Crowdsourced map of merchants and locations that accept Bitcoin Cash worldwide.",
+    "continent": "apps",
+    "github": null,
+    "website": "https://bchmap.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bchmap",
+      "bch map"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-29T15:41:40.655Z",
+    "statusDetail": "Website up. Wayback inconclusive",
+    "lastGithubCommit": null,
+    "websiteUp": true,
+    "lastContentChange": null,
+    "waybackCheckedAt": "2026-04-29T15:41:38.152Z"
+  },
+  {
+    "slug": "bch-explorer-melroy",
+    "name": "BCH Explorer",
+    "aliases": [
+      "bch explorer",
+      "bchexplorer",
+      "bchexplorer.cash"
+    ],
+    "description": "Bitcoin Cash block explorer by Melroy van den Berg, with real-time transaction status, network info, and ecosystem data.",
+    "continent": "core",
+    "github": "https://gitlab.melroy.org/bitcoincash/bitcoin-cash-explorer",
+    "website": "https://bchexplorer.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bchexplorer.cash",
+      "bch explorer"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-29T15:42:35.002Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive",
+    "lastGithubCommit": null,
+    "websiteUp": true,
+    "lastContentChange": "2026-04-17T09:49:37Z",
+    "waybackCheckedAt": "2026-04-29T15:42:32.501Z"
+  },
+  {
+    "slug": "bcmr-schema-viewer",
+    "name": "BCMR Schema Viewer",
+    "aliases": [
+      "bcmr schema viewer",
+      "bcmr viewer"
+    ],
+    "description": "BCMR (Bitcoin Cash Metadata Registry) schema viewer by Melroy van den Berg.",
+    "continent": "middleware",
+    "github": "https://gitlab.melroy.org/bitcoincash/bcmr-schema-viewer",
+    "website": "https://bcmr-viewer.melroy.org",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bcmr-viewer",
+      "bcmr schema viewer"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-29T15:42:51.810Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive",
+    "lastGithubCommit": null,
+    "websiteUp": true,
+    "lastContentChange": null,
+    "waybackCheckedAt": "2026-04-29T15:42:49.309Z"
+  },
+  {
+    "slug": "bch-energy",
+    "name": "BCH Energy Stats",
+    "aliases": [
+      "bch energy",
+      "bitcoin cash energy"
+    ],
+    "description": "Energy consumption comparison: Bitcoin vs Bitcoin Cash. Forked and revived from the original energy.bitcoincash.org site, now hosted by Melroy and powered by his BCH Explorer API.",
+    "continent": "ecosystem",
+    "github": "https://gitlab.melroy.org/bitcoincash/energy",
+    "website": "https://energy.bchexplorer.cash",
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bch energy",
+      "energy.bchexplorer"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-29T15:43:01.238Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive",
+    "lastGithubCommit": null,
+    "websiteUp": true,
+    "lastContentChange": null,
+    "waybackCheckedAt": "2026-04-29T15:42:58.738Z"
+  },
+  {
+    "slug": "electrum-client-bch",
+    "name": "Electrum Client (BCH)",
+    "aliases": [
+      "electrum-client",
+      "electrum client bch"
+    ],
+    "description": "Strictly typed TypeScript Electrum client for Fulcrum (BCH). Fork of the mempool electrum-client. Used by BCH Explorer.",
+    "continent": "middleware",
+    "github": "https://github.com/BitcoinCash1/electrum-client",
+    "website": null,
+    "x": null,
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "electrum-client"
+    ],
+    "status": "active",
+    "statusCheckedAt": "2026-04-29T15:43:03.916Z",
+    "statusDetail": "Last commit 1d ago",
+    "lastGithubCommit": "2026-04-29T00:28:03Z",
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
   }
 ]
