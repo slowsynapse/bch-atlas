@@ -795,7 +795,7 @@ export function GraphVisualization({
 
         // Dim all, brighten connected
         cy.elements().forEach((ele: any) => {
-          ele.style('opacity', 0.25)
+          ele.style('opacity', 0.6)
         })
         cy.nodes('[type="continent-label"]').forEach((ele: any) => {
           ele.style('opacity', 1)
