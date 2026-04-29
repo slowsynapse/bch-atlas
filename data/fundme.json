@@ -186,8 +186,7 @@
     "transactionTimestamp": "1740335932",
     "blockHeight": 241656,
     "goal": 30,
-    "goalSource": "description",
-    "raised": null
+    "goalSource": "description"
   },
   {
     "id": "78f5e76d31a8f6e5",
@@ -352,8 +351,7 @@
       "bitcoincash:qqr0zl4jznduv88xz8pegu0fx44hatpatgh5rkqenx"
     ],
     "transactionTimestamp": "1714730315",
-    "blockHeight": 844187,
-    "raised": null
+    "blockHeight": 844187
   },
   {
     "id": "67b67245c421af34",
@@ -670,8 +668,7 @@
     "transactionTimestamp": "1733070480",
     "blockHeight": 874708,
     "goal": 25,
-    "goalSource": "description",
-    "raised": null
+    "goalSource": "description"
   },
   {
     "id": "2ff802f7a802dd8d",
@@ -688,8 +685,7 @@
       "bitcoincash:qr955flmkwvnf5tcm8drrxdaz49rpzkhj59yhpqacq"
     ],
     "transactionTimestamp": "1744522240",
-    "blockHeight": 893749,
-    "raised": null
+    "blockHeight": 893749
   },
   {
     "id": "ecc9df84e7c8fbff",
@@ -746,8 +742,7 @@
     "transactionTimestamp": "1748892416",
     "blockHeight": 901031,
     "goal": 4.65,
-    "goalSource": "description",
-    "raised": null
+    "goalSource": "description"
   },
   {
     "id": "ba56ab55a1109c34",
@@ -1024,8 +1019,7 @@
       "bitcoincash:qr23kjafmcw35thvqtw3sk4au9qk0yy2tc77g0j7fk"
     ],
     "transactionTimestamp": "1732111137",
-    "blockHeight": 873051,
-    "raised": null
+    "blockHeight": 873051
   },
   {
     "id": "c41065cdc6143761",
@@ -1042,8 +1036,7 @@
       "bitcoincash:qp7n6sd82k20u7xwj6j992y9w8ez6rwtrqggr8aehk"
     ],
     "transactionTimestamp": "1730469545",
-    "blockHeight": 870324,
-    "raised": null
+    "blockHeight": 870324
   },
   {
     "id": "f0dfe60e865a95d9",
@@ -1118,8 +1111,7 @@
     "transactionTimestamp": "1758576205",
     "blockHeight": 917331,
     "goal": 5,
-    "goalSource": "description",
-    "raised": null
+    "goalSource": "description"
   },
   {
     "id": "af712678a205d501",
@@ -1268,8 +1260,7 @@
       "bitcoincash:qpurr8l5ucshqv0nyhqr08d6y60zkkwegsx4msr8vz"
     ],
     "transactionTimestamp": "1720778804",
-    "blockHeight": 854167,
-    "raised": null
+    "blockHeight": 854167
   },
   {
     "id": "24a5c6b567fbc0d1",
@@ -1304,8 +1295,7 @@
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:zpmd0st72sydqllenckf7fzeedxsgqcglyt3u2838x"
-    ],
-    "raised": null
+    ]
   },
   {
     "id": "65790aa72dd81632",
@@ -1320,8 +1310,7 @@
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:zreu68w4afeuztlrxdr7mttk79ghmknh955c6zedxv"
-    ],
-    "raised": null
+    ]
   },
   {
     "id": "49203aa5006032ee",
@@ -1338,8 +1327,7 @@
       "bitcoincash:qqh2mgmwvl8qsdwkdtc5rl5f2rlqed9uucgntj7ll6"
     ],
     "transactionTimestamp": "1766203986",
-    "blockHeight": 930187,
-    "raised": null
+    "blockHeight": 930187
   },
   {
     "id": "11a16f3a33afdc02",
@@ -1356,8 +1344,7 @@
       "bitcoincash:qpvkcck45ln5fj8pweqe4e3hmdn5mamdwq3an4amnv"
     ],
     "transactionTimestamp": "1750200255",
-    "blockHeight": 903261,
-    "raised": null
+    "blockHeight": 903261
   },
   {
     "id": "bea822db585fa6fa",
@@ -1504,8 +1491,7 @@
     "transactionTimestamp": "1715679921",
     "blockHeight": 845734,
     "goal": 28.5,
-    "goalSource": "description",
-    "raised": null
+    "goalSource": "description"
   },
   {
     "id": "c01bc8ed8ce173d5",
@@ -1515,7 +1501,7 @@
     "continent": "defi",
     "amount": 21.417791069999996,
     "raised": 21.417791069999996,
-    "status": "success",
+    "status": "running",
     "time": "2024-05-14",
     "url": "https://fundme.cash/?id=99",
     "entities": [],
@@ -1634,8 +1620,7 @@
       "bitcoincash:qpc8lqvg3s7h7wepjpf46f36heet8kze6getcl6a07"
     ],
     "transactionTimestamp": "1750221525",
-    "blockHeight": 903299,
-    "raised": null
+    "blockHeight": 903299
   },
   {
     "id": "4fc27b3bd0e6a092",
@@ -1645,7 +1630,7 @@
     "continent": "charity",
     "amount": 0.49670000000000003,
     "raised": 0.49670000000000003,
-    "status": "success",
+    "status": "running",
     "time": "2025-06-18",
     "url": "https://fundme.cash/?id=111",
     "entities": [],
@@ -1672,8 +1657,7 @@
     "transactionTimestamp": "1773128845",
     "blockHeight": 941687,
     "goal": 37,
-    "goalSource": "description",
-    "raised": null
+    "goalSource": "description"
   },
   {
     "id": "674d1d7a26334a7d",
@@ -1692,8 +1676,7 @@
     "transactionTimestamp": "1773128845",
     "blockHeight": 941687,
     "goal": 37,
-    "goalSource": "description",
-    "raised": null
+    "goalSource": "description"
   },
   {
     "id": "f77647977243edd3",
@@ -1723,7 +1706,7 @@
     "continent": "defi",
     "amount": 3.1298,
     "raised": 3.1298,
-    "status": "success",
+    "status": "running",
     "time": "2025-02-23",
     "url": "https://fundme.cash/?id=116",
     "entities": [],
@@ -1761,7 +1744,7 @@
     "continent": "ecosystem",
     "amount": 9.3,
     "raised": 9.3,
-    "status": "success",
+    "status": "running",
     "time": "2026-03-14",
     "url": "https://fundme.cash/?id=118",
     "entities": [],
@@ -1828,8 +1811,7 @@
     "transactionTimestamp": "1775161519",
     "blockHeight": 945062,
     "goal": 2.5,
-    "goalSource": "description",
-    "raised": null
+    "goalSource": "description"
   },
   {
     "id": "0ef487aedab84f5e",
@@ -1875,7 +1857,7 @@
     "continent": "charity",
     "amount": 1.83591685,
     "raised": 1.83591685,
-    "status": "success",
+    "status": "running",
     "time": "2026-02-26",
     "url": "https://fundme.cash/?id=125",
     "entities": [],
@@ -1900,8 +1882,7 @@
       "bitcoincash:qqt29rqpuhecxsn44wvpyf89ljma7yjs2c0pj52m48"
     ],
     "transactionTimestamp": "1760253243",
-    "blockHeight": 920118,
-    "raised": null
+    "blockHeight": 920118
   },
   {
     "id": "34f9a9b55d0df755",
@@ -1911,7 +1892,7 @@
     "continent": "apps",
     "amount": 300.2699,
     "raised": 300.2699,
-    "status": "success",
+    "status": "running",
     "time": "2025-05-22",
     "url": "https://fundme.cash/?id=127",
     "entities": [],
@@ -1958,8 +1939,7 @@
       "bitcoincash:qze9yjzvy4z0muusezzfxrnh7gd2hphq7cj268a3p5"
     ],
     "transactionTimestamp": "1767908665",
-    "blockHeight": 933027,
-    "raised": null
+    "blockHeight": 933027
   },
   {
     "id": "d54ca5220f76970d",
@@ -1976,8 +1956,7 @@
       "bitcoincash:qqr0zl4jznduv88xz8pegu0fx44hatpatgh5rkqenx"
     ],
     "transactionTimestamp": "1714730315",
-    "blockHeight": 844187,
-    "raised": null
+    "blockHeight": 844187
   },
   {
     "id": "b60b482cadac9991",
@@ -1993,7 +1972,6 @@
     "recipientAddresses": [
       "bitcoincash:qp2rddn36cyegu8lrvy9fle3n6x8e07h5uxuqvjwg2"
     ],
-    "raised": null,
     "transactionTimestamp": "1758576205",
     "blockHeight": 917331
   },
@@ -2003,13 +1981,14 @@
     "title": "Electron Cash 2026",
     "description": "OverviewElectron Cash is the longest‑running Bitcoin Cash wallet and remains widely used, but the project risks falling behind newer ecosystem standards, expectations and requirements. To ensure its continued relevance and leadership, Electron Cash must modernize and adapt. This proposal outlines a focused modernization effort to retain Electron Cash’s competitiveness, security, and user experience by addressing five strategic objectives: adding quantum‑resistant key support, implementing full native CashTokens handling, modernizing the UI/UX, reducing technical debt in the codebase, and adding WalletConnect support for Android.ObjectivesOf the five objectives, two focus on adding new functionality, two aim to enhance existing features, and one is dedicated to maintenance.1. Implement Quantum‑resistant AbilityQuantum resistance is a growing demand with the cryptosphere, both in terms of narrative and security. Quantumroot exists, but hasn't been implemented in wallets yet.We aim to bring Quantum resistant wallets to Electron Cash, first as a plugin but with the aim to eventually mainline the capabilities. As preliminary groundwork, JF has already developed a JS/Libauth plugin to allow direct usage of the cashassembly framework, without having to unnecessarily port code to Python.With this foundation in place, we can now develop a user friendly interface with a quantum resistant wallet type and functionality that would provide everything that wallet users would want from Quantumroot while also giving us a competitive edge in promoting BCH.This work builds on Jason Dreyzehner's development, which utilizes Leighton-Micali One-Time Signatures. Since Quantumroot is still an emerging technology, using a plugin instead of integrating everything into the main source code helps keep things safe and organized, while giving us the ability to quickly incorporate the code from the plugin into the master code when necessary. Additionally, leveraging JavaScript makes it easier to implement quick updates, because the Python code provides a solid, highly reusable foundation to work on within Electron Cash, removing the need to worry about wallet dynamics.2. Implement Full Native CashTokens SupportRight now, even though Electron-Cash supports CashTokens, the features are embedded in separate pages and dialogs with complicated workflows. It's essentially a wallet within a wallet. We want to integrate them natively, as much as possible, treating tokens the same way we treat BCH: as a first-class feature throughout the wallet, not confined to isolated interfaces.Recent work by OPReturn added token functionality to the send tab, demonstrating what's possible. We'll expand on that foundation by improving the send workflow for tokens and enhancing coin selection to handle both BCH and tokens seamlessly. The goal is to make token transactions feel as natural and integrated as BCH transactions.3. Improve Workflows, General Experience, and FixesThe current interface feels outdated and could benefit from visual enhancements and more streamlined workflows. Our two recent releases show the kinds of meaningful improvements we can achieve. While we don’t plan a full redesign, there’s a clear opportunity to modernize the design in ways that simplify interactions and enhance usability. These will be mild, incremental changes rather than major overhauls.We intend to take inspiration from successful wallets like Electrum and work closely with our community to gather feedback. This approach allows us to make thoughtful updates that naturally align with evolving user expectations, while keeping the core experience familiar.We intend this section to be somewhat open-ended, giving us some wiggle room to incorporate user feedback and address outstanding issues. To provide a clearer sense of potential improvements, examples may include (but are not limited to): Simplifying menus Adding more filters Enhancing performance and usability for large wallets Create a macOS universal binary (ARM + x86) build processThese are examples rather than a complete list. The exact scope may expand as we refine priorities and incorporate community feedback.Note: Improving performance for large wallets is high on our list. We believe we can at least improve memory usage and address the hanging issues that arise when dealing with large numbers of coins or addresses. Transaction generation also has potential for optimization, though security considerations may limit what we can tackle in this area, and we'll need to carefully assess the impact.What this is not:This is not a complete overhaul, nor are we planning drastic changes across the entire experience. Our focus is on manageable, incremental improvements that enhance usability while preserving the familiar user experience.4. Reduce Technical Debt and Improve Code QualityOur codebase has accumulated significant complexity over the years, creating friction when adding new features and making maintenance increasingly difficult. Without intervention, this friction will only intensify, slowing down development and introducing more errors. By addressing the technical debt, we aim to establish a more solid foundation that enables faster, more reliable feature delivery.Cleaning up the codebase and reducing technical debt is essential for the long-term health of the project. The accumulated complexity not only slows feature development but also increases the likelihood of bugs and regressions, raises maintenance costs, and makes onboarding new contributors more challenging.However, given the structure of the codebase, this work carries risks, and we can't predict exactly how much progress we’ll be able to make. But it’s a necessary undertaking, and someone needs to tackle it. Our immediate goal is to at least clean up main_window.py, which has become one of the most disorganized and problematic sections of the code. While this effort may not yield the immediate, visible results that new features bring, it’s the critical groundwork that will help other future improvements.5. Add WalletConnect Support to EC AndroidWalletConnect is an open-source protocol that allows users to connect their wallets to decentralized applications (dApps). It enables secure interactions with dApps on users' devices without exposing private keys or sensitive information. A WalletConnect plugin has already been implemented by OPReturn, and efforts are currently underway to integrate it into the main codebase. Our goal is to incorporate WalletConnect into the Android build, making Electron Cash fully compatible for dApp interoperability. This will not only benefit users immediately, but we also hope it will position the app for easier integration with future connection technologies (such as WizardConnect and CashConnect), if needed.Cost Breakdown and Time FrameNote: While the following cost breakdown lists estimated hours for each item, these estimates are provided to give context and show how the work is most likely divided across the different tasks. We are committed to achieving the project’s objectives; the hours are meant only to illustrate the relative distribution of work. With Objective 3 being somewhat an exception, its hours are provided as a not very strict limit due to its open-ended nature. Implement Quantum‑resistant ability ~210H Implement full native CashTokens support ~175H Improve workflows, general experience, and fixes ~180H Reduce technical debt and improve code quality ~175H Add WalletConnect support to EC Android ~170HTotal ~910 hours. At ~0.212266786 BCH/HourBCH price at time of writing: ~$447.55.We aim to achieve this over the span of the next eight to ten months.About the TeamWe are Jonald F, OPReturn, and Calin Culianu. Together, we form a strong team and have successfully collaborated on projects over the years. Most of our joint work has focused on Electron Cash, including CashFusion, RPA, CashTokens, general development and maintenance of Electron Cash, and other related projects. Our combined experience allows us to tackle complex challenges efficiently, leveraging each team member’s strengths. This long-standing collaboration has positioned us well to take on this project and achieve its objectives effectively.In terms of responsibilities, Jonald will be in charge of implementing the quantum‑resistant ability and also overseeing product ownership. OPReturn will be responsible for implementing CashTokens support, workflow improvements, bug fixes, code quality enhancements, and WalletConnect integration for the Electron Cash Android app. Throughout the development process, Calin will focus on reviewing the code and providing expert consultations, ensuring high-quality standards and builds.You can read more about each team member below:JF helped launch BitcoinCash in 2017 by creating the first ever BCH wallet (Electron Cash) and has been involved as lead maintainer for this open source project for nearly a decade. He was involved in early tokenization efforts (SLP) and has been a major advocate for privacy on BCH, leading and developing solutions like CashShuffle and CashFusion. He has spearheaded advancements in the wallet including an RPA implementation, and a native Android implementation. He was one of the first BCHers to explore and develop code in the Nostr ecosystem, and continues efforts to advance BCH as peer-to-peer cash in Electron Cash and other open source software.OPReturn is a software developer with a deep commitment to freedom, privacy, and peer-to-peer cash. He has been active in the BCH community for many years and has been a long-time contributor to Electron Cash. Some of the notable projects he has been involved in include BCHD (Lead Developer), CashFusion (implementing the Android client), Electron Cash SLP Edition (Lead Developer), SLP Post Office server, SLPDB, WalletConnect, and more.In addition to development, he has managed a suite of BCH infrastructure, supporting and maintaining the network and helping strengthen the BCH ecosystem.Calin has been developing software professionally for 26 years, most of them spent writing high performance software in C++. He has run his own consulting and software business. He's worked on high performance systems for scientific applications.He has been involved in Bitcoin since 2013 first as a user then, later, as a developer. In 2017 he along with Freetrader and another individual were the 3 developers involved in forking the codebase of Bitcoin Core to form Bitcoin ABC and get the forked BCH chain rolling for the August 2017 hard fork.Since then, he has been involved as a software developer in various projects in the BCH ecosystem most notably: Electron Cash, Fulcrum, and Bitcoin Cash Node.Electron Cash History and Future PlansElectron Cash has not launched an official flipstarter since 2020, which focused on SLP and RPA. Ultimately, SLP was not merged into the mainline, as it was obsoleted by CashTokens. Instead, Electron Cash created a strong CashTokens implementation. RPA was integrated into both EC, with plans for future upgrades to streamline integration into standard wallets.Since then, Electron Cash has come a long way. EC released many updates, adding significant improvements and features for both mobile and desktop. The project has mostly relied on volunteer contributions, but with the rapid developments in BCH, there's now a pressing need for a stronger push. As a result, we’ve assembled a team to help take things forward.Currently there is no plan for future fundraising after this. We hope this will give Electron Cash a boost it needs after which we go back to the previous way of working on it.Our main channel for updates is the official Telegram group. We aim to share updates there at least every 3–4 weeks and will notify you whenever a milestone is reached.ContactIf you have any questions, you can reach us at the Electron Cash Telegram group. Alternatively, you can contact us directly via our handles: JF, OPReturn, Calin.",
     "continent": "apps",
-    "amount": 0,
+    "amount": 1.7950000000000002,
     "status": "running",
     "time": "2026-04-29",
     "url": "https://fundme.cash/?id=132",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:zr70vm24s744tvph7h6srltf2nmkgrakgs34q0l6kr"
-    ]
+    ],
+    "raised": 1.7950000000000002
   }
 ]
