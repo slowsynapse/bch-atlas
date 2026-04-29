@@ -21,7 +21,14 @@ jobs:
       - run: npm ci
 
       - name: Fetch fresh FundMe data
-        run: npx tsx scripts/fetch-fundme.ts
+        run: npx tsx scripts/fetch-fundme.ts | tee /tmp/fetch-fundme.log
+
+      - name: Surface summary to job page
+        run: |
+          echo "## FundMe refresh summary" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tail -n 40 /tmp/fetch-fundme.log >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Check for changes
         id: changes
@@ -34,5 +41,24 @@ jobs:
           git config user.name "BCH Atlas Bot"
           git config user.email "bot@bch-atlas.org"
           git add data/fundme.json
-          git commit -m "chore: refresh FundMe campaign data"
+
+          # Build a commit message that surfaces lifecycle changes + any
+          # rejected suspicious transitions so the git log itself tells
+          # the story without anyone needing to open the workflow run.
+          NEW=$(grep -c "^  + id=" /tmp/fetch-fundme.log || true)
+          CHANGED=$(grep -c "^  status:" /tmp/fetch-fundme.log || true)
+          REJECTED=$(grep -c "^  ⚠ rejected transition:" /tmp/fetch-fundme.log || true)
+
+          {
+            echo "chore: refresh FundMe campaign data"
+            echo
+            echo "$NEW new, $CHANGED status changes, $REJECTED rejected transitions"
+            if [ "$REJECTED" -gt 0 ]; then
+              echo
+              echo "Rejected (need human review):"
+              grep "^  ⚠ rejected transition:" /tmp/fetch-fundme.log | sed 's/^  ⚠ /- /'
+            fi
+          } > /tmp/commit-msg.txt
+
+          git commit -F /tmp/commit-msg.txt
           git push

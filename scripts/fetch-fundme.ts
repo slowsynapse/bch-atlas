@@ -42,6 +42,19 @@ function generateId(url: string, title: string, tx?: string, time?: string): str
     .substring(0, 16)
 }
 
+// The cron is allowed to flip status only on these transitions. Anything
+// else (success → running, expired → success, etc.) is suspicious and
+// gets logged for human review without being applied. Keeping this list
+// tight is the single biggest safeguard preventing the cron from
+// accidentally rewriting historical archive records.
+const ALLOWED_STATUS_TRANSITIONS = new Set<string>([
+  'running->success',
+  'running->expired',
+  'unknown->running',
+  'unknown->success',
+  'unknown->expired',
+])
+
 function stripHtml(html: string): string {
   return html
     .replace(/<[^>]*>/g, '')
@@ -159,6 +172,8 @@ async function main() {
   let failed = 0
   let added = 0
   let statusChanges = 0
+  const rejectedTransitions: Array<{ id: string; title: string; from: string; to: string }> = []
+  const newCampaigns: Array<{ id: string; title: string }> = []
 
   for (let i = 0; i < ids.length; i++) {
     const id = ids[i]
@@ -186,26 +201,33 @@ async function main() {
     const prior = existing[url]
 
     if (prior) {
-      // Preserve identity-defining and historical fields. Only overlay mutable
-      // fields (status, raised, amount, description) from the fresh fetch.
-      const merged: Campaign & Record<string, unknown> = {
-        ...prior,
-        title: fresh.title,
-        description: fresh.description,
-        continent: fresh.continent,
-        amount: fresh.amount,
-        raised: fresh.raised,
-        status: fresh.status,
-        recipientAddresses: fresh.recipientAddresses,
-        // id, time, transactionTimestamp, blockHeight, goal, goalSource preserved
-      }
-      if (prior.status !== fresh.status) {
+      // Archive-mode merge: existing campaigns are append-only EXCEPT for
+      // status, and even status only changes on a vetted lifecycle transition.
+      // Everything else (title, description, amount, raised, recipientAddresses,
+      // continent, time, transactionTimestamp, blockHeight, goal, goalSource)
+      // stays exactly as captured. The atlas is primarily an archive — the
+      // cron's job is to flip status when a campaign's lifecycle progresses,
+      // not to re-edit historical records.
+      const transition = `${prior.status}->${fresh.status}`
+      const allowed = ALLOWED_STATUS_TRANSITIONS.has(transition)
+      const sameStatus = prior.status === fresh.status
+
+      if (sameStatus) {
+        campaigns.push(prior)
+      } else if (allowed) {
         console.log(`  status: ${prior.status} → ${fresh.status}`)
         statusChanges++
+        campaigns.push({ ...prior, status: fresh.status })
+      } else {
+        // Suspicious transition (e.g. success → running, expired → success).
+        // Don't apply, but surface for human review via the cron output.
+        console.log(`  ⚠ rejected transition: ${prior.status} → ${fresh.status}  (id=${id}, ${prior.title.slice(0, 50)})`)
+        rejectedTransitions.push({ id, title: prior.title, from: prior.status, to: fresh.status })
+        campaigns.push(prior)
       }
-      campaigns.push(merged)
     } else {
-      console.log(`  + new campaign`)
+      console.log(`  + new campaign: ${fresh.title.slice(0, 60)}`)
+      newCampaigns.push({ id, title: fresh.title })
       campaigns.push(fresh)
       added++
     }
@@ -214,6 +236,20 @@ async function main() {
   }
 
   console.log(`\nFetched ${campaigns.length} campaigns (${added} new, ${statusChanges} status changes, ${failed} failed)`)
+
+  if (newCampaigns.length) {
+    console.log(`\nNew campaigns added (${newCampaigns.length}):`)
+    for (const c of newCampaigns) console.log(`  + id=${c.id}  ${c.title.slice(0, 70)}`)
+    console.log(`Tip: run \`npx tsx scripts/backfill-fundme-dates.ts\` to populate transactionTimestamp.`)
+  }
+
+  if (rejectedTransitions.length) {
+    console.log(`\n⚠ Rejected suspicious status transitions (${rejectedTransitions.length}):`)
+    for (const r of rejectedTransitions) {
+      console.log(`  id=${r.id}  ${r.from} → ${r.to}  (${r.title.slice(0, 60)})`)
+    }
+    console.log(`These were NOT applied. Review manually and update if legitimate.`)
+  }
 
   fs.writeFileSync('data/fundme.json', JSON.stringify(campaigns, null, 2) + '\n')
   console.log('Saved to data/fundme.json')
