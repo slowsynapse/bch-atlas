@@ -498,7 +498,7 @@ export function GraphVisualization({
               'background-clip': 'none' as any,
               'label': (ele: any) => {
                 const title = ele.data('label') || ''
-                return title.length > 20 ? title.slice(0, 20) + '…' : title
+                return title.length > 40 ? title.slice(0, 40) + '…' : title
               },
               'width': (ele: any) => Math.max(10, Math.log2((ele.data('value') || 0) + 1) * 9),
               'height': (ele: any) => Math.max(10, Math.log2((ele.data('value') || 0) + 1) * 9),
@@ -512,7 +512,7 @@ export function GraphVisualization({
               'text-halign': 'center',
               'text-margin-y': 5,
               'text-wrap': 'ellipsis' as any,
-              'text-max-width': '80px',
+              'text-max-width': '160px',
               'color': (ele: any) => {
                 const status = ele.data('metadata').status
                 if (status === 'expired' || status === 'failed') return 'rgba(255, 68, 85, 0.7)'
@@ -782,6 +782,11 @@ export function GraphVisualization({
         wheelSensitivity: 0.5,
       })
 
+      // Expose cy for E2E tests / debugging in dev only.
+      if (typeof window !== 'undefined') {
+        ;(window as unknown as { __cy?: unknown }).__cy = cy
+      }
+
       // Click: select, highlight connections, smoothly zoom to node
       cy.on('tap', 'node', (evt: any) => {
         const node = evt.target
@@ -812,7 +817,11 @@ export function GraphVisualization({
           edge.connectedNodes().style('opacity', 1)
         })
 
-        // Auto-zoom: project nodes show their neighborhood; others zoom to fixed level
+        // Auto-zoom: project nodes fit their full neighborhood (campaigns +
+        // recipients) so the user sees the cluster. Campaign / recipient nodes
+        // zoom to a fixed legible level centered on the node — high enough
+        // that the campaign label, neighbors' labels, and any project station
+        // nearby are readable.
         const nodeType = node.data('type')
         if (nodeType === 'project') {
           const neighborhood = node.closedNeighborhood()
@@ -822,9 +831,9 @@ export function GraphVisualization({
             easing: 'ease-out-cubic' as any,
           })
         } else {
-          // Campaign / recipient: zoom to a comfortable level centered on the node
           cy.animate({
-            zoom: { level: Math.max(1.2, cy.zoom() * 2.5), position: node.position() },
+            zoom: 2,
+            center: { eles: node },
             duration: 500,
             easing: 'ease-out-cubic' as any,
           })

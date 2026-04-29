@@ -28,10 +28,14 @@ function formatDate(dateString?: string, timestamp?: number): string {
 }
 
 export default function AtlasPage() {
-  const campaigns = getCampaigns()
-  const entities = getEntities()
-  const stats = getStats()
-  const { nodes, edges } = buildGraph(campaigns, entities)
+  // Heavy data loading + graph construction happens once. Without useMemo,
+  // every parent re-render produces fresh node/edge arrays, which trips the
+  // GraphVisualization useEffect's [nodes, edges] deps and rebuilds the
+  // entire cytoscape instance — wiping any in-progress zoom or selection.
+  const campaigns = useMemo(() => getCampaigns(), [])
+  const entities = useMemo(() => getEntities(), [])
+  const stats = useMemo(() => getStats(), [])
+  const { nodes, edges } = useMemo(() => buildGraph(campaigns, entities), [campaigns, entities])
 
   const [selectedNode, setSelectedNode] = useState<any>(null)
   const [searchQuery, setSearchQuery] = useState('')
@@ -79,9 +83,9 @@ export default function AtlasPage() {
     setFilters(prev => ({ ...prev, [key]: !prev[key] }))
   }
 
-  const handleNodeClick = (nodeId: string, nodeData: any) => {
+  const handleNodeClick = useCallback((nodeId: string, nodeData: any) => {
     setSelectedNode({ id: nodeId, ...nodeData })
-  }
+  }, [])
 
   const handleSearch = useCallback((query: string) => {
     setSearchQuery(query)
