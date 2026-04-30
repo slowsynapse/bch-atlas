@@ -7,6 +7,18 @@
  * campaign's recipient address (effectively the first pledge or claim
  * transaction) and uses that block's timestamp as the campaign date.
  *
+ * SCOPE — single-recipient campaigns only.
+ *
+ *   This script's "earliest tx" heuristic is correct ONLY for campaigns
+ *   whose recipient address is unique to that campaign. About 23 FundMe
+ *   addresses are reused across 60 campaigns (e.g. all 7 Bitcoin Cash
+ *   Podcast rounds share a wallet) — running this script on those would
+ *   collapse them all to the same date.
+ *
+ *   Shared-address campaigns are detected at startup and skipped. Use
+ *   `scripts/fix-fundme-dating.ts` for those — it walks the tx stream
+ *   by per-campaign pledge counts to assign correct distinct dates.
+ *
  * Usage:
  *   npx tsx scripts/backfill-fundme-dates.ts
  *
@@ -148,12 +160,30 @@ async function main() {
   const raw = readFileSync(FUNDME_PATH, 'utf-8')
   const campaigns: FundMeCampaign[] = JSON.parse(raw)
 
+  // Build address-use counts up front so we can refuse shared addresses.
+  // The "earliest tx" heuristic produces wrong dates for any address that
+  // hosts more than one campaign — every campaign on that address would
+  // get the same date. Use scripts/fix-fundme-dating.ts for those.
+  const addrUseCount = new Map<string, number>()
+  for (const c of campaigns) {
+    for (const a of c.recipientAddresses ?? []) {
+      addrUseCount.set(a, (addrUseCount.get(a) ?? 0) + 1)
+    }
+  }
+  const sharedAddrs = [...addrUseCount.entries()].filter(([, n]) => n > 1)
+
   console.log(`Backfilling dates for ${campaigns.length} FundMe campaigns...`)
+  if (sharedAddrs.length) {
+    const sharedCampaignCount = sharedAddrs.reduce((s, [, n]) => s + n, 0)
+    console.log(`Detected ${sharedAddrs.length} shared addresses across ${sharedCampaignCount} campaigns — those will be skipped.`)
+    console.log('Run scripts/fix-fundme-dating.ts to date shared-address campaigns correctly.')
+  }
   console.log('Querying Chaingraph for each recipient address (~300ms between requests)\n')
 
   let updated = 0
   let skipped = 0
   let failed = 0
+  let skippedShared = 0
 
   for (let i = 0; i < campaigns.length; i++) {
     const c = campaigns[i]
@@ -163,6 +193,12 @@ async function main() {
     if (!recipient) {
       console.log(`${progress} - ${c.title.slice(0, 50)} — skipped (no recipient)`)
       skipped++
+      continue
+    }
+
+    if ((addrUseCount.get(recipient) ?? 0) > 1) {
+      console.log(`${progress} ⊘ ${c.title.slice(0, 50)} — shared address, use fix-fundme-dating.ts`)
+      skippedShared++
       continue
     }
 
@@ -191,7 +227,10 @@ async function main() {
   writeFileSync(FUNDME_PATH, JSON.stringify(campaigns, null, 2) + '\n')
 
   console.log('')
-  console.log(`Done. Updated: ${updated}, skipped: ${skipped}, failed: ${failed}`)
+  console.log(`Done. Updated: ${updated}, skipped (no recipient): ${skipped}, skipped (shared address): ${skippedShared}, failed: ${failed}`)
+  if (skippedShared > 0) {
+    console.log(`Run \`npx tsx scripts/fix-fundme-dating.ts\` to date the ${skippedShared} shared-address campaigns.`)
+  }
   console.log(`Wrote ${FUNDME_PATH}`)
 }
 
