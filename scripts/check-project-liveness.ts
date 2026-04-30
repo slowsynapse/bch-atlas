@@ -472,6 +472,19 @@ function determineStatus(
     return { status: 'dead', detail: details.join('. ') }
   }
 
+  // A commit in the last 6 months normally signals active. But if the project
+  // has a website AND that website is explicitly down, the maintainer
+  // abandoned the public face of the project even if they're still pushing
+  // commits — that's dormant at best. Common pattern: a fork or successor
+  // org keeps the github alive after the original site lapsed.
+  if (recentCommit && hasWebsite && websiteUp === false) {
+    // Treat as dormant — code activity exists but the project's public face
+    // is broken. If the commit is also old-ish (3+ months), skip ahead to
+    // dormant directly; otherwise still dormant since the site is the
+    // primary signal of "user-facing project alive".
+    return { status: 'dormant', detail: details.join('. ') }
+  }
+
   if (recentCommit) {
     return { status: 'active', detail: details.join('. ') }
   }
@@ -494,6 +507,14 @@ function determineStatus(
   }
   if (oldCommit) {
     return { status: 'dormant', detail: details.join('. ') }
+  }
+
+  // Website is registered but explicitly down. By this point we've already
+  // ruled out any recent active signals. A registered-but-dead site is a
+  // strong abandonment signal — mark dead. (We've also already filtered
+  // out the "recent commit AND website up" path above.)
+  if (hasWebsite && websiteUp === false) {
+    return { status: 'dead', detail: details.join('. ') }
   }
 
   if (!hasGithub && !hasWebsite) {

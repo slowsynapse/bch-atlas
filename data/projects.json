@@ -4114,9 +4114,9 @@
       "slp foundation",
       "slp-foundation"
     ],
-    "status": "active",
+    "status": "dead",
     "statusCheckedAt": "2026-04-28T20:10:37.947Z",
-    "statusDetail": "Last commit 163d ago. Website down. Wayback inconclusive",
+    "statusDetail": "Org-only URL — most-recent repo \"SLPDB\" pushed 165d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2025-11-16T15:41:27Z",
     "websiteUp": false,
     "lastContentChange": null,
