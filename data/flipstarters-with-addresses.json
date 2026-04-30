@@ -131,7 +131,8 @@
       "http://archive.is/Lg6B9",
       "https://archive.is/4P4Q7",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-marketing_expired_2021-04-13T103438.7462450000.png"
-    ]
+    ],
+    "time": "2020-08-12"
   },
   {
     "amount": 30,
@@ -242,7 +243,8 @@
     "archive": [
       "http://archive.is/8iwdf",
       "https://archive.is/wjWRb"
-    ]
+    ],
+    "time": "2020-09-11"
   },
   {
     "amount": 160,
@@ -312,7 +314,8 @@
     "archive": [
       "http://archive.is/BsFbk",
       "https://web.archive.org/web/20200817074951/https://flipstarter.getstamp.io/"
-    ]
+    ],
+    "time": "2020-08-17"
   },
   {
     "amount": 250,
@@ -332,7 +335,8 @@
     "archive": [
       "http://archive.is/RUzc3",
       "http://flipbackend.bitcoincash.network/media/screenshots/mitra-labs-smart-contract-system-for-bitcoin-cash_expired_2021-04-13T103556._0fVbECS.png"
-    ]
+    ],
+    "time": "2020-11-03"
   },
   {
     "amount": 1000,
@@ -349,7 +353,8 @@
     "archive": [
       "http://archive.is/OA6n3",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-abc_expired_2021-04-13T103608.2178620000.png"
-    ]
+    ],
+    "time": "2020-05-06"
   },
   {
     "amount": 65,
@@ -514,7 +519,8 @@
     "archive": [
       "https://archive.is/VtA9L",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-marketing_expired_2021-04-13T103723.4826260000.png"
-    ]
+    ],
+    "time": "2020-08-12"
   },
   {
     "amount": 150,
@@ -854,7 +860,8 @@
     "archive": [
       "https://archive.is/RA6Um",
       "http://flipbackend.bitcoincash.network/media/screenshots/help-make-bitcoin-cash-integration-for-enterprise-easier-than-ever-before_ex_ItHkTZD.png"
-    ]
+    ],
+    "time": "2020-10-26"
   },
   {
     "amount": 75,
@@ -958,7 +965,8 @@
     "archive": [
       "https://archive.is/ZdFPW",
       "http://flipbackend.bitcoincash.network/media/screenshots/help-found-buildcash_expired_2021-04-19T163505.6265790000.png"
-    ]
+    ],
+    "time": "2020-10-22"
   },
   {
     "amount": 7,
@@ -1138,7 +1146,8 @@
     "archive": [
       "https://archive.is/cCbxX",
       "http://flipbackend.bitcoincash.network/media/screenshots/cashlink-network-phase-1-cashsql-server_expired_2021-04-13T104122.0857400000.png"
-    ]
+    ],
+    "time": "2020-10-26"
   },
   {
     "amount": 25,
@@ -1253,7 +1262,8 @@
     "archive": [
       "https://archive.is/nIkah",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-bch-adoption-promotional-videos_expired_2021-04-13T104207.0202460000.png"
-    ]
+    ],
+    "time": "2020-08-12"
   },
   {
     "amount": 2,
@@ -1300,7 +1310,8 @@
     "archive": [
       "https://archive.is/eewD0",
       "http://flipbackend.bitcoincash.network/media/screenshots/spice-token-projects-growth-and-expansion_expired_2021-04-13T104231.9915950000.png"
-    ]
+    ],
+    "time": "2020-12-01"
   },
   {
     "amount": 21,
@@ -1700,7 +1711,8 @@
     "archive": [
       "https://archive.is/j4tVC",
       "http://flipbackend.bitcoincash.network/media/screenshots/its-a-flipstarter-party_expired_2021-04-13T104508.9545660000.png"
-    ]
+    ],
+    "time": "2021-01-23"
   },
   {
     "amount": 5,
@@ -1918,7 +1930,8 @@
     "archive": [
       "https://archive.is/VFpB9",
       "http://flipbackend.bitcoincash.network/media/screenshots/honklerhangouts-liberland-merit-sale_expired_2021-04-13T105431.5621700000.png"
-    ]
+    ],
+    "time": "2020-10-12"
   },
   {
     "amount": 300,
@@ -2364,7 +2377,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/introducing-joystickclub-pay-to-play-games-powered-by-bitcoin-cash_success_2_hfbBURd.png"
-    ]
+    ],
+    "time": "2021-05-01"
   },
   {
     "amount": 15,
@@ -2582,7 +2596,8 @@
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/optn-a-badger-mobile-wallet-rewrite_running_2021-07-02T083605.7700950000.png",
       "http://flipbackend.bitcoincash.network/media/screenshots/optn-a-badger-mobile-wallet-rewrite_running_2021-07-06T160511.2818090000.png"
-    ]
+    ],
+    "time": "2021-07-02"
   },
   {
     "amount": 55,
@@ -3709,7 +3724,8 @@
     ],
     "archive": [
       "http://flipbackend.bitcoincash.network/media/screenshots/bch-adoption-merchants-with-criptocatia-in-caracas-venezuela_running_2022-12_pbqFtQw.png"
-    ]
+    ],
+    "time": "2022-11-24"
   },
   {
     "amount": 46,
@@ -4098,7 +4114,8 @@
     "archive": [
       "https://archive.is/QSVDB",
       "http://flipbackend.bitcoincash.network/media/screenshots/tokenstorkcom-flipstarter_running_2024-02-15T234636.0128830000.png"
-    ]
+    ],
+    "time": "2024-02-15"
   },
   {
     "amount": 24,
@@ -4189,7 +4206,8 @@
     ],
     "archive": [
       "https://archive.is/kJRsO"
-    ]
+    ],
+    "time": "2024-03-08"
   },
   {
     "amount": 270,
@@ -4258,7 +4276,8 @@
     "archive": [
       "https://archive.is/3VyOc",
       "http://flipbackend.bitcoincash.network/media/screenshots/an-evolved-bch-portal_success_2024-04-04T155846.2959670000.png"
-    ]
+    ],
+    "time": "2024-02-14"
   },
   {
     "amount": 40,
@@ -4327,7 +4346,8 @@
     "archive": [
       "https://archive.is/CDgAe",
       "http://flipbackend.bitcoincash.network/media/screenshots/an-evolved-bch-portal_success_2024-04-15T064634.6770320000.png"
-    ]
+    ],
+    "time": "2024-02-14"
   },
   {
     "amount": 265,
@@ -4347,7 +4367,8 @@
     "archive": [
       "https://archive.is/il4zP",
       "http://flipbackend.bitcoincash.network/media/screenshots/enhance-mobazha-user-experience-robust-and-reliability-also-engage-marketing_lMsfFwY.png"
-    ]
+    ],
+    "time": "2024-07-10"
   },
   {
     "amount": 0.99,
@@ -4407,7 +4428,8 @@
     "archive": [
       "https://archive.is/E4DgT",
       "http://flipbackend.bitcoincash.network/media/screenshots/an-urgent-call-for-solidarity-and-hope_running_2024-04-30T202100.4495990000.png"
-    ]
+    ],
+    "time": "2024-04-30"
   },
   {
     "amount": 0.95,
@@ -4454,7 +4476,8 @@
       "https://archive.is/Bztuc",
       "https://archive.is/wWUDf",
       "http://flipbackend.bitcoincash.network/media/screenshots/educating-and-onboarding-hausa-speaking-countries-to-bitcoin-cash_success_20_6aI06t4.png"
-    ]
+    ],
+    "time": "2024-05-06"
   },
   {
     "amount": 150,
@@ -4516,7 +4539,8 @@
     "archive": [
       "https://archive.is/6P0t9",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-mesh-network-3_running_2024-05-15T164149.4311650000.png"
-    ]
+    ],
+    "time": "2024-05-15"
   },
   {
     "amount": 2.93,
@@ -4646,7 +4670,8 @@
     "archive": [
       "https://archive.is/LvmrZ",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-cash-mesh-network-5-bitcoin-cash-education-and-energy-upgrade_runnin_YIxzRY5.png"
-    ]
+    ],
+    "time": "2024-07-03"
   },
   {
     "amount": 3,
@@ -4790,7 +4815,8 @@
     "archive": [
       "https://archive.is/99loI",
       "http://flipbackend.bitcoincash.network/media/screenshots/bitcoin-verde-2025-upgrade_running_2024-09-19T044150.4077320000.png"
-    ]
+    ],
+    "time": "2024-09-19"
   },
   {
     "amount": 40,
@@ -4958,7 +4984,8 @@
     "archive": [
       "https://archive.is/BoP1w",
       "http://flipbackend.bitcoincash.network/media/screenshots/an-electron-cash-plugin-for-future-bitcoin-cash-fbch_expired_2024-12-24T1127_vKg8N8x.png"
-    ]
+    ],
+    "time": "2024-11-19"
   },
   {
     "amount": 11.28,
