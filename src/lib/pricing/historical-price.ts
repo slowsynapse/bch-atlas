@@ -1,72 +1,45 @@
 /**
  * Historical BCH/USD Price Lookup
  *
- * Fetches and caches historical daily BCH prices from two sources:
- * - Hyperliquid: Dec 2020 onwards (perp market data)
- * - Binance: Mar 2020 – Nov 2020 (free public API, pre-Hyperliquid)
- *
- * Note: CoinGecko and CoinPaprika free APIs now limit historical
- * data to 365 days, so we use Binance for older campaigns.
+ * Two sources:
+ * - Hyperliquid: Oct 2020 onwards (perp market data, fetched at request time).
+ * - Static JSON: Mar 2020 – Sept 2020 (pre-Hyperliquid; baked into the repo
+ *   from Binance once and never changes — Binance geoblocks Vercel egress).
  *
  * Prices are cached by date key (YYYY-MM-DD) in a module-level Map.
  * Server-side only — never import from client components.
  */
 
 import { getAllCandles } from '@/lib/hyperliquid/queries'
+import staticPrices2020 from './static-bch-prices-2020.json'
 
 // Module-level cache: dateKey → USD price
 const priceCache = new Map<string, number>()
 let cachePopulated = false
 let cachePromise: Promise<void> | null = null
 
-// Hyperliquid BCH perp data starts around Dec 2020
-const HYPERLIQUID_START = new Date('2020-12-01')
+// Hyperliquid BCH perp data starts Oct 4, 2020 — earlier than the previous
+// Dec 2020 assumption. Anything before Oct comes from the static file.
+const HYPERLIQUID_START = new Date('2020-10-01')
 
 function toDateKey(date: Date): string {
   return date.toISOString().slice(0, 10)
 }
 
 /**
- * Fetch BCH prices from Binance for the pre-Hyperliquid period.
- * Uses the public klines API — no API key needed.
- * Max 1000 candles per request; we fetch Mar 2020 – Nov 2020.
+ * Load the bundled pre-Oct-2020 daily prices into the cache. Synchronous —
+ * no network call, no failure modes, no Binance dependency at runtime.
  */
-async function fetchBinancePrices(): Promise<void> {
-  const from = new Date('2020-03-01').getTime()
-  const to = HYPERLIQUID_START.getTime() - 1
-
-  try {
-    const url =
-      `https://api.binance.com/api/v3/klines` +
-      `?symbol=BCHUSDT&interval=1d&startTime=${from}&endTime=${to}&limit=1000`
-
-    const response = await fetch(url)
-    if (!response.ok) {
-      console.warn(`Binance API returned ${response.status}, skipping early prices`)
-      return
-    }
-
-    const data = await response.json()
-    // Binance klines: [openTime, open, high, low, close, volume, ...]
-    const count = Array.isArray(data) ? data.length : 0
-
-    for (const kline of data) {
-      const [openTime, , , , close] = kline
-      const dateKey = toDateKey(new Date(Number(openTime)))
-      const price = parseFloat(close)
-      if (!isNaN(price) && !priceCache.has(dateKey)) {
-        priceCache.set(dateKey, price)
-      }
-    }
-
-    console.log(`[pricing] Binance: cached ${count} daily prices (Mar–Nov 2020)`)
-  } catch (error) {
-    console.warn('[pricing] Binance fetch failed, early campaigns will lack USD:', error)
+function loadStaticPrices(): void {
+  const entries = Object.entries(staticPrices2020 as Record<string, number>)
+  for (const [dateKey, price] of entries) {
+    if (!priceCache.has(dateKey)) priceCache.set(dateKey, price)
   }
+  console.log(`[pricing] Static: loaded ${entries.length} daily prices (Mar–Sept 2020)`)
 }
 
 /**
- * Fetch BCH prices from Hyperliquid for Dec 2020 onwards.
+ * Fetch BCH prices from Hyperliquid for Oct 2020 onwards.
  * Uses daily candles with automatic pagination.
  */
 async function fetchHyperliquidPrices(): Promise<void> {
@@ -82,7 +55,7 @@ async function fetchHyperliquidPrices(): Promise<void> {
       priceCache.set(dateKey, candle.close)
     }
 
-    console.log(`[pricing] Hyperliquid: cached ${candles.length} daily prices (Dec 2020–now)`)
+    console.log(`[pricing] Hyperliquid: cached ${candles.length} daily prices (Oct 2020–now)`)
   } catch (error) {
     console.warn('[pricing] Hyperliquid fetch failed:', error)
   }
@@ -97,8 +70,8 @@ export async function ensurePriceCache(): Promise<void> {
   if (cachePromise) return cachePromise
 
   cachePromise = (async () => {
-    // Fetch from both sources in parallel
-    await Promise.all([fetchBinancePrices(), fetchHyperliquidPrices()])
+    loadStaticPrices()
+    await fetchHyperliquidPrices()
     cachePopulated = true
     console.log(`[pricing] Total cached prices: ${priceCache.size} unique dates`)
   })()
@@ -108,7 +81,7 @@ export async function ensurePriceCache(): Promise<void> {
 
 export interface HistoricalPrice {
   price: number
-  source: 'hyperliquid' | 'binance'
+  source: 'hyperliquid' | 'static'
   dateKey: string
 }
 
@@ -121,11 +94,12 @@ export interface HistoricalPrice {
 export function getPriceForDate(date: Date): HistoricalPrice | null {
   const dateKey = toDateKey(date)
   const isEarly = date < HYPERLIQUID_START
+  const source: HistoricalPrice['source'] = isEarly ? 'static' : 'hyperliquid'
 
   // Exact match
   const exact = priceCache.get(dateKey)
   if (exact !== undefined) {
-    return { price: exact, source: isEarly ? 'binance' : 'hyperliquid', dateKey }
+    return { price: exact, source, dateKey }
   }
 
   // Search nearby dates (±1 to ±3 days)
@@ -135,7 +109,7 @@ export function getPriceForDate(date: Date): HistoricalPrice | null {
       const nearbyKey = toDateKey(nearby)
       const price = priceCache.get(nearbyKey)
       if (price !== undefined) {
-        return { price, source: isEarly ? 'binance' : 'hyperliquid', dateKey: nearbyKey }
+        return { price, source, dateKey: nearbyKey }
       }
     }
   }

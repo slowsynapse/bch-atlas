@@ -34,7 +34,7 @@ export interface Campaign {
 
   // Historical pricing
   usdValueAtTime?: number           // Goal in USD at historical BCH price
-  priceSource?: 'hyperliquid' | 'coingecko' | 'binance' | 'estimated'
+  priceSource?: 'hyperliquid' | 'coingecko' | 'binance' | 'static' | 'estimated'
   priceDate?: string                // ISO date used for price lookup
 
   // Manual overrides (data/campaign-overrides.json)
