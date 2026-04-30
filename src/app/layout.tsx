@@ -29,6 +29,10 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        // Browser extensions (Grammarly, Honey, etc.) inject attributes onto
+        // <body> between SSR and hydration, causing a noisy console warning.
+        // suppressHydrationWarning is the documented Next.js fix for this.
+        suppressHydrationWarning
       >
         <Providers>{children}</Providers>
       </body>

@@ -11,7 +11,17 @@ export function buildGraph(
   const edgeSet = new Set<string>()
 
   const allRecipients = buildRecipientMap(campaigns)
-  const projects = getResolvedProjects(campaigns).filter(p => p.campaigns.length > 0)
+  const allResolved = getResolvedProjects(campaigns)
+  // Funded projects: those with linked campaigns. Anchor in the planetary
+  // system over their campaigns.
+  const fundedProjects = allResolved.filter(p => p.campaigns.length > 0)
+  // Active-but-unfunded projects: never ran a Flipstarter/FundMe but are
+  // still active development. Render in outer orbit (further from continent
+  // center) to suggest "still alive but not crowdfunded".
+  const orbitalProjects = allResolved.filter(p =>
+    p.campaigns.length === 0 && p.status === 'active'
+  )
+  const projects = [...fundedProjects, ...orbitalProjects]
 
   // Build campaign → project status lookup so we can inherit liveness on
   // funded campaigns. A funded campaign whose project is dead/dormant should
@@ -24,7 +34,7 @@ export function buildGraph(
     }
   }
 
-  console.log(`Building graph: ${campaigns.length} campaigns, ${allRecipients.size} recipients, ${projects.length} linked projects`)
+  console.log(`Building graph: ${campaigns.length} campaigns, ${allRecipients.size} recipients, ${fundedProjects.length} funded projects, ${orbitalProjects.length} orbital projects`)
 
   // Campaign nodes
   campaigns.forEach(campaign => {
@@ -79,17 +89,21 @@ export function buildGraph(
     })
   })
 
-  // Project nodes ("space stations") — only projects with linked campaigns
-  // Small projects (1-2 campaigns) → ISS-style, Large (3+) → Starbase
+  // Project nodes ("space stations").
+  // - Funded: 1-2 campaigns → ISS-style (small), 3+ → Starbase (large).
+  // - Orbital: zero campaigns but status=active → render in outer orbit
+  //   ring of their continent, smaller than ISS-class.
   projects.forEach(project => {
-    const stationSize = project.campaigns.length >= 3 ? 'large' : 'small'
+    const isOrbital = project.campaigns.length === 0
+    const stationSize = isOrbital ? 'orbital' : (project.campaigns.length >= 3 ? 'large' : 'small')
     nodes.push({
       data: {
         id: `proj-${project.slug}`,
         label: project.name,
         type: 'project',
         status: project.status, // Top-level for Cytoscape selectors
-        stationSize, // 'small' (ISS) | 'large' (Starbase)
+        stationSize, // 'orbital' | 'small' (ISS) | 'large' (Starbase)
+        isOrbital, // true → no-campaign active project, rendered in outer ring
         value: project.totalBCH,
         metadata: {
           slug: project.slug,
@@ -105,6 +119,7 @@ export function buildGraph(
           successRate: project.successRate,
           statusDetail: project.statusDetail,
           lastGithubCommit: project.lastGithubCommit,
+          cohorts: (project as any).cohorts ?? null,
         }
       } as any
     })

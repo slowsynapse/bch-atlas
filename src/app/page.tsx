@@ -74,9 +74,12 @@ export default function AtlasPage() {
     showRunning: true,
     showRecipients: true,
     showProjects: true,
+    showOrbitals: false,
   })
 
-  const projectCount = nodes.filter(n => n.data.type === 'project').length
+  const projectNodes = nodes.filter(n => n.data.type === 'project')
+  const linkedProjectCount = projectNodes.filter(n => !(n.data as any).isOrbital).length
+  const orbitalProjectCount = projectNodes.filter(n => (n.data as any).isOrbital).length
   const recipientCount = nodes.filter(n => n.data.type === 'recipient').length
 
   const toggleFilter = (key: keyof NodeFilters) => {
@@ -328,8 +331,14 @@ export default function AtlasPage() {
             <label className="flex items-center gap-2.5 cursor-pointer hover:bg-[rgba(0,224,160,0.04)] p-1 rounded transition-colors">
               <input type="checkbox" checked={filters.showProjects} onChange={() => toggleFilter('showProjects')} className="w-3 h-3 accent-[#00D4FF]" />
               <img src="/iss-station.svg" alt="" className="w-4 h-3" style={{ filter: 'drop-shadow(0 0 4px rgba(0,255,136,0.5))' }} />
-              <span className="text-[#90A8A8] text-[11px] flex-1" title="Projects with linked Flipstarter/FundMe campaigns. The full registry tracks more projects — see the Browse Projects page.">Linked Projects</span>
-              <span className="font-mono text-[10px]" style={{ color: '#3A6A5A' }}>{projectCount}</span>
+              <span className="text-[#90A8A8] text-[11px] flex-1" title="Projects with linked Flipstarter/FundMe campaigns.">Linked Projects</span>
+              <span className="font-mono text-[10px]" style={{ color: '#3A6A5A' }}>{linkedProjectCount}</span>
+            </label>
+            <label className="flex items-center gap-2.5 cursor-pointer hover:bg-[rgba(0,224,160,0.04)] p-1 rounded transition-colors">
+              <input type="checkbox" checked={filters.showOrbitals ?? false} onChange={() => toggleFilter('showOrbitals')} className="w-3 h-3 accent-[#7A8899]" />
+              <img src="/iss-station.svg" alt="" className="w-3 h-2 opacity-70" />
+              <span className="text-[#90A8A8] text-[11px] flex-1" title="Active projects with no Flipstarter/FundMe campaign yet — rendered as small satellites in the outer ring of each continent. Off by default to keep the funded story front and center.">Unlinked Projects</span>
+              <span className="font-mono text-[10px]" style={{ color: '#3A6A5A' }}>{orbitalProjectCount}</span>
             </label>
           </div>
         </div>

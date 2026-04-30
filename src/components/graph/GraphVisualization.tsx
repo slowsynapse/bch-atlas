@@ -11,6 +11,10 @@ export interface NodeFilters {
   showRunning: boolean
   showRecipients: boolean
   showProjects: boolean
+  // Orbital projects: active projects that never ran a Flipstarter/FundMe.
+  // Off by default — they crowd the graph and most viewers want to see the
+  // funded story first.
+  showOrbitals?: boolean
 }
 
 // Cracked moon SVG for failed/expired campaigns — a fractured planet splitting apart.
@@ -288,9 +292,42 @@ function computePresetPositions(nodes: GraphNode[], edges: GraphEdge[]): { posit
     }
   }
 
-  // Position project stations: anchor at centroid of their member campaigns,
-  // offset above the cluster so the station "hovers" over its planets
+  // Group orbital projects by continent so we can spread them around the
+  // continent's outer ring at evenly-spaced angles.
+  const orbitalsByContinent = new Map<string, GraphNode[]>()
   for (const pNode of projectNodes) {
+    if ((pNode.data as any).isOrbital) {
+      const cont = pNode.data.metadata?.continent || 'other'
+      if (!orbitalsByContinent.has(cont)) orbitalsByContinent.set(cont, [])
+      orbitalsByContinent.get(cont)!.push(pNode)
+    }
+  }
+
+  // Position project stations: funded ones anchor at centroid of their
+  // member campaigns. Orbital ones (no campaigns) ring the continent's
+  // outer perimeter at a fixed radius.
+  const ORBITAL_RADIUS = 1200 // outer ring distance from continent center
+  for (const pNode of projectNodes) {
+    if ((pNode.data as any).isOrbital) {
+      const cont = pNode.data.metadata?.continent || 'other'
+      const center = CONTINENT_CENTERS[cont] || CONTINENT_CENTERS.other
+      const siblings = orbitalsByContinent.get(cont) || []
+      const idx = siblings.indexOf(pNode)
+      const total = siblings.length
+      // Spread around the full circle, offset so two-orbital continents
+      // don't overlap with each other across continents.
+      const angle = (idx / Math.max(total, 1)) * Math.PI * 2
+      // Mild radial jitter so density-rings of equal-N continents don't
+      // look mechanical. Stable per-id so reloads don't shuffle nodes.
+      const radialJitter = (seededRandom(pNode.data.id, 1) - 0.5) * 200
+      const r = ORBITAL_RADIUS + radialJitter
+      positions.set(pNode.data.id, {
+        x: center.x + Math.cos(angle) * r,
+        y: center.y + Math.sin(angle) * r,
+      })
+      continue
+    }
+
     const memberEdges = edges.filter(e =>
       e.data.type === 'project-member' && e.data.source === pNode.data.id
     )
@@ -364,6 +401,8 @@ export function GraphVisualization({
 
         if (type === 'recipient' && !filters.showRecipients) return false
         if (type === 'project' && !filters.showProjects) return false
+        // Orbital projects (no campaigns, status=active) are off by default.
+        if (type === 'project' && (node.data as any).isOrbital && !filters.showOrbitals) return false
 
         return true
       })
@@ -636,6 +675,26 @@ export function GraphVisualization({
               'shadow-offset-x': 0,
               'shadow-offset-y': 0,
               'shadow-opacity': 0.6,
+            } as any
+          },
+          // Orbital: active project with no Flipstarter/FundMe campaigns —
+          // rendered smaller on the continent's outer ring. Reuses the
+          // small (ISS) icon at reduced size to read as "satellite" rather
+          // than a funded station.
+          {
+            selector: 'node[type="project"][stationSize="orbital"]',
+            style: {
+              'background-image': '/iss-station.svg',
+              'width': 50,
+              'height': 33,
+              'label': 'data(label)',
+              'font-size': 9,
+              'color': '#7A8899',
+              'text-valign': 'bottom',
+              'text-margin-y': 4,
+              'text-max-width': 100,
+              'text-wrap': 'ellipsis',
+              'border-width': 0,
             } as any
           },
           // Small (ISS) station: 1-2 campaigns
