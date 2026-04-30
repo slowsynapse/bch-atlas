@@ -99,7 +99,10 @@ function sumPledges(pledges?: FundMeRaw['pledges']): number {
 
 function transformCampaign(raw: FundMeRaw, apiId: string): Campaign {
   const title = raw.name || `FundMe Campaign #${apiId}`
-  const url = `https://fundme.cash/?id=${apiId}`
+  // FundMe.cash's actual SPA route is /campaign/<id> — the legacy ?id=<n>
+  // shape redirects to the same shell but doesn't resolve to a campaign view
+  // in their client router. Always use /campaign/<n> for the canonical URL.
+  const url = `https://fundme.cash/campaign/${apiId}`
   const time = new Date().toISOString().split('T')[0]
   const raised = sumPledges(raw.pledges)
   const amount = raised > 0 ? raised : 0

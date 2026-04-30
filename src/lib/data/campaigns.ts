@@ -57,13 +57,25 @@ function mapStatus(status: string): Campaign['status'] {
 }
 
 function generateId(url: string, title: string, tx?: string, time?: string, amount?: number): string {
-  // Stable, deterministic ID for a campaign. Inputs are tried in order of
-  // strength: tx (unique on-chain commitment), time (set once when campaign
-  // is dated), amount (last-resort disambiguator for the rare duplicate
-  // url+title pair). The previous implementation used Date.now() as the
-  // final fallback, which made ~80 dateless Flipstarter IDs change on
-  // every server restart and broke any URL/override that referenced them.
-  const unique = tx || time || (amount != null ? String(amount) : '')
+  // Stable, deterministic ID for a campaign.
+  //
+  // Strongest signal: tx (unique on-chain commitment, when present). For
+  // tx-less records (~80 expired Flipstarters that were never funded), we
+  // combine `time` and `amount` together — neither is unique on its own
+  // when two campaign rounds share the same site and the Wayback CDX gave
+  // them the same earliest-snapshot date (e.g. two Mobazha rounds at
+  // flipstarter2.mobazha.info both dated 2024-07-10, asking for 265 and
+  // 150 BCH). Earlier versions used `tx || time || amount` which
+  // collided in this exact case, producing the same 16-char id for two
+  // distinct campaigns and triggering React reconciliation glitches in
+  // the archive list.
+  //
+  // tx-bearing campaigns and FundMe records (which carry their id in
+  // data/fundme.json from the original fetch-fundme.ts run) are
+  // unaffected by this change.
+  const unique = tx
+    ? tx
+    : `${time ?? ''}-${amount != null ? String(amount) : ''}`
   return createHash('sha256')
     .update(`${url}-${title}-${unique}`)
     .digest('hex')

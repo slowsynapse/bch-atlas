@@ -9,7 +9,7 @@
     "raised": 0.026000000000000002,
     "status": "success",
     "time": "2024-06-30",
-    "url": "https://fundme.cash/?id=2",
+    "url": "https://fundme.cash/campaign/2",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp5pvq9cqxdr80xdnkf0t264duqzhtuef5tl58pxt5"
@@ -29,7 +29,7 @@
     "raised": 0.99999,
     "status": "success",
     "time": "2024-07-07",
-    "url": "https://fundme.cash/?id=3",
+    "url": "https://fundme.cash/campaign/3",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzyje39mz9aw4hzyxp73cs0ql0ly8j5wju83tczk92"
@@ -47,7 +47,7 @@
     "raised": 0.4082,
     "status": "success",
     "time": "2024-05-01",
-    "url": "https://fundme.cash/?id=5",
+    "url": "https://fundme.cash/campaign/5",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpgl0jvdydhygv2awc6dj5ln926e74c9aytesg6hty"
@@ -67,7 +67,7 @@
     "raised": 12.25135999,
     "status": "success",
     "time": "2024-05-10",
-    "url": "https://fundme.cash/?id=6",
+    "url": "https://fundme.cash/campaign/6",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrtjdzc54xpanu26etk4llh8a5rm6nl6lu4rnu5g09"
@@ -85,7 +85,7 @@
     "raised": 35.59896232,
     "status": "success",
     "time": "2024-05-14",
-    "url": "https://fundme.cash/?id=7",
+    "url": "https://fundme.cash/campaign/7",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
@@ -105,7 +105,7 @@
     "raised": 24.760837000000002,
     "status": "success",
     "time": "2024-05-24",
-    "url": "https://fundme.cash/?id=8",
+    "url": "https://fundme.cash/campaign/8",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzlxuln88xtdkdsrryepsjy26tmgc5k5avt8yex9wj"
@@ -125,7 +125,7 @@
     "raised": 2.62999,
     "status": "success",
     "time": "2024-09-12",
-    "url": "https://fundme.cash/?id=12",
+    "url": "https://fundme.cash/campaign/12",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzeqw0cxrsxd5cqwld38hv9apjyww2wmh53tpf09n0"
@@ -143,7 +143,7 @@
     "raised": 0.011,
     "status": "success",
     "time": "2024-07-30",
-    "url": "https://fundme.cash/?id=13",
+    "url": "https://fundme.cash/campaign/13",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrg8xmhfqytlfmt7nwk44cymp2cv3y5kksyqmw20mn"
@@ -161,7 +161,7 @@
     "raised": 1.3303,
     "status": "success",
     "time": "2025-02-17",
-    "url": "https://fundme.cash/?id=14",
+    "url": "https://fundme.cash/campaign/14",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzeaqehz3mupdkadx8ut0nnpy5n2pc7xdqretpdtpn"
@@ -178,7 +178,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2025-02-23",
-    "url": "https://fundme.cash/?id=15",
+    "url": "https://fundme.cash/campaign/15",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrm2anvwnvwl3wf2qymjaa4h0ez64d9pps90gnxxuk"
@@ -198,7 +198,7 @@
     "raised": 26.0515,
     "status": "success",
     "time": "2024-11-05",
-    "url": "https://fundme.cash/?id=16",
+    "url": "https://fundme.cash/campaign/16",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqkwq9w8x872akp66z70mcf4dr6efp86dvn4ygguet"
@@ -216,7 +216,7 @@
     "raised": 120.01990545999999,
     "status": "success",
     "time": "2024-11-20",
-    "url": "https://fundme.cash/?id=17",
+    "url": "https://fundme.cash/campaign/17",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpfeq6jxj9tqcpg7709rjtxnxj8kds4dtqa6mwca5p"
@@ -234,7 +234,7 @@
     "raised": 18.005421,
     "status": "success",
     "time": "2024-05-10",
-    "url": "https://fundme.cash/?id=18",
+    "url": "https://fundme.cash/campaign/18",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qr4lflhnz7fewp2hslm9j2s2d0lerglvtc38797uww"
@@ -254,7 +254,7 @@
     "raised": 0.04,
     "status": "success",
     "time": "2024-12-13",
-    "url": "https://fundme.cash/?id=19",
+    "url": "https://fundme.cash/campaign/19",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzw8p4rjd7fpgxlv23xufynens92rlvp4s2a3r7xzy"
@@ -272,7 +272,7 @@
     "raised": 1.49999,
     "status": "success",
     "time": "2024-05-02",
-    "url": "https://fundme.cash/?id=20",
+    "url": "https://fundme.cash/campaign/20",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpguljuhncney3awxnz3mfu09vcsrdr69vuhykzppn"
@@ -290,7 +290,7 @@
     "raised": 11.99999,
     "status": "success",
     "time": "2024-05-18",
-    "url": "https://fundme.cash/?id=21",
+    "url": "https://fundme.cash/campaign/21",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqfurlkunvjrjrd4ymr6mld6qe93wl53zslya2anxt"
@@ -310,7 +310,7 @@
     "raised": 31.000244240000008,
     "status": "success",
     "time": "2025-02-27",
-    "url": "https://fundme.cash/?id=22",
+    "url": "https://fundme.cash/campaign/22",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrm9mgvgz0z7l30w6prfhnkth70zpzymf5tde38eya"
@@ -328,7 +328,7 @@
     "raised": 0.99999,
     "status": "success",
     "time": "2025-03-05",
-    "url": "https://fundme.cash/?id=23",
+    "url": "https://fundme.cash/campaign/23",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqc4hqqzgw4dvy32yf8855nul283p0fraqcmxcc5j3"
@@ -345,7 +345,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2024-05-03",
-    "url": "https://fundme.cash/?id=24",
+    "url": "https://fundme.cash/campaign/24",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqr0zl4jznduv88xz8pegu0fx44hatpatgh5rkqenx"
@@ -363,7 +363,7 @@
     "raised": 45.15982506000002,
     "status": "success",
     "time": "2024-11-27",
-    "url": "https://fundme.cash/?id=25",
+    "url": "https://fundme.cash/campaign/25",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
@@ -383,7 +383,7 @@
     "raised": 0.05,
     "status": "success",
     "time": "2025-03-30",
-    "url": "https://fundme.cash/?id=26",
+    "url": "https://fundme.cash/campaign/26",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzec6rk8w4zpasr8grjp34lrdj0njet0murh4qx7qr"
@@ -401,7 +401,7 @@
     "raised": 0.1,
     "status": "success",
     "time": "2024-12-01",
-    "url": "https://fundme.cash/?id=27",
+    "url": "https://fundme.cash/campaign/27",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
@@ -421,7 +421,7 @@
     "raised": 0.2899,
     "status": "success",
     "time": "2024-05-04",
-    "url": "https://fundme.cash/?id=28",
+    "url": "https://fundme.cash/campaign/28",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrm2anvwnvwl3wf2qymjaa4h0ez64d9pps90gnxxuk"
@@ -439,7 +439,7 @@
     "raised": 0.14046321,
     "status": "success",
     "time": "2025-04-13",
-    "url": "https://fundme.cash/?id=29",
+    "url": "https://fundme.cash/campaign/29",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qr955flmkwvnf5tcm8drrxdaz49rpzkhj59yhpqacq"
@@ -457,7 +457,7 @@
     "raised": 0.2001,
     "status": "success",
     "time": "2025-04-14",
-    "url": "https://fundme.cash/?id=30",
+    "url": "https://fundme.cash/campaign/30",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqgsjx8s7afzfys93rwx007s3mjw2f0lyy562g6csx"
@@ -475,7 +475,7 @@
     "raised": 425.4364438,
     "status": "success",
     "time": "2024-07-19",
-    "url": "https://fundme.cash/?id=31",
+    "url": "https://fundme.cash/campaign/31",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qz2rd2hdflztj8ert6adyg6utm4v4hz3254ghhlkha"
@@ -495,7 +495,7 @@
     "raised": 11.5575697,
     "status": "success",
     "time": "2024-06-25",
-    "url": "https://fundme.cash/?id=33",
+    "url": "https://fundme.cash/campaign/33",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrtjdzc54xpanu26etk4llh8a5rm6nl6lu4rnu5g09"
@@ -513,7 +513,7 @@
     "raised": 17.000190000000003,
     "status": "success",
     "time": "2024-11-05",
-    "url": "https://fundme.cash/?id=34",
+    "url": "https://fundme.cash/campaign/34",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqkwq9w8x872akp66z70mcf4dr6efp86dvn4ygguet"
@@ -531,7 +531,7 @@
     "raised": 0.015,
     "status": "success",
     "time": "2025-04-20",
-    "url": "https://fundme.cash/?id=35",
+    "url": "https://fundme.cash/campaign/35",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqmzklkgqk6wuup0l6g8vs0lgc6ag6dfnuf84pp8nr"
@@ -549,7 +549,7 @@
     "raised": 0.015,
     "status": "success",
     "time": "2025-04-24",
-    "url": "https://fundme.cash/?id=36",
+    "url": "https://fundme.cash/campaign/36",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqmzklkgqk6wuup0l6g8vs0lgc6ag6dfnuf84pp8nr"
@@ -567,7 +567,7 @@
     "raised": 25.00163214,
     "status": "success",
     "time": "2025-05-12",
-    "url": "https://fundme.cash/?id=37",
+    "url": "https://fundme.cash/campaign/37",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqmwyzkakxdcq9l3vu72duhhzszy4xl49qzj376f36"
@@ -585,7 +585,7 @@
     "raised": 0.5,
     "status": "success",
     "time": "2025-03-30",
-    "url": "https://fundme.cash/?id=38",
+    "url": "https://fundme.cash/campaign/38",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzec6rk8w4zpasr8grjp34lrdj0njet0murh4qx7qr"
@@ -603,7 +603,7 @@
     "raised": 75.99999000000001,
     "status": "success",
     "time": "2025-05-22",
-    "url": "https://fundme.cash/?id=39",
+    "url": "https://fundme.cash/campaign/39",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzv2vh4p54kqhdmzztjxgy9fztx64ctr2y5xxntfwa"
@@ -623,7 +623,7 @@
     "raised": 1.99999,
     "status": "success",
     "time": "2024-05-15",
-    "url": "https://fundme.cash/?id=40",
+    "url": "https://fundme.cash/campaign/40",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrn8f2cwa03qa0yayt6kytr70qmfg4g975aez6mzaz"
@@ -641,7 +641,7 @@
     "raised": 1.88999,
     "status": "success",
     "time": "2025-06-02",
-    "url": "https://fundme.cash/?id=41",
+    "url": "https://fundme.cash/campaign/41",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrm3z7qajr2de4p4te2zguq8gjr5ly9nh58sakut04"
@@ -660,7 +660,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2024-12-01",
-    "url": "https://fundme.cash/?id=43",
+    "url": "https://fundme.cash/campaign/43",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
@@ -679,7 +679,7 @@
     "amount": 0,
     "status": "unknown",
     "time": "2025-04-13",
-    "url": "https://fundme.cash/?id=45",
+    "url": "https://fundme.cash/campaign/45",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qr955flmkwvnf5tcm8drrxdaz49rpzkhj59yhpqacq"
@@ -697,7 +697,7 @@
     "raised": 3.5,
     "status": "success",
     "time": "2025-06-06",
-    "url": "https://fundme.cash/?id=46",
+    "url": "https://fundme.cash/campaign/46",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrm3z7qajr2de4p4te2zguq8gjr5ly9nh58sakut04"
@@ -717,7 +717,7 @@
     "raised": 0.005,
     "status": "success",
     "time": "2024-05-10",
-    "url": "https://fundme.cash/?id=47",
+    "url": "https://fundme.cash/campaign/47",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qz0jxj44nx78y2nh33wwv0003zqdy3kywyvrtdncpt"
@@ -734,7 +734,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2025-06-02",
-    "url": "https://fundme.cash/?id=51",
+    "url": "https://fundme.cash/campaign/51",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrm3z7qajr2de4p4te2zguq8gjr5ly9nh58sakut04"
@@ -754,7 +754,7 @@
     "raised": 8.51,
     "status": "success",
     "time": "2025-06-17",
-    "url": "https://fundme.cash/?id=53",
+    "url": "https://fundme.cash/campaign/53",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpvkcck45ln5fj8pweqe4e3hmdn5mamdwq3an4amnv"
@@ -772,7 +772,7 @@
     "raised": 17.000050999999996,
     "status": "success",
     "time": "2024-07-13",
-    "url": "https://fundme.cash/?id=54",
+    "url": "https://fundme.cash/campaign/54",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqfurlkunvjrjrd4ymr6mld6qe93wl53zslya2anxt"
@@ -790,7 +790,7 @@
     "raised": 4.28221,
     "status": "success",
     "time": "2024-12-01",
-    "url": "https://fundme.cash/?id=56",
+    "url": "https://fundme.cash/campaign/56",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
@@ -810,7 +810,7 @@
     "raised": 17.066733329999998,
     "status": "success",
     "time": "2024-12-28",
-    "url": "https://fundme.cash/?id=57",
+    "url": "https://fundme.cash/campaign/57",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
@@ -830,7 +830,7 @@
     "raised": 0.5054567799999999,
     "status": "success",
     "time": "2025-05-21",
-    "url": "https://fundme.cash/?id=58",
+    "url": "https://fundme.cash/campaign/58",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzec6rk8w4zpasr8grjp34lrdj0njet0murh4qx7qr"
@@ -848,7 +848,7 @@
     "raised": 0.004,
     "status": "success",
     "time": "2024-05-08",
-    "url": "https://fundme.cash/?id=60",
+    "url": "https://fundme.cash/campaign/60",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qplm34f6e4v8wsfneg9ayjhva2du4enlaczdyj6p5t"
@@ -866,7 +866,7 @@
     "raised": 0.1,
     "status": "success",
     "time": "2025-07-29",
-    "url": "https://fundme.cash/?id=61",
+    "url": "https://fundme.cash/campaign/61",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrhezhxffs5vnd86pgm2c8nkvp4gleczns7u72tcql"
@@ -884,7 +884,7 @@
     "raised": 20.002000000000002,
     "status": "success",
     "time": "2025-07-01",
-    "url": "https://fundme.cash/?id=63",
+    "url": "https://fundme.cash/campaign/63",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpvkcck45ln5fj8pweqe4e3hmdn5mamdwq3an4amnv"
@@ -902,7 +902,7 @@
     "raised": 0.86,
     "status": "success",
     "time": "2025-04-04",
-    "url": "https://fundme.cash/?id=64",
+    "url": "https://fundme.cash/campaign/64",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
@@ -922,7 +922,7 @@
     "raised": 1.2,
     "status": "success",
     "time": "2024-05-10",
-    "url": "https://fundme.cash/?id=65",
+    "url": "https://fundme.cash/campaign/65",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzcd589qtcpf2582twdgdczw79curgjqcgcmueuqsa"
@@ -940,7 +940,7 @@
     "raised": 9,
     "status": "success",
     "time": "2025-08-22",
-    "url": "https://fundme.cash/?id=66",
+    "url": "https://fundme.cash/campaign/66",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrrcsmq420m9nec8zlzgy9ktlcp2faetec7tas6yz7"
@@ -960,7 +960,7 @@
     "raised": 1.45,
     "status": "success",
     "time": "2024-11-17",
-    "url": "https://fundme.cash/?id=67",
+    "url": "https://fundme.cash/campaign/67",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qr4jd7up9fk36z04wmaevg0f7st7ghs2hgdacyn5n5"
@@ -978,7 +978,7 @@
     "raised": 20.043,
     "status": "success",
     "time": "2025-09-01",
-    "url": "https://fundme.cash/?id=69",
+    "url": "https://fundme.cash/campaign/69",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrfxcu3p99uwyntzeucn0caplurs22ywfyztazc3f3"
@@ -996,7 +996,7 @@
     "raised": 4.99999,
     "status": "success",
     "time": "2025-03-22",
-    "url": "https://fundme.cash/?id=70",
+    "url": "https://fundme.cash/campaign/70",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qq04f46slxnwg3z5kc3jgx2xw36ahw7735f4kg3kkq"
@@ -1013,7 +1013,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2024-11-20",
-    "url": "https://fundme.cash/?id=71",
+    "url": "https://fundme.cash/campaign/71",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qr23kjafmcw35thvqtw3sk4au9qk0yy2tc77g0j7fk"
@@ -1030,7 +1030,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2024-11-01",
-    "url": "https://fundme.cash/?id=72",
+    "url": "https://fundme.cash/campaign/72",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp7n6sd82k20u7xwj6j992y9w8ez6rwtrqggr8aehk"
@@ -1048,7 +1048,7 @@
     "raised": 4.16424588,
     "status": "success",
     "time": "2024-11-01",
-    "url": "https://fundme.cash/?id=73",
+    "url": "https://fundme.cash/campaign/73",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp7n6sd82k20u7xwj6j992y9w8ez6rwtrqggr8aehk"
@@ -1066,7 +1066,7 @@
     "raised": 0.63,
     "status": "success",
     "time": "2025-10-14",
-    "url": "https://fundme.cash/?id=74",
+    "url": "https://fundme.cash/campaign/74",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzt8nsmjwmy8h5e43qc7dxkw3yefg2dx5y7t4v0cpz"
@@ -1086,7 +1086,7 @@
     "raised": 45.00000000000001,
     "status": "success",
     "time": "2025-10-22",
-    "url": "https://fundme.cash/?id=76",
+    "url": "https://fundme.cash/campaign/76",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqrq8vc2zughden7j8j9mtznldhfp286tcej25h6jq"
@@ -1103,7 +1103,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2025-09-22",
-    "url": "https://fundme.cash/?id=77",
+    "url": "https://fundme.cash/campaign/77",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp2rddn36cyegu8lrvy9fle3n6x8e07h5uxuqvjwg2"
@@ -1123,7 +1123,7 @@
     "raised": 29.116,
     "status": "success",
     "time": "2025-03-01",
-    "url": "https://fundme.cash/?id=78",
+    "url": "https://fundme.cash/campaign/78",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
@@ -1143,7 +1143,7 @@
     "raised": 10.000198579999998,
     "status": "success",
     "time": "2025-11-09",
-    "url": "https://fundme.cash/?id=79",
+    "url": "https://fundme.cash/campaign/79",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzfeyepkvel20fc2z0p2n9z7gvkd82f4usdtd7t5ky"
@@ -1161,7 +1161,7 @@
     "raised": 0.4,
     "status": "success",
     "time": "2025-11-09",
-    "url": "https://fundme.cash/?id=80",
+    "url": "https://fundme.cash/campaign/80",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzfeyepkvel20fc2z0p2n9z7gvkd82f4usdtd7t5ky"
@@ -1179,7 +1179,7 @@
     "raised": 4.9999899999999995,
     "status": "success",
     "time": "2025-05-15",
-    "url": "https://fundme.cash/?id=81",
+    "url": "https://fundme.cash/campaign/81",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
@@ -1199,7 +1199,7 @@
     "raised": 1.0001,
     "status": "success",
     "time": "2024-06-10",
-    "url": "https://fundme.cash/?id=82",
+    "url": "https://fundme.cash/campaign/82",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpcrwecaf0sz8prq22terl3pjkklsnq7a53lr99hjq"
@@ -1217,7 +1217,7 @@
     "raised": 17.49999,
     "status": "success",
     "time": "2025-11-15",
-    "url": "https://fundme.cash/?id=83",
+    "url": "https://fundme.cash/campaign/83",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrqtktg9as7e3et7zwvqlrtsand693pclvazpw09s5"
@@ -1237,7 +1237,7 @@
     "raised": 19.557655420000003,
     "status": "success",
     "time": "2025-11-21",
-    "url": "https://fundme.cash/?id=84",
+    "url": "https://fundme.cash/campaign/84",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpw2xrk3782smgl89csu5yvc738daxnulgj072pwwa"
@@ -1254,7 +1254,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2024-07-12",
-    "url": "https://fundme.cash/?id=85",
+    "url": "https://fundme.cash/campaign/85",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpurr8l5ucshqv0nyhqr08d6y60zkkwegsx4msr8vz"
@@ -1272,7 +1272,7 @@
     "raised": 0.1027,
     "status": "success",
     "time": "2024-05-10",
-    "url": "https://fundme.cash/?id=86",
+    "url": "https://fundme.cash/campaign/86",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzcd589qtcpf2582twdgdczw79curgjqcgcmueuqsa"
@@ -1291,7 +1291,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2026-04-24",
-    "url": "https://fundme.cash/?id=87",
+    "url": "https://fundme.cash/campaign/87",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:zpmd0st72sydqllenckf7fzeedxsgqcglyt3u2838x"
@@ -1306,7 +1306,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2026-04-24",
-    "url": "https://fundme.cash/?id=88",
+    "url": "https://fundme.cash/campaign/88",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:zreu68w4afeuztlrxdr7mttk79ghmknh955c6zedxv"
@@ -1321,7 +1321,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2025-12-20",
-    "url": "https://fundme.cash/?id=89",
+    "url": "https://fundme.cash/campaign/89",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqh2mgmwvl8qsdwkdtc5rl5f2rlqed9uucgntj7ll6"
@@ -1338,7 +1338,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2025-06-17",
-    "url": "https://fundme.cash/?id=90",
+    "url": "https://fundme.cash/campaign/90",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpvkcck45ln5fj8pweqe4e3hmdn5mamdwq3an4amnv"
@@ -1356,7 +1356,7 @@
     "raised": 6.69999,
     "status": "success",
     "time": "2025-08-04",
-    "url": "https://fundme.cash/?id=91",
+    "url": "https://fundme.cash/campaign/91",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpvkcck45ln5fj8pweqe4e3hmdn5mamdwq3an4amnv"
@@ -1374,7 +1374,7 @@
     "raised": 0.1,
     "status": "success",
     "time": "2026-01-04",
-    "url": "https://fundme.cash/?id=92",
+    "url": "https://fundme.cash/campaign/92",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qq5vkyvpjuqnwlfkzxda75zfasap3lpeluangtnuuq"
@@ -1394,7 +1394,7 @@
     "raised": 35.99999,
     "status": "success",
     "time": "2024-07-12",
-    "url": "https://fundme.cash/?id=93",
+    "url": "https://fundme.cash/campaign/93",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpurr8l5ucshqv0nyhqr08d6y60zkkwegsx4msr8vz"
@@ -1412,7 +1412,7 @@
     "raised": 19.99999,
     "status": "success",
     "time": "2026-01-08",
-    "url": "https://fundme.cash/?id=94",
+    "url": "https://fundme.cash/campaign/94",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qze9yjzvy4z0muusezzfxrnh7gd2hphq7cj268a3p5"
@@ -1432,7 +1432,7 @@
     "raised": 69.99999000000001,
     "status": "success",
     "time": "2026-04-24",
-    "url": "https://fundme.cash/?id=95",
+    "url": "https://fundme.cash/campaign/95",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:zpmd0st72sydqllenckf7fzeedxsgqcglyt3u2838x"
@@ -1448,7 +1448,7 @@
     "raised": 35.00007,
     "status": "success",
     "time": "2025-12-12",
-    "url": "https://fundme.cash/?id=96",
+    "url": "https://fundme.cash/campaign/96",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrnw092vgzlnvwsmef296lpnmh87whpynyjezx2tjl"
@@ -1466,7 +1466,7 @@
     "raised": 1.6270000000000002,
     "status": "success",
     "time": "2025-05-11",
-    "url": "https://fundme.cash/?id=97",
+    "url": "https://fundme.cash/campaign/97",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qprxjcz55gcgfgxzq4eretm55mrwsgzxny3z0wn8tm"
@@ -1483,7 +1483,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2024-05-14",
-    "url": "https://fundme.cash/?id=98",
+    "url": "https://fundme.cash/campaign/98",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
@@ -1503,7 +1503,7 @@
     "raised": 21.417791069999996,
     "status": "running",
     "time": "2025-04-22",
-    "url": "https://fundme.cash/?id=99",
+    "url": "https://fundme.cash/campaign/99",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp9qs5cx2r5xr562emjrz5h9fh386x70sgmtyf8ct6"
@@ -1523,7 +1523,7 @@
     "raised": 0.17,
     "status": "success",
     "time": "2026-02-26",
-    "url": "https://fundme.cash/?id=105",
+    "url": "https://fundme.cash/campaign/105",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpczk9nwyj6rk0n0vs4f4lf6pl8sca29d50gyf2deg"
@@ -1541,7 +1541,7 @@
     "raised": 2.74999,
     "status": "success",
     "time": "2026-02-27",
-    "url": "https://fundme.cash/?id=106",
+    "url": "https://fundme.cash/campaign/106",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzg07r53fg50t9j76gqy762a95svydw7tct6wuatzc"
@@ -1561,7 +1561,7 @@
     "raised": 90.00600000000001,
     "status": "success",
     "time": "2025-05-12",
-    "url": "https://fundme.cash/?id=107",
+    "url": "https://fundme.cash/campaign/107",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qprxjcz55gcgfgxzq4eretm55mrwsgzxny3z0wn8tm"
@@ -1579,7 +1579,7 @@
     "raised": 8.0012,
     "status": "success",
     "time": "2026-03-04",
-    "url": "https://fundme.cash/?id=108",
+    "url": "https://fundme.cash/campaign/108",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qq2hvy8q0wr2gwdsqvuxtsr9ecwy9l64nc07gq5wuw"
@@ -1597,7 +1597,7 @@
     "raised": 0.1,
     "status": "success",
     "time": "2024-05-04",
-    "url": "https://fundme.cash/?id=109",
+    "url": "https://fundme.cash/campaign/109",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrm2anvwnvwl3wf2qymjaa4h0ez64d9pps90gnxxuk"
@@ -1614,7 +1614,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2025-06-18",
-    "url": "https://fundme.cash/?id=110",
+    "url": "https://fundme.cash/campaign/110",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpc8lqvg3s7h7wepjpf46f36heet8kze6getcl6a07"
@@ -1632,7 +1632,7 @@
     "raised": 0.49670000000000003,
     "status": "running",
     "time": "2025-06-18",
-    "url": "https://fundme.cash/?id=111",
+    "url": "https://fundme.cash/campaign/111",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpc8lqvg3s7h7wepjpf46f36heet8kze6getcl6a07"
@@ -1649,7 +1649,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2026-03-10",
-    "url": "https://fundme.cash/?id=112",
+    "url": "https://fundme.cash/campaign/112",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp8cdgradfyf4j8e5gdlgcvm2l5nm6883uvyjqrjx3"
@@ -1668,7 +1668,7 @@
     "amount": 0,
     "status": "running",
     "time": "2026-03-10",
-    "url": "https://fundme.cash/?id=113",
+    "url": "https://fundme.cash/campaign/113",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp8cdgradfyf4j8e5gdlgcvm2l5nm6883uvyjqrjx3"
@@ -1688,7 +1688,7 @@
     "raised": 0.0009,
     "status": "success",
     "time": "2026-03-10",
-    "url": "https://fundme.cash/?id=115",
+    "url": "https://fundme.cash/campaign/115",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzlj2406cdspzu3hp0pk9mk2effxpkp9dg9xtp6ky3"
@@ -1708,7 +1708,7 @@
     "raised": 3.1298,
     "status": "running",
     "time": "2024-05-04",
-    "url": "https://fundme.cash/?id=116",
+    "url": "https://fundme.cash/campaign/116",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrm2anvwnvwl3wf2qymjaa4h0ez64d9pps90gnxxuk"
@@ -1726,7 +1726,7 @@
     "raised": 0.11,
     "status": "success",
     "time": "2025-06-05",
-    "url": "https://fundme.cash/?id=117",
+    "url": "https://fundme.cash/campaign/117",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qrj06f499dljj5kwpt2pzj2umdz2t33ds5jvy46hn3"
@@ -1746,7 +1746,7 @@
     "raised": 9.3,
     "status": "running",
     "time": "2026-03-14",
-    "url": "https://fundme.cash/?id=118",
+    "url": "https://fundme.cash/campaign/118",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp7wtheh5dgn37ldkex5xavladgumd0adv49r2ksn5"
@@ -1764,7 +1764,7 @@
     "raised": 14.551969999999997,
     "status": "success",
     "time": "2026-03-18",
-    "url": "https://fundme.cash/?id=119",
+    "url": "https://fundme.cash/campaign/119",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzr69qlat3ja3r5e29anqsqa9ucc0wh0ug6acf9cpq"
@@ -1784,7 +1784,7 @@
     "raised": 1.3999899999999998,
     "status": "success",
     "time": "2026-03-21",
-    "url": "https://fundme.cash/?id=120",
+    "url": "https://fundme.cash/campaign/120",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qr4dsy2ry0pk930crjh85qqxq2wyu43ukswrw5ke4l"
@@ -1803,7 +1803,7 @@
     "amount": 0,
     "status": "expired",
     "time": "2026-04-02",
-    "url": "https://fundme.cash/?id=121",
+    "url": "https://fundme.cash/campaign/121",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpjv3j9z7d5gc2wx54jgrgep6xq4f8g5tuxx7cr76y"
@@ -1823,7 +1823,7 @@
     "raised": 0.805,
     "status": "success",
     "time": "2026-04-03",
-    "url": "https://fundme.cash/?id=122",
+    "url": "https://fundme.cash/campaign/122",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qq7zcw0yhqurxet872thftgjfm5856trlv5jlgpmqa"
@@ -1841,7 +1841,7 @@
     "raised": 0.08979999999999999,
     "status": "success",
     "time": "2026-03-16",
-    "url": "https://fundme.cash/?id=124",
+    "url": "https://fundme.cash/campaign/124",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpq8srm9kx9gsjx2w0shknq82jnmnupwyuquk29el6"
@@ -1859,7 +1859,7 @@
     "raised": 1.83591685,
     "status": "running",
     "time": "2026-04-06",
-    "url": "https://fundme.cash/?id=125",
+    "url": "https://fundme.cash/campaign/125",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qpczk9nwyj6rk0n0vs4f4lf6pl8sca29d50gyf2deg"
@@ -1876,7 +1876,7 @@
     "amount": 0,
     "status": "running",
     "time": "2025-10-12",
-    "url": "https://fundme.cash/?id=126",
+    "url": "https://fundme.cash/campaign/126",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqt29rqpuhecxsn44wvpyf89ljma7yjs2c0pj52m48"
@@ -1894,7 +1894,7 @@
     "raised": 300.2699,
     "status": "running",
     "time": "2025-05-22",
-    "url": "https://fundme.cash/?id=127",
+    "url": "https://fundme.cash/campaign/127",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qzyyezx2ha3fvtryetpmglq9mj98gwrnns5mflaxgg"
@@ -1914,7 +1914,7 @@
     "raised": 0.05,
     "status": "success",
     "time": "2025-09-22",
-    "url": "https://fundme.cash/?id=128",
+    "url": "https://fundme.cash/campaign/128",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp2rddn36cyegu8lrvy9fle3n6x8e07h5uxuqvjwg2"
@@ -1933,7 +1933,7 @@
     "amount": 0,
     "status": "running",
     "time": "2026-01-08",
-    "url": "https://fundme.cash/?id=129",
+    "url": "https://fundme.cash/campaign/129",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qze9yjzvy4z0muusezzfxrnh7gd2hphq7cj268a3p5"
@@ -1950,7 +1950,7 @@
     "amount": 0,
     "status": "running",
     "time": "2024-05-03",
-    "url": "https://fundme.cash/?id=130",
+    "url": "https://fundme.cash/campaign/130",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qqr0zl4jznduv88xz8pegu0fx44hatpatgh5rkqenx"
@@ -1967,7 +1967,7 @@
     "amount": 0,
     "status": "running",
     "time": "2026-04-28",
-    "url": "https://fundme.cash/?id=131",
+    "url": "https://fundme.cash/campaign/131",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp2rddn36cyegu8lrvy9fle3n6x8e07h5uxuqvjwg2"
@@ -1984,7 +1984,7 @@
     "amount": 1.7950000000000002,
     "status": "running",
     "time": "2026-04-29",
-    "url": "https://fundme.cash/?id=132",
+    "url": "https://fundme.cash/campaign/132",
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:zr70vm24s744tvph7h6srltf2nmkgrakgs34q0l6kr"
