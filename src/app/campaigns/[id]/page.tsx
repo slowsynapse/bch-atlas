@@ -1,6 +1,8 @@
 import Link from 'next/link'
-import { getCampaignByIdWithPricing } from '@/lib/data/campaigns-with-pricing'
+import { getCampaignByIdWithPricing, getCampaignsWithPricing } from '@/lib/data/campaigns-with-pricing'
 import { ContributorsList } from '@/components/campaigns/ContributorsList'
+import { Markdown } from '@/components/campaigns/Markdown'
+import { CopyPermalink } from '@/components/campaigns/CopyPermalink'
 import { notFound } from 'next/navigation'
 
 function getStatusColor(status: string): string {
@@ -73,6 +75,18 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
     notFound()
   }
 
+  // Find other campaigns sharing any recipient address with this one. Cheap
+  // because we already need the full list for navigation context — this page
+  // is statically generated per slug at build time, so the cost is one-time.
+  const allCampaigns = (campaign.recipientAddresses?.length ?? 0) > 0
+    ? await getCampaignsWithPricing()
+    : []
+  const recipientSet = new Set(campaign.recipientAddresses ?? [])
+  const sharedSiblings = allCampaigns.filter(c =>
+    c.id !== campaign.id &&
+    c.recipientAddresses?.some(a => recipientSet.has(a))
+  )
+
   const contributors = (campaign.recipientAddresses || []).map(address => ({ address }))
   // Distinguish goal (target) from raised (actual). For Flipstarter, amount IS the goal.
   // For FundMe, amount is the raised total (no goal in API). If we extracted a goal
@@ -81,7 +95,15 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
   const goalAmount = explicitGoal ?? campaign.amount
   const raisedAmount = campaign.raised ?? (campaign.platform === 'fundme' ? campaign.amount : (campaign.status === 'success' ? campaign.amount : 0))
   const progressPercent = goalAmount > 0 ? (raisedAmount / goalAmount) * 100 : 0
-  const hasContent = goalAmount > 0 || raisedAmount > 0
+  // "Expired with nothing on chain" looks broken if we render the regular
+  // funding panel (empty progress bar). Treat it as a separate empty-state
+  // even when goalAmount > 0, since the goal is just the asked-for amount
+  // that nobody actually pledged toward.
+  const expiredWithNoPledges =
+    campaign.status === 'expired' &&
+    raisedAmount === 0 &&
+    !campaign.tx
+  const hasContent = (goalAmount > 0 || raisedAmount > 0) && !expiredWithNoPledges
 
   return (
     <div className="min-h-screen ds-fade-in">
@@ -96,6 +118,7 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
               <p className="ds-label mt-0.5 font-mono">Campaign Detail</p>
             </div>
             <div className="flex gap-3">
+              <CopyPermalink />
               <Link href="/campaigns" className="px-4 py-1.5 border border-[rgba(0,224,160,0.15)] text-[#7A8899] text-xs tracking-[0.1em] uppercase font-mono hover:border-[rgba(0,224,160,0.4)] hover:text-[#00E0A0] transition-all">
                 Campaigns
               </Link>
@@ -234,8 +257,14 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
                   No pledges recorded
                 </div>
                 <p className="text-[11px] text-[#7A8899] mt-1 leading-relaxed">
+                  {goalAmount > 0 && (
+                    <>Asked for <span className="font-mono text-[#C0D0D0]">{goalAmount.toFixed(2)} BCH</span>. </>
+                  )}
                   This campaign was {campaign.platform === 'fundme' ? 'archived on FundMe.cash' : 'expired'} without receiving pledges through the platform.
                   {campaign.platform === 'fundme' && ' The campaign page existed but no backers committed BCH via the CashStarter contract.'}
+                  {campaign.archive && campaign.archive.length > 0 && (
+                    <> See the archive snapshot for the original page.</>
+                  )}
                 </p>
               </div>
             )}
@@ -245,10 +274,42 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
           {campaign.description && (
             <div>
               <h2 className="ds-label mb-3">Description</h2>
-              <p className="text-[#8A9AAB] text-sm font-light whitespace-pre-wrap leading-relaxed">{campaign.description}</p>
+              <Markdown source={campaign.description} />
             </div>
           )}
         </div>
+
+        {/* Project linkage — shows when this campaign belongs to a curated project */}
+        {campaign.projectSlug && (
+          <Link
+            href={`/projects/${campaign.projectSlug}`}
+            className="block ds-panel p-5 mb-6 transition-all hover:border-[rgba(0,224,160,0.5)]"
+            style={{ borderTop: '1px solid rgba(0,224,160,0.2)' }}
+          >
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <span
+                  className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                  style={{
+                    background:
+                      campaign.projectStatus === 'active' ? '#00FF88' :
+                      campaign.projectStatus === 'dormant' ? '#E8A838' :
+                      campaign.projectStatus === 'dead' ? '#FF4455' : '#5A8A7A',
+                    boxShadow:
+                      campaign.projectStatus === 'active' ? '0 0 6px rgba(0,255,136,0.5)' :
+                      campaign.projectStatus === 'dormant' ? '0 0 6px rgba(232,168,56,0.5)' :
+                      campaign.projectStatus === 'dead' ? '0 0 6px rgba(255,68,85,0.5)' : 'none',
+                  }}
+                />
+                <div className="min-w-0">
+                  <span className="ds-label">Part of project</span>
+                  <p className="text-[#E0E4E8] text-base font-medium truncate mt-0.5">{campaign.projectName ?? campaign.projectSlug}</p>
+                </div>
+              </div>
+              <span className="text-xs text-[#00E0A0] font-mono uppercase tracking-[0.15em] flex-shrink-0">View Project →</span>
+            </div>
+          </Link>
+        )}
 
         {/* Timeline */}
         {(campaign.time || campaign.transactionTimestamp) && (
@@ -273,6 +334,12 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
                   </div>
                 </>
               )}
+              {campaign.blockHeight && (
+                <div>
+                  <span className="ds-label font-mono">Block Height</span>
+                  <p className="text-[#C0D0D0] text-sm font-mono mt-0.5">#{Number(campaign.blockHeight).toLocaleString()}</p>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -284,6 +351,46 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
           </h2>
           <ContributorsList contributors={contributors} />
         </div>
+
+        {/* Shared Recipients — other campaigns funded by the same address(es) */}
+        {sharedSiblings.length > 0 && (
+          <div className="ds-panel p-6 mb-6" style={{ borderTop: '1px solid rgba(0,224,160,0.15)' }}>
+            <h2 className="ds-label mb-1 font-mono">
+              Shared Recipients <span className="text-[#00E0A0] font-mono" style={{ textShadow: '0 0 6px rgba(0,224,160,0.3)' }}>({sharedSiblings.length})</span>
+            </h2>
+            <p className="text-[10px] text-[#5A8A7A] font-mono mb-3 leading-relaxed">
+              Other campaigns funded by the same recipient address — typically the same team across multiple rounds.
+            </p>
+            <div className="space-y-1 max-h-72 overflow-y-auto">
+              {sharedSiblings
+                .sort((a, b) => {
+                  const ta = a.time ? new Date(a.time).getTime() : 0
+                  const tb = b.time ? new Date(b.time).getTime() : 0
+                  return tb - ta
+                })
+                .map(sib => {
+                  const sibColor = sib.status === 'success' ? '#00FF88' : sib.status === 'expired' ? '#FF4455' : '#00E0A0'
+                  return (
+                    <Link
+                      key={sib.id}
+                      href={`/campaigns/${sib.id}`}
+                      className="block py-2 px-3 transition-all text-xs font-mono"
+                      style={{ background: 'rgba(0, 224, 160, 0.04)', border: '1px solid rgba(0, 224, 160, 0.08)', borderRadius: '2px' }}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[#C0D0D0] truncate flex-1">{sib.title}</span>
+                        <span className="flex-shrink-0" style={{ color: sibColor }}>{sib.amount.toFixed(2)} BCH</span>
+                      </div>
+                      <div className="flex justify-between mt-0.5 text-[10px]" style={{ color: '#5A8A7A' }}>
+                        <span className="capitalize">{sib.platform}</span>
+                        <span>{sib.time ? formatDate(sib.time) : '—'}</span>
+                      </div>
+                    </Link>
+                  )
+                })}
+            </div>
+          </div>
+        )}
 
         {/* Links */}
         <div className="ds-panel p-6" style={{ borderTop: '1px solid rgba(0,224,160,0.15)' }}>
