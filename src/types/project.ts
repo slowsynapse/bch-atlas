@@ -22,6 +22,12 @@ export interface Project {
   websiteUp: boolean | null
   lastContentChange: string | null
   waybackCheckedAt: string | null
+  // Cohort/program membership (e.g. "bch-1" hackcelerator). Optional —
+  // most projects don't belong to a cohort. A project can be in multiple
+  // cohorts simultaneously (e.g. ["bch-1", "cashtokens-grants-2027"]).
+  // The parent cohort entry itself (e.g. bch-1-hackcelerator) does NOT
+  // self-reference here — only members do.
+  cohorts?: string[]
 }
 
 export interface ResolvedProject extends Project {

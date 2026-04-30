@@ -4342,10 +4342,10 @@
   },
   {
     "slug": "la-economia-p2p",
-    "name": "La Economía P2P",
+    "name": "La Econom\u00eda P2P",
     "aliases": [
       "la economia p2p",
-      "la economía p2p"
+      "la econom\u00eda p2p"
     ],
     "description": "Spanish-language podcast/content series. Multiple FundMe rounds covering episode batches.",
     "continent": "media",
@@ -4356,7 +4356,7 @@
     "reddit": null,
     "campaignIds": [],
     "campaignMatchers": [
-      "la economía p2p",
+      "la econom\u00eda p2p",
       "la economia p2p"
     ],
     "status": "unknown",
@@ -4534,7 +4534,7 @@
       "jonathan toomim",
       "toomim"
     ],
-    "description": "Independent BCH researcher known for the Gigablock Testnet Initiative (multi-MB block stress tests, 2017–2018) and Xthinner (compact block propagation protocol). Stepped back from active BCH work around 2021–2022. The campaign funded a defined work period; treated as a one-time engagement.",
+    "description": "Independent BCH researcher known for the Gigablock Testnet Initiative (multi-MB block stress tests, 2017\u20132018) and Xthinner (compact block propagation protocol). Stepped back from active BCH work around 2021\u20132022. The campaign funded a defined work period; treated as a one-time engagement.",
     "continent": "other",
     "github": null,
     "website": null,
@@ -4563,7 +4563,7 @@
       "its just money bro",
       "just money bro"
     ],
-    "description": "30-second Bitcoin Cash commercial. One-shot creative production — delivered.",
+    "description": "30-second Bitcoin Cash commercial. One-shot creative production \u2014 delivered.",
     "continent": "media",
     "github": null,
     "website": null,
@@ -4589,7 +4589,7 @@
       "konk",
       "konk marketplace"
     ],
-    "description": "Peer-to-peer marketplace built on Bitcoin Cash — buy and sell with BCH, no banks, no KYC. Solo-built by @NeonDaThal, recently funded via FundMe and active.",
+    "description": "Peer-to-peer marketplace built on Bitcoin Cash \u2014 buy and sell with BCH, no banks, no KYC. Solo-built by @NeonDaThal, recently funded via FundMe and active.",
     "continent": "apps",
     "github": null,
     "website": "https://konk.market",
@@ -4743,5 +4743,181 @@
     "websiteUp": null,
     "lastContentChange": null,
     "waybackCheckedAt": null
+  },
+  {
+    "slug": "nexops",
+    "name": "NexOps",
+    "aliases": [
+      "nexops",
+      "nexops cash"
+    ],
+    "description": "AI-assisted IDE for Bitcoin Cash smart contracts \u2014 write, audit, and deploy CashScript with safety rails. Think Cursor, but for BCH. BCH-1 hackcelerator Overall Winner.",
+    "continent": "middleware",
+    "github": "https://github.com/NexOps-cash/nexops",
+    "website": "https://nexops.cash",
+    "x": "https://x.com/nexopsbch",
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "BCH-1 hackcelerator \u2014 Overall Winner",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null,
+    "cohorts": [
+      "bch-1"
+    ]
+  },
+  {
+    "slug": "cashmint",
+    "name": "CashMint",
+    "aliases": [
+      "cashmint",
+      "cash mint",
+      "cashmint standard"
+    ],
+    "description": "NFT marketplace on Bitcoin Cash, built on the CashMint metadata standard (CHIP) for CashToken NFTs. BCH-1 hackcelerator project.",
+    "continent": "apps",
+    "github": "https://github.com/BCH-CashMint/cashmintstandard",
+    "website": "https://cashmint.cash",
+    "x": "https://x.com/BCHcash_mint",
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "BCH-1 hackcelerator \u2014 Active Development. Standard CHIP in Draft.",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null,
+    "cohorts": [
+      "bch-1"
+    ]
+  },
+  {
+    "slug": "flowguard",
+    "name": "FlowGuard",
+    "aliases": [
+      "flowguard",
+      "flow-guard",
+      "flow guard"
+    ],
+    "description": "Contract-backed treasuries, streaming payments, distributions, and governance workflows on Bitcoin Cash. CashToken-powered protocol for programmable treasury systems. BCH-1 hackcelerator CashTokens Runner-Up.",
+    "continent": "defi",
+    "github": "https://github.com/winsznx/flow-guard",
+    "website": "https://flowguard.cash",
+    "x": "https://x.com/flowguard_",
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "BCH-1 hackcelerator \u2014 CashTokens Runner-Up",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null,
+    "cohorts": [
+      "bch-1"
+    ]
+  },
+  {
+    "slug": "cash-market",
+    "name": "Cash Market",
+    "aliases": [
+      "cash market",
+      "cash-market",
+      "cash markets",
+      "cashmarket",
+      "water dao",
+      "cashalyst",
+      "bcashalyst",
+      "bitcoin cashalyst"
+    ],
+    "description": "Premier prediction marketplace on Bitcoin Cash. Pivoted from Bitcoin Cashalyst (a bounty platform) to focus on on-chain prediction markets. BCH-1 hackcelerator project.",
+    "continent": "defi",
+    "github": "https://github.com/bitcoincashalyst/bitcoin-cashalyst",
+    "website": "https://cashmarket-iota.vercel.app",
+    "x": "https://x.com/bch_cashmarket",
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "BCH-1 hackcelerator \u2014 Active Development. Pivoted from bounty platform to prediction markets; vercel-hosted while custom domain pending.",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null,
+    "cohorts": [
+      "bch-1"
+    ]
+  },
+  {
+    "slug": "rabbit-explorer",
+    "name": "Rabbit Explorer",
+    "aliases": [
+      "rabbit explorer",
+      "rabbitexplorer",
+      "rabbitexp",
+      "ghost rabbit",
+      "ghostrabbit"
+    ],
+    "description": "Bitcoin Cash blockchain explorer with CashTokens support, smart contract views, and real-time analytics. BCH-1 hackcelerator Tech Track Winner.",
+    "continent": "core",
+    "github": "https://github.com/denkhultch/GhostRabbit",
+    "website": "https://rabbitexplorer.com",
+    "x": "https://x.com/rabbitexp_bch",
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "BCH-1 hackcelerator \u2014 Tech Track Winner",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null,
+    "cohorts": [
+      "bch-1"
+    ]
+  },
+  {
+    "slug": "fund-tokens",
+    "name": "Fun(d) Tokens",
+    "aliases": [
+      "fund tokens",
+      "fund-tokens",
+      "fundtokens",
+      "fun(d) tokens",
+      "fundtokens.cash"
+    ],
+    "description": "Trustless fund protocol on Bitcoin Cash where each UTXO is an independent execution thread \u2014 bundle any combination of CashTokens into a new asset class with parallelized smart contract execution. Live on chipnet using the Layla 2026 upgrade. BCH-1 hackcelerator CashTokens Runner-Up.",
+    "continent": "defi",
+    "github": null,
+    "website": "https://chipnet.fundtokens.cash",
+    "x": "https://x.com/FundTokens_Cash",
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [],
+    "status": "unknown",
+    "statusCheckedAt": null,
+    "statusDetail": "BCH-1 hackcelerator \u2014 CashTokens Runner-Up. GitHub private; chipnet-only deployment using Layla 2026 contract layer.",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null,
+    "cohorts": [
+      "bch-1"
+    ]
   }
 ]
