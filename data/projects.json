@@ -1565,9 +1565,9 @@
       "selene-wallet"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-04-28T20:07:22.085Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive",
-    "lastGithubCommit": null,
+    "statusCheckedAt": "2026-04-30T22:21:56.221Z",
+    "statusDetail": "Last commit 1d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-04-30T08:14:57Z",
     "websiteUp": true,
     "lastContentChange": "2024-05-03T10:07:06Z",
     "waybackCheckedAt": "2026-04-27T18:26:19.615Z"
@@ -3663,7 +3663,7 @@
     ],
     "description": null,
     "continent": "media",
-    "github": "https://github.com/Bitcoin-com/bitcoincash.org",
+    "github": "https://github.com/zquestz/bitcoincash",
     "website": "https://bitcoincash.org",
     "x": null,
     "telegram": null,
@@ -3675,9 +3675,9 @@
       "bitcoincash.org"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-04-28T20:10:12.121Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive",
-    "lastGithubCommit": null,
+    "statusCheckedAt": "2026-04-30T22:21:59.279Z",
+    "statusDetail": "Last commit 4d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-04-26T19:45:34Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": "2026-04-27T18:42:10.446Z"
@@ -4342,10 +4342,10 @@
   },
   {
     "slug": "la-economia-p2p",
-    "name": "La Econom\u00eda P2P",
+    "name": "La Economía P2P",
     "aliases": [
       "la economia p2p",
-      "la econom\u00eda p2p"
+      "la economía p2p"
     ],
     "description": "Spanish-language podcast/content series. Multiple FundMe rounds covering episode batches.",
     "continent": "media",
@@ -4356,7 +4356,7 @@
     "reddit": null,
     "campaignIds": [],
     "campaignMatchers": [
-      "la econom\u00eda p2p",
+      "la economía p2p",
       "la economia p2p"
     ],
     "status": "unknown",
@@ -4534,7 +4534,7 @@
       "jonathan toomim",
       "toomim"
     ],
-    "description": "Independent BCH researcher known for the Gigablock Testnet Initiative (multi-MB block stress tests, 2017\u20132018) and Xthinner (compact block propagation protocol). Stepped back from active BCH work around 2021\u20132022. The campaign funded a defined work period; treated as a one-time engagement.",
+    "description": "Independent BCH researcher known for the Gigablock Testnet Initiative (multi-MB block stress tests, 2017–2018) and Xthinner (compact block propagation protocol). Stepped back from active BCH work around 2021–2022. The campaign funded a defined work period; treated as a one-time engagement.",
     "continent": "other",
     "github": null,
     "website": null,
@@ -4563,7 +4563,7 @@
       "its just money bro",
       "just money bro"
     ],
-    "description": "30-second Bitcoin Cash commercial. One-shot creative production \u2014 delivered.",
+    "description": "30-second Bitcoin Cash commercial. One-shot creative production — delivered.",
     "continent": "media",
     "github": null,
     "website": null,
@@ -4589,7 +4589,7 @@
       "konk",
       "konk marketplace"
     ],
-    "description": "Peer-to-peer marketplace built on Bitcoin Cash \u2014 buy and sell with BCH, no banks, no KYC. Solo-built by @NeonDaThal, recently funded via FundMe and active.",
+    "description": "Peer-to-peer marketplace built on Bitcoin Cash — buy and sell with BCH, no banks, no KYC. Solo-built by @NeonDaThal, recently funded via FundMe and active.",
     "continent": "apps",
     "github": null,
     "website": "https://konk.market",
@@ -4751,7 +4751,7 @@
       "nexops",
       "nexops cash"
     ],
-    "description": "AI-assisted IDE for Bitcoin Cash smart contracts \u2014 write, audit, and deploy CashScript with safety rails. Think Cursor, but for BCH. BCH-1 hackcelerator Overall Winner.",
+    "description": "AI-assisted IDE for Bitcoin Cash smart contracts — write, audit, and deploy CashScript with safety rails. Think Cursor, but for BCH. BCH-1 hackcelerator Overall Winner.",
     "continent": "middleware",
     "github": "https://github.com/NexOps-cash/nexops",
     "website": "https://nexops.cash",
@@ -4762,7 +4762,7 @@
     "campaignMatchers": [],
     "status": "unknown",
     "statusCheckedAt": null,
-    "statusDetail": "BCH-1 hackcelerator \u2014 Overall Winner",
+    "statusDetail": "BCH-1 hackcelerator — Overall Winner",
     "lastGithubCommit": null,
     "websiteUp": null,
     "lastContentChange": null,
@@ -4790,7 +4790,7 @@
     "campaignMatchers": [],
     "status": "unknown",
     "statusCheckedAt": null,
-    "statusDetail": "BCH-1 hackcelerator \u2014 Active Development. Standard CHIP in Draft.",
+    "statusDetail": "BCH-1 hackcelerator — Active Development. Standard CHIP in Draft.",
     "lastGithubCommit": null,
     "websiteUp": null,
     "lastContentChange": null,
@@ -4818,7 +4818,7 @@
     "campaignMatchers": [],
     "status": "unknown",
     "statusCheckedAt": null,
-    "statusDetail": "BCH-1 hackcelerator \u2014 CashTokens Runner-Up",
+    "statusDetail": "BCH-1 hackcelerator — CashTokens Runner-Up",
     "lastGithubCommit": null,
     "websiteUp": null,
     "lastContentChange": null,
@@ -4851,7 +4851,7 @@
     "campaignMatchers": [],
     "status": "unknown",
     "statusCheckedAt": null,
-    "statusDetail": "BCH-1 hackcelerator \u2014 Active Development. Pivoted from bounty platform to prediction markets; vercel-hosted while custom domain pending.",
+    "statusDetail": "BCH-1 hackcelerator — Active Development. Pivoted from bounty platform to prediction markets; vercel-hosted while custom domain pending.",
     "lastGithubCommit": null,
     "websiteUp": null,
     "lastContentChange": null,
@@ -4881,7 +4881,7 @@
     "campaignMatchers": [],
     "status": "unknown",
     "statusCheckedAt": null,
-    "statusDetail": "BCH-1 hackcelerator \u2014 Tech Track Winner",
+    "statusDetail": "BCH-1 hackcelerator — Tech Track Winner",
     "lastGithubCommit": null,
     "websiteUp": null,
     "lastContentChange": null,
@@ -4900,7 +4900,7 @@
       "fun(d) tokens",
       "fundtokens.cash"
     ],
-    "description": "Trustless fund protocol on Bitcoin Cash where each UTXO is an independent execution thread \u2014 bundle any combination of CashTokens into a new asset class with parallelized smart contract execution. Live on chipnet using the Layla 2026 upgrade. BCH-1 hackcelerator CashTokens Runner-Up.",
+    "description": "Trustless fund protocol on Bitcoin Cash where each UTXO is an independent execution thread — bundle any combination of CashTokens into a new asset class with parallelized smart contract execution. Live on chipnet using the Layla 2026 upgrade. BCH-1 hackcelerator CashTokens Runner-Up.",
     "continent": "defi",
     "github": null,
     "website": "https://chipnet.fundtokens.cash",
@@ -4911,7 +4911,7 @@
     "campaignMatchers": [],
     "status": "unknown",
     "statusCheckedAt": null,
-    "statusDetail": "BCH-1 hackcelerator \u2014 CashTokens Runner-Up. GitHub private; chipnet-only deployment using Layla 2026 contract layer.",
+    "statusDetail": "BCH-1 hackcelerator — CashTokens Runner-Up. GitHub private; chipnet-only deployment using Layla 2026 contract layer.",
     "lastGithubCommit": null,
     "websiteUp": null,
     "lastContentChange": null,

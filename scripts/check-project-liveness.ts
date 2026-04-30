@@ -178,6 +178,49 @@ async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; e
       // Forgejo/Gitea API. Codeberg is the public instance; self-hosted
       // Forgejo/Gitea instances (typically at git.<domain>) use the same path.
       apiUrl = `https://${repo.host}/api/v1/repos/${repo.owner}/${repo.repo}/commits?limit=1`
+      // Some self-hosted Forgejo instances (e.g. git.xulu.tech) require
+      // login for the API but expose a public Atom feed at <repo>.atom that
+      // contains the same recent-activity timestamps. Try the API first; if
+      // it 302s to a sign-in page, fall back to the Atom feed.
+      const forgejoApi = await fetch(apiUrl, {
+        headers,
+        signal: AbortSignal.timeout(15000),
+        redirect: 'manual',
+      }).catch(() => null)
+      if (forgejoApi && forgejoApi.status >= 300 && forgejoApi.status < 400) {
+        const loc = forgejoApi.headers.get('location') || ''
+        if (loc.includes('sign_in') || loc.includes('login')) {
+          const atomUrl = `https://${repo.host}/${repo.owner}/${repo.repo}.atom`
+          const atomRes = await fetch(atomUrl, { signal: AbortSignal.timeout(15000) })
+          if (!atomRes.ok) {
+            return { lastCommit: null, error: `Forgejo auth-walled, atom fallback HTTP ${atomRes.status}` }
+          }
+          const atomXml = await atomRes.text()
+          // The atom feed mixes commits with non-commit activity (merge
+          // requests opened, users joining, comments). We want the most
+          // recent *commit-bearing* event, so prefer entries whose title
+          // mentions "pushed" (which covers commit pushes and new branch
+          // pushes). Fall back to the first entry if no push entry exists.
+          const entries = atomXml.match(/<entry[^>]*>[\s\S]*?<\/entry>/g) || []
+          let dateStr: string | null = null
+          for (const e of entries) {
+            const title = e.match(/<title[^>]*>([^<]+)<\/title>/)?.[1] ?? ''
+            const upd = e.match(/<updated>([^<]+)<\/updated>/)?.[1] ?? null
+            if (!upd) continue
+            if (/pushed (to|new)/i.test(title)) {
+              dateStr = upd
+              break
+            }
+          }
+          if (!dateStr && entries.length > 0) {
+            dateStr = entries[0].match(/<updated>([^<]+)<\/updated>/)?.[1] ?? null
+          }
+          if (!dateStr) {
+            return { lastCommit: null, error: 'Forgejo atom feed empty or unparseable' }
+          }
+          return { lastCommit: dateStr }
+        }
+      }
     } else {
       return { lastCommit: null, error: `Unsupported git host: ${repo.host}` }
     }
