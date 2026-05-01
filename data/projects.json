@@ -2003,12 +2003,16 @@
     "waybackCheckedAt": "2026-04-27T18:30:03.749Z"
   },
   {
-    "slug": "parryonusd",
-    "name": "ParryonUSD",
+    "slug": "paryonusd",
+    "name": "ParyonUSD",
     "aliases": [
+      "paryonusd",
+      "paryon usd",
+      "paryon-usd",
+      "parityusd",
       "parryonusd"
     ],
-    "description": null,
+    "description": "Decentralized over-collateralized stablecoin on Bitcoin Cash (PUSD). Currently uses the legacy ParityUSD GitHub org; site rebranded to ParyonUSD.",
     "continent": "defi",
     "github": "https://github.com/ParityUSD/contracts",
     "website": "https://parityusd.com/",
@@ -2017,7 +2021,8 @@
     "reddit": null,
     "campaignIds": [],
     "campaignMatchers": [
-      "parryonusd"
+      "paryonusd",
+      "parityusd"
     ],
     "status": "active",
     "statusCheckedAt": "2026-04-28T20:08:05.918Z",
@@ -4919,5 +4924,32 @@
     "cohorts": [
       "bch-1"
     ]
+  },
+  {
+    "slug": "bitcoincash-og",
+    "name": "BitcoinCashOG",
+    "aliases": [
+      "bitcoincash og",
+      "bitcoin cash og",
+      "bitcoincashog"
+    ],
+    "description": "BCH marketing and community growth — primarily an X (Twitter) presence under @BitcoinCashOG. Funded across multiple FundMe campaigns, all delivered.",
+    "continent": "media",
+    "github": null,
+    "website": null,
+    "x": "https://x.com/BitcoinCashOG",
+    "telegram": null,
+    "reddit": null,
+    "campaignIds": [],
+    "campaignMatchers": [
+      "bitcoincashog"
+    ],
+    "status": "active",
+    "statusCheckedAt": null,
+    "statusDetail": "X account active. No website/github by design.",
+    "lastGithubCommit": null,
+    "websiteUp": null,
+    "lastContentChange": null,
+    "waybackCheckedAt": null
   }
 ]
