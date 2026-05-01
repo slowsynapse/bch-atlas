@@ -99,7 +99,14 @@ export default function CampaignsPage() {
     const campaigns = [...allCampaigns]
     switch (sortBy) {
       case 'date-desc':
+        // "Newest" intent: surface the most relevant campaigns first. A
+        // running campaign is more relevant than any past campaign — its
+        // outcome is still being decided. Pin all running campaigns to the
+        // top, ordered by date desc among themselves; then everything else
+        // by date desc.
         return campaigns.sort((a, b) => {
+          if (a.status === 'running' && b.status !== 'running') return -1
+          if (a.status !== 'running' && b.status === 'running') return 1
           if (!a.time && !b.time) return 0
           if (!a.time) return 1
           if (!b.time) return -1

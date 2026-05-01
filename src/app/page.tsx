@@ -5,6 +5,8 @@ import { GraphVisualization, type NodeFilters } from '@/components/graph/GraphVi
 import { getCampaigns, getEntities, getStats } from '@/lib/data/campaigns'
 import { buildGraph } from '@/lib/graph/builder'
 import Link from 'next/link'
+import { useIsMobile } from '@/lib/hooks/useIsMobile'
+import { MobileAtlasView } from '@/components/MobileAtlasView'
 
 interface CampaignPricing { usd: number; date: string }
 
@@ -37,6 +39,7 @@ export default function AtlasPage() {
   const stats = useMemo(() => getStats(), [])
   const { nodes, edges } = useMemo(() => buildGraph(campaigns, entities), [campaigns, entities])
 
+  const isMobile = useIsMobile()
   const [selectedNode, setSelectedNode] = useState<any>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState<any[]>([])
@@ -140,6 +143,22 @@ export default function AtlasPage() {
   const yearRange: number[] = []
   for (let y = yearMin; y <= yearMax; y++) yearRange.push(y)
   const maxYearly = Math.max(1, ...Object.values(yearlyBCH))
+
+  // Mobile fallback: the cytoscape graph genuinely doesn't work at <1024px
+  // (606 nodes spread over a 6000x7000 virtual canvas, hover-driven affordances,
+  // 300px+ HUD). Render an atmospheric desktop screenshot with browse CTAs
+  // instead. Desktop branch below is completely untouched.
+  if (isMobile) {
+    return (
+      <MobileAtlasView
+        stats={{
+          totalCampaigns: stats.totalCampaigns,
+          totalBCH: stats.totalBCH,
+          activeCount: campaigns.filter(c => c.status === 'running').length,
+        }}
+      />
+    )
+  }
 
   return (
     <div className="h-screen flex overflow-hidden">
