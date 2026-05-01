@@ -195,7 +195,7 @@ export default function AtlasPage() {
           <div className="relative">
             <input
               type="text"
-              placeholder="Search campaigns..."
+              placeholder="Search..."
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
               className="w-full px-3 py-2 text-xs font-mono placeholder-[#3A6A5A] outline-none transition-all"
