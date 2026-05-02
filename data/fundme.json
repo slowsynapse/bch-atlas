@@ -1857,7 +1857,7 @@
     "continent": "charity",
     "amount": 1.83591685,
     "raised": 1.83591685,
-    "status": "running",
+    "status": "success",
     "time": "2026-04-06",
     "url": "https://fundme.cash/campaign/125",
     "entities": [],
@@ -1990,5 +1990,20 @@
       "bitcoincash:zr70vm24s744tvph7h6srltf2nmkgrakgs34q0l6kr"
     ],
     "raised": 1.7950000000000002
+  },
+  {
+    "id": "e0c346aa35d1fda1",
+    "platform": "fundme",
+    "title": "Juba's First BCH Grocery:Resilience Beyond Borders",
+    "description": "Who Am I?​Hello everyone! My name is Anas Ibrahim, known on social media as @Anaslbrahi67822. I have been a dedicated advocate for Bitcoin Cash (BCH) adoption since 2023. I was originally working on establishing a crypto-friendly grocery store in Sudan; however, due to the unfortunate outbreak of war, my project was halted and I was displaced to Juba, the capital of South Sudan. After spending over three years observing the local environment, I have decided to revive my vision here. I aim to build a grocery store that accepts digital currencies, but I currently face a significant funding gap. This campaign is my step toward making the \"BCH for payments\" dream a reality in JubaWhat is the goal of this project?The core objective is to integrate digital currencies into the fabric of daily life. I want to enable people to pay for their essential needs—from water and sugar to basic food supplies—using Bitcoin Cash. We aren't just building a temporary shop; we are creating a sustainable ecosystem. In a city like Juba, where the local currency struggles with inflation and carrying cash is a burden, BCH offers a faster, safer, and more reliable alternative for everyone.Why support me?By supporting this campaign, you are investing in full-time BCH adoption in Africa. A successful, crypto-integrated grocery store in Juba will serve as a powerful \"proof of concept\" for the entire Bitcoin Cash community. It proves that crypto can solve real-world problems in emerging markets.​If this project does not reach its funding goal, Juba will miss a golden opportunity to host its first cryptocurrency-ready store, and the momentum for digital payments in Africa could slow down. My dream is to see Bitcoin Cash become a household name, helping the people of Juba thriveBudget Breakdown (Target: $10,000)Store Rent: $6,000 (12 months at $500/month). ​POS Infrastructure: $2,000 (Professional hardware and setup).​Initial Inventory: $2,000 (Stocking essential goods and merchandise).​Thank you for your time and support. For questions or potential collaborations, please reach out to me on X (@Anaslbrahi67822).or telegram @ANASIBRAHIThis video is from the shop where I work",
+    "continent": "charity",
+    "amount": 0,
+    "status": "running",
+    "time": "2026-05-02",
+    "url": "https://fundme.cash/campaign/133",
+    "entities": [],
+    "recipientAddresses": [
+      "bitcoincash:qp8cdgradfyf4j8e5gdlgcvm2l5nm6883uvyjqrjx3"
+    ]
   }
 ]
