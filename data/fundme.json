@@ -1744,7 +1744,7 @@
     "continent": "ecosystem",
     "amount": 9.3,
     "raised": 9.3,
-    "status": "running",
+    "status": "success",
     "time": "2026-03-14",
     "url": "https://fundme.cash/campaign/118",
     "entities": [],
@@ -2004,6 +2004,36 @@
     "entities": [],
     "recipientAddresses": [
       "bitcoincash:qp8cdgradfyf4j8e5gdlgcvm2l5nm6883uvyjqrjx3"
+    ]
+  },
+  {
+    "id": "4ad3f78b332db3a3",
+    "platform": "fundme",
+    "title": "NFT ticketing app on BCH",
+    "description": "Ticketing has been broken for decades.Every year, the live music industry generates over €30 billion in Europe alone. And every year, a huge chunk of that money is lost to counterfeits, predatory resale and tickets that go unused because there is no decent way to transfer them.Widespread counterfeitingBetween 15–20% of tickets for popular concerts on the secondary market are fakes. Victims show up at the venue and get turned away at the door. Platforms like Viagogo or StubHub charge up to 30% in fees and allow resale at 5–10x the face value. Organisers see none of that margin. After the show, the ticket disappears. A crumpled stub or a forgotten PDF. The memory of something that mattered — gone.NFT Event Pass turns every ticket into an immutable NFT on Bitcoin Cash using the CashTokens standard. Every NFT lives on the BCH blockchain. A QR code generated from your wallet proves ownership in milliseconds. Impossible to duplicate. Impossible to fake. Access control verifies on-chain in real time. Exclusive Stories + verified social networkOnly attendees holding the event NFT can publish and view Stories during the 24-hour show window. Your profile builds a musical history verified on-chain — not what you claim to have seen, but what you were demonstrably there for.After scanning, your NFT automatically transforms into a unique collectible enriched with the show artwork, the final setlist and photos you upload yourself. Your musical story in a digital object that truly belongs to you.This campaing is for the development of the web portal for ticket purchases, NFT minting on BCH mainnet, QR check-in, automatic post-event collectible conversion and basic profile with verified history.There are alternatives on other networks, but I want to continue growing the BCH ecosystem and give it real-world use.This pledge is for the web page devopment and testing.",
+    "continent": "defi",
+    "amount": 0,
+    "status": "running",
+    "time": "2026-05-03",
+    "url": "https://fundme.cash/campaign/134",
+    "entities": [],
+    "recipientAddresses": [
+      "bitcoincash:qp5he9dt8vgme52280p3fpcn8gqh7dt8jg4r2w2eps"
+    ]
+  },
+  {
+    "id": "9830caf4726a87ad",
+    "platform": "fundme",
+    "title": "Get Not Another Media Group to Consensus Miami",
+    "description": "Not Another Media Group → Consensus 2026“On-the-Ground BCH Ambassador Coverage”🔥 OverviewNot Another Media Group (NAMG) is requesting funding to deploy a 3-person media and ambassador team to Consensus 2026 next week for on-the-ground coverage, onboarding, and promotion of Bitcoin Cash.After a highly successful presence at Bitcoin 2026 Las Vegas, where we actively promoted BCH as the green, peer-to-peer electronic cash system, we are doubling down on momentum.This proposal funds:🎥 Live media production🧑‍🤝‍🧑 Direct ambassador outreach📲 Real-time content distribution🟢 BCH onboarding + evangelism🎯 MissionTo represent Bitcoin Cash at Consensus 2026 through:Boots-on-the-ground storytellingHigh-frequency social contentDirect engagement with builders, founders, and attendeesConverting attention → adoptionWe’re not just attending—we’re activating.👥 TeamBobcat – Strategy, on-site coordination, ambassador leadKenn Bosak – Host of #NotAnotherBitcoinPodcast, distribution + interviewsMiggy – Host of the Beyond Blocks podcast, Content production, editing, social deployment📍 Why This MattersConsensus is one of the largest and most influential crypto gatherings in the world. If BCH is not represented aggressively, it gets drowned out by narratives that don’t align with peer-to-peer cash.We fix that.At Bitcoin 2026 Las Vegas, we:Engaged hundreds of attendees directlyCreated viral-style content around BCHPositioned BCH as the practical, usable BitcoinDelivered authentic, grassroots evangelismConsensus is the next battlefield.📡 What We Will Deliver1. 🎥 Live Content EngineInterviews with builders, influencers, and attendeesDaily recap videosShort-form clips optimized for:X (Twitter)FarcasterYouTube Shorts2. 🧑‍🚀 BCH Ambassador ActivationDirect onboarding conversationsWallet education and usage demosPromoting BCH as:FastCheapScalableGreen3. 📲 Distribution & ReachLeveraging:Not Another Media Group networkNot Another Bitcoin Podcast audienceAmbassador amplificationGoal: maximize impressions per dollar spent4. 🟢 Narrative ControlWe will actively push:BCH as actual peer-to-peer cashBCH as environmentally efficient (“green Bitcoin”)BCH as usable today—not hypothetical💰 Funding RequestGoal: 2.5 BCHBudget Breakdown:✈️ Travel Kenn’s flight - 1 BCH🏨 Lodging – we need lodging 1 BCH🎥 Media equipment + production – Provided🍽️ Basic expenses during coverage (FOOD) – 0.5 BCH📡 Distribution + tooling - ProvidedThis is a lean, high-efficiency deployment—not a luxury trip.📊 ROI for BCH CommunityYour funding directly translates to:📈 Increased BCH awareness👥 New users onboarded🎥 Evergreen media content🌍 Presence at a major global event🔁 Content that can be reused across campaignsThis is marketing + evangelism + media production in one package.🧠 Why NAMG?Not Another Media Group is built for exactly this:On-the-ground coverageCrypto-native storytellingHigh-output content cyclesAuthentic, non-corporate engagementWe don’t do staged marketing. We do real conversations, real adoption, real signal.🚀 ClosingWe just proved at Bitcoin 2026 Las Vegas that:BCH wins when people actually hear the message.Now we take that same energy to Consensus.Let’s show up loud. Let’s show up green. Let’s show up Bitcoin Cash.🟢 Call to ActionFund this proposal to put BCH directly in front of:BuildersInvestorsMediaThe broader crypto ecosystemLet’s make sure BCH is not just present—but impossible to ignore.",
+    "continent": "core",
+    "amount": 0,
+    "status": "running",
+    "time": "2026-05-03",
+    "url": "https://fundme.cash/campaign/135",
+    "entities": [],
+    "recipientAddresses": [
+      "bitcoincash:qq2hvy8q0wr2gwdsqvuxtsr9ecwy9l64nc07gq5wuw"
     ]
   }
 ]
