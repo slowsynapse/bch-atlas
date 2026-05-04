@@ -12,9 +12,31 @@
  * Usage:
  *   npx tsx scripts/check-project-liveness.ts
  *   npx tsx scripts/check-project-liveness.ts --skip-wayback
+ *   npx tsx scripts/check-project-liveness.ts --dry-run
+ *   npx tsx scripts/check-project-liveness.ts --slug bchn,bch-explorer-melroy
  *
  * Environment:
  *   GITHUB_TOKEN - Optional. Increases GitHub API rate limit from 60/hr to 5000/hr.
+ *
+ * ──────────────────────────────────────────────────────────────────────
+ * ROLLBACK NOTE — added 2026-05-05 with the self-hosted GitLab API fix.
+ *
+ * If self-hosted GitLab API support starts misbehaving (e.g. some instance
+ * returns malformed JSON, or hostname-prefix detection grabs a non-GitLab
+ * host that happens to start with "gitlab."), the safe rollback is:
+ *
+ *   git revert <commit-hash-of-this-merge>
+ *
+ * That returns us to the prior atom-feed-based fallback. The atom feed is
+ * less elegant but it worked, and the Forgejo branch below already proves
+ * the pattern. Symptoms to watch for after this lands:
+ *   - lastGithubCommit going null on previously-working self-hosted projects
+ *   - HTTP 4xx errors logged for gitlab.<vendor>.com hosts
+ *   - status flips on bch-explorer-melroy / bcmr-schema-viewer / bch-energy
+ *
+ * Verification ground truth: BCH Explorer should show "Last commit Nd ago"
+ * with N matching whenever Melroy last pushed to gitlab.melroy.org.
+ * ──────────────────────────────────────────────────────────────────────
  */
 
 import { readFileSync, writeFileSync } from 'fs'
