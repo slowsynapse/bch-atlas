@@ -39,6 +39,7 @@ interface Project {
 const PROJECTS_PATH = resolve(__dirname, '..', 'data', 'projects.json')
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || null
 const SKIP_WAYBACK = process.argv.includes('--skip-wayback')
+const DRY_RUN = process.argv.includes('--dry-run')
 const SLUG_FILTER: string[] = (() => {
   const idx = process.argv.indexOf('--slug')
   if (idx === -1 || !process.argv[idx + 1]) return []
@@ -112,16 +113,17 @@ async function resolveOrgLatestRepo(repo: ParsedRepo, headers: Record<string, st
     )
   }
 
-  if (repo.host === 'gitlab.com') {
-    // /users/X works for personal namespaces; /groups/X for org/group
-    // namespaces. Try user first, fall back to group.
+  if (repo.host === 'gitlab.com' || repo.host.startsWith('gitlab.')) {
+    // GitLab (gitlab.com + self-hosted). /users/X works for personal
+    // namespaces; /groups/X for org/group namespaces. Try user first, fall
+    // back to group.
     const user = await fetchOrgListing(
-      `https://gitlab.com/api/v4/users/${encodeURIComponent(repo.owner)}/projects?order_by=last_activity_at&sort=desc&per_page=1`,
+      `https://${repo.host}/api/v4/users/${encodeURIComponent(repo.owner)}/projects?order_by=last_activity_at&sort=desc&per_page=1`,
       headers,
     )
     if (user) return user
     return fetchOrgListing(
-      `https://gitlab.com/api/v4/groups/${encodeURIComponent(repo.owner)}/projects?order_by=last_activity_at&sort=desc&per_page=1`,
+      `https://${repo.host}/api/v4/groups/${encodeURIComponent(repo.owner)}/projects?order_by=last_activity_at&sort=desc&per_page=1`,
       headers,
     )
   }
@@ -169,44 +171,16 @@ async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; e
     let apiUrl: string
     if (repo.host === 'github.com') {
       apiUrl = `https://api.github.com/repos/${repo.owner}/${repo.repo}/commits?per_page=1`
-    } else if (repo.host === 'gitlab.com') {
-      // GitLab supports nested subgroups (e.g. group/lib/repo). Use the full
-      // URL path, percent-encoded as a single project identifier.
+    } else if (repo.host === 'gitlab.com' || repo.host.startsWith('gitlab.')) {
+      // GitLab — both gitlab.com AND self-hosted instances (e.g.
+      // gitlab.melroy.org). Per the official GitLab API docs the project ID
+      // can be either an integer OR a URL-encoded `org/repo` path:
+      //   https://docs.gitlab.com/api/commits/#list-repository-commits
+      // The path form means we don't need a separate "look up project ID
+      // first" round-trip. Subgroups are supported because the entire URL
+      // path is encoded as one identifier.
       const projectPath = repo.fullPath || `${repo.owner}/${repo.repo}`
-      apiUrl = `https://gitlab.com/api/v4/projects/${encodeURIComponent(projectPath)}/repository/commits?per_page=1`
-    } else if (repo.host.startsWith('gitlab.')) {
-      // Self-hosted GitLab (e.g. gitlab.melroy.org). Their public API requires
-      // either auth or namespace listing that varies by instance config — too
-      // unreliable to depend on. The Atom activity feed at <repo>.atom is
-      // public on every GitLab instance and contains push/tag/commit events
-      // with timestamps. Mirrors the Forgejo fallback pattern below.
-      const projectPath = repo.fullPath || `${repo.owner}/${repo.repo}`
-      const atomUrl = `https://${repo.host}/${projectPath}.atom`
-      const atomRes = await fetch(atomUrl, { signal: AbortSignal.timeout(15000) }).catch(() => null)
-      if (!atomRes || !atomRes.ok) {
-        return { lastCommit: null, error: `Self-hosted GitLab atom feed HTTP ${atomRes?.status ?? 'fetch-failed'}` }
-      }
-      const atomXml = await atomRes.text()
-      const entries = atomXml.match(/<entry[^>]*>[\s\S]*?<\/entry>/g) || []
-      let dateStr: string | null = null
-      for (const e of entries) {
-        const title = e.match(/<title[^>]*>([^<]+)<\/title>/)?.[1] ?? ''
-        const upd = e.match(/<updated>([^<]+)<\/updated>/)?.[1] ?? null
-        if (!upd) continue
-        // GitLab atom uses titles like "<user> pushed to project branch X" or
-        // "<user> pushed new project tag Y". Filter for push-bearing entries.
-        if (/pushed\s+(to|new)/i.test(title)) {
-          dateStr = upd
-          break
-        }
-      }
-      if (!dateStr && entries.length > 0) {
-        dateStr = entries[0].match(/<updated>([^<]+)<\/updated>/)?.[1] ?? null
-      }
-      if (!dateStr) {
-        return { lastCommit: null, error: 'Self-hosted GitLab atom feed empty or unparseable' }
-      }
-      return { lastCommit: dateStr }
+      apiUrl = `https://${repo.host}/api/v4/projects/${encodeURIComponent(projectPath)}/repository/commits?per_page=1`
     } else if (repo.host === 'codeberg.org' || repo.host.startsWith('git.')) {
       // Forgejo/Gitea API. Codeberg is the public instance; self-hosted
       // Forgejo/Gitea instances (typically at git.<domain>) use the same path.
@@ -273,7 +247,8 @@ async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; e
     if (!data || data.length === 0) return { lastCommit: null, error: 'No commits found' }
 
     let dateStr: string | null = null
-    if (repo.host === 'gitlab.com') {
+    if (repo.host === 'gitlab.com' || repo.host.startsWith('gitlab.')) {
+      // GitLab (gitlab.com + self-hosted) returns flat committed_date/authored_date.
       dateStr = data[0]?.committed_date || data[0]?.authored_date || null
     } else {
       // GitHub + Forgejo/Gitea (Codeberg + self-hosted) share the same shape.
@@ -596,6 +571,7 @@ async function main() {
   console.log(`Checking liveness for ${projects.length} projects...`)
   console.log(GITHUB_TOKEN ? 'Using GITHUB_TOKEN for authenticated requests' : 'No GITHUB_TOKEN — 60 req/hr limit')
   console.log(SKIP_WAYBACK ? 'Skipping Wayback Machine checks (--skip-wayback)' : 'Wayback Machine checks ENABLED')
+  if (DRY_RUN) console.log('DRY RUN — no writes to data/projects.json. Status flips printed only.')
   console.log('')
 
   let checked = 0
@@ -697,11 +673,15 @@ async function main() {
     if (wayError) console.log(`       Wayback error: ${wayError}`)
   }
 
-  writeFileSync(PROJECTS_PATH, JSON.stringify(projects, null, 2) + '\n')
-
-  console.log('')
-  console.log(`Done. ${checked} projects checked, ${statusChanges} status changes.`)
-  console.log(`Results written to ${PROJECTS_PATH}`)
+  if (DRY_RUN) {
+    console.log('')
+    console.log(`DRY RUN complete. ${checked} projects checked, ${statusChanges} status changes (NOT written).`)
+  } else {
+    writeFileSync(PROJECTS_PATH, JSON.stringify(projects, null, 2) + '\n')
+    console.log('')
+    console.log(`Done. ${checked} projects checked, ${statusChanges} status changes.`)
+    console.log(`Results written to ${PROJECTS_PATH}`)
+  }
 
   const summary: Record<string, number> = {}
   projects.forEach(p => { summary[p.status] = (summary[p.status] || 0) + 1 })
