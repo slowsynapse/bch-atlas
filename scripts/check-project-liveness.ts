@@ -174,6 +174,39 @@ async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; e
       // URL path, percent-encoded as a single project identifier.
       const projectPath = repo.fullPath || `${repo.owner}/${repo.repo}`
       apiUrl = `https://gitlab.com/api/v4/projects/${encodeURIComponent(projectPath)}/repository/commits?per_page=1`
+    } else if (repo.host.startsWith('gitlab.')) {
+      // Self-hosted GitLab (e.g. gitlab.melroy.org). Their public API requires
+      // either auth or namespace listing that varies by instance config — too
+      // unreliable to depend on. The Atom activity feed at <repo>.atom is
+      // public on every GitLab instance and contains push/tag/commit events
+      // with timestamps. Mirrors the Forgejo fallback pattern below.
+      const projectPath = repo.fullPath || `${repo.owner}/${repo.repo}`
+      const atomUrl = `https://${repo.host}/${projectPath}.atom`
+      const atomRes = await fetch(atomUrl, { signal: AbortSignal.timeout(15000) }).catch(() => null)
+      if (!atomRes || !atomRes.ok) {
+        return { lastCommit: null, error: `Self-hosted GitLab atom feed HTTP ${atomRes?.status ?? 'fetch-failed'}` }
+      }
+      const atomXml = await atomRes.text()
+      const entries = atomXml.match(/<entry[^>]*>[\s\S]*?<\/entry>/g) || []
+      let dateStr: string | null = null
+      for (const e of entries) {
+        const title = e.match(/<title[^>]*>([^<]+)<\/title>/)?.[1] ?? ''
+        const upd = e.match(/<updated>([^<]+)<\/updated>/)?.[1] ?? null
+        if (!upd) continue
+        // GitLab atom uses titles like "<user> pushed to project branch X" or
+        // "<user> pushed new project tag Y". Filter for push-bearing entries.
+        if (/pushed\s+(to|new)/i.test(title)) {
+          dateStr = upd
+          break
+        }
+      }
+      if (!dateStr && entries.length > 0) {
+        dateStr = entries[0].match(/<updated>([^<]+)<\/updated>/)?.[1] ?? null
+      }
+      if (!dateStr) {
+        return { lastCommit: null, error: 'Self-hosted GitLab atom feed empty or unparseable' }
+      }
+      return { lastCommit: dateStr }
     } else if (repo.host === 'codeberg.org' || repo.host.startsWith('git.')) {
       // Forgejo/Gitea API. Codeberg is the public instance; self-hosted
       // Forgejo/Gitea instances (typically at git.<domain>) use the same path.
@@ -253,7 +286,7 @@ async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; e
   }
 }
 
-async function checkWebsite(url: string): Promise<{ up: boolean; error?: string }> {
+async function checkWebsiteOnce(url: string): Promise<{ up: boolean; error?: string }> {
   try {
     const response = await fetch(url, {
       method: 'HEAD',
@@ -274,6 +307,25 @@ async function checkWebsite(url: string): Promise<{ up: boolean; error?: string 
   } catch (err) {
     return { up: false, error: err instanceof Error ? err.message : 'Unknown error' }
   }
+}
+
+/**
+ * Retry a website check up to 3 times with exponential backoff before
+ * declaring it down. Single-shot fetches on CI runners suffer transient DNS
+ * blips and TLS handshake failures that previously buried legitimate
+ * projects (e.g. an entire May 2026 sweep flipped 5 active projects to dead
+ * because of a momentary network hiccup). A success on any attempt wins.
+ */
+async function checkWebsite(url: string): Promise<{ up: boolean; error?: string }> {
+  const backoffs = [0, 2000, 5000]
+  let lastError: string | undefined
+  for (let i = 0; i < backoffs.length; i++) {
+    if (backoffs[i] > 0) await sleep(backoffs[i])
+    const result = await checkWebsiteOnce(url)
+    if (result.up) return { up: true }
+    lastError = result.error
+  }
+  return { up: false, error: lastError }
 }
 
 /**
@@ -420,6 +472,7 @@ function determineStatus(
   hasGithub: boolean,
   hasWebsite: boolean,
   prevStatus: string,
+  prevWebsiteUp: boolean | null,
   orgFallback?: { repo: string },
 ): { status: string; detail: string } {
   const now = Date.now()
@@ -511,10 +564,23 @@ function determineStatus(
 
   // Website is registered but explicitly down. By this point we've already
   // ruled out any recent active signals. A registered-but-dead site is a
-  // strong abandonment signal — mark dead. (We've also already filtered
-  // out the "recent commit AND website up" path above.)
+  // strong abandonment signal — but a single sweep with a transient network
+  // blip should not bury a previously-active project. Require either:
+  //   - prior run also saw the site down (consecutive failure), OR
+  //   - the project was already non-active (unknown/dormant/dead) — in which
+  //     case dead is consistent with prior signal.
+  // First-time site-down on a previously-active project → dormant, not dead.
+  // The next sweep will confirm or recover.
   if (hasWebsite && websiteUp === false) {
-    return { status: 'dead', detail: details.join('. ') }
+    const consecutiveDown = prevWebsiteUp === false
+    const wasNotActive = prevStatus !== 'active'
+    if (consecutiveDown || wasNotActive) {
+      return { status: 'dead', detail: details.join('. ') }
+    }
+    return {
+      status: 'dormant',
+      detail: `${details.join('. ')}. Site newly down — awaiting next-sweep confirmation before flipping to dead.`,
+    }
   }
 
   if (!hasGithub && !hasWebsite) {
@@ -591,6 +657,7 @@ async function main() {
       await sleep(WAYBACK_DELAY_MS)
     }
 
+    const prevWebsiteUp = (project.websiteUp ?? null) as boolean | null
     const { status, detail } = determineStatus(
       lastCommit,
       websiteUp,
@@ -599,6 +666,7 @@ async function main() {
       !!project.github,
       !!project.website,
       project.status,
+      prevWebsiteUp,
       orgFallback,
     )
 
