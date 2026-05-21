@@ -14,9 +14,18 @@
  *   npx tsx scripts/check-project-liveness.ts --skip-wayback
  *   npx tsx scripts/check-project-liveness.ts --dry-run
  *   npx tsx scripts/check-project-liveness.ts --slug bchn,bch-explorer-melroy
+ *   npx tsx scripts/check-project-liveness.ts --allow-mass-flip   # bypass safety check
  *
  * Environment:
  *   GITHUB_TOKEN - Optional. Increases GitHub API rate limit from 60/hr to 5000/hr.
+ *
+ * Safety rails (added 2026-05-05 after the May-4 mass-flip incident):
+ *   - Mass-flip abort: if >3 projects flip active→dead in one run, the
+ *     script aborts WITHOUT writing. Bypass with --allow-mass-flip.
+ *   - Manual override: set "manualOverride": true on a project in
+ *     data/projects.json and the script will never change its status.
+ *   - Stale-Wayback rule no longer single-handedly buries active projects.
+ *   - All 4xx/5xx git responses (not just GitHub 403) preserve prior commit.
  *
  * ──────────────────────────────────────────────────────────────────────
  * ROLLBACK NOTE — added 2026-05-05 with the self-hosted GitLab API fix.
@@ -257,11 +266,22 @@ async function checkGitRepo(url: string): Promise<{ lastCommit: string | null; e
     const response = await fetch(apiUrl, { headers, signal: AbortSignal.timeout(15000) })
     if (!response.ok) {
       const remaining = response.headers.get('x-ratelimit-remaining')
-      const isRateLimited = response.status === 403 && remaining === '0'
+      // Treat any of these as "transient — preserve prior commit":
+      //   - GitHub: 403 with x-ratelimit-remaining: 0
+      //   - GitLab/Forgejo: 429 (Too Many Requests)
+      //   - Anything 5xx (server-side flake)
+      // The previous code only respected GitHub's specific signature, so a
+      // GitLab 429 or a 503 from any host produced lastCommit:null and fed
+      // the fragile-signal classifier. Now we surface rateLimited:true for
+      // all those cases so the call site preserves the prior commit date.
+      const isGithubRateLimited = response.status === 403 && remaining === '0'
+      const isGitLabOrForgejoRateLimited = response.status === 429
+      const isServerFlake = response.status >= 500
+      const transient = isGithubRateLimited || isGitLabOrForgejoRateLimited || isServerFlake
       return {
         lastCommit: null,
-        error: `HTTP ${response.status}${isRateLimited ? ' (rate limited)' : ''}`,
-        rateLimited: isRateLimited,
+        error: `HTTP ${response.status}${transient ? ' (transient)' : ''}`,
+        rateLimited: transient,
       }
     }
 
@@ -517,10 +537,36 @@ function determineStatus(
     }
   }
 
-  // Wayback says "stale" — page hasn't changed in 2+ years. Trumps live website.
-  if ((waybackVerdict === 'stale' || inferredStaleFromAge) && !recentCommit) {
+  // Wayback says "stale" — page hasn't changed in 2+ years.
+  //
+  // Historically this rule ran with no other guards: if Wayback said stale
+  // AND we didn't see a recent commit, dead. That's the same fragile-signal
+  // conflation that buried 5 active projects on 2026-05-04 (Melroy's
+  // BCH Explorer etc.) when a git host blip + a Wayback inconclusive
+  // chain combined into a false dead-flip.
+  //
+  // Defensive guard: only flip to dead via Wayback-stale when the project
+  // wasn't already classified as active. An active project with a live
+  // website but a Wayback that *thinks* it's stale gets the benefit of
+  // the doubt — it could be a JS-heavy site whose archive captures don't
+  // reflect real changes (donation counter pages are notorious for this).
+  // Stale-Wayback can DEMOTE active to dormant on the next sweep that
+  // confirms via website-down too, but it can no longer single-handedly
+  // bury an active project.
+  const trustWaybackStale = (waybackVerdict === 'stale' || inferredStaleFromAge) && !recentCommit
+  if (trustWaybackStale && prevStatus !== 'active') {
     return { status: 'dead', detail: details.join('. ') }
   }
+  if (trustWaybackStale && prevStatus === 'active' && websiteUp !== true) {
+    // Wayback stale + site also down on a prev-active project = dormant,
+    // not dead. Lets a future sweep confirm with consecutive signals.
+    return {
+      status: 'dormant',
+      detail: `${details.join('. ')}. Wayback says stale + site unreachable; demoting active→dormant pending confirmation.`,
+    }
+  }
+  // Active project + Wayback stale + site up: keep active. The site is
+  // demonstrably reachable; trust that over a Wayback heuristic.
 
   // A commit in the last 6 months normally signals active. But if the project
   // has a website AND that website is explicitly down, the maintainer
@@ -599,9 +645,21 @@ async function main() {
   let checked = 0
   let statusChanges = 0
 
+  // Snapshot prior statuses for the post-sweep sanity check (Fix 4).
+  const prevStatusBySlug = new Map<string, string>()
+  for (const p of projects) prevStatusBySlug.set(p.slug, p.status)
+
   for (const project of projects) {
     if (SLUG_FILTER.length && !SLUG_FILTER.includes(project.slug as string)) continue
+    // Two manual-curation guards:
+    //   1. Legacy: dead with statusCheckedAt:null means a human marked it
+    //      dead before any sweep ran. Preserve.
+    //   2. Explicit: `manualOverride: true` on the project means a human
+    //      curated this project's status and the script must not touch it.
+    //      Use this for projects where automated signals are misleading
+    //      (e.g. a project whose code is hosted on a private fork).
     const wasManuallyDead = project.status === 'dead' && project.statusCheckedAt === null
+    const isManualOverride = (project as { manualOverride?: boolean }).manualOverride === true
 
     checked++
     const progress = `[${checked}/${projects.length}]`
@@ -669,9 +727,11 @@ async function main() {
     )
 
     const oldStatus = project.status
-    if (!wasManuallyDead) project.status = status as Project['status']
+    if (!wasManuallyDead && !isManualOverride) project.status = status as Project['status']
     project.statusCheckedAt = new Date().toISOString()
-    project.statusDetail = detail
+    project.statusDetail = isManualOverride
+      ? `${detail} [MANUAL OVERRIDE — checker says: ${status}]`
+      : detail
     // Preserve prior commit on rate-limit; otherwise overwrite with fresh result
     if (!gitRateLimited) {
       project.lastGithubCommit = lastCommit
@@ -683,11 +743,13 @@ async function main() {
     if (changed) statusChanges++
 
     const wayInfo = needWayback ? ` [wayback: ${waybackSnapshots} snaps, ${waybackVerdict}${lastContentChange ? `, last ${lastContentChange.split('T')[0]}` : ''}]` : ''
-    const changeNote = changed && !wasManuallyDead
+    const changeNote = changed && !wasManuallyDead && !isManualOverride
       ? ` (was: ${oldStatus})`
       : wasManuallyDead && status !== 'dead'
         ? ` (kept dead, checker says: ${status})`
-        : ''
+        : isManualOverride && status !== oldStatus
+          ? ` (manual override — checker says: ${status})`
+          : ''
     console.log(`${progress} ${project.name} — ${project.status}${changeNote}${wayInfo}`)
 
     if (gitError) console.log(`       GitHub error: ${gitError}`)
@@ -695,13 +757,52 @@ async function main() {
     if (wayError) console.log(`       Wayback error: ${wayError}`)
   }
 
+  // Sanity check at the write boundary. The 2026-05-04 incident silently
+  // committed 25 status flips (5 of them buried active projects) because
+  // the script trusted its own output. Now: if the sweep produced more
+  // active→dead flips than the threshold, abort the write entirely and
+  // demand human review. Override with --allow-mass-flip when you've
+  // genuinely got a bunch of dead projects to acknowledge.
+  const MAX_ACTIVE_TO_DEAD_FLIPS = 3
+  const activeToDeadFlips: string[] = []
+  for (const p of projects) {
+    const prev = prevStatusBySlug.get(p.slug)
+    if (prev === 'active' && p.status === 'dead') activeToDeadFlips.push(p.slug)
+  }
+  const massFlipDetected = activeToDeadFlips.length > MAX_ACTIVE_TO_DEAD_FLIPS
+  const allowMassFlip = process.argv.includes('--allow-mass-flip')
+
+  if (massFlipDetected && !allowMassFlip) {
+    console.log('')
+    console.log('━'.repeat(70))
+    console.log(`⚠️  ABORT: ${activeToDeadFlips.length} projects flipped active → dead`)
+    console.log(`   (threshold is ${MAX_ACTIVE_TO_DEAD_FLIPS}; mass flips like this almost always`)
+    console.log(`   indicate a sweep-wide problem like a network outage on the runner)`)
+    console.log('')
+    console.log('   Affected projects:')
+    for (const slug of activeToDeadFlips) console.log(`     - ${slug}`)
+    console.log('')
+    console.log('   No changes written to data/projects.json.')
+    console.log('')
+    console.log('   To inspect: re-run with --dry-run')
+    console.log('   To force:   re-run with --allow-mass-flip (use with care)')
+    console.log('━'.repeat(70))
+    process.exit(2)
+  }
+
   if (DRY_RUN) {
     console.log('')
     console.log(`DRY RUN complete. ${checked} projects checked, ${statusChanges} status changes (NOT written).`)
+    if (activeToDeadFlips.length > 0) {
+      console.log(`Active→dead flips this run: ${activeToDeadFlips.join(', ')}`)
+    }
   } else {
     writeFileSync(PROJECTS_PATH, JSON.stringify(projects, null, 2) + '\n')
     console.log('')
     console.log(`Done. ${checked} projects checked, ${statusChanges} status changes.`)
+    if (activeToDeadFlips.length > 0) {
+      console.log(`Active→dead flips: ${activeToDeadFlips.join(', ')}`)
+    }
     console.log(`Results written to ${PROJECTS_PATH}`)
   }
 

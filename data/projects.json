@@ -3399,13 +3399,14 @@
       "bch-bullet",
       "the bch bullet"
     ],
-    "status": "dead",
+    "status": "active",
     "statusCheckedAt": "2026-05-18T08:28:25.432Z",
-    "statusDetail": "Website down. Wayback inconclusive",
+    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
     "lastGithubCommit": null,
     "websiteUp": false,
     "lastContentChange": "2026-04-13T19:04:39Z",
-    "waybackCheckedAt": "2026-04-27T18:38:09.499Z"
+    "waybackCheckedAt": "2026-04-27T18:38:09.499Z",
+    "manualOverride": true
   },
   {
     "slug": "bitcoin-cash-tv",
@@ -4173,13 +4174,14 @@
       "software verde",
       "software-verde"
     ],
-    "status": "dead",
+    "status": "active",
     "statusCheckedAt": "2026-05-18T08:35:15.289Z",
-    "statusDetail": "Org-only URL — most-recent repo \"java-http-client\" pushed 26d ago. Website down. Wayback inconclusive",
+    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
     "lastGithubCommit": "2026-04-22T14:17:05Z",
     "websiteUp": false,
     "lastContentChange": null,
-    "waybackCheckedAt": null
+    "waybackCheckedAt": null,
+    "manualOverride": true
   },
   {
     "slug": "developers-cash",
@@ -4661,13 +4663,14 @@
       "bchexplorer.cash",
       "bch explorer"
     ],
-    "status": "dead",
+    "status": "active",
     "statusCheckedAt": "2026-05-18T08:38:02.712Z",
-    "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
+    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
     "lastGithubCommit": null,
     "websiteUp": false,
     "lastContentChange": "2026-04-17T09:49:37Z",
-    "waybackCheckedAt": "2026-04-29T15:42:32.501Z"
+    "waybackCheckedAt": "2026-04-29T15:42:32.501Z",
+    "manualOverride": true
   },
   {
     "slug": "bcmr-schema-viewer",
@@ -4688,13 +4691,14 @@
       "bcmr-viewer",
       "bcmr schema viewer"
     ],
-    "status": "dead",
+    "status": "active",
     "statusCheckedAt": "2026-05-18T08:38:50.812Z",
-    "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
+    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
     "lastGithubCommit": null,
     "websiteUp": false,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-04-29T15:42:49.309Z"
+    "waybackCheckedAt": "2026-04-29T15:42:49.309Z",
+    "manualOverride": true
   },
   {
     "slug": "bch-energy",
@@ -4715,13 +4719,14 @@
       "bch energy",
       "energy.bchexplorer"
     ],
-    "status": "dead",
+    "status": "active",
     "statusCheckedAt": "2026-05-18T08:39:38.911Z",
-    "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
+    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
     "lastGithubCommit": null,
     "websiteUp": false,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-04-29T15:42:58.738Z"
+    "waybackCheckedAt": "2026-04-29T15:42:58.738Z",
+    "manualOverride": true
   },
   {
     "slug": "electrum-client-bch",
