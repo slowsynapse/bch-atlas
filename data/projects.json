@@ -19,8 +19,8 @@
       "bitcoin cash node"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:07:26.012Z",
-    "statusDetail": "Last commit 4d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:23:21.843Z",
+    "statusDetail": "Last commit 11d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-14T00:18:27.000+00:00",
     "websiteUp": true,
     "lastContentChange": null,
@@ -46,8 +46,8 @@
       "bitcoin-verde"
     ],
     "status": "dormant",
-    "statusCheckedAt": "2026-05-18T08:07:34.734Z",
-    "statusDetail": "Last commit 367d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:23:30.002Z",
+    "statusDetail": "Last commit 374d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2025-05-16T01:59:49Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -71,9 +71,9 @@
       "knuth"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:07:36.221Z",
-    "statusDetail": "Last commit 1d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-17T06:58:48Z",
+    "statusCheckedAt": "2026-05-25T08:23:31.070Z",
+    "statusDetail": "Last commit 7d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-18T09:26:58Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -96,9 +96,9 @@
       "bchd"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:07:37.459Z",
+    "statusCheckedAt": "2026-05-25T08:23:32.196Z",
     "statusDetail": "Last commit 1d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-16T20:49:40Z",
+    "lastGithubCommit": "2026-05-23T21:40:23Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -123,9 +123,9 @@
       "flowee the hub"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:07:42.376Z",
+    "statusCheckedAt": "2026-05-25T08:23:34.364Z",
     "statusDetail": "Last commit 3d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-15T10:53:24+02:00",
+    "lastGithubCommit": "2026-05-22T00:12:45+02:00",
     "websiteUp": true,
     "lastContentChange": "2026-04-17T09:47:20Z",
     "waybackCheckedAt": "2026-04-27T18:17:47.035Z"
@@ -152,12 +152,12 @@
       "smart bch"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:08:46.024Z",
-    "statusDetail": "Last commit 414d ago. Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:24:12.663Z",
+    "statusDetail": "Last commit 421d ago. Website up. Wayback inconclusive. Newest Wayback capture 1515d old",
     "lastGithubCommit": "2025-03-30T14:32:26Z",
     "websiteUp": true,
-    "lastContentChange": "2024-05-09T20:41:41Z",
-    "waybackCheckedAt": "2026-05-18T08:08:43.522Z"
+    "lastContentChange": "2022-04-01T05:14:02Z",
+    "waybackCheckedAt": "2026-05-25T08:24:10.160Z"
   },
   {
     "slug": "asicseer-pool",
@@ -179,8 +179,8 @@
       "asicseer-pool"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:08:46.734Z",
-    "statusDetail": "Last commit 99d ago",
+    "statusCheckedAt": "2026-05-25T08:24:13.246Z",
+    "statusDetail": "Last commit 106d ago",
     "lastGithubCommit": "2026-02-08T04:53:10Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -210,8 +210,8 @@
       "ckpool bch fork"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:08:47.130Z",
-    "statusDetail": "Last commit 2015d ago",
+    "statusCheckedAt": "2026-05-25T08:24:13.612Z",
+    "statusDetail": "Last commit 2022d ago",
     "lastGithubCommit": "2020-11-10T14:18:04Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -241,12 +241,12 @@
       "bch upgrade specifications chips"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:08:55.901Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:24:20.211Z",
+    "statusDetail": "GitHub: no commits found. Website up",
     "lastGithubCommit": null,
     "websiteUp": true,
-    "lastContentChange": "2026-01-17T00:47:58Z",
-    "waybackCheckedAt": "2026-05-18T08:08:53.399Z"
+    "lastContentChange": "2024-11-09T10:06:35Z",
+    "waybackCheckedAt": "2026-05-25T08:24:17.709Z"
   },
   {
     "slug": "cashtokens",
@@ -266,12 +266,12 @@
       "cashtokens"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:09:04.959Z",
-    "statusDetail": "Last commit 1094d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:24:24.570Z",
+    "statusDetail": "Last commit 1101d ago. Website up",
     "lastGithubCommit": "2023-05-20T02:42:17Z",
     "websiteUp": true,
-    "lastContentChange": "2024-12-13T06:36:24Z",
-    "waybackCheckedAt": "2026-05-18T08:09:02.457Z"
+    "lastContentChange": "2024-12-08T02:04:46Z",
+    "waybackCheckedAt": "2026-05-25T08:24:22.070Z"
   },
   {
     "slug": "bcmr",
@@ -295,12 +295,12 @@
       "bitcoin cash metadata registries bcmr"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:09:24.827Z",
-    "statusDetail": "Last commit 837d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:24:33.504Z",
+    "statusDetail": "Last commit 844d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2024-01-31T22:45:35Z",
     "websiteUp": true,
     "lastContentChange": "2026-02-13T01:02:53Z",
-    "waybackCheckedAt": "2026-05-18T08:09:22.325Z"
+    "waybackCheckedAt": "2026-05-25T08:24:31.002Z"
   },
   {
     "slug": "cashfusion",
@@ -320,12 +320,12 @@
       "cashfusion"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:09:41.073Z",
-    "statusDetail": "Last commit 2079d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:24:47.184Z",
+    "statusDetail": "Last commit 2086d ago. Website up",
     "lastGithubCommit": "2020-09-07T12:51:49Z",
     "websiteUp": true,
     "lastContentChange": "2024-05-10T20:41:18Z",
-    "waybackCheckedAt": "2026-05-18T08:09:38.572Z"
+    "waybackCheckedAt": "2026-05-25T08:24:44.683Z"
   },
   {
     "slug": "cashshuffle",
@@ -345,12 +345,12 @@
       "cashshuffle"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:09:49.791Z",
-    "statusDetail": "Org-only URL — most-recent repo \"cashshuffle-web\" pushed 941d ago. Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:25:02.017Z",
+    "statusDetail": "Org-only URL — most-recent repo \"cashshuffle-web\" pushed 948d ago. Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
     "lastGithubCommit": "2023-10-20T04:25:09Z",
     "websiteUp": true,
-    "lastContentChange": "2025-08-25T07:21:47Z",
-    "waybackCheckedAt": "2026-05-18T08:09:47.290Z"
+    "lastContentChange": "2025-10-12T16:10:21Z",
+    "waybackCheckedAt": "2026-05-25T08:24:59.515Z"
   },
   {
     "slug": "slp",
@@ -374,10 +374,10 @@
       "simple ledger protocol slp"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:10:03.559Z",
-    "statusDetail": "Org-only URL — most-recent repo \"SLPDB\" pushed 183d ago. Website up. Wayback inconclusive. Newest Wayback capture 1845d old",
+    "statusCheckedAt": "2026-05-25T08:25:10.235Z",
+    "statusDetail": "Org-only URL — most-recent repo \"SLPDB\" pushed 190d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2025-11-16T15:41:27Z",
-    "websiteUp": true,
+    "websiteUp": false,
     "lastContentChange": "2021-04-29T16:08:26Z",
     "waybackCheckedAt": "2026-05-18T08:10:01.058Z"
   },
@@ -399,8 +399,8 @@
       "cashscript"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:10:04.602Z",
-    "statusDetail": "Last commit 123d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:25:11.226Z",
+    "statusDetail": "Last commit 130d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-01-15T10:29:43Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -424,12 +424,12 @@
       "libauth"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:10:18.709Z",
-    "statusDetail": "Last commit 551d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:25:18.241Z",
+    "statusDetail": "Last commit 558d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2024-11-13T15:35:56Z",
     "websiteUp": true,
     "lastContentChange": "2024-09-28T13:28:18Z",
-    "waybackCheckedAt": "2026-05-18T08:10:16.209Z"
+    "waybackCheckedAt": "2026-05-25T08:25:15.740Z"
   },
   {
     "slug": "mainnet-js",
@@ -453,8 +453,8 @@
       "mainnet.js / mainnet.cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:10:20.696Z",
-    "statusDetail": "Last commit 92d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:25:19.706Z",
+    "statusDetail": "Last commit 99d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-02-15T09:10:12Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -480,8 +480,8 @@
       "bitbox sdk"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:10:31.421Z",
-    "statusDetail": "Last commit 2096d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:25:30.864Z",
+    "statusDetail": "Last commit 2103d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2020-08-21T04:59:26Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -507,8 +507,8 @@
       "bch-js"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:10:32.623Z",
-    "statusDetail": "Last commit 67d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:25:32.062Z",
+    "statusDetail": "Last commit 74d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-03-12T19:31:34Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -538,12 +538,12 @@
       "bch-api fullstack.cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:10:46.710Z",
-    "statusDetail": "Last commit 199d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:25:41.598Z",
+    "statusDetail": "Last commit 206d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2025-10-30T22:51:50Z",
     "websiteUp": true,
-    "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:10:44.210Z"
+    "lastContentChange": "2026-03-13T23:39:07Z",
+    "waybackCheckedAt": "2026-05-25T08:25:39.097Z"
   },
   {
     "slug": "bitcoincashjs",
@@ -565,9 +565,9 @@
       "bitcoincash.js / bitcore-lib-cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:10:47.202Z",
-    "statusDetail": "Last commit 3d ago",
-    "lastGithubCommit": "2026-05-15T19:48:51Z",
+    "statusCheckedAt": "2026-05-25T08:25:41.954Z",
+    "statusDetail": "Last commit 0d ago",
+    "lastGithubCommit": "2026-05-24T21:56:43Z",
     "websiteUp": null,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -594,8 +594,8 @@
       "bitcash (python)"
     ],
     "status": "dormant",
-    "statusCheckedAt": "2026-05-18T08:10:55.547Z",
-    "statusDetail": "Last commit 1d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:25:50.130Z",
+    "statusDetail": "Last commit 8d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2026-05-17T13:09:29Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -619,8 +619,8 @@
       "bitcoincashj"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:10:56.139Z",
-    "statusDetail": "Last commit 1289d ago",
+    "statusCheckedAt": "2026-05-25T08:25:50.586Z",
+    "statusDetail": "Last commit 1296d ago",
     "lastGithubCommit": "2022-11-06T01:04:53Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -646,8 +646,8 @@
       "electrum-cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:10:57.237Z",
-    "statusDetail": "Last commit 116d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:25:51.571Z",
+    "statusDetail": "Last commit 123d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-01-22T17:48:56.000+00:00",
     "websiteUp": true,
     "lastContentChange": null,
@@ -671,8 +671,8 @@
       "fulcrum"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:10:57.861Z",
-    "statusDetail": "Last commit 8d ago",
+    "statusCheckedAt": "2026-05-25T08:25:51.975Z",
+    "statusDetail": "Last commit 15d ago",
     "lastGithubCommit": "2026-05-10T12:37:40Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -696,7 +696,7 @@
       "rostrum"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:11:05.807Z",
+    "statusCheckedAt": "2026-05-25T08:25:59.996Z",
     "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -721,8 +721,8 @@
       "electrscash"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:11:06.375Z",
-    "statusDetail": "Last commit 1435d ago",
+    "statusCheckedAt": "2026-05-25T08:26:00.385Z",
+    "statusDetail": "Last commit 1442d ago",
     "lastGithubCommit": "2022-06-13T13:11:24Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -746,12 +746,12 @@
       "chaingraph"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:11:20.359Z",
-    "statusDetail": "Last commit 183d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:26:29.593Z",
+    "statusDetail": "Last commit 190d ago. Website up. Wayback inconclusive. Newest Wayback capture 1656d old",
     "lastGithubCommit": "2025-11-16T01:52:25Z",
     "websiteUp": true,
-    "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:11:17.857Z"
+    "lastContentChange": "2021-11-11T16:58:57Z",
+    "waybackCheckedAt": "2026-05-25T08:26:27.091Z"
   },
   {
     "slug": "blockbook-bch",
@@ -775,9 +775,9 @@
       "blockbook (bch)"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:11:23.308Z",
-    "statusDetail": "Last commit 4d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-14T12:23:43Z",
+    "statusCheckedAt": "2026-05-25T08:26:37.992Z",
+    "statusDetail": "Last commit 0d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-25T05:53:43Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -804,9 +804,9 @@
       "watchtower.cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:11:24.667Z",
-    "statusDetail": "Last commit 6d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-12T16:03:20Z",
+    "statusCheckedAt": "2026-05-25T08:26:39.178Z",
+    "statusDetail": "Last commit 2d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-23T15:31:56Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -831,8 +831,8 @@
       "bcmr-indexer"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:11:27.036Z",
-    "statusDetail": "Last commit 100d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:26:41.402Z",
+    "statusDetail": "Last commit 107d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-02-07T06:51:57Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -860,8 +860,8 @@
       "riften labs indexer"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:11:28.276Z",
-    "statusDetail": "Last commit 10d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:26:42.511Z",
+    "statusDetail": "Last commit 17d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-08T14:24:18.000+00:00",
     "websiteUp": true,
     "lastContentChange": null,
@@ -889,8 +889,8 @@
       "tapswap subsquid indexer"
     ],
     "status": "dormant",
-    "statusCheckedAt": "2026-05-18T08:11:28.720Z",
-    "statusDetail": "Last commit 497d ago",
+    "statusCheckedAt": "2026-05-25T08:26:42.888Z",
+    "statusDetail": "Last commit 504d ago",
     "lastGithubCommit": "2025-01-06T16:47:36Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -914,8 +914,8 @@
       "slpdb"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:12:06.678Z",
-    "statusDetail": "Last commit 1852d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:27:20.760Z",
+    "statusDetail": "Last commit 1859d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2021-04-22T18:26:07Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -943,8 +943,8 @@
       "bitcoin.com slp indexer"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:12:17.067Z",
-    "statusDetail": "Last commit 2005d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:27:31.778Z",
+    "statusDetail": "Last commit 2012d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2020-11-20T01:30:08Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -970,12 +970,12 @@
       "bitdb / fountainhead"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:12:48.756Z",
-    "statusDetail": "Org-only URL — most-recent repo \"slpsockserve\" pushed 1235d ago. Website up. Wayback inconclusive. Newest Wayback capture 1296d old",
+    "statusCheckedAt": "2026-05-25T08:27:45.657Z",
+    "statusDetail": "Org-only URL — most-recent repo \"slpsockserve\" pushed 1242d ago. Website up. Wayback check failed. Preserved prior status (no fresh signal).",
     "lastGithubCommit": "2022-12-30T17:24:10Z",
     "websiteUp": true,
     "lastContentChange": "2022-10-30T09:11:17Z",
-    "waybackCheckedAt": "2026-05-18T08:12:46.254Z"
+    "waybackCheckedAt": "2026-05-25T08:27:43.154Z"
   },
   {
     "slug": "bitsocket",
@@ -995,12 +995,12 @@
       "bitsocket"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:12:57.440Z",
-    "statusDetail": "Last commit 2559d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:27:59.770Z",
+    "statusDetail": "Last commit 2566d ago. Website up. Wayback check failed",
     "lastGithubCommit": "2019-05-16T05:58:37Z",
     "websiteUp": true,
     "lastContentChange": "2022-09-28T20:21:02Z",
-    "waybackCheckedAt": "2026-05-18T08:12:54.938Z"
+    "waybackCheckedAt": "2026-05-25T08:27:57.267Z"
   },
   {
     "slug": "rest-bitcoin-com",
@@ -1024,8 +1024,8 @@
       "rest.bitcoin.com"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:13:05.830Z",
-    "statusDetail": "Last commit 1833d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:28:08.004Z",
+    "statusDetail": "Last commit 1840d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2021-05-11T01:34:08Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -1051,12 +1051,12 @@
       "bitauth-ide"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:14.544Z",
-    "statusDetail": "Last commit 843d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:28:22.560Z",
+    "statusDetail": "Last commit 850d ago. Website up. Wayback check failed",
     "lastGithubCommit": "2024-01-26T06:23:43Z",
     "websiteUp": true,
     "lastContentChange": "2024-03-13T22:01:49Z",
-    "waybackCheckedAt": "2026-05-18T08:13:12.043Z"
+    "waybackCheckedAt": "2026-05-25T08:28:20.057Z"
   },
   {
     "slug": "meep",
@@ -1076,8 +1076,8 @@
       "meep"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:15.330Z",
-    "statusDetail": "Last commit 24d ago",
+    "statusCheckedAt": "2026-05-25T08:28:23.032Z",
+    "statusDetail": "Last commit 31d ago",
     "lastGithubCommit": "2026-04-24T00:58:56Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -1103,8 +1103,8 @@
       "cashscript-playground"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:16.560Z",
-    "statusDetail": "Last commit 154d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:28:24.320Z",
+    "statusDetail": "Last commit 161d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2025-12-15T16:21:38Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -1132,12 +1132,12 @@
       "vm.cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:36.325Z",
-    "statusDetail": "Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:28:38.100Z",
+    "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:13:33.823Z"
+    "waybackCheckedAt": "2026-05-25T08:28:35.601Z"
   },
   {
     "slug": "stack-wizard",
@@ -1161,7 +1161,7 @@
       "bch stack wizard"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:13:36.685Z",
+    "statusCheckedAt": "2026-05-25T08:28:38.378Z",
     "statusDetail": "GitHub: no commits found",
     "lastGithubCommit": null,
     "websiteUp": null,
@@ -1192,8 +1192,8 @@
       "wc2-bch-bcr walletconnect v2 for bch"
     ],
     "status": "dormant",
-    "statusCheckedAt": "2026-05-18T08:13:37.165Z",
-    "statusDetail": "Last commit 308d ago",
+    "statusCheckedAt": "2026-05-25T08:28:38.775Z",
+    "statusDetail": "Last commit 315d ago",
     "lastGithubCommit": "2025-07-14T05:22:16Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -1219,8 +1219,8 @@
       "cashconnect-js"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:37.645Z",
-    "statusDetail": "Last commit 17d ago",
+    "statusCheckedAt": "2026-05-25T08:28:39.218Z",
+    "statusDetail": "Last commit 24d ago",
     "lastGithubCommit": "2026-05-01T03:22:25.000+00:00",
     "websiteUp": null,
     "lastContentChange": null,
@@ -1248,8 +1248,8 @@
       "electron cash walletconnect plugin"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:38.247Z",
-    "statusDetail": "Last commit 175d ago",
+    "statusCheckedAt": "2026-05-25T08:28:39.570Z",
+    "statusDetail": "Last commit 182d ago",
     "lastGithubCommit": "2025-11-24T14:44:38Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -1277,8 +1277,8 @@
       "token explorer"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:39.785Z",
-    "statusDetail": "Last commit 7d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:28:40.780Z",
+    "statusDetail": "Last commit 14d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-11T10:30:54Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -1304,8 +1304,8 @@
       "salemkode-explorer"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:41.081Z",
-    "statusDetail": "Last commit 55d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:28:42.053Z",
+    "statusDetail": "Last commit 62d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-03-24T13:56:20Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -1329,12 +1329,12 @@
       "opentokenregistry"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:49.709Z",
+    "statusCheckedAt": "2026-05-25T08:28:55.887Z",
     "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2026-03-09T08:13:49Z",
-    "waybackCheckedAt": "2026-05-18T08:13:47.210Z"
+    "waybackCheckedAt": "2026-05-25T08:28:53.386Z"
   },
   {
     "slug": "cashtokens-studio",
@@ -1356,12 +1356,12 @@
       "cashtokens-studio"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:13:58.589Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:29:06.547Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": true,
-    "lastContentChange": "2024-04-16T20:34:45Z",
-    "waybackCheckedAt": "2026-05-18T08:13:56.088Z"
+    "lastContentChange": "2025-12-08T22:51:42Z",
+    "waybackCheckedAt": "2026-05-25T08:29:04.046Z"
   },
   {
     "slug": "flipstarter",
@@ -1382,8 +1382,8 @@
       "flipstarter platform"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:14:00.531Z",
-    "statusDetail": "Org-only URL — most-recent repo \"flipstarter backend\" pushed 77d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:29:08.001Z",
+    "statusDetail": "Org-only URL — most-recent repo \"flipstarter backend\" pushed 84d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-03-02T14:53:57.312Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -1407,8 +1407,8 @@
       "cashstarter"
     ],
     "status": "dormant",
-    "statusCheckedAt": "2026-05-18T08:14:08.659Z",
-    "statusDetail": "Last commit 352d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:29:16.632Z",
+    "statusDetail": "Last commit 359d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2025-05-31T04:41:10Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -1434,12 +1434,12 @@
     ],
     "campaignMatchers": [],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:15:09.440Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:29:21.625Z",
+    "statusDetail": "GitHub: no commits found. Website up",
     "lastGithubCommit": null,
     "websiteUp": true,
-    "lastContentChange": "2026-03-24T18:16:36Z",
-    "waybackCheckedAt": "2026-05-18T08:15:06.938Z"
+    "lastContentChange": "2024-02-21T02:13:32Z",
+    "waybackCheckedAt": "2026-05-25T08:29:19.126Z"
   },
   {
     "slug": "cashscript-workshop",
@@ -1461,8 +1461,8 @@
       "cashscript-workshop"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:15:09.976Z",
-    "statusDetail": "Last commit 103d ago",
+    "statusCheckedAt": "2026-05-25T08:29:22.021Z",
+    "statusDetail": "Last commit 110d ago",
     "lastGithubCommit": "2026-02-04T14:18:03Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -1488,9 +1488,9 @@
       "electron-cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:15:11.146Z",
-    "statusDetail": "Last commit 4d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-14T00:46:27Z",
+    "statusCheckedAt": "2026-05-25T08:29:22.957Z",
+    "statusDetail": "Last commit 1d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-23T21:19:23Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -1513,8 +1513,8 @@
       "cashonize"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:15:12.365Z",
-    "statusDetail": "Last commit 12d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:29:24.193Z",
+    "statusDetail": "Last commit 19d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-06T06:48:21Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -1538,9 +1538,9 @@
       "paytaca"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:15:13.718Z",
-    "statusDetail": "Last commit 3d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-15T15:09:14Z",
+    "statusCheckedAt": "2026-05-25T08:29:25.433Z",
+    "statusDetail": "Last commit 4d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-21T08:35:10Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -1565,8 +1565,8 @@
       "selene-wallet"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:15:15.389Z",
-    "statusDetail": "Last commit 0d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:29:26.507Z",
+    "statusDetail": "Last commit 7d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-18T03:38:19Z",
     "websiteUp": true,
     "lastContentChange": "2024-05-03T10:07:06Z",
@@ -1592,8 +1592,8 @@
       "flowee-pay"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:15:18.633Z",
-    "statusDetail": "Last commit 13d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:29:29.072Z",
+    "statusDetail": "Last commit 20d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-05T19:25:50+02:00",
     "websiteUp": true,
     "lastContentChange": "2025-11-16T02:19:53Z",
@@ -1619,8 +1619,8 @@
       "cashaddrjs / bchaddrjs"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:15:19.454Z",
-    "statusDetail": "Last commit 904d ago",
+    "statusCheckedAt": "2026-05-25T08:29:29.739Z",
+    "statusDetail": "Last commit 911d ago",
     "lastGithubCommit": "2023-11-26T14:47:08Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -1646,8 +1646,8 @@
       "cash accounts"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:15:28.232Z",
-    "statusDetail": "Last commit 2495d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:29:38.072Z",
+    "statusDetail": "Last commit 2502d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2019-07-19T05:55:22Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -1671,8 +1671,8 @@
       "cashid"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:15:36.462Z",
-    "statusDetail": "Org-only URL — most-recent repo \"CashID Protocol Specification\" pushed 1487d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:29:46.961Z",
+    "statusDetail": "Org-only URL — most-recent repo \"CashID Protocol Specification\" pushed 1494d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2022-04-22T05:33:31.463Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -1698,8 +1698,8 @@
       "bch-devsuite"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:15:36.982Z",
-    "statusDetail": "Last commit 61d ago",
+    "statusCheckedAt": "2026-05-25T08:29:47.368Z",
+    "statusDetail": "Last commit 68d ago",
     "lastGithubCommit": "2026-03-18T14:39:52Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -1727,9 +1727,9 @@
       "memo.cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:15:38.100Z",
-    "statusDetail": "Org-only URL — most-recent repo \"index\" pushed 2d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-15T23:04:52Z",
+    "statusCheckedAt": "2026-05-25T08:29:48.772Z",
+    "statusDetail": "Org-only URL — most-recent repo \"desktop\" pushed 3d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-22T05:47:51Z",
     "websiteUp": true,
     "lastContentChange": "2024-04-11T10:51:49Z",
     "waybackCheckedAt": "2026-04-27T18:27:42.320Z"
@@ -1756,7 +1756,7 @@
       "read.cash"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:15:47.871Z",
+    "statusCheckedAt": "2026-05-25T08:29:57.736Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -1785,12 +1785,12 @@
       "noise.app"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:16:01.997Z",
-    "statusDetail": "Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:30:18.424Z",
+    "statusDetail": "Website up. Page unchanged 2yr+ (Wayback)",
     "lastGithubCommit": null,
     "websiteUp": true,
-    "lastContentChange": "2023-03-10T17:39:46Z",
-    "waybackCheckedAt": "2026-05-18T08:15:59.494Z"
+    "lastContentChange": "2024-03-21T09:06:32Z",
+    "waybackCheckedAt": "2026-05-25T08:30:15.923Z"
   },
   {
     "slug": "cauldron-dex",
@@ -1812,8 +1812,8 @@
       "cauldron-dex"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:16:03.283Z",
-    "statusDetail": "Last commit 14d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:30:19.829Z",
+    "statusDetail": "Last commit 21d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-04T14:10:38.000+02:00",
     "websiteUp": true,
     "lastContentChange": "2024-04-23T20:04:15Z",
@@ -1837,12 +1837,12 @@
       "tapswap"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:16:17.329Z",
-    "statusDetail": "Last commit 497d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:31:23.549Z",
+    "statusDetail": "Last commit 504d ago. Website up. Wayback check failed",
     "lastGithubCommit": "2025-01-06T16:47:36Z",
     "websiteUp": true,
     "lastContentChange": "2024-06-17T13:16:01Z",
-    "waybackCheckedAt": "2026-05-18T08:16:14.829Z"
+    "waybackCheckedAt": "2026-05-25T08:31:21.049Z"
   },
   {
     "slug": "fex-cash",
@@ -1866,8 +1866,8 @@
       "fex.cash"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:16:55.372Z",
-    "statusDetail": "Last commit 800d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:32:01.482Z",
+    "statusDetail": "Last commit 807d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2024-03-09T10:10:13Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -1891,8 +1891,8 @@
       "jedex"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:16:56.134Z",
-    "statusDetail": "Last commit 843d ago",
+    "statusCheckedAt": "2026-05-25T08:32:01.942Z",
+    "statusDetail": "Last commit 850d ago",
     "lastGithubCommit": "2024-01-26T02:41:27Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -1916,12 +1916,12 @@
       "anyhedge"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:17:25.175Z",
-    "statusDetail": "GitHub: no commits found. Website up",
+    "statusCheckedAt": "2026-05-25T08:32:16.031Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-04-15T02:37:17Z",
-    "waybackCheckedAt": "2026-05-18T08:17:22.674Z"
+    "waybackCheckedAt": "2026-05-25T08:32:13.528Z"
   },
   {
     "slug": "bch-bull",
@@ -1943,12 +1943,12 @@
       "bch-bull"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:18:06.208Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:32:30.088Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2026-02-07T09:35:05Z",
-    "waybackCheckedAt": "2026-05-18T08:18:03.705Z"
+    "waybackCheckedAt": "2026-05-25T08:32:27.585Z"
   },
   {
     "slug": "detoken",
@@ -1968,7 +1968,7 @@
       "detoken"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:18:14.003Z",
+    "statusCheckedAt": "2026-05-25T08:32:37.848Z",
     "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -1995,8 +1995,8 @@
       "moria protocol"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:18:15.315Z",
-    "statusDetail": "Last commit 14d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:32:38.924Z",
+    "statusDetail": "Last commit 21d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-04T14:10:38.000+02:00",
     "websiteUp": true,
     "lastContentChange": "2024-12-10T15:10:17Z",
@@ -2025,8 +2025,8 @@
       "parityusd"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:18:16.734Z",
-    "statusDetail": "Last commit 24d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:32:40.593Z",
+    "statusDetail": "Last commit 31d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-04-24T17:57:49Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -2050,8 +2050,8 @@
       "sushibar"
     ],
     "status": "dormant",
-    "statusCheckedAt": "2026-05-18T08:18:25.045Z",
-    "statusDetail": "Last commit 286d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:32:48.800Z",
+    "statusDetail": "Last commit 293d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2025-08-05T18:26:02Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -2075,12 +2075,12 @@
       "badgercoin"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:18:59.921Z",
-    "statusDetail": "GitHub: no commits found. Website up",
+    "statusCheckedAt": "2026-05-25T08:33:02.778Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-04-12T15:21:45Z",
-    "waybackCheckedAt": "2026-05-18T08:18:57.420Z"
+    "waybackCheckedAt": "2026-05-25T08:33:00.275Z"
   },
   {
     "slug": "bch-pump",
@@ -2102,12 +2102,12 @@
       "bch-pump"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:19:13.575Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:33:17.852Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:19:11.074Z"
+    "waybackCheckedAt": "2026-05-25T08:33:15.352Z"
   },
   {
     "slug": "bch-guru",
@@ -2129,12 +2129,12 @@
       "bch-guru"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:19:22.747Z",
-    "statusDetail": "Org-only URL — most-recent repo \"guru-contracts\" pushed 612d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:33:27.529Z",
+    "statusDetail": "Org-only URL — most-recent repo \"guru-contracts\" pushed 619d ago. Website up",
     "lastGithubCommit": "2024-09-13T09:14:21Z",
     "websiteUp": true,
     "lastContentChange": "2024-06-11T01:13:32Z",
-    "waybackCheckedAt": "2026-05-18T08:19:20.245Z"
+    "waybackCheckedAt": "2026-05-25T08:33:25.027Z"
   },
   {
     "slug": "unspent-phi",
@@ -2156,12 +2156,12 @@
       "unspent-phi"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:20:26.503Z",
-    "statusDetail": "Last commit 458d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:33:35.260Z",
+    "statusDetail": "Last commit 465d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2025-02-14T19:23:36Z",
     "websiteUp": true,
     "lastContentChange": "2025-03-18T19:34:18Z",
-    "waybackCheckedAt": "2026-05-18T08:20:24.004Z"
+    "waybackCheckedAt": "2026-05-25T08:33:32.759Z"
   },
   {
     "slug": "future-bitcoin-cash",
@@ -2183,12 +2183,12 @@
       "future-bitcoin-cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:20:35.281Z",
-    "statusDetail": "Last commit 450d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:34:09.547Z",
+    "statusDetail": "Last commit 457d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2025-02-21T23:06:06Z",
     "websiteUp": true,
     "lastContentChange": "2025-02-21T23:31:59Z",
-    "waybackCheckedAt": "2026-05-18T08:20:32.780Z"
+    "waybackCheckedAt": "2026-05-25T08:34:07.045Z"
   },
   {
     "slug": "opencashdao",
@@ -2208,8 +2208,8 @@
       "opencashdao"
     ],
     "status": "dormant",
-    "statusCheckedAt": "2026-05-18T08:20:43.376Z",
-    "statusDetail": "Last commit 386d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:34:17.522Z",
+    "statusDetail": "Last commit 393d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2025-04-27T07:21:21Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -2237,12 +2237,12 @@
       "oracles.cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:20:57.803Z",
-    "statusDetail": "Last commit 2429d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:34:38.044Z",
+    "statusDetail": "Last commit 2436d ago. Website up",
     "lastGithubCommit": "2019-09-22T23:25:49Z",
     "websiteUp": true,
-    "lastContentChange": "2024-03-05T13:21:35Z",
-    "waybackCheckedAt": "2026-05-18T08:20:55.300Z"
+    "lastContentChange": "2024-05-30T16:59:04Z",
+    "waybackCheckedAt": "2026-05-25T08:34:35.542Z"
   },
   {
     "slug": "general-protocols",
@@ -2264,8 +2264,8 @@
       "general-protocols"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:20:58.930Z",
-    "statusDetail": "Org-only URL — most-recent repo \"eslint-config\" pushed 83d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:34:39.212Z",
+    "statusDetail": "Org-only URL — most-recent repo \"eslint-config\" pushed 90d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-02-24T07:50:03.355Z",
     "websiteUp": true,
     "lastContentChange": "2024-04-12T10:16:23Z",
@@ -2289,10 +2289,10 @@
       "benswap"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:21:12.858Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:34:47.346Z",
+    "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
     "lastGithubCommit": null,
-    "websiteUp": true,
+    "websiteUp": false,
     "lastContentChange": "2024-04-22T22:31:45Z",
     "waybackCheckedAt": "2026-05-18T08:21:10.357Z"
   },
@@ -2314,12 +2314,12 @@
       "mistswap"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:21:27.287Z",
-    "statusDetail": "Org-only URL — most-recent repo \"xmist-governance\" pushed 232d ago. Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:35:03.831Z",
+    "statusDetail": "Org-only URL — most-recent repo \"xmist-governance\" pushed 239d ago. Website up. Wayback inconclusive. Newest Wayback capture 1603d old",
     "lastGithubCommit": "2025-09-28T13:30:05Z",
     "websiteUp": true,
     "lastContentChange": "2022-01-03T18:22:42Z",
-    "waybackCheckedAt": "2026-05-18T08:21:24.783Z"
+    "waybackCheckedAt": "2026-05-25T08:35:01.329Z"
   },
   {
     "slug": "muesliswap-bch",
@@ -2345,9 +2345,9 @@
       "muesliswap smartbch"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:21:28.656Z",
-    "statusDetail": "Org-only URL — most-recent repo \"dao-governance-dashboard\" pushed 1d ago. Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
-    "lastGithubCommit": "2026-05-17T10:44:34Z",
+    "statusCheckedAt": "2026-05-25T08:35:05.061Z",
+    "statusDetail": "Org-only URL — most-recent repo \"dao-onchain-governance\" pushed 7d ago. Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
+    "lastGithubCommit": "2026-05-18T10:22:31Z",
     "websiteUp": true,
     "lastContentChange": "2024-04-22T18:00:19Z",
     "waybackCheckedAt": "2026-04-27T18:32:07.623Z"
@@ -2370,8 +2370,8 @@
       "tangoswap"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:21:36.888Z",
-    "statusDetail": "Org-only URL — most-recent repo \"interface\" pushed 803d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:35:13.410Z",
+    "statusDetail": "Org-only URL — most-recent repo \"interface\" pushed 810d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2024-03-06T19:27:30Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -2397,8 +2397,8 @@
       "tropical-finance"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:21:44.953Z",
-    "statusDetail": "Org-only URL — most-recent repo \"SmartBCH-Token-List\" pushed 1511d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:35:21.320Z",
+    "statusDetail": "Org-only URL — most-recent repo \"SmartBCH-Token-List\" pushed 1518d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2022-03-29T09:02:54Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -2424,7 +2424,7 @@
       "lawnydao / law"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:21:52.790Z",
+    "statusCheckedAt": "2026-05-25T08:35:29.089Z",
     "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2449,12 +2449,12 @@
       "marbleverse"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:22:07.707Z",
+    "statusCheckedAt": "2026-05-25T08:35:34.513Z",
     "statusDetail": "Website up",
     "lastGithubCommit": null,
     "websiteUp": true,
-    "lastContentChange": "2024-04-15T11:29:19Z",
-    "waybackCheckedAt": "2026-05-18T08:22:05.205Z"
+    "lastContentChange": "2024-05-21T16:12:15Z",
+    "waybackCheckedAt": "2026-05-25T08:35:32.012Z"
   },
   {
     "slug": "celery",
@@ -2474,7 +2474,7 @@
       "celery"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:22:15.582Z",
+    "statusCheckedAt": "2026-05-25T08:35:42.293Z",
     "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2499,8 +2499,8 @@
       "cashcats"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:22:23.547Z",
-    "statusDetail": "Org-only URL — most-recent repo \"cashcats-website\" pushed 1705d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:35:50.169Z",
+    "statusDetail": "Org-only URL — most-recent repo \"cashcats-website\" pushed 1712d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2021-09-16T08:37:00Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -2524,8 +2524,8 @@
       "flexusd"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:22:31.737Z",
-    "statusDetail": "Last commit 1972d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:35:58.413Z",
+    "statusDetail": "Last commit 1979d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2020-12-23T10:26:33Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -2551,8 +2551,8 @@
       "coinflex-bridge"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:22:39.781Z",
-    "statusDetail": "Org-only URL — most-recent repo \"v2\" pushed 1132d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:36:06.303Z",
+    "statusDetail": "Org-only URL — most-recent repo \"v2\" pushed 1139d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2023-04-12T06:08:14Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -2580,7 +2580,7 @@
       "hop.cash"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:22:48.076Z",
+    "statusCheckedAt": "2026-05-25T08:36:14.264Z",
     "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2609,7 +2609,7 @@
       "tokenbridge.cash"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:22:55.903Z",
+    "statusCheckedAt": "2026-05-25T08:36:22.351Z",
     "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2638,7 +2638,7 @@
       "prompt.cash bridge"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:23:04.410Z",
+    "statusCheckedAt": "2026-05-25T08:36:30.599Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2667,7 +2667,7 @@
       "wagon.cash"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:23:12.507Z",
+    "statusCheckedAt": "2026-05-25T08:36:38.876Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2694,7 +2694,7 @@
       "sha-gate"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:23:20.635Z",
+    "statusCheckedAt": "2026-05-25T08:36:46.841Z",
     "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2721,8 +2721,8 @@
       "emerald-dao"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:23:28.574Z",
-    "statusDetail": "Org-only URL — most-recent repo \"emerald-academy-v2\" pushed 412d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:36:54.675Z",
+    "statusDetail": "Org-only URL — most-recent repo \"emerald-academy-v2\" pushed 419d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2025-04-01T15:31:28Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -2748,7 +2748,7 @@
       "bitcats-heroes"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:23:36.145Z",
+    "statusCheckedAt": "2026-05-25T08:37:02.365Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2777,12 +2777,12 @@
       "paytaca p2p exchange"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:23:45.022Z",
+    "statusCheckedAt": "2026-05-25T08:37:16.524Z",
     "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:23:42.521Z"
+    "waybackCheckedAt": "2026-05-25T08:37:14.022Z"
   },
   {
     "slug": "stablehedge",
@@ -2802,7 +2802,7 @@
       "stablehedge"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:23:52.820Z",
+    "statusCheckedAt": "2026-05-25T08:37:24.299Z",
     "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2827,8 +2827,8 @@
       "zapit"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:23:53.759Z",
-    "statusDetail": "Org-only URL — most-recent repo \"ptr\" pushed 98d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:37:25.447Z",
+    "statusDetail": "Org-only URL — most-recent repo \"ptr\" pushed 105d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-02-09T08:09:42Z",
     "websiteUp": true,
     "lastContentChange": "2024-04-25T03:26:39Z",
@@ -2854,7 +2854,7 @@
       "cashual-wallet"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:24:01.313Z",
+    "statusCheckedAt": "2026-05-25T08:37:33.020Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -2881,12 +2881,12 @@
       "badger-wallet"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:24:22.762Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive. Newest Wayback capture 1788d old",
+    "statusCheckedAt": "2026-05-25T08:37:47.620Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed. Preserved prior status (no fresh signal).",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2021-06-25T16:02:46Z",
-    "waybackCheckedAt": "2026-05-18T08:24:20.261Z"
+    "waybackCheckedAt": "2026-05-25T08:37:45.117Z"
   },
   {
     "slug": "stack-wallet",
@@ -2908,9 +2908,9 @@
       "stack-wallet"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:24:23.839Z",
-    "statusDetail": "Last commit 3d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-15T17:17:33Z",
+    "statusCheckedAt": "2026-05-25T08:37:48.728Z",
+    "statusDetail": "Last commit 2d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-23T14:10:23Z",
     "websiteUp": true,
     "lastContentChange": "2024-06-02T09:07:39Z",
     "waybackCheckedAt": "2026-04-27T18:33:39.680Z"
@@ -2935,9 +2935,9 @@
       "cake-wallet"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:24:24.856Z",
-    "statusDetail": "Last commit 6d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-12T19:38:21Z",
+    "statusCheckedAt": "2026-05-25T08:37:49.690Z",
+    "statusDetail": "Last commit 1d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-24T11:36:16Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -2962,9 +2962,9 @@
       "coin-wallet"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:24:25.940Z",
-    "statusDetail": "Last commit 17d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-01T12:38:51Z",
+    "statusCheckedAt": "2026-05-25T08:37:50.672Z",
+    "statusDetail": "Last commit 4d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-21T09:32:22Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -2989,12 +2989,12 @@
       "crescent-cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:24:39.658Z",
+    "statusCheckedAt": "2026-05-25T08:38:05.035Z",
     "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2025-01-17T17:49:27Z",
-    "waybackCheckedAt": "2026-05-18T08:24:37.157Z"
+    "waybackCheckedAt": "2026-05-25T08:38:02.535Z"
   },
   {
     "slug": "ifwallet",
@@ -3014,7 +3014,7 @@
       "ifwallet"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:24:48.015Z",
+    "statusCheckedAt": "2026-05-25T08:38:13.474Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -3041,8 +3041,8 @@
       "psf-wallet"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:24:48.942Z",
-    "statusDetail": "Org-only URL — most-recent repo \"psf-bch-api\" pushed 2d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:38:14.510Z",
+    "statusDetail": "Org-only URL — most-recent repo \"psf-bch-api\" pushed 10d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-15T20:33:31Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -3068,8 +3068,8 @@
       "bitpay-wallet"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:24:50.309Z",
-    "statusDetail": "Last commit 104d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:38:15.585Z",
+    "statusDetail": "Last commit 111d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-02-03T17:32:17Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -3097,9 +3097,9 @@
       "bitpay (merchant)"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:24:51.329Z",
-    "statusDetail": "Org-only URL — most-recent repo \"bitpay-checkout-for-woocommerce\" pushed 3d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-15T20:16:04Z",
+    "statusCheckedAt": "2026-05-25T08:38:16.472Z",
+    "statusDetail": "Org-only URL — most-recent repo \"php-bitpay-client-v2\" pushed 0d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-25T00:56:57Z",
     "websiteUp": true,
     "lastContentChange": "2024-02-21T14:48:15Z",
     "waybackCheckedAt": "2026-04-27T18:34:26.664Z"
@@ -3122,12 +3122,12 @@
       "gocrypto"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:25:05.119Z",
+    "statusCheckedAt": "2026-05-25T08:38:30.320Z",
     "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-08-11T15:17:23Z",
-    "waybackCheckedAt": "2026-05-18T08:25:02.618Z"
+    "waybackCheckedAt": "2026-05-25T08:38:27.819Z"
   },
   {
     "slug": "anypay",
@@ -3147,8 +3147,8 @@
       "anypay"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:25:43.014Z",
-    "statusDetail": "Org-only URL — most-recent repo \"anypay-rust\" pushed 406d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:39:08.155Z",
+    "statusDetail": "Org-only URL — most-recent repo \"anypay-rust\" pushed 413d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2025-04-07T12:11:03Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -3174,8 +3174,8 @@
       "bch-merchant-pos"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:25:50.920Z",
-    "statusDetail": "Org-only URL — most-recent repo \"java-http-client\" pushed 26d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:39:16.083Z",
+    "statusDetail": "Org-only URL — most-recent repo \"java-http-client\" pushed 33d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2026-04-22T14:17:05Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -3203,12 +3203,12 @@
       "marco coino / bitcoin.com maps"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:26:16.256Z",
+    "statusCheckedAt": "2026-05-25T08:39:29.521Z",
     "statusDetail": "Website up",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-07-27T10:55:37Z",
-    "waybackCheckedAt": "2026-05-18T08:26:13.754Z"
+    "waybackCheckedAt": "2026-05-25T08:39:27.019Z"
   },
   {
     "slug": "bitcoinmap-cash",
@@ -3232,12 +3232,12 @@
       "bitcoinmap.cash"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:27:19.977Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:39:32.998Z",
+    "statusDetail": "GitHub: no commits found. Website up. Page unchanged 2yr+ (Wayback)",
     "lastGithubCommit": null,
     "websiteUp": true,
-    "lastContentChange": "2023-12-05T20:50:27Z",
-    "waybackCheckedAt": "2026-05-18T08:27:17.478Z"
+    "lastContentChange": "2024-05-19T05:00:44Z",
+    "waybackCheckedAt": "2026-05-25T08:39:30.497Z"
   },
   {
     "slug": "cashrain",
@@ -3257,12 +3257,12 @@
       "cashrain"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:27:33.428Z",
-    "statusDetail": "Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:39:58.019Z",
+    "statusDetail": "Website up",
     "lastGithubCommit": null,
     "websiteUp": true,
-    "lastContentChange": "2024-04-15T15:17:07Z",
-    "waybackCheckedAt": "2026-05-18T08:27:30.926Z"
+    "lastContentChange": "2024-05-18T12:59:58Z",
+    "waybackCheckedAt": "2026-05-25T08:39:55.517Z"
   },
   {
     "slug": "member-cash",
@@ -3286,12 +3286,12 @@
       "member.cash"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:27:47.401Z",
-    "statusDetail": "Org-only URL — most-recent repo \"memberapp.github.io\" pushed 621d ago. Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:40:03.553Z",
+    "statusDetail": "Org-only URL — most-recent repo \"memberapp.github.io\" pushed 628d ago. Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
     "lastGithubCommit": "2024-09-04T09:08:59Z",
     "websiteUp": true,
-    "lastContentChange": "2024-04-16T00:37:50Z",
-    "waybackCheckedAt": "2026-05-18T08:27:44.898Z"
+    "lastContentChange": "2026-03-16T01:54:22Z",
+    "waybackCheckedAt": "2026-05-25T08:40:01.051Z"
   },
   {
     "slug": "bitcoin-cash-podcast",
@@ -3315,12 +3315,12 @@
       "the bitcoin cash podcast"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:28:00.999Z",
-    "statusDetail": "Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:40:11.202Z",
+    "statusDetail": "Website up",
     "lastGithubCommit": null,
     "websiteUp": true,
-    "lastContentChange": "2024-04-13T15:15:01Z",
-    "waybackCheckedAt": "2026-05-18T08:27:58.496Z"
+    "lastContentChange": "2024-05-24T18:22:35Z",
+    "waybackCheckedAt": "2026-05-25T08:40:08.700Z"
   },
   {
     "slug": "bitcoin-out-loud",
@@ -3342,12 +3342,12 @@
       "bitcoin-out-loud"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:28:14.598Z",
-    "statusDetail": "Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:40:30.272Z",
+    "statusDetail": "Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-07-15T23:23:34Z",
-    "waybackCheckedAt": "2026-05-18T08:28:12.095Z"
+    "waybackCheckedAt": "2026-05-25T08:40:27.770Z"
   },
   {
     "slug": "news-bitcoin-com",
@@ -3371,12 +3371,12 @@
       "bitcoin.com news"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:28:17.842Z",
+    "statusCheckedAt": "2026-05-25T08:40:33.593Z",
     "statusDetail": "Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2019-06-02T23:29:19Z",
-    "waybackCheckedAt": "2026-05-18T08:28:15.340Z"
+    "waybackCheckedAt": "2026-05-25T08:40:31.091Z"
   },
   {
     "slug": "bch-bullet",
@@ -3400,8 +3400,8 @@
       "the bch bullet"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:28:25.432Z",
-    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
+    "statusCheckedAt": "2026-05-25T08:40:41.225Z",
+    "statusDetail": "Website down. Wayback inconclusive [MANUAL OVERRIDE — checker says: dead]",
     "lastGithubCommit": null,
     "websiteUp": false,
     "lastContentChange": "2026-04-13T19:04:39Z",
@@ -3428,12 +3428,12 @@
       "bitcoin-cash-tv"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:28:39.375Z",
-    "statusDetail": "Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:40:57.074Z",
+    "statusDetail": "Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2025-08-12T22:46:38Z",
-    "waybackCheckedAt": "2026-05-18T08:28:36.873Z"
+    "waybackCheckedAt": "2026-05-25T08:40:54.573Z"
   },
   {
     "slug": "satoshis-angels",
@@ -3457,12 +3457,12 @@
       "satoshi's angels"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:28:47.849Z",
-    "statusDetail": "Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:41:13.774Z",
+    "statusDetail": "Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2026-03-13T23:02:10Z",
-    "waybackCheckedAt": "2026-05-18T08:28:45.347Z"
+    "waybackCheckedAt": "2026-05-25T08:41:11.272Z"
   },
   {
     "slug": "big-boys-big-blocks",
@@ -3484,12 +3484,12 @@
       "big-boys-big-blocks"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:29:50.998Z",
-    "statusDetail": "Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:41:17.363Z",
+    "statusDetail": "Website up. Wayback inconclusive. Newest Wayback capture 782d old",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-04-03T06:20:20Z",
-    "waybackCheckedAt": "2026-05-18T08:29:48.498Z"
+    "waybackCheckedAt": "2026-05-25T08:41:14.861Z"
   },
   {
     "slug": "minisatoshi-cash",
@@ -3513,8 +3513,8 @@
       "minisatoshi.cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:29:52.333Z",
-    "statusDetail": "Last commit 11d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:41:18.541Z",
+    "statusDetail": "Last commit 18d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-07T17:15:55Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -3542,12 +3542,12 @@
       "helpme.cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:30:55.362Z",
-    "statusDetail": "Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:42:18.645Z",
+    "statusDetail": "Website up. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2026-04-17T09:40:26Z",
-    "waybackCheckedAt": "2026-05-18T08:30:52.862Z"
+    "waybackCheckedAt": "2026-05-25T08:42:16.143Z"
   },
   {
     "slug": "awesome-bitcoin-cash",
@@ -3569,9 +3569,9 @@
       "awesome-bitcoin-cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:30:56.611Z",
-    "statusDetail": "Last commit 17d ago. Website up. Wayback inconclusive",
-    "lastGithubCommit": "2026-05-01T20:27:09Z",
+    "statusCheckedAt": "2026-05-25T08:42:19.575Z",
+    "statusDetail": "Last commit 4d ago. Website up. Wayback inconclusive",
+    "lastGithubCommit": "2026-05-21T17:04:31Z",
     "websiteUp": true,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -3596,7 +3596,7 @@
       "bitcoin-cash-site"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:31:34.120Z",
+    "statusCheckedAt": "2026-05-25T08:42:57.083Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -3623,12 +3623,12 @@
       "keep-bitcoin-free"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:31:47.692Z",
+    "statusCheckedAt": "2026-05-25T08:43:10.755Z",
     "statusDetail": "Website up. Wayback check failed. Preserved prior status (no fresh signal).",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-02-27T22:34:55Z",
-    "waybackCheckedAt": "2026-05-18T08:31:45.189Z"
+    "waybackCheckedAt": "2026-05-25T08:43:08.252Z"
   },
   {
     "slug": "bch-info",
@@ -3652,12 +3652,12 @@
       "bch.info"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:32:01.892Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed. Preserved prior status (no fresh signal).",
+    "statusCheckedAt": "2026-05-25T08:43:16.524Z",
+    "statusDetail": "GitHub: no commits found. Website up. Wayback inconclusive. Newest Wayback capture 1952d old",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2021-01-19T03:21:12Z",
-    "waybackCheckedAt": "2026-05-18T08:31:59.389Z"
+    "waybackCheckedAt": "2026-05-25T08:43:14.022Z"
   },
   {
     "slug": "bitcoincash-org",
@@ -3681,8 +3681,8 @@
       "bitcoincash.org"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:32:03.114Z",
-    "statusDetail": "Last commit 4d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:43:17.559Z",
+    "statusDetail": "Last commit 11d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-14T00:24:59Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -3710,12 +3710,12 @@
       "bitcoin.com podcast"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:32:16.736Z",
+    "statusCheckedAt": "2026-05-25T08:43:31.232Z",
     "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-04-23T11:09:30Z",
-    "waybackCheckedAt": "2026-05-18T08:32:14.234Z"
+    "waybackCheckedAt": "2026-05-25T08:43:28.731Z"
   },
   {
     "slug": "eatbch",
@@ -3735,12 +3735,12 @@
       "eatbch"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:32:30.492Z",
+    "statusCheckedAt": "2026-05-25T08:43:44.955Z",
     "statusDetail": "Website up. Wayback check failed. Preserved prior status (no fresh signal).",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-03-24T11:51:15Z",
-    "waybackCheckedAt": "2026-05-18T08:32:27.989Z"
+    "waybackCheckedAt": "2026-05-25T08:43:42.454Z"
   },
   {
     "slug": "eatbch-ss",
@@ -3764,12 +3764,12 @@
       "eatbch south sudan"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:32:44.176Z",
+    "statusCheckedAt": "2026-05-25T08:43:58.682Z",
     "statusDetail": "Website up. Wayback check failed. Preserved prior status (no fresh signal).",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2020-09-18T23:29:11Z",
-    "waybackCheckedAt": "2026-05-18T08:32:41.673Z"
+    "waybackCheckedAt": "2026-05-25T08:43:56.181Z"
   },
   {
     "slug": "bch-please",
@@ -3791,12 +3791,12 @@
       "bch-please"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:32:57.774Z",
+    "statusCheckedAt": "2026-05-25T08:44:12.256Z",
     "statusDetail": "Website up. Wayback check failed. Preserved prior status (no fresh signal).",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2025-07-19T14:10:34Z",
-    "waybackCheckedAt": "2026-05-18T08:32:55.272Z"
+    "waybackCheckedAt": "2026-05-25T08:44:09.756Z"
   },
   {
     "slug": "bitcoin-cash-house",
@@ -3818,7 +3818,7 @@
       "bitcoin-cash-house"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:33:05.370Z",
+    "statusCheckedAt": "2026-05-25T08:44:19.935Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -3845,9 +3845,9 @@
       "bch-latam"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:33:06.299Z",
-    "statusDetail": "Org-only URL — most-recent repo \"ggantt\" pushed 2d ago. Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
-    "lastGithubCommit": "2026-05-15T22:05:15Z",
+    "statusCheckedAt": "2026-05-25T08:44:20.861Z",
+    "statusDetail": "Org-only URL — most-recent repo \"pushflip\" pushed 5d ago. Website up. Wayback inconclusive. Preserved prior status (no fresh signal).",
+    "lastGithubCommit": "2026-05-20T14:25:20Z",
     "websiteUp": true,
     "lastContentChange": "2024-08-18T20:24:22Z",
     "waybackCheckedAt": "2026-04-27T18:43:03.332Z"
@@ -3872,12 +3872,12 @@
       "bitcoin-cash-foundation"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:33:20.355Z",
+    "statusCheckedAt": "2026-05-25T08:44:34.715Z",
     "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-04-13T09:56:05Z",
-    "waybackCheckedAt": "2026-05-18T08:33:17.852Z"
+    "waybackCheckedAt": "2026-05-25T08:44:32.212Z"
   },
   {
     "slug": "bliss-conference",
@@ -3901,12 +3901,12 @@
       "bch bliss conference"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:33:32.351Z",
-    "statusDetail": "Website up",
+    "statusCheckedAt": "2026-05-25T08:44:48.531Z",
+    "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-04-19T09:59:33Z",
-    "waybackCheckedAt": "2026-05-18T08:33:29.849Z"
+    "waybackCheckedAt": "2026-05-25T08:44:46.028Z"
   },
   {
     "slug": "bch-argentina",
@@ -3928,12 +3928,12 @@
       "bch-argentina"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:34:06.277Z",
+    "statusCheckedAt": "2026-05-25T08:45:41.178Z",
     "statusDetail": "Website up. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2026-03-05T17:06:09Z",
-    "waybackCheckedAt": "2026-05-18T08:34:03.775Z"
+    "waybackCheckedAt": "2026-05-25T08:45:38.676Z"
   },
   {
     "slug": "bch-brazil",
@@ -3955,7 +3955,7 @@
       "bch-brazil"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:34:13.855Z",
+    "statusCheckedAt": "2026-05-25T08:45:49.019Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -3984,7 +3984,7 @@
       "bitcoin cash city (townsville)"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:34:21.403Z",
+    "statusCheckedAt": "2026-05-25T08:46:26.522Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -4013,12 +4013,12 @@
       "bch-1 hackcelerator"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:34:29.728Z",
-    "statusDetail": "Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:46:31.048Z",
+    "statusDetail": "Website up. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2026-03-14T09:00:58Z",
-    "waybackCheckedAt": "2026-05-18T08:34:27.226Z"
+    "waybackCheckedAt": "2026-05-25T08:46:28.548Z"
   },
   {
     "slug": "bch-blaze",
@@ -4040,7 +4040,7 @@
       "bch-blaze"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:34:40.113Z",
+    "statusCheckedAt": "2026-05-25T08:46:41.913Z",
     "statusDetail": "Website down. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": false,
@@ -4067,12 +4067,12 @@
       "bitcoin-cash-research"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:34:49.166Z",
-    "statusDetail": "Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:46:54.368Z",
+    "statusDetail": "Website up",
     "lastGithubCommit": null,
     "websiteUp": true,
-    "lastContentChange": "2024-04-22T20:20:18Z",
-    "waybackCheckedAt": "2026-05-18T08:34:46.665Z"
+    "lastContentChange": "2024-05-20T04:09:30Z",
+    "waybackCheckedAt": "2026-05-25T08:46:51.866Z"
   },
   {
     "slug": "riften-labs",
@@ -4094,12 +4094,12 @@
       "riften-labs"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:34:57.615Z",
-    "statusDetail": "GitHub: no commits found. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:47:02.325Z",
+    "statusDetail": "GitHub: no commits found. Website up",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-04-19T14:14:16Z",
-    "waybackCheckedAt": "2026-05-18T08:34:55.113Z"
+    "waybackCheckedAt": "2026-05-25T08:46:59.824Z"
   },
   {
     "slug": "slp-foundation",
@@ -4121,8 +4121,8 @@
       "slp-foundation"
     ],
     "status": "dead",
-    "statusCheckedAt": "2026-05-18T08:35:05.622Z",
-    "statusDetail": "Org-only URL — most-recent repo \"SLPDB\" pushed 183d ago. Website down. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:47:10.414Z",
+    "statusDetail": "Org-only URL — most-recent repo \"SLPDB\" pushed 190d ago. Website down. Wayback inconclusive",
     "lastGithubCommit": "2025-11-16T15:41:27Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -4148,8 +4148,8 @@
       "permissionless-software-foundation"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:35:06.788Z",
-    "statusDetail": "Org-only URL — most-recent repo \"psf-bch-api\" pushed 3d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:47:11.648Z",
+    "statusDetail": "Org-only URL — most-recent repo \"psf-bch-api\" pushed 10d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-15T20:33:31Z",
     "websiteUp": true,
     "lastContentChange": "2023-12-02T11:45:20Z",
@@ -4175,8 +4175,8 @@
       "software-verde"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:35:15.289Z",
-    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
+    "statusCheckedAt": "2026-05-25T08:47:19.790Z",
+    "statusDetail": "Org-only URL — most-recent repo \"java-http-client\" pushed 33d ago. Website down. Wayback inconclusive [MANUAL OVERRIDE — checker says: dead]",
     "lastGithubCommit": "2026-04-22T14:17:05Z",
     "websiteUp": false,
     "lastContentChange": null,
@@ -4205,12 +4205,12 @@
       "developers.cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:35:24.227Z",
-    "statusDetail": "Org-only URL — most-recent repo \"cashonize\" pushed 864d ago. Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:47:36.311Z",
+    "statusDetail": "Org-only URL — most-recent repo \"cashonize\" pushed 871d ago. Website up",
     "lastGithubCommit": "2024-01-05T07:17:53Z",
     "websiteUp": true,
-    "lastContentChange": "2024-04-21T08:09:36Z",
-    "waybackCheckedAt": "2026-05-18T08:35:21.724Z"
+    "lastContentChange": "2024-05-25T02:27:51Z",
+    "waybackCheckedAt": "2026-05-25T08:47:33.809Z"
   },
   {
     "slug": "1kbch",
@@ -4232,12 +4232,12 @@
       "1kbch.com"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:35:33.033Z",
-    "statusDetail": "Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:47:47.846Z",
+    "statusDetail": "Website up. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:35:30.532Z"
+    "waybackCheckedAt": "2026-05-25T08:47:45.345Z"
   },
   {
     "slug": "blockexplorer-cash",
@@ -4259,12 +4259,12 @@
       "blockexplorer cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:35:41.555Z",
-    "statusDetail": "Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:47:52.832Z",
+    "statusDetail": "Website up. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:35:39.053Z"
+    "waybackCheckedAt": "2026-05-25T08:47:50.330Z"
   },
   {
     "slug": "wizardconnect",
@@ -4287,12 +4287,12 @@
       "wizard connect"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:35:49.922Z",
-    "statusDetail": "Website up. Wayback check failed",
+    "statusCheckedAt": "2026-05-25T08:48:44.310Z",
+    "statusDetail": "Website up. Wayback inconclusive",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:35:47.420Z"
+    "waybackCheckedAt": "2026-05-25T08:48:41.808Z"
   },
   {
     "slug": "paybutton",
@@ -4312,9 +4312,9 @@
       "paybutton"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:35:50.315Z",
-    "statusDetail": "Org-only URL — most-recent repo \"bchc\" pushed 3d ago",
-    "lastGithubCommit": "2026-05-15T15:05:31Z",
+    "statusCheckedAt": "2026-05-25T08:48:44.627Z",
+    "statusDetail": "Org-only URL — most-recent repo \"paybutton-server\" pushed 2d ago",
+    "lastGithubCommit": "2026-05-23T18:37:31Z",
     "websiteUp": null,
     "lastContentChange": null,
     "waybackCheckedAt": null
@@ -4340,7 +4340,7 @@
       "bch mesh network"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:35:50.315Z",
+    "statusCheckedAt": "2026-05-25T08:48:44.627Z",
     "statusDetail": "No GitHub or website configured",
     "lastGithubCommit": null,
     "websiteUp": null,
@@ -4367,7 +4367,7 @@
       "la economia p2p"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:35:50.315Z",
+    "statusCheckedAt": "2026-05-25T08:48:44.627Z",
     "statusDetail": "No GitHub or website configured",
     "lastGithubCommit": null,
     "websiteUp": null,
@@ -4394,7 +4394,7 @@
       "tattoo sprinter van"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:35:50.315Z",
+    "statusCheckedAt": "2026-05-25T08:48:44.627Z",
     "statusDetail": "No GitHub or website configured",
     "lastGithubCommit": null,
     "websiteUp": null,
@@ -4421,12 +4421,12 @@
       "one surgery"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:35:59.481Z",
+    "statusCheckedAt": "2026-05-25T08:48:58.902Z",
     "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2026-01-05T12:07:03Z",
-    "waybackCheckedAt": "2026-05-18T08:35:56.981Z"
+    "waybackCheckedAt": "2026-05-25T08:48:56.399Z"
   },
   {
     "slug": "cryptowoo",
@@ -4446,7 +4446,7 @@
       "cryptowoo"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:35:59.481Z",
+    "statusCheckedAt": "2026-05-25T08:48:58.902Z",
     "statusDetail": "No GitHub or website configured",
     "lastGithubCommit": null,
     "websiteUp": null,
@@ -4473,12 +4473,12 @@
       "issues cash"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:36:07.986Z",
+    "statusCheckedAt": "2026-05-25T08:49:12.774Z",
     "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:36:05.484Z"
+    "waybackCheckedAt": "2026-05-25T08:49:10.271Z"
   },
   {
     "slug": "satochip",
@@ -4499,12 +4499,12 @@
       "satochip"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:36:37.936Z",
-    "statusDetail": "Website up",
+    "statusCheckedAt": "2026-05-25T08:49:28.976Z",
+    "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2024-05-06T21:17:55Z",
-    "waybackCheckedAt": "2026-05-18T08:36:35.434Z"
+    "waybackCheckedAt": "2026-05-25T08:49:26.474Z"
   },
   {
     "slug": "mark-lundeberg",
@@ -4526,7 +4526,7 @@
       "lundeberg"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:36:37.936Z",
+    "statusCheckedAt": "2026-05-25T08:49:28.977Z",
     "statusDetail": "No GitHub or website configured",
     "lastGithubCommit": null,
     "websiteUp": null,
@@ -4555,7 +4555,7 @@
       "toomim"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:36:37.936Z",
+    "statusCheckedAt": "2026-05-25T08:49:28.977Z",
     "statusDetail": "No GitHub or website configured",
     "lastGithubCommit": null,
     "websiteUp": null,
@@ -4582,7 +4582,7 @@
       "just money bro"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:36:37.936Z",
+    "statusCheckedAt": "2026-05-25T08:49:28.977Z",
     "statusDetail": "No GitHub or website configured",
     "lastGithubCommit": null,
     "websiteUp": null,
@@ -4608,12 +4608,12 @@
       "konk"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:37:06.549Z",
-    "statusDetail": "Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:49:42.878Z",
+    "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": "2025-04-01T01:38:36Z",
-    "waybackCheckedAt": "2026-05-18T08:37:04.048Z"
+    "waybackCheckedAt": "2026-05-25T08:49:40.375Z"
   },
   {
     "slug": "bchmap",
@@ -4636,12 +4636,12 @@
       "bch map"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:37:14.614Z",
+    "statusCheckedAt": "2026-05-25T08:49:56.532Z",
     "statusDetail": "Website up. Wayback check failed",
     "lastGithubCommit": null,
     "websiteUp": true,
     "lastContentChange": null,
-    "waybackCheckedAt": "2026-05-18T08:37:12.113Z"
+    "waybackCheckedAt": "2026-05-25T08:49:54.029Z"
   },
   {
     "slug": "bch-explorer-melroy",
@@ -4664,8 +4664,8 @@
       "bch explorer"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:38:02.712Z",
-    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
+    "statusCheckedAt": "2026-05-25T08:50:44.633Z",
+    "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive [MANUAL OVERRIDE — checker says: dead]",
     "lastGithubCommit": null,
     "websiteUp": false,
     "lastContentChange": "2026-04-17T09:49:37Z",
@@ -4692,8 +4692,8 @@
       "bcmr schema viewer"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:38:50.812Z",
-    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
+    "statusCheckedAt": "2026-05-25T08:51:32.735Z",
+    "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive [MANUAL OVERRIDE — checker says: dead]",
     "lastGithubCommit": null,
     "websiteUp": false,
     "lastContentChange": null,
@@ -4720,8 +4720,8 @@
       "energy.bchexplorer"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:39:38.911Z",
-    "statusDetail": "MANUAL OVERRIDE — confirmed alive May 22 (website 200 + recent commits where applicable). Network errors from CI runner do not override curated status.",
+    "statusCheckedAt": "2026-05-25T08:52:20.836Z",
+    "statusDetail": "GitHub: no commits found. Website down. Wayback inconclusive [MANUAL OVERRIDE — checker says: dead]",
     "lastGithubCommit": null,
     "websiteUp": false,
     "lastContentChange": null,
@@ -4747,8 +4747,8 @@
       "electrum-client"
     ],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:39:39.562Z",
-    "statusDetail": "Last commit 19d ago",
+    "statusCheckedAt": "2026-05-25T08:52:21.291Z",
+    "statusDetail": "Last commit 26d ago",
     "lastGithubCommit": "2026-04-29T00:28:03Z",
     "websiteUp": null,
     "lastContentChange": null,
@@ -4771,8 +4771,8 @@
     "campaignIds": [],
     "campaignMatchers": [],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:39:40.870Z",
-    "statusDetail": "Last commit 3d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:52:22.481Z",
+    "statusDetail": "Last commit 10d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-15T12:00:20Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -4799,8 +4799,8 @@
     "campaignIds": [],
     "campaignMatchers": [],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:39:42.560Z",
-    "statusDetail": "Last commit 47d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:52:24.181Z",
+    "statusDetail": "Last commit 54d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-04-01T11:51:59Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -4827,8 +4827,8 @@
     "campaignIds": [],
     "campaignMatchers": [],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:39:43.638Z",
-    "statusDetail": "Last commit 2d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:52:25.950Z",
+    "statusDetail": "Last commit 9d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-05-16T14:06:01Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -4860,8 +4860,8 @@
     "campaignIds": [],
     "campaignMatchers": [],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:39:44.859Z",
-    "statusDetail": "Last commit 81d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:52:27.242Z",
+    "statusDetail": "Last commit 88d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-02-26T13:01:17Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -4890,8 +4890,8 @@
     "campaignIds": [],
     "campaignMatchers": [],
     "status": "active",
-    "statusCheckedAt": "2026-05-18T08:39:46.209Z",
-    "statusDetail": "Last commit 105d ago. Website up. Wayback inconclusive",
+    "statusCheckedAt": "2026-05-25T08:52:28.450Z",
+    "statusDetail": "Last commit 112d ago. Website up. Wayback inconclusive",
     "lastGithubCommit": "2026-02-01T22:38:17Z",
     "websiteUp": true,
     "lastContentChange": null,
@@ -4919,11 +4919,11 @@
     "reddit": null,
     "campaignIds": [],
     "campaignMatchers": [],
-    "status": "active",
-    "statusCheckedAt": "2026-05-18T08:39:54.672Z",
-    "statusDetail": "Website up. Wayback check failed",
+    "status": "dormant",
+    "statusCheckedAt": "2026-05-25T08:53:05.959Z",
+    "statusDetail": "Website down. Wayback inconclusive. Site newly down — awaiting next-sweep confirmation before flipping to dead.",
     "lastGithubCommit": null,
-    "websiteUp": true,
+    "websiteUp": false,
     "lastContentChange": null,
     "waybackCheckedAt": "2026-05-18T08:39:52.171Z",
     "cohorts": [
@@ -4950,7 +4950,7 @@
       "bitcoincashog"
     ],
     "status": "unknown",
-    "statusCheckedAt": "2026-05-18T08:39:54.672Z",
+    "statusCheckedAt": "2026-05-25T08:53:05.959Z",
     "statusDetail": "No GitHub or website configured",
     "lastGithubCommit": null,
     "websiteUp": null,
