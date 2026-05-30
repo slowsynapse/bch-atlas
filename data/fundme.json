@@ -2080,5 +2080,20 @@
     "recipientAddresses": [
       "bitcoincash:qp7wtheh5dgn37ldkex5xavladgumd0adv49r2ksn5"
     ]
+  },
+  {
+    "id": "fc507071aacc72d7",
+    "platform": "fundme",
+    "title": "BCH Booth @ Futurist Conference 2026",
+    "description": "The Futurist Conference is the largest crypto conference in Canada, located in Toronto, and is on its 9th year. Their 2024 highlights note 7000+ attendees, 250+ speakers, 100+ press/media, and 200,000+ online views. This year it runs on July 21st and 22nd.We originally tried raising funds for myself and Jerry (@lightswarm) to run a booth under campaign #122 which failed. You can check that campaign for more details about the Futurist conference itself.After attending the Bliss conference this year, thanks to Kenn Bosak (see campaign #108) and Jerry, we have got a free Bronze level booth ($10,000 CAD) and free tickets! This cuts down the costs significantly, but we still need to provide the booth signage, get people there, etc.Old Booth-runner polo conceptBCH Price: $305 USDGraphic designs: $250 (by GraphixByCM)Flights: $732Hotel: $55510x BCH Polo Jerseys: $2726' BCH-branded table cloth: $312Total: $2121 USDSo far we have these people tentatively planned to show up for the conference:Sayoshi NakamarioJerryKenn BosakKallistiXandiKavinJohn Moriarty00Tats",
+    "continent": "ecosystem",
+    "amount": 0,
+    "status": "running",
+    "time": "2026-05-30",
+    "url": "https://fundme.cash/campaign/140",
+    "entities": [],
+    "recipientAddresses": [
+      "bitcoincash:qq7zcw0yhqurxet872thftgjfm5856trlv5jlgpmqa"
+    ]
   }
 ]
