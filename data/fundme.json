@@ -1892,7 +1892,7 @@
     "continent": "apps",
     "amount": 300.2699,
     "raised": 300.2699,
-    "status": "running",
+    "status": "success",
     "time": "2025-05-22",
     "url": "https://fundme.cash/campaign/127",
     "entities": [],
