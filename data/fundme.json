@@ -1630,7 +1630,7 @@
     "continent": "charity",
     "amount": 0.49670000000000003,
     "raised": 0.49670000000000003,
-    "status": "running",
+    "status": "success",
     "time": "2025-06-18",
     "url": "https://fundme.cash/campaign/111",
     "entities": [],
