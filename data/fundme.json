@@ -2140,5 +2140,20 @@
     "recipientAddresses": [
       "bitcoincash:qze9yjzvy4z0muusezzfxrnh7gd2hphq7cj268a3p5"
     ]
+  },
+  {
+    "id": "95a952aa065f59b2",
+    "platform": "fundme",
+    "title": "Opal Wallet for Bitcoin Cash",
+    "description": "Opal Wallet for Bitcoin Cash58 Opals has already built a working iPhone and Mac Bitcoin Cash wallet. This 350 BCH campaign funds the next six months of production-readiness work: core wallet reliability, App Intents-ready wallet actions, public demos, validation reports, GitHub milestones, and monthly Blog updates.For the full campaign context, screenshots, funding plan, public stack links, and accountability model, read: https://opalwallet.cash/fundraising/Why this matters for Bitcoin CashBitcoin Cash needs everyday wallet software that feels credible on the devices people already trust. Opal is focused on making BCH easier to request, prepare, find, automate, and confirm through native Apple workflows while payment movement stays inside Opal's review path.Funding Opal helps the Bitcoin Cash community raise the quality bar for user-facing software, strengthens public Swift BCH infrastructure, and gives supporters a concrete wallet project whose progress can be checked through screenshots, demos, GitHub activity, and monthly reports.What exists today Opal Wallet already has working wallet creation, restore, receive address generation, balance sync, send, signing, broadcast, transaction history, transaction detail states, and wallet management. The Opal Wallet consumer app and frontend remain closed-source; the public Swift Bitcoin Cash stack tied to the work includes Opal Base, SwiftFulcrum, OpalCrypto, OpalFusion, and OpalHedge.This is not a request to fund an idea from zero. The campaign funds the harder production-readiness phase after a working wallet exists: deeper send/receive validation, live address and transaction monitoring, clearer recovery paths, safer wallet-action mapping, cleaner history and QR flows, broader testing, better reporting, and visible readiness decisions.What 350 BCH fundsThe campaign target is 350 BCH. The planning baseline is 1 BCH = $195, giving a planning value of $68,250. The operating budget uses this fixed baseline even if the Opal campaign page also shows a live BCH/USD reference. Monthly reports will explain material budget impact if assumptions change.Core wallet reliability - $19,500Recovery and safety - $12,675Apple-system wallet actions - $10,725Production-readiness validation and demos - $8,775Public Swift stack, docs, and monthly reports - $5,850BCH advanced workstreams - $3,900Volatility, fees, admin, and contingency - $6,825Total - $68,250The largest rows fund focused implementation time because wallet reliability, recovery, testing, and production readiness are software work. The rows are named by outcomes funders can evaluate.Funded-phase outputYou should expect monthly public reports on the Opal Blog covering completed work, validation notes, GitHub milestones or public-stack links, screenshots or demo videos, open items, next focus, and material BCH/USD budget-impact notes.The core funded story is iPhone/Mac wallet reliability and App Intents-ready wallet actions. macOS CashFusion can appear as secondary BCH context, and AnyHedge can appear as public-stack roadmap context, but they do not replace the core wallet-readiness ask.Security and recovery postureOpal is non-custodial. Wallet secrets are protected using Secure Enclave-backed device security and Face ID. The seed is never transmitted, and sensitive wallet operations require local device authentication. Recovery uses native BIP-39 seed phrase backup and manual restore.Contact and linksQuestions: fundraising@opalwallet.cashFull campaign page: https://opalwallet.cash/fundraising/Opal Wallet Website: https://opalwallet.cash/58 Opals Website: https://58opals.com",
+    "continent": "ecosystem",
+    "amount": 0,
+    "status": "running",
+    "time": "2026-07-01",
+    "url": "https://fundme.cash/campaign/144",
+    "entities": [],
+    "recipientAddresses": [
+      "bitcoincash:qqhf4mul5clm7ffr0myxuyazuwh73evf5sfzrzz26q"
+    ]
   }
 ]
